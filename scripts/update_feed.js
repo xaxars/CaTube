@@ -25,8 +25,10 @@ const fetchJson = (url) => {
 
 async function main() {
     try {
+        // Codi NOU (El que funciona)
         const channelsRaw = fs.readFileSync(CHANNELS_FILE, 'utf8');
-        const channels = JSON.parse(channelsRaw);
+        // AFEGEIXO .channels AL FINAL PER ENTRAR DINS DE LA LLISTA
+        const channels = JSON.parse(channelsRaw).channels;
         
         console.log(`Iniciant càrrega paral·lela per a ${channels.length} canals...`);
         const startTime = Date.now();
