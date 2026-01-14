@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "description": "Llista de canals verificats en català",
+    "lastUpdated": "2025-01-11",
+    "howToAdd": "Pots proposar canals via GitHub Issues o PR",
+    "note": "Els canals estan embedits a youtube.js per evitar problemes CORS"
+  },
+  "channels": [
+    { "id": "UC2ZoP8LjvNBiKLzERkOmupg", "name": "3Cat", "category": "tv" },
+    { "id": "UCmY2Rnn3m9VDvBMLBrLGkNg", "name": "TV3", "category": "tv" },
+    { "id": "UCyMPsUJ1ub42xz6LXfOfJXQ", "name": "Super3", "category": "infantil" },
+    { "id": "UC6HGMs1vipHedIm_bk1HPLA", "name": "Està passant TV3", "category": "tv" },
+    { "id": "UC-r6vzLqpOCcxy6s2x3CqYw", "name": "El Món a RAC1", "category": "radio" },
+    { "id": "UCQvjXrvoAK5j_r10tLGcxQg", "name": "Núvol", "category": "cultura" },
+    { "id": "UCJXsVPKjJcrPYLbC12lnz-A", "name": "betevé", "category": "tv" },
+    { "id": "UCNzl0E7rPBC6p1LCL64GMIQ", "name": "El Nacional.cat", "category": "notícies" },
+    { "id": "UCtWDPy3vXa3WdY3NYrCWvOg", "name": "Vilaweb", "category": "notícies" },
+    { "id": "UC4yoFMGJer_T_-X36J4AUdA", "name": "Adolescents.cat", "category": "educació" },
+    { "id": "UCnpAzVRKrbULHJfDPorkNuA", "name": "PoliRitmes", "category": "infantil" }
+  ],
+  "keywords": [
+    "català", "catalana", "catalans", "catalanes",
+    "catalunya", "catalonia",
+    "barcelona", "girona", "tarragona", "lleida",
+    "en català", "parlem", "benvinguts", "benvingudes",
+    "avui", "d'avui", "som-hi", "endavant",
+    "entrevista", "notícies", "informatiu"
+  ]
+}

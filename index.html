@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de vídeos personalitzable">
+    <meta name="theme-color" content="#FF0000">
+    
+    <title>MyTube</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Icons (Lucide via CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="icon-btn" id="menuBtn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="logo">
+                <i data-lucide="video" class="logo-icon"></i>
+                <span class="logo-text">MyTube</span>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" placeholder="Cercar..." id="searchInput">
+                <button type="submit" class="search-btn" aria-label="Cercar">
+                    <i data-lucide="search"></i>
+                </button>
+            </form>
+        </div>
+        
+        <div class="header-right">
+            <button class="icon-btn" id="settingsBtn" aria-label="Configuració">
+                <i data-lucide="settings"></i>
+            </button>
+            <button class="icon-btn" aria-label="Notificacions">
+                <i data-lucide="bell"></i>
+            </button>
+            <button class="icon-btn" aria-label="Perfil">
+                <i data-lucide="user"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="home">
+                <i data-lucide="home"></i>
+                <span>Inici</span>
+            </a>
+            <a href="#" class="nav-item" data-page="trending">
+                <i data-lucide="trending-up"></i>
+                <span>Tendències</span>
+            </a>
+            <a href="#" class="nav-item" data-page="subscriptions">
+                <i data-lucide="users"></i>
+                <span>Subscripcions</span>
+            </a>
+            <a href="#" class="nav-item" data-page="library">
+                <i data-lucide="library"></i>
+                <span>Biblioteca</span>
+            </a>
+            <a href="#" class="nav-item" data-page="history">
+                <i data-lucide="history"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-section">
+            <h3 class="sidebar-title">Categories</h3>
+            <div id="categoriesList"></div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Home Page -->
+        <div class="page" id="homePage">
+            <h1 class="page-title">Recomanats per a tu</h1>
+            <div class="videos-grid" id="videosGrid"></div>
+        </div>
+
+        <!-- Watch Page -->
+        <div class="page hidden" id="watchPage">
+            <div class="watch-container">
+                <div class="watch-main">
+                    <div class="video-player" id="videoPlayer"></div>
+                    <div class="video-info">
+                        <h1 class="video-title" id="videoTitle"></h1>
+                        <div class="video-stats">
+                            <span id="videoViews"></span>
+                            <span>•</span>
+                            <span id="videoDate"></span>
+                        </div>
+                        <div class="video-actions">
+                            <button class="action-btn">
+                                <i data-lucide="thumbs-up"></i>
+                                <span id="videoLikes"></span>
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="thumbs-down"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="share-2"></i>
+                                <span>Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="channel-info" id="channelInfo"></div>
+                    <div class="comments-section" id="commentsSection"></div>
+                </div>
+                <div class="watch-sidebar">
+                    <h2 class="related-title">Vídeos relacionats</h2>
+                    <div id="relatedVideos"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Modal Configuració -->
+    <div class="modal-overlay" id="apiModal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i data-lucide="settings"></i>
+                    Configuració
+                </h2>
+                <button class="modal-close" id="closeModal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="videos">
+                    <i data-lucide="plus-circle"></i>
+                    Afegir Vídeo
+                </button>
+                <button class="tab-btn" data-tab="tags">
+                    <i data-lucide="tags"></i>
+                    Etiquetar
+                </button>
+                <button class="tab-btn" data-tab="api">
+                    <i data-lucide="key"></i>
+                    API
+                </button>
+                <button class="tab-btn" data-tab="channels">
+                    <i data-lucide="tv"></i>
+                    Canals
+                </button>
+            </div>
+
+            <!-- Tab: Afegir Vídeo -->
+            <div class="tab-content active" id="tab-videos">
+                <div class="modal-body">
+                    <p class="modal-description">
+                        Afegeix vídeos de YouTube amb una categoria per organitzar-los.
+                    </p>
+
+                    <div class="form-group">
+                        <label for="videoUrlInput">URL del vídeo de YouTube</label>
+                        <input type="text" id="videoUrlInput" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="videoCategorySelect">Categoria</label>
+                        <select id="videoCategorySelect" class="form-select">
+                            <option value="societat">Societat</option>
+                            <option value="cultura">Cultura</option>
+                            <option value="humor">Humor</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="vida">Vida</option>
+                        </select>
+                    </div>
+
+                    <div class="video-status" id="videoStatus"></div>
+
+                    <!-- Llista de vídeos afegits -->
+                    <div class="channels-section">
+                        <h3 class="section-title">Vídeos afegits</h3>
+                        <div class="channels-list" id="userVideosList"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="addVideoBtn">
+                        <i data-lucide="plus"></i>
+                        Afegir vídeo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab: Etiquetar Canals -->
+            <div class="tab-content" id="tab-tags">
+                <div class="modal-body">
+                    <p class="modal-description">
+                        Assigna categories als canals. Els vídeos d'aquests canals apareixeran a les categories corresponents del sidebar. Pots assignar múltiples categories a cada canal.
+                    </p>
+
+                    <div class="tag-status" id="tagStatus"></div>
+
+                    <!-- Llista de canals per etiquetar -->
+                    <div class="channels-section">
+                        <h3 class="section-title">Canals</h3>
+                        <div class="taggable-channels-list" id="taggableChannelsList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: API -->
+            <div class="tab-content" id="tab-api">
+                <div class="modal-body">
+                    <p class="modal-description">
+                        Per veure vídeos reals de YouTube, necessites una clau API.
+                        Pots obtenir-la gratuïtament a la
+                        <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">
+                            Google Cloud Console
+                        </a>.
+                    </p>
+                    <div class="form-group">
+                        <label for="apiKeyInput">Clau API de YouTube</label>
+                        <input type="password" id="apiKeyInput" placeholder="Introdueix la teva clau API...">
+                        <button class="toggle-visibility" id="toggleApiKey" type="button">
+                            <i data-lucide="eye"></i>
+                        </button>
+                    </div>
+                    <div class="api-status" id="apiStatus"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clearApiKey">Esborrar clau</button>
+                    <button class="btn btn-primary" id="saveApiKey">Desar i verificar</button>
+                </div>
+            </div>
+
+            <!-- Tab: Canals Catalans -->
+            <div class="tab-content" id="tab-channels">
+                <div class="modal-body">
+                    <p class="modal-description">
+                        Gestiona els canals catalans verificats. Els vídeos d'aquests canals es mostraran prioritàriament.
+                    </p>
+
+                    <!-- Afegir canal -->
+                    <div class="form-group">
+                        <label for="channelInput">Afegir canal (@username, ID o URL)</label>
+                        <div class="input-with-button">
+                            <input type="text" id="channelInput" placeholder="Ex: @EnricAdventures o URL del canal">
+                            <button class="btn btn-primary" id="addChannelBtn">
+                                <i data-lucide="plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="channel-status" id="channelStatus"></div>
+
+                    <!-- Llista de canals -->
+                    <div class="channels-section">
+                        <h3 class="section-title">Canals verificats</h3>
+                        <div class="channels-list" id="verifiedChannelsList"></div>
+                    </div>
+
+                    <div class="channels-section">
+                        <h3 class="section-title">Els meus canals</h3>
+                        <div class="channels-list" id="userChannelsList"></div>
+                    </div>
+
+                    <!-- Exportar/Importar -->
+                    <div class="channels-section">
+                        <h3 class="section-title">Còpia de seguretat</h3>
+                        <div class="backup-buttons">
+                            <button class="btn btn-secondary" id="exportChannelsBtn">
+                                <i data-lucide="download"></i>
+                                Exportar canals
+                            </button>
+                            <button class="btn btn-secondary" id="importChannelsBtn">
+                                <i data-lucide="upload"></i>
+                                Importar canals
+                            </button>
+                            <input type="file" id="importFileInput" accept=".json" style="display: none;">
+                        </div>
+                        <div class="import-status" id="importStatus"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/youtube.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Inicialitzar icons Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+    
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrat'))
+                .catch(err => console.log('Service Worker error:', err));
+        }
+    </script>
+</body>
+</html>
