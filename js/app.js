@@ -54,13 +54,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicialitzar YouTubeAPI (carregar canals catalans)
     await YouTubeAPI.init();
 
-    // Comprovar si hi ha clau API guardada
-    if (YouTubeAPI.hasApiKey()) {
+    // Carregar vídeos (prioritza feed.json)
+    if (YouTubeAPI.feedLoaded && YouTubeAPI.feedVideos.length > 0) {
+        // Tenim feed.json, no cal API key per veure vídeos
+        useYouTubeAPI = true;
+        loadVideosFromAPI();
+    } else if (YouTubeAPI.hasApiKey()) {
+        // Tenim API key configurada
         useYouTubeAPI = true;
         loadVideosFromAPI();
     } else {
+        // No tenim ni feed ni API key
         loadVideos();
-        // Mostrar modal si no hi ha API key
         setTimeout(() => showApiModal(), 500);
     }
 
