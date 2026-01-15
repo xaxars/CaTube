@@ -1,8 +1,21 @@
+// Protecció contra errors
+function safeAddEventListener(elementId, event, handler) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.addEventListener(event, handler);
+        return true;
+    }
+    return false;
+}
+
 // App Principal
 
 // Elements del DOM
 let sidebar, menuBtn, videosGrid, homePage, watchPage, loading;
+let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow;
+let pageTitle;
 let apiModal, apiKeyInput, apiStatus, settingsBtn;
+let apiModalReady = false;
 let currentVideoId = null;
 let useYouTubeAPI = false;
 
@@ -20,6 +33,15 @@ let cachedChannels = {};
 // Cache de vídeos carregats de l'API
 let cachedAPIVideos = [];
 
+function safeAddEventListener(elementId, event, handler) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.addEventListener(event, handler);
+        return true;
+    }
+    return false;
+}
+
 // Inicialitzar l'aplicació
 document.addEventListener('DOMContentLoaded', async () => {
     initElements();
@@ -32,13 +54,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicialitzar YouTubeAPI (carregar canals catalans)
     await YouTubeAPI.init();
 
-    // Comprovar si hi ha clau API guardada
-    if (YouTubeAPI.hasApiKey()) {
+    // Carregar vídeos (prioritza feed.json)
+    if (YouTubeAPI.feedLoaded && YouTubeAPI.feedVideos.length > 0) {
+        // Tenim feed.json, no cal API key per veure vídeos
+        useYouTubeAPI = true;
+        loadVideosFromAPI();
+    } else if (YouTubeAPI.hasApiKey()) {
+        // Tenim API key configurada
         useYouTubeAPI = true;
         loadVideosFromAPI();
     } else {
+        // No tenim ni feed ni API key
         loadVideos();
-        // Mostrar modal si no hi ha API key
         setTimeout(() => showApiModal(), 500);
     }
 
@@ -60,6 +87,14 @@ function initElements() {
     apiKeyInput = document.getElementById('apiKeyInput');
     apiStatus = document.getElementById('apiStatus');
     settingsBtn = document.getElementById('settingsBtn');
+    heroSection = document.getElementById('heroSection');
+    heroTitle = document.getElementById('heroTitle');
+    heroDescription = document.getElementById('heroDescription');
+    heroImage = document.getElementById('heroImage');
+    heroDuration = document.getElementById('heroDuration');
+    heroButton = document.getElementById('heroButton');
+    heroEyebrow = document.getElementById('heroEyebrow');
+    pageTitle = document.getElementById('pageTitle');
 }
 
 // Inicialitzar event listeners
@@ -116,6 +151,19 @@ function initEventListeners() {
         settingsBtn.addEventListener('click', showApiModal);
     }
 
+    if (heroButton) {
+        heroButton.addEventListener('click', () => {
+            const videoId = heroSection?.dataset.videoId;
+            const source = heroSection?.dataset.source;
+            if (!videoId) return;
+            if (source === 'api') {
+                showVideoFromAPI(videoId);
+            } else {
+                showVideo(videoId);
+            }
+        });
+    }
+
     // Tancar sidebar en mòbil quan es clica fora
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -129,57 +177,74 @@ function initEventListeners() {
 // Inicialitzar modal API
 function initApiModal() {
     const closeModal = document.getElementById('closeModal');
-    const saveApiKey = document.getElementById('saveApiKey');
-    const clearApiKey = document.getElementById('clearApiKey');
-    const toggleApiKey = document.getElementById('toggleApiKey');
-    const addChannelBtn = document.getElementById('addChannelBtn');
-    const channelInput = document.getElementById('channelInput');
+    
+    // Protecció: Elements mínims necessaris
+    if (!apiModal || !closeModal) {
+        console.warn('⚠️  Modal API incomplet - algunes funcionalitats no disponibles');
+        return;
+    }
+    
+    // Protecció: Elements mínims necessaris
+    if (!apiModal || !closeModal) {
+        console.warn('⚠️  Modal API incomplet - algunes funcionalitats no disponibles');
+        return;
+    }
 
-    // Tancar modal
+    // Tancar modal (sempre disponible)
     closeModal.addEventListener('click', hideApiModal);
     apiModal.addEventListener('click', (e) => {
         if (e.target === apiModal) hideApiModal();
     });
 
-    // Tabs
+    const saveApiKey = document.getElementById('saveApiKey');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    
+    if (!saveApiKey || !apiKeyInput) {
+        console.warn('⚠️  Modal API sense formulari - configuració desactivada');
+        apiModalReady = false;
+        return;
+    }
+
+    apiModalReady = true;
+
+    // Tabs (amb protecció)
     const tabBtns = document.querySelectorAll('.tab-btn');
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.dataset.tab;
-            // Actualitzar botons
             tabBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            // Actualitzar contingut
+            
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
-            document.getElementById(`tab-${tabId}`).classList.add('active');
-            // Carregar canals si és la pestanya de canals
-            if (tabId === 'channels') {
+            
+            const tabContent = document.getElementById(`tab-${tabId}`);
+            if (tabContent) tabContent.classList.add('active');
+            
+            // Carregar dades segons pestanya
+            if (tabId === 'channels' && typeof loadChannelsList === 'function') {
                 loadChannelsList();
+                if (typeof loadTaggableChannelsList === 'function') {
+                    loadTaggableChannelsList();
+                }
             }
-            // Carregar vídeos si és la pestanya de vídeos
-            if (tabId === 'videos') {
+            if (tabId === 'videos' && typeof loadUserVideosList === 'function') {
                 loadUserVideosList();
             }
-            // Carregar canals etiquetables si és la pestanya de tags
-            if (tabId === 'tags') {
-                loadTaggableChannelsList();
-            }
-            // Reinicialitzar icons
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+            
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     });
 
     // Toggle visibilitat clau
-    toggleApiKey.addEventListener('click', () => {
+    safeAddEventListener('toggleApiKey', 'click', () => {
         const type = apiKeyInput.type === 'password' ? 'text' : 'password';
         apiKeyInput.type = type;
-        toggleApiKey.innerHTML = `<i data-lucide="${type === 'password' ? 'eye' : 'eye-off'}"></i>`;
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        const toggle = document.getElementById('toggleApiKey');
+        if (toggle) {
+            toggle.innerHTML = `<i data-lucide="${type === 'password' ? 'eye' : 'eye-off'}"></i>`;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
     });
 
@@ -192,15 +257,17 @@ function initApiModal() {
         }
 
         showApiStatus('Verificant clau...', 'loading');
-
         const result = await YouTubeAPI.verifyApiKey(key);
+        
         if (result.valid) {
             YouTubeAPI.setApiKey(key);
             useYouTubeAPI = true;
             showApiStatus('Clau vàlida! Carregant vídeos...', 'success');
             setTimeout(() => {
                 hideApiModal();
-                loadVideosFromAPI();
+                if (typeof loadVideosFromAPI === 'function') {
+                    loadVideosFromAPI();
+                }
             }, 1000);
         } else {
             showApiStatus(result.error || 'Clau API invàlida', 'error');
@@ -208,43 +275,42 @@ function initApiModal() {
     });
 
     // Esborrar clau API
-    clearApiKey.addEventListener('click', () => {
+    safeAddEventListener('clearApiKey', 'click', () => {
         YouTubeAPI.clearApiKey();
         apiKeyInput.value = '';
         useYouTubeAPI = false;
         showApiStatus('Clau esborrada', 'success');
-        loadVideos(); // Tornar a dades estàtiques
+        if (typeof loadVideos === 'function') loadVideos();
     });
 
-    // Afegir canal
-    addChannelBtn.addEventListener('click', async () => {
-        await addChannel();
-    });
+    // Afegir canal (amb protecció)
+    const addChannelBtn = document.getElementById('addChannelBtn');
+    const channelInput = document.getElementById('channelInput');
+    
+    if (addChannelBtn && channelInput && typeof addChannel === 'function') {
+        addChannelBtn.addEventListener('click', async () => await addChannel());
+        channelInput.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter') await addChannel();
+        });
+    }
 
-    channelInput.addEventListener('keypress', async (e) => {
-        if (e.key === 'Enter') {
-            await addChannel();
-        }
-    });
-
-    // Exportar canals
-    const exportChannelsBtn = document.getElementById('exportChannelsBtn');
-    exportChannelsBtn.addEventListener('click', exportChannels);
-
-    // Importar canals
-    const importChannelsBtn = document.getElementById('importChannelsBtn');
-    const importFileInput = document.getElementById('importFileInput');
-
-    importChannelsBtn.addEventListener('click', () => {
-        importFileInput.click();
-    });
-
-    importFileInput.addEventListener('change', (e) => {
-        if (e.target.files.length > 0) {
-            importChannels(e.target.files[0]);
-            e.target.value = ''; // Reset input
-        }
-    });
+    // Exportar/Importar (amb protecció)
+    if (typeof exportChannels === 'function') {
+        safeAddEventListener('exportChannelsBtn', 'click', exportChannels);
+    }
+    
+    const importBtn = document.getElementById('importChannelsBtn');
+    const importInput = document.getElementById('importFileInput');
+    
+    if (importBtn && importInput && typeof importChannels === 'function') {
+        importBtn.addEventListener('click', () => importInput.click());
+        importInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                importChannels(e.target.files[0]);
+                e.target.value = '';
+            }
+        });
+    }
 
     // Carregar clau existent
     if (YouTubeAPI.hasApiKey()) {
@@ -375,7 +441,10 @@ function exportChannels() {
         version: '1.0',
         exportDate: new Date().toISOString(),
         appName: 'iuTube',
-        channels: channels
+        channels: channels.map(channel => ({
+            ...channel,
+            tags: channelTags[channel.id] || []
+        }))
     };
 
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -431,11 +500,17 @@ function importChannels(file) {
                 } else {
                     skipped++;
                 }
+
+                if (Array.isArray(channel.tags) && channel.tags.length > 0) {
+                    channelTags[channel.id] = channel.tags;
+                }
             });
 
             // Guardar
             YouTubeAPI.saveUserChannels();
+            saveChannelTags();
             loadChannelsList();
+            loadTaggableChannelsList();
 
             if (imported > 0) {
                 showImportStatus(`${imported} canals importats${skipped > 0 ? `, ${skipped} omesos (duplicats)` : ''}`, 'success');
@@ -524,10 +599,15 @@ function loadChannelsList() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    loadTaggableChannelsList();
 }
 
 // Mostrar/amagar modal
 function showApiModal() {
+    if (!apiModal || !apiModalReady) {
+        return;
+    }
     apiModal.classList.add('active');
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -535,6 +615,9 @@ function showApiModal() {
 }
 
 function hideApiModal() {
+    if (!apiModal) {
+        return;
+    }
     apiModal.classList.remove('active');
 }
 
@@ -551,6 +634,59 @@ function showLoading() {
 
 function hideLoading() {
     loading.classList.remove('active');
+}
+
+function setPageTitle(title) {
+    if (pageTitle) {
+        pageTitle.textContent = title;
+    }
+}
+
+function getNewestVideoFromList(videos) {
+    if (!Array.isArray(videos) || videos.length === 0) return null;
+
+    return videos.reduce((latest, video) => {
+        const dateValue = video.publishedAt || video.uploadDate || video.snippet?.publishedAt;
+        const videoDate = dateValue ? new Date(dateValue) : null;
+        if (!videoDate || Number.isNaN(videoDate.getTime())) return latest;
+        if (!latest || videoDate > latest.date) {
+            return { video, date: videoDate };
+        }
+        return latest;
+    }, null);
+}
+
+function updateHero(video, source = 'static') {
+    if (!heroSection || !video) {
+        if (heroSection) {
+            heroSection.classList.add('hidden');
+        }
+        return;
+    }
+
+    const title = video.title || video.snippet?.title || 'Vídeo destacat';
+    const description = video.description || video.snippet?.description || '';
+    const thumbnail = video.thumbnail || video.snippet?.thumbnails?.high?.url || '';
+    const duration = video.duration || video.contentDetails?.duration || '';
+
+    heroSection.classList.remove('hidden');
+    heroSection.dataset.videoId = video.id;
+    heroSection.dataset.source = source;
+    heroTitle.textContent = title;
+    heroDescription.textContent = description ? description.substring(0, 140) + (description.length > 140 ? '...' : '') : '';
+    heroImage.src = thumbnail;
+    heroImage.alt = title;
+    if (duration) {
+        heroDuration.textContent = duration;
+        heroDuration.classList.remove('hidden');
+    } else {
+        heroDuration.textContent = '';
+        heroDuration.classList.add('hidden');
+    }
+
+    if (heroEyebrow) {
+        heroEyebrow.textContent = source === 'api' ? 'Destacat del moment' : 'Destacat de la setmana';
+    }
 }
 
 // Carregar categories
@@ -590,9 +726,34 @@ function loadCategories() {
 // Carregar vídeos populars des de l'API
 async function loadVideosFromAPI() {
     showLoading();
-    document.querySelector('.page-title').textContent = 'Recomanats per a tu';
+    setPageTitle('Recomanats per a tu');
 
     const result = await YouTubeAPI.getPopularVideos(CONFIG.layout.videosPerPage);
+
+    if (result.error) {
+        console.error('Error:', result.error);
+        hideLoading();
+        loadVideos(); // Fallback a dades estàtiques
+        return;
+    }
+
+    // ✅ AFEGIR VÍDEOS A LA CACHE
+    result.items.forEach(video => {
+        if (!cachedAPIVideos.find(v => v.id === video.id)) {
+            cachedAPIVideos.push(video);
+        }
+        if (video.channelId && !cachedChannels[video.channelId]) {
+            cachedChannels[video.channelId] = {
+                id: video.channelId,
+                name: video.channelTitle,
+                thumbnail: video.channelThumbnail || null
+            };
+        }
+    });
+
+    renderVideos(result.items);
+    hideLoading();
+}
 
     if (result.error) {
         console.error('Error:', result.error);
@@ -608,7 +769,7 @@ async function loadVideosFromAPI() {
 // Carregar vídeos en tendència
 async function loadTrendingVideos() {
     showLoading();
-    document.querySelector('.page-title').textContent = 'Tendències';
+    setPageTitle('Tendències');
 
     const result = await YouTubeAPI.getPopularVideos(24);
 
@@ -624,13 +785,14 @@ async function loadTrendingVideos() {
 // Cercar vídeos
 async function searchVideos(query) {
     showLoading();
-    document.querySelector('.page-title').textContent = `Resultats per: "${query}"`;
+    setPageTitle(`Resultats per: "${query}"`);
     showHome();
 
     const result = await YouTubeAPI.searchVideos(query, CONFIG.layout.videosPerPage);
 
     if (result.error) {
         hideLoading();
+        updateHero(null);
         // Mostrar missatge d'error
         videosGrid.innerHTML = `
             <div class="search-error">
@@ -641,6 +803,21 @@ async function searchVideos(query) {
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
+        return;
+    }
+
+    if (result.items.length === 0) {
+        updateHero(null);
+        videosGrid.innerHTML = `
+            <div class="search-error">
+                <i data-lucide="video-off"></i>
+                <p>No s'han trobat vídeos per aquesta cerca.</p>
+            </div>
+        `;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        hideLoading();
         return;
     }
 
@@ -679,7 +856,7 @@ async function fetchVideoDetails(videoIds) {
 async function loadVideosByCategory(categoryId) {
     showLoading();
     const category = CONFIG.categories.find(c => c.id == categoryId);
-    document.querySelector('.page-title').textContent = category ? category.name : 'Categoria';
+    setPageTitle(category ? category.name : 'Categoria');
     showHome();
 
     const result = await YouTubeAPI.getVideosByCategory(categoryId, CONFIG.layout.videosPerPage);
@@ -691,6 +868,8 @@ async function loadVideosByCategory(categoryId) {
             const videoIds = searchResult.items.map(v => v.id).join(',');
             const details = await fetchVideoDetails(videoIds);
             renderVideos(details.length > 0 ? details : searchResult.items);
+        } else {
+            updateHero(null);
         }
         hideLoading();
         return;
@@ -717,6 +896,40 @@ function renderVideos(videos) {
         }
     });
 
+    const newest = getNewestVideoFromList(videos);
+    updateHero(newest?.video, 'api');
+
+    videosGrid.innerHTML = videos.map(video => createVideoCardAPI(video)).join('');
+
+    // Event listeners
+    const videoCards = document.querySelectorAll('.video-card');
+    videoCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const videoId = card.dataset.videoId;
+            showVideoFromAPI(videoId);
+        });
+    });
+
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+        if (!cachedAPIVideos.find(v => v.id === video.id)) {
+            cachedAPIVideos.push(video);
+        }
+        // Guardar informació del canal
+        if (video.channelId && !cachedChannels[video.channelId]) {
+            cachedChannels[video.channelId] = {
+                id: video.channelId,
+                name: video.channelTitle,
+                thumbnail: video.channelThumbnail || null
+            };
+        }
+    });
+
+    const newest = getNewestVideoFromList(videos);
+    updateHero(newest?.video, 'api');
+
     videosGrid.innerHTML = videos.map(video => createVideoCardAPI(video)).join('');
 
     // Event listeners
@@ -735,10 +948,14 @@ function renderVideos(videos) {
 
 // Renderitzar resultats de cerca (sense estadístiques)
 function renderSearchResults(videos) {
+    const newest = getNewestVideoFromList(videos);
+    updateHero(newest?.video, 'api');
+
     videosGrid.innerHTML = videos.map(video => `
         <div class="video-card" data-video-id="${video.id}">
-            <div class="video-thumbnail">
+            <div class="video-thumbnail${video.isShort ? ' is-short' : ''}">
                 <img src="${video.thumbnail}" alt="${escapeHtml(video.title)}" loading="lazy">
+                ${video.isShort ? '<span class="video-short-badge">SHORT</span>' : ''}
             </div>
             <div class="video-details">
                 <div class="video-info-container">
@@ -771,8 +988,9 @@ function renderSearchResults(videos) {
 function createVideoCardAPI(video) {
     return `
         <div class="video-card" data-video-id="${video.id}">
-            <div class="video-thumbnail">
+            <div class="video-thumbnail${video.isShort ? ' is-short' : ''}">
                 <img src="${video.thumbnail}" alt="${escapeHtml(video.title)}" loading="lazy">
+                ${video.isShort ? '<span class="video-short-badge">SHORT</span>' : ''}
                 ${video.duration ? `<span class="video-duration">${video.duration}</span>` : ''}
             </div>
             <div class="video-details">
@@ -958,6 +1176,10 @@ async function loadRelatedVideosFromAPI(videoId) {
 
 // Carregar vídeos estàtics
 function loadVideos() {
+    setPageTitle('Recomanats per a tu');
+    const newest = getNewestVideoFromList(VIDEOS);
+    updateHero(newest?.video, 'static');
+
     videosGrid.innerHTML = VIDEOS.map(video => createVideoCard(video)).join('');
 
     const videoCards = document.querySelectorAll('.video-card');
@@ -976,6 +1198,10 @@ function loadVideos() {
 // Carregar vídeos per categoria (estàtic)
 function loadVideosByCategoryStatic(categoryId) {
     const videos = getVideosByCategory(categoryId);
+    const category = CONFIG.categories.find(c => c.id === categoryId);
+    setPageTitle(category ? category.name : 'Categoria');
+    const newest = getNewestVideoFromList(videos);
+    updateHero(newest?.video, 'static');
     videosGrid.innerHTML = videos.map(video => createVideoCard(video)).join('');
 
     const videoCards = document.querySelectorAll('.video-card');
@@ -1247,20 +1473,23 @@ function initVideoTab() {
     const addVideoBtn = document.getElementById('addVideoBtn');
     const videoUrlInput = document.getElementById('videoUrlInput');
 
-    if (addVideoBtn) {
-        addVideoBtn.addEventListener('click', addUserVideo);
+    // Protecció: Si no existeixen els elements, sortir
+    if (!addVideoBtn || !videoUrlInput) {
+        console.info('ℹ️  Funcionalitat "Afegir vídeos" no disponible (elements HTML no trobats)');
+        return;
     }
 
-    if (videoUrlInput) {
+    if (typeof addUserVideo === 'function') {
+        addVideoBtn.addEventListener('click', addUserVideo);
         videoUrlInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                addUserVideo();
-            }
+            if (e.key === 'Enter') addUserVideo();
         });
     }
 
     // Carregar vídeos guardats
-    loadUserVideos();
+    if (typeof loadUserVideos === 'function') {
+        loadUserVideos();
+    }
 }
 
 // Afegir vídeo de l'usuari
@@ -1397,7 +1626,7 @@ function removeUserVideo(videoId) {
 async function loadVideosByCategoryWithUser(categoryId) {
     showLoading();
     const category = CONFIG.categories.find(c => c.id === categoryId);
-    document.querySelector('.page-title').textContent = category ? category.name : 'Categoria';
+    setPageTitle(category ? category.name : 'Categoria');
     showHome();
 
     // Combinar vídeos de l'usuari i vídeos de canals etiquetats
@@ -1438,6 +1667,7 @@ async function loadVideosByCategoryWithUser(categoryId) {
     if (categoryVideos.length > 0) {
         renderUserVideos(categoryVideos);
     } else {
+        updateHero(null);
         videosGrid.innerHTML = `
             <div class="empty-category">
                 <i data-lucide="video-off"></i>
@@ -1455,6 +1685,14 @@ async function loadVideosByCategoryWithUser(categoryId) {
 
 // Renderitzar vídeos de l'usuari
 function renderUserVideos(videos) {
+    const newest = getNewestVideoFromList(videos);
+    if (newest?.video) {
+        const source = newest.video.source === 'user' || newest.video.source === 'api' ? 'api' : 'static';
+        updateHero(newest.video, source);
+    } else {
+        updateHero(null);
+    }
+
     videosGrid.innerHTML = videos.map(video => `
         <div class="video-card" data-video-id="${video.id}">
             <div class="video-thumbnail">
@@ -1511,7 +1749,11 @@ function saveChannelTags() {
 
 // Inicialitzar el tab d'etiquetes
 function initTagsTab() {
-    loadChannelTags();
+    if (typeof loadChannelTags === 'function') {
+        loadChannelTags();
+    } else {
+        console.info('ℹ️  Funcionalitat "Etiquetar canals" no completament disponible');
+    }
 }
 
 // Carregar llista de canals etiquetables

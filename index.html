@@ -6,7 +6,7 @@
     <meta name="description" content="Plataforma de vídeos personalitzable">
     <meta name="theme-color" content="#FF0000">
     
-    <title>MyTube</title>
+    <title>iuTube</title>
     
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -29,7 +29,7 @@
             </button>
             <div class="logo">
                 <i data-lucide="video" class="logo-icon"></i>
-                <span class="logo-text">MyTube</span>
+                <span class="logo-text">iuTube</span>
             </div>
         </div>
         
@@ -92,7 +92,21 @@
     <main class="main-content" id="mainContent">
         <!-- Home Page -->
         <div class="page" id="homePage">
-            <h1 class="page-title">Recomanats per a tu</h1>
+            <h1 class="page-title" id="pageTitle">Recomanats per a tu</h1>
+            <section class="hero" id="heroSection">
+                <div class="hero-content">
+                    <span class="hero-eyebrow" id="heroEyebrow">Destacat de la setmana</span>
+                    <h2 class="hero-title" id="heroTitle"></h2>
+                    <p class="hero-description" id="heroDescription"></p>
+                    <div class="hero-actions">
+                        <button class="hero-button" id="heroButton">Veure ara</button>
+                    </div>
+                </div>
+                <div class="hero-thumbnail">
+                    <img id="heroImage" alt="Vídeo destacat">
+                    <span class="hero-duration" id="heroDuration"></span>
+                </div>
+            </section>
             <div class="videos-grid" id="videosGrid"></div>
         </div>
 
@@ -151,157 +165,130 @@
                 </button>
             </div>
 
-            <!-- Tabs -->
-            <div class="modal-tabs">
-                <button class="tab-btn active" data-tab="videos">
-                    <i data-lucide="plus-circle"></i>
-                    Afegir Vídeo
-                </button>
-                <button class="tab-btn" data-tab="tags">
-                    <i data-lucide="tags"></i>
-                    Etiquetar
-                </button>
-                <button class="tab-btn" data-tab="api">
-                    <i data-lucide="key"></i>
-                    API
-                </button>
-                <button class="tab-btn" data-tab="channels">
-                    <i data-lucide="tv"></i>
-                    Canals
-                </button>
-            </div>
+            <div class="modal-body">
+    <!-- PESTANYES DEL MODAL -->
+    <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="api">
+            <i data-lucide="key"></i>
+            Clau API
+        </button>
+        <button class="tab-btn" data-tab="channels">
+            <i data-lucide="users"></i>
+            Canals
+        </button>
+        <button class="tab-btn" data-tab="videos">
+            <i data-lucide="video"></i>
+            Vídeos
+        </button>
+        <button class="tab-btn" data-tab="tags">
+            <i data-lucide="tag"></i>
+            Etiquetar
+        </button>
+    </div>
 
-            <!-- Tab: Afegir Vídeo -->
-            <div class="tab-content active" id="tab-videos">
-                <div class="modal-body">
-                    <p class="modal-description">
-                        Afegeix vídeos de YouTube amb una categoria per organitzar-los.
-                    </p>
+    <!-- TAB 1: CLAU API -->
+    <div id="tab-api" class="tab-content active">
+        <p class="modal-description">
+            Per carregar vídeos de YouTube, necessites una clau API. 
+            <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Obtenir clau API</a>
+        </p>
 
-                    <div class="form-group">
-                        <label for="videoUrlInput">URL del vídeo de YouTube</label>
-                        <input type="text" id="videoUrlInput" placeholder="https://www.youtube.com/watch?v=...">
-                    </div>
+        <div class="form-group">
+            <label for="apiKeyInput">Clau API de YouTube</label>
+            <input type="password" id="apiKeyInput" placeholder="Enganxa la teva clau API aquí">
+            <button type="button" class="toggle-visibility" id="toggleApiKey">
+                <i data-lucide="eye"></i>
+            </button>
+        </div>
 
-                    <div class="form-group">
-                        <label for="videoCategorySelect">Categoria</label>
-                        <select id="videoCategorySelect" class="form-select">
-                            <option value="societat">Societat</option>
-                            <option value="cultura">Cultura</option>
-                            <option value="humor">Humor</option>
-                            <option value="gaming">Gaming</option>
-                            <option value="vida">Vida</option>
-                        </select>
-                    </div>
+        <div id="apiStatus" class="api-status"></div>
 
-                    <div class="video-status" id="videoStatus"></div>
-
-                    <!-- Llista de vídeos afegits -->
-                    <div class="channels-section">
-                        <h3 class="section-title">Vídeos afegits</h3>
-                        <div class="channels-list" id="userVideosList"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" id="addVideoBtn">
-                        <i data-lucide="plus"></i>
-                        Afegir vídeo
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tab: Etiquetar Canals -->
-            <div class="tab-content" id="tab-tags">
-                <div class="modal-body">
-                    <p class="modal-description">
-                        Assigna categories als canals. Els vídeos d'aquests canals apareixeran a les categories corresponents del sidebar. Pots assignar múltiples categories a cada canal.
-                    </p>
-
-                    <div class="tag-status" id="tagStatus"></div>
-
-                    <!-- Llista de canals per etiquetar -->
-                    <div class="channels-section">
-                        <h3 class="section-title">Canals</h3>
-                        <div class="taggable-channels-list" id="taggableChannelsList"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab: API -->
-            <div class="tab-content" id="tab-api">
-                <div class="modal-body">
-                    <p class="modal-description">
-                        Per veure vídeos reals de YouTube, necessites una clau API.
-                        Pots obtenir-la gratuïtament a la
-                        <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">
-                            Google Cloud Console
-                        </a>.
-                    </p>
-                    <div class="form-group">
-                        <label for="apiKeyInput">Clau API de YouTube</label>
-                        <input type="password" id="apiKeyInput" placeholder="Introdueix la teva clau API...">
-                        <button class="toggle-visibility" id="toggleApiKey" type="button">
-                            <i data-lucide="eye"></i>
-                        </button>
-                    </div>
-                    <div class="api-status" id="apiStatus"></div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" id="clearApiKey">Esborrar clau</button>
-                    <button class="btn btn-primary" id="saveApiKey">Desar i verificar</button>
-                </div>
-            </div>
-
-            <!-- Tab: Canals Catalans -->
-            <div class="tab-content" id="tab-channels">
-                <div class="modal-body">
-                    <p class="modal-description">
-                        Gestiona els canals catalans verificats. Els vídeos d'aquests canals es mostraran prioritàriament.
-                    </p>
-
-                    <!-- Afegir canal -->
-                    <div class="form-group">
-                        <label for="channelInput">Afegir canal (@username, ID o URL)</label>
-                        <div class="input-with-button">
-                            <input type="text" id="channelInput" placeholder="Ex: @EnricAdventures o URL del canal">
-                            <button class="btn btn-primary" id="addChannelBtn">
-                                <i data-lucide="plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="channel-status" id="channelStatus"></div>
-
-                    <!-- Llista de canals -->
-                    <div class="channels-section">
-                        <h3 class="section-title">Canals verificats</h3>
-                        <div class="channels-list" id="verifiedChannelsList"></div>
-                    </div>
-
-                    <div class="channels-section">
-                        <h3 class="section-title">Els meus canals</h3>
-                        <div class="channels-list" id="userChannelsList"></div>
-                    </div>
-
-                    <!-- Exportar/Importar -->
-                    <div class="channels-section">
-                        <h3 class="section-title">Còpia de seguretat</h3>
-                        <div class="backup-buttons">
-                            <button class="btn btn-secondary" id="exportChannelsBtn">
-                                <i data-lucide="download"></i>
-                                Exportar canals
-                            </button>
-                            <button class="btn btn-secondary" id="importChannelsBtn">
-                                <i data-lucide="upload"></i>
-                                Importar canals
-                            </button>
-                            <input type="file" id="importFileInput" accept=".json" style="display: none;">
-                        </div>
-                        <div class="import-status" id="importStatus"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" id="clearApiKey">Esborrar clau</button>
+            <button class="btn btn-primary" id="saveApiKey">Desar clau</button>
         </div>
     </div>
+
+    <!-- TAB 2: CANALS -->
+    <div id="tab-channels" class="tab-content">
+        <div class="form-group">
+            <label for="channelInput">Afegir canal (ID, URL o @username)</label>
+            <div class="input-with-button">
+                <input type="text" id="channelInput" placeholder="@username o UC...">
+                <button class="btn btn-primary" id="addChannelBtn">
+                    <i data-lucide="plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="channelStatus" class="channel-status"></div>
+
+        <div class="channels-section">
+            <h3 class="section-title">Canals verificats</h3>
+            <div id="verifiedChannelsList" class="channels-list"></div>
+        </div>
+
+        <div class="channels-section">
+            <h3 class="section-title">Els meus canals</h3>
+            <div id="userChannelsList" class="channels-list"></div>
+        </div>
+
+        <div class="backup-buttons">
+            <button class="btn btn-secondary" id="exportChannelsBtn">
+                <i data-lucide="download"></i>
+                Exportar
+            </button>
+            <button class="btn btn-secondary" id="importChannelsBtn">
+                <i data-lucide="upload"></i>
+                Importar
+            </button>
+            <input type="file" id="importFileInput" accept=".json" style="display: none;">
+        </div>
+
+        <div id="importStatus" class="import-status"></div>
+    </div>
+
+    <!-- TAB 3: VÍDEOS -->
+    <div id="tab-videos" class="tab-content">
+        <div class="form-group">
+            <label for="videoUrlInput">URL del vídeo de YouTube</label>
+            <input type="text" id="videoUrlInput" placeholder="https://youtube.com/watch?v=...">
+        </div>
+
+        <div class="form-group">
+            <label for="videoCategorySelect">Categoria</label>
+            <select id="videoCategorySelect" class="form-select">
+                <option value="societat">Societat</option>
+                <option value="cultura">Cultura</option>
+                <option value="humor">Humor</option>
+                <option value="gaming">Gaming</option>
+                <option value="vida">Vida</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" id="addVideoBtn">Afegir vídeo</button>
+
+        <div id="videoStatus" class="video-status"></div>
+
+        <div class="channels-section">
+            <h3 class="section-title">Els meus vídeos</h3>
+            <div id="userVideosList" class="channels-list"></div>
+        </div>
+    </div>
+
+    <!-- TAB 4: ETIQUETAR CANALS -->
+    <div id="tab-tags" class="tab-content">
+        <p class="modal-description">
+            Assigna categories als canals per organitzar els vídeos.
+        </p>
+
+        <div id="tagStatus" class="tag-status"></div>
+
+        <div class="channels-section">
+            <div id="taggableChannelsList" class="taggable-channels-list"></div>
+        </div>
+    </div>
+</div>
 
     <!-- Scripts -->
     <script src="js/config.js"></script>
