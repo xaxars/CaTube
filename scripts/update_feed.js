@@ -9,11 +9,28 @@ const API_KEY = process.env.YOUTUBE_API_KEY;
 const OUTPUT_FILE = 'feed.json';
 
 /**
- * Funció auxiliar per descarregar dades d'una URL
+ * Funció per descarregar dades que sap seguir redireccions (301, 302)
+ * i s'identifica com un navegador real.
  */
 const fetchData = (url) => {
     return new Promise((resolve, reject) => {
-        https.get(url, (res) => {
+        const options = {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            }
+        };
+
+        https.get(url, options, (res) => {
+            // Si Google ens redirigeix, tornem a cridar la funció amb la nova adreça
+            if (res.statusCode === 301 || res.statusCode === 302) {
+                console.log(`Seguint redirecció cap a: ${res.headers.location}`);
+                return fetchData(res.headers.location).then(resolve).catch(reject);
+            }
+
+            if (res.statusCode !== 200) {
+                return reject(new Error(`Error de connexió: ${res.statusCode}`));
+            }
+
             let data = '';
             res.on('data', (chunk) => data += chunk);
             res.on('end', () => resolve(data));
@@ -23,23 +40,19 @@ const fetchData = (url) => {
 
 /**
  * Converteix el contingut CSV en una llista d'objectes (canals)
- * Millorat per detectar separadors (coma o punt i coma)
  */
 function parseCSV(csvText) {
-    // Eliminem caràcters invisibles (BOM) que poden aparèixer al principi
     const cleanText = csvText.replace(/^\uFEFF/, '');
     const lines = cleanText.split(/\r?\n/).filter(line => line.trim() !== '');
     
     if (lines.length < 2) return [];
 
-    // Detectem si el separador és una coma (,) o un punt i coma (;)
     let separator = ',';
     const firstLine = lines[0];
     if (firstLine.includes(';') && (firstLine.split(';').length > firstLine.split(',').length)) {
         separator = ';';
     }
 
-    // Detectem les capçaleres de la primera fila
     const headers = firstLine.split(separator).map(h => h.trim().toLowerCase());
     const idIdx = headers.indexOf('id');
     const nameIdx = headers.indexOf('name');
@@ -55,15 +68,11 @@ function parseCSV(csvText) {
         return {
             id: values[idIdx]?.trim(),
             name: values[nameIdx]?.trim(),
-            // Separem les categories per ";" i creem una llista neta
             categories: values[catIdx] ? values[catIdx].split(';').map(c => c.trim()) : []
         };
-    }).filter(c => c.id); // Només canals que tinguin contingut a la columna ID
+    }).filter(c => c.id && c.id !== ''); 
 }
 
-/**
- * Converteix la durada ISO 8601 de YouTube (ex: PT1M30S) a segons
- */
 function parseDuration(duration) {
     if (!duration) return 0;
     const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
@@ -78,44 +87,32 @@ async function main() {
     try {
         console.log("--- Iniciant actualització des de Google Sheets ---");
         
-        // 1. Descarreguem la llista de canals de l'Excel
         const csvContent = await fetchData(SHEET_CSV_URL);
         const channels = parseCSV(csvContent);
-        console.log(`S'han trobat ${channels.length} canals vàlids al full de càlcul.`);
+        console.log(`✅ S'han trobat ${channels.length} canals vàlids al full de càlcul.`);
 
         if (channels.length === 0) {
-            console.log("Dades rebudes del CSV per depuració:", csvContent.substring(0, 100));
-            throw new Error("No s'han trobat canals per processar. Revisa les capçaleres de l'Excel.");
+            console.log("Mostra del contingut rebut:", csvContent.substring(0, 100));
+            throw new Error("No s'han trobat canals vàlids. Revisa el format de l'Excel.");
         }
 
-        // 2. Obtenim els vídeos recents de cada canal
         const playlistRequests = channels.map(async (channel) => {
             let uploadPlaylistId = '';
-
             if (channel.id.startsWith('@')) {
                 const hUrl = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${encodeURIComponent(channel.id)}&key=${API_KEY}`;
                 const hRes = await fetchData(hUrl);
                 const hData = JSON.parse(hRes);
-                if (hData.items?.length > 0) {
-                    uploadPlaylistId = hData.items[0].contentDetails.relatedPlaylists.uploads;
-                }
+                if (hData.items?.length > 0) uploadPlaylistId = hData.items[0].contentDetails.relatedPlaylists.uploads;
             } else if (channel.id.startsWith('UC')) {
                 uploadPlaylistId = channel.id.replace('UC', 'UU');
             }
 
-            if (!uploadPlaylistId) {
-                console.warn(`⚠️ No es pot carregar el canal: ${channel.id}`);
-                return null;
-            }
+            if (!uploadPlaylistId) return null;
 
             const vUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadPlaylistId}&maxResults=5&key=${API_KEY}`;
             const vRes = await fetchData(vUrl);
             const vData = JSON.parse(vRes);
-            
-            return {
-                items: vData.items || [],
-                channelInfo: channel
-            };
+            return { items: vData.items || [], channelInfo: channel };
         });
 
         const results = await Promise.all(playlistRequests);
@@ -139,9 +136,8 @@ async function main() {
             }
         });
 
-        // 3. Filtre de Shorts
         if (videoIdsForDetails.length > 0) {
-            console.log("Filtrant Shorts i vídeos curts...");
+            console.log("Filtrant Shorts...");
             const durationMap = {};
             for (let i = 0; i < videoIdsForDetails.length; i += 50) {
                 const chunk = videoIdsForDetails.slice(i, i + 50);
@@ -150,8 +146,7 @@ async function main() {
                 const dData = JSON.parse(dRes);
                 if (dData.items) {
                     dData.items.forEach(v => {
-                        const seconds = parseDuration(v.contentDetails.duration);
-                        durationMap[v.id] = (seconds <= 60);
+                        durationMap[v.id] = parseDuration(v.contentDetails.duration) <= 60;
                     });
                 }
             }
@@ -160,10 +155,10 @@ async function main() {
 
         allVideos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(allVideos.slice(0, 100), null, 2));
-        console.log(`✅ Fet! El fitxer ${OUTPUT_FILE} s'ha actualitzat correctament.`);
+        console.log(`🚀 Feed actualitzat correctament amb ${allVideos.length} vídeos.`);
 
     } catch (error) {
-        console.error("❌ Error en el procés:", error);
+        console.error("❌ Error en el procés:", error.message);
         process.exit(1);
     }
 }
