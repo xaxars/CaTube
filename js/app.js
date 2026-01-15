@@ -177,7 +177,12 @@ function initEventListeners() {
 // Inicialitzar modal API
 function initApiModal() {
     const closeModal = document.getElementById('closeModal');
-    const saveApiKey = document.getElementById('saveApiKey');
+    
+    // Protecció: Elements mínims necessaris
+    if (!apiModal || !closeModal) {
+        console.warn('⚠️  Modal API incomplet - algunes funcionalitats no disponibles');
+        return;
+    }
     
     // Protecció: Elements mínims necessaris
     if (!apiModal || !closeModal) {
@@ -191,10 +196,12 @@ function initApiModal() {
         if (e.target === apiModal) hideApiModal();
     });
 
+    const saveApiKey = document.getElementById('saveApiKey');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    
     if (!saveApiKey || !apiKeyInput) {
         console.warn('⚠️  Modal API sense formulari - configuració desactivada');
         apiModalReady = false;
-        apiModal.classList.remove('active');
         return;
     }
 
@@ -730,6 +737,31 @@ async function loadVideosFromAPI() {
         return;
     }
 
+    // ✅ AFEGIR VÍDEOS A LA CACHE
+    result.items.forEach(video => {
+        if (!cachedAPIVideos.find(v => v.id === video.id)) {
+            cachedAPIVideos.push(video);
+        }
+        if (video.channelId && !cachedChannels[video.channelId]) {
+            cachedChannels[video.channelId] = {
+                id: video.channelId,
+                name: video.channelTitle,
+                thumbnail: video.channelThumbnail || null
+            };
+        }
+    });
+
+    renderVideos(result.items);
+    hideLoading();
+}
+
+    if (result.error) {
+        console.error('Error:', result.error);
+        hideLoading();
+        loadVideos(); // Fallback a dades estàtiques
+        return;
+    }
+
     renderVideos(result.items);
     hideLoading();
 }
@@ -851,6 +883,37 @@ async function loadVideosByCategory(categoryId) {
 function renderVideos(videos) {
     // Guardar vídeos i canals a la cache
     videos.forEach(video => {
+        if (!cachedAPIVideos.find(v => v.id === video.id)) {
+            cachedAPIVideos.push(video);
+        }
+        // Guardar informació del canal
+        if (video.channelId && !cachedChannels[video.channelId]) {
+            cachedChannels[video.channelId] = {
+                id: video.channelId,
+                name: video.channelTitle,
+                thumbnail: video.channelThumbnail || null
+            };
+        }
+    });
+
+    const newest = getNewestVideoFromList(videos);
+    updateHero(newest?.video, 'api');
+
+    videosGrid.innerHTML = videos.map(video => createVideoCardAPI(video)).join('');
+
+    // Event listeners
+    const videoCards = document.querySelectorAll('.video-card');
+    videoCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const videoId = card.dataset.videoId;
+            showVideoFromAPI(videoId);
+        });
+    });
+
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
         if (!cachedAPIVideos.find(v => v.id === video.id)) {
             cachedAPIVideos.push(video);
         }
