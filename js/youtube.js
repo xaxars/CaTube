@@ -621,42 +621,42 @@ const YouTubeAPI = {
         }
     },
 
-    // Obtenir vídeos populars (usa canals catalans - MOLT EFICIENT)
+    // Obtenir vídeos populars (prioritza feed.json, després API)
     async getPopularVideos(maxResults = 12) {
-        const apiKey = this.getApiKey();
-        if (!apiKey) return { items: [], error: 'No API key' };
+    // PRIORITAT 1: Usar vídeos de feed.json si estan disponibles
+    if (this.feedLoaded && this.feedVideos.length > 0) {
+        console.log(`iuTube: Mostrant ${this.feedVideos.length} vídeos des de feed.json`);
+        
+        // Transformar al format esperat
+        const videos = this.feedVideos.map(v => ({
+            id: v.id,
+            title: v.title,
+            thumbnail: v.thumbnail,
+            channelId: v.channelId || null,
+            channelTitle: v.channelTitle,
+            publishedAt: v.publishedAt,
+            duration: null,
+            isShort: v.isShort || false,
+            viewCount: 0,
+            categories: v.categories || []
+        }));
+        
+        return { items: videos.slice(0, maxResults), error: null, fromFeed: true };
+    }
 
-        console.log('iuTube: Obtenint vídeos catalans...');
-
+    // PRIORITAT 2: Si hi ha API key, obtenir vídeos frescos
+    const apiKey = this.getApiKey();
+    if (apiKey) {
+        console.log('iuTube: Obtenint vídeos catalans via API...');
         const result = await this.getVideosFromCatalanChannelsEfficient(maxResults);
-
         if (result.items && result.items.length > 0) {
-            if (result.fromCache) {
-                console.log('iuTube: Vídeos carregats des del cache (0 unitats consumides)');
-            } else {
-                console.log(`iuTube: ${result.items.length} vídeos catalans carregats`);
-            }
             return result;
         }
+    }
 
-        // FALLBACK: vídeos populars de la regió
-        console.log('iuTube: Fallback a vídeos populars de la regió');
-        try {
-            const response = await fetch(
-                `${this.BASE_URL}/videos?part=snippet,statistics,contentDetails&chart=mostPopular&regionCode=${this.regionCode}&maxResults=${maxResults}&key=${apiKey}`
-            );
-
-            if (!response.ok) {
-                throw new Error(`API error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return { items: this.transformVideoResults(data.items), error: null };
-        } catch (error) {
-            console.error('iuTube: Error obtenint vídeos populars:', error);
-            return { items: [], error: error.message };
-        }
-    },
+    // FALLBACK: Retornar error si no hi ha res
+    return { items: [], error: 'No hi ha vídeos disponibles. Comprova feed.json o configura una API key.' };
+}
 
     // Obtenir vídeos per categoria
     async getVideosByCategory(categoryId, maxResults = 12) {
