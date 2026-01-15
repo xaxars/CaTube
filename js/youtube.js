@@ -656,7 +656,7 @@ const YouTubeAPI = {
 
     // FALLBACK: Retornar error si no hi ha res
     return { items: [], error: 'No hi ha vídeos disponibles. Comprova feed.json o configura una API key.' };
-}
+},
 
     // Obtenir vídeos per categoria
     async getVideosByCategory(categoryId, maxResults = 12) {
