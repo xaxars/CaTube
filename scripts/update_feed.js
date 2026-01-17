@@ -141,7 +141,7 @@ async function main() {
         });
 
         const results = await Promise.all(playlistRequests);
-        let allVideos = [];
+        let baseVideos = [];
         let videoIdsForDetails = [];
 
         results.forEach(res => {
@@ -158,46 +158,63 @@ async function main() {
                         sourceChannelId: res.channelInfo.id,
                         duration: '',
                         durationSeconds: 0,
-                        isShort: false
+                        isShort: false,
+                        viewCount: 0,
+                        likeCount: 0,
+                        commentCount: 0
                     };
-                    allVideos.push(video);
+                    baseVideos.push(video);
                     videoIdsForDetails.push(video.id);
                 });
             }
         });
 
+        let detailedVideos = [];
         if (videoIdsForDetails.length > 0) {
             console.log("Carregant duracions...");
-            const durationMap = {};
             for (let i = 0; i < videoIdsForDetails.length; i += 50) {
                 const chunk = videoIdsForDetails.slice(i, i + 50);
-                const dUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${chunk.join(',')}&key=${API_KEY}`;
+                const dUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${chunk.join(',')}&key=${API_KEY}`;
                 const dData = await fetchYouTubeData(dUrl);
                 if (dData.items) {
                     dData.items.forEach(v => {
                         const duration = v.contentDetails?.duration || '';
                         const durationSeconds = isoDurationToSeconds(duration);
-                        durationMap[v.id] = {
+                        detailedVideos.push({
+                            id: v.id,
+                            title: v.snippet?.title || '',
+                            thumbnail: v.snippet?.thumbnails?.medium?.url || v.snippet?.thumbnails?.high?.url || '',
+                            channelId: v.snippet?.channelId || '',
+                            channelTitle: v.snippet?.channelTitle || '',
+                            publishedAt: v.snippet?.publishedAt || '',
                             duration,
                             durationSeconds,
-                            isShort: durationSeconds > 0 && durationSeconds <= 120
-                        };
+                            isShort: durationSeconds > 0 && durationSeconds <= 120,
+                            viewCount: Number(v.statistics?.viewCount || 0),
+                            likeCount: Number(v.statistics?.likeCount || 0),
+                            commentCount: Number(v.statistics?.commentCount || 0)
+                        });
                     });
                 }
             }
-            allVideos = allVideos.map(v => {
-                const durationInfo = durationMap[v.id] || {};
-                return {
-                    ...v,
-                    duration: durationInfo.duration || '',
-                    durationSeconds: durationInfo.durationSeconds || 0,
-                    isShort: durationInfo.isShort || false
-                };
-            });
         }
 
+        const detailsById = new Map(detailedVideos.map(video => [video.id, video]));
+        const finalVideos = baseVideos.map(video => {
+            const details = detailsById.get(video.id);
+            if (!details) {
+                return video;
+            }
+            return {
+                ...video,
+                ...details,
+                categories: video.categories,
+                sourceChannelId: video.sourceChannelId
+            };
+        });
+
         const videosByChannel = new Map();
-        allVideos.forEach((video) => {
+        finalVideos.forEach((video) => {
             const key = video.sourceChannelId || video.channelId;
             if (!videosByChannel.has(key)) {
                 videosByChannel.set(key, []);
@@ -216,6 +233,11 @@ async function main() {
 
         feedVideos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
         const feedPayload = feedVideos.slice(0, 100);
+        const videosWithViews = feedPayload.filter(video => (video.viewCount || 0) > 0);
+        console.log(`📊 Vídeos amb viewCount > 0: ${videosWithViews.length}/${feedPayload.length}`);
+        videosWithViews.slice(0, 3).forEach(video => {
+            console.log(`📈 ${video.id}: ${video.viewCount}`);
+        });
         const dataDir = path.join(process.cwd(), 'data');
         fs.mkdirSync(dataDir, { recursive: true });
         fs.writeFileSync(OUTPUT_FEED_JSON, JSON.stringify(feedPayload, null, 2));
@@ -226,7 +248,7 @@ async function main() {
         console.log("Feed escrit a:", OUTPUT_FEED_JSON);
         console.log("Existeix:", fs.existsSync(OUTPUT_FEED_JSON));
         console.log("Mida:", fs.statSync(OUTPUT_FEED_JSON).size);
-        console.log(`🚀 Feed actualitzat correctament amb ${allVideos.length} vídeos.`);
+        console.log(`🚀 Feed actualitzat correctament amb ${finalVideos.length} vídeos.`);
 
     } catch (error) {
         console.error("❌ Error en el procés:", error.message);

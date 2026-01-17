@@ -638,7 +638,9 @@ const YouTubeAPI = {
             duration: v.duration ? this.parseDuration(v.duration) : null,
             durationSeconds: v.durationSeconds || this.parseDurationSeconds(v.duration) || 0,
             isShort: v.isShort || false,
-            viewCount: 0,
+            viewCount: v.viewCount || 0,
+            likeCount: v.likeCount || 0,
+            commentCount: v.commentCount || 0,
             categories: v.categories || []
         }));
         
