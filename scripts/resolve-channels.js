@@ -52,7 +52,7 @@ async function getChannelByHandle(handle) {
 }
 
 async function main() {
-    console.log('--- INICIANT RESOLUCIÓ DE CANALS (HÍBRID) ---');
+    console.log('--- INICIANT RESOLUCIÓ DE CANALS (AMB CATEGORIES) ---');
     
     try {
         const csvData = await fetchCSV(SHEET_CSV_URL);
@@ -60,16 +60,26 @@ async function main() {
         const channels = [];
         
         for (const line of lines) {
-            // Netejar la línia i buscar parts
+            // CSV Format esperat: Handle/ID, Nom, Categories
+            // Utilitzem una expressió regular per separar per comes respectant cometes, o un split simple si no n'hi ha
             const parts = line.split(',');
-            // Busquem alguna part que sembli un Handle (@...) o un ID (UC...)
+            
+            // Busquem l'ID o Handle (sol ser a la columna 0 o 1)
             const handleOrId = parts.find(p => p && (p.trim().startsWith('@') || p.trim().startsWith('UC')));
             
+            // Intentem trobar la categoria (assumim que és la 3a columna, índex 2)
+            // Si no hi ha 3a columna, posem 'altres'
+            let rawCategories = parts[2] ? parts[2].trim() : 'altres';
+            // Neteja extra per si hi ha cometes o espais
+            rawCategories = rawCategories.replace(/['"]+/g, '');
+            // Convertim a array (separat per punts i coma si n'hi ha més d'una)
+            const categories = rawCategories.split(';').map(c => c.trim().toLowerCase()).filter(c => c);
+
             if (handleOrId) {
                 const term = handleOrId.trim();
                 let details = null;
 
-                console.log(`Processant: ${term}`);
+                console.log(`Processant: ${term} [Cats: ${categories.join(', ')}]`);
 
                 if (API_KEY) {
                     if (term.startsWith('@')) {
@@ -85,7 +95,9 @@ async function main() {
                         name: details.snippet.title,
                         thumbnail: details.snippet.thumbnails.high?.url || details.snippet.thumbnails.default?.url,
                         description: details.snippet.description,
-                        stats: details.statistics
+                        stats: details.statistics,
+                        // AFEGIM LES CATEGORIES AQUÍ:
+                        categories: categories
                     });
                     console.log(`   ✅ Trobat: ${details.snippet.title}`);
                 } else {
