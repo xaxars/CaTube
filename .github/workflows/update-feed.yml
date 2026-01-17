@@ -2,9 +2,9 @@ name: Update feed.json
 
 on:
   workflow_dispatch:
-  schedule:
-    # Cada 6 hores (UTC). Si vols quadrar amb hora local, ho ajustem després.
-    - cron: "0 */6 * * *"
+  # schedule:
+  #   # Cada 6 hores (UTC). Si vols quadrar amb hora local, ho ajustem després.
+  #   - cron: "0 */6 * * *"
 
 permissions:
   contents: write

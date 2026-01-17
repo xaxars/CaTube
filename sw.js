@@ -10,8 +10,7 @@ const urlsToCache = [
   "./js/config.js",
   "./js/data.js",
   "./js/youtube.js",
-  "./manifest.json",
-  "./data/feed.json"
+  "./manifest.json"
 ];
 
 self.addEventListener("install", (event) => {

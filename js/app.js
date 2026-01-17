@@ -20,13 +20,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicialitzar YouTubeAPI (carregar canals catalans)
     await YouTubeAPI.init();
 
-    // Comprovar si hi ha clau API guardada
-    if (YouTubeAPI.hasApiKey()) {
-        useYouTubeAPI = true;
-        loadVideosFromAPI();
-    } else {
-        loadVideos();
-    }
+    // Mode feed: "Popular" funciona sense clau API
+    useYouTubeAPI = true;
+    loadVideosFromAPI();
 
     // Inicialitzar icons
     if (typeof lucide !== 'undefined') {
@@ -765,15 +761,15 @@ window.addEventListener('popstate', (e) => {
 // Carregar vídeo des de URL si hi ha paràmetre ?v=
 const urlParams = new URLSearchParams(window.location.search);
 const videoParam = urlParams.get('v');
-if (videoParam) {
-    setTimeout(() => {
-        if (YouTubeAPI.hasApiKey()) {
-            showVideoFromAPI(videoParam);
-        } else {
-            showVideo(videoParam);
-        }
-    }, 100);
-}
+    if (videoParam) {
+        setTimeout(() => {
+            if (useYouTubeAPI) {
+                showVideoFromAPI(videoParam);
+            } else {
+                showVideo(videoParam);
+            }
+        }, 100);
+    }
 
 // Carregar vídeos per categoria
 async function loadVideosByCategoryWithUser(categoryId) {
@@ -933,4 +929,3 @@ function hideFeaturedVideo() {
         featuredSection.style.display = 'none';
     }
 }
-

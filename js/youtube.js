@@ -24,6 +24,7 @@ const YouTubeAPI = {
   // Canals carregats (del feed)
   catalanChannels: [],
   userChannels: [],
+  _feedVideos: [],
 
   // Paraules clau per detectar contingut català
   catalanKeywords: [
@@ -73,6 +74,18 @@ const YouTubeAPI = {
       return data;
     } catch {
       return null;
+    }
+  },
+
+  hasApiKey() {
+    return Boolean(this.getApiKey());
+  },
+
+  getApiKey() {
+    try {
+      return localStorage.getItem("youtube_api_key") || "";
+    } catch {
+      return "";
     }
   },
 
@@ -181,10 +194,89 @@ const YouTubeAPI = {
     return { items: vids.slice(0, maxResults), error: null, fromCache: false };
   },
 
+  // Vídeos per categoria (via categories del CSV al feed)
+  async getVideosByCategory(categoryId, maxResults = 12) {
+    const channels = Array.isArray(this.catalanChannels) ? this.catalanChannels : [];
+    const channelIds = new Set(
+      channels
+        .filter((channel) => Array.isArray(channel.categories) && channel.categories.includes(categoryId))
+        .map((channel) => channel.id)
+    );
+
+    const vids = Array.isArray(this._feedVideos) ? this._feedVideos : [];
+    const items = vids.filter((video) => channelIds.has(video.channelId));
+
+    if (!items.length) {
+      return { items: [], error: "No hi ha vídeos per aquesta categoria.", fromCache: false };
+    }
+
+    return { items: items.slice(0, maxResults), error: null, fromCache: false };
+  },
+
   // Cerca: desactivada per defecte (escala malament amb 10.000 usuaris)
   // Si vols, podem fer-la via Worker/Backend.
   async searchVideos(query, maxResults = 12) {
     return { items: [], error: "Cerca desactivada en mode públic (quota).", disabled: true };
+  },
+
+  async getVideoDetails(videoId) {
+    const vids = Array.isArray(this._feedVideos) ? this._feedVideos : [];
+    const video = vids.find((item) => item.id === videoId);
+
+    if (!video) {
+      return { video: null, error: "No s'ha trobat el vídeo al feed." };
+    }
+
+    return { video, error: null };
+  },
+
+  async getChannelDetails(channelId) {
+    const channels = this.getAllChannels();
+    const channel = channels.find((item) => item.id === channelId);
+
+    if (!channel) {
+      return {
+        channel: {
+          id: channelId,
+          title: channelId,
+          thumbnail: "",
+          subscriberCount: 0
+        },
+        error: "Canal no disponible al feed."
+      };
+    }
+
+    return {
+      channel: {
+        id: channel.id,
+        title: channel.name || channel.handle || channel.id,
+        thumbnail: channel.thumbnail || "",
+        subscriberCount: channel.subscriberCount || 0
+      },
+      error: null
+    };
+  },
+
+  async getVideoComments(videoId, maxResults = 20) {
+    return {
+      items: [],
+      error: "Comentaris no disponibles en mode feed.",
+      disabled: true
+    };
+  },
+
+  async getRelatedVideos(videoId, maxResults = 10) {
+    const vids = Array.isArray(this._feedVideos) ? this._feedVideos : [];
+    const current = vids.find((item) => item.id === videoId);
+    if (!current) {
+      return { items: [], error: "No hi ha vídeos relacionats.", fromCache: false };
+    }
+
+    const related = vids
+      .filter((item) => item.id !== videoId && item.channelId === current.channelId)
+      .slice(0, maxResults);
+
+    return { items: related, error: null, fromCache: false };
   },
 
   // Helpers de filtre (si els fas servir en UI)
