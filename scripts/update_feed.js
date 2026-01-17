@@ -27,13 +27,14 @@ const fetchData = (url) => {
                 return fetchData(res.headers.location).then(resolve).catch(reject);
             }
 
-            if (res.statusCode !== 200) {
-                return reject(new Error(`Error de connexió: ${res.statusCode}`));
-            }
-
             let data = '';
             res.on('data', (chunk) => data += chunk);
-            res.on('end', () => resolve(data));
+            res.on('end', () => {
+                if (res.statusCode !== 200) {
+                    return reject(new Error(`HTTP ${res.statusCode} ${data.slice(0, 800)}`));
+                }
+                resolve(data);
+            });
         }).on('error', (e) => reject(e));
     });
 };
