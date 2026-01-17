@@ -45,7 +45,7 @@ const YouTubeAPI = {
         try {
             console.log('iuTube: Carregant canals des del JSON...');
             
-            // Truc del rellotge per evitar cache
+            // Afegeix ?t=... per obligar a baixar la versió fresca del fitxer
             const response = await fetch(this.CHANNELS_JSON_URL + '?t=' + Date.now());
             
             if (!response.ok) {
@@ -58,19 +58,19 @@ const YouTubeAPI = {
                 this.catalanChannels = data.channels.map(channel => ({
                     id: channel.id,
                     name: channel.name,
-                    categories: channel.categories || [], // Ara llegim les categories!
+                    categories: channel.categories || [], // Ara llegim categories!
                     handle: channel.handle,
                     thumbnail: channel.thumbnail
                 }));
                 console.log(`iuTube: ${this.catalanChannels.length} canals carregats del JSON`);
                 console.log(`iuTube: Última actualització: ${data.lastUpdated}`);
             }
-        } catch (error) {
+        } catch (error) { // Ara el catch està ben tancat!
             console.error('iuTube: Error carregant canals del JSON:', error);
             console.log('iuTube: Executa "node scripts/resolve-channels.js <API_KEY>" per generar el fitxer');
         }
     },
-
+    
     // ==================== CACHE ====================
 
     // Obtenir dades del cache
