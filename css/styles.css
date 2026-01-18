@@ -356,6 +356,9 @@ body.sidebar-collapsed .main-content {
 }
 
 .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-top: 8px;
 }
 
@@ -372,6 +375,14 @@ body.sidebar-collapsed .main-content {
 
 .hero-button:hover {
     background-color: #e5e5e5;
+}
+
+.hero-channel {
+    margin-left: auto;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
 }
 
 .hero-thumbnail {
@@ -1396,6 +1407,10 @@ body.sidebar-collapsed .main-content {
     }
 
     .hero-duration {
+        font-size: 10px;
+    }
+
+    .hero-channel {
         font-size: 10px;
     }
 }
