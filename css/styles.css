@@ -329,7 +329,7 @@ body.sidebar-collapsed .main-content {
         90deg,
         color-mix(in srgb, var(--color-background), black 40%) 0%,
         var(--color-background) 55%,
-        color-mix(in srgb, var(--color-background), transparent 60%) 100%
+        color-mix(in srgb, var(--color-background), transparent 40%) 100%
     );
     align-items: center;
 }
