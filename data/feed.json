@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-18T12:52:28.327Z",
+  "generatedAt": "2026-01-18T13:33:32.454Z",
   "videos": [
     {
       "id": "Zw-EL0TJK4c",
@@ -15,9 +15,9 @@
       "duration": "PT46M22S",
       "durationSeconds": 2782,
       "isShort": false,
-      "viewCount": 561,
-      "likeCount": 140,
-      "commentCount": 34
+      "viewCount": 606,
+      "likeCount": 146,
+      "commentCount": 36
     },
     {
       "id": "din1pM12Alg",
@@ -126,8 +126,8 @@
       "duration": "PT1H6M17S",
       "durationSeconds": 3977,
       "isShort": false,
-      "viewCount": 61734,
-      "likeCount": 1348,
+      "viewCount": 61859,
+      "likeCount": 1350,
       "commentCount": 77
     },
     {
@@ -180,8 +180,8 @@
       "duration": "PT17M59S",
       "durationSeconds": 1079,
       "isShort": false,
-      "viewCount": 13426,
-      "likeCount": 1094,
+      "viewCount": 13470,
+      "likeCount": 1095,
       "commentCount": 117
     },
     {
@@ -217,7 +217,7 @@
       "duration": "PT1M9S",
       "durationSeconds": 69,
       "isShort": true,
-      "viewCount": 4659,
+      "viewCount": 4670,
       "likeCount": 137,
       "commentCount": 3
     },
@@ -456,7 +456,7 @@
       "duration": "PT19M21S",
       "durationSeconds": 1161,
       "isShort": false,
-      "viewCount": 14391,
+      "viewCount": 14402,
       "likeCount": 1249,
       "commentCount": 121
     },
@@ -547,7 +547,7 @@
       "duration": "PT16M42S",
       "durationSeconds": 1002,
       "isShort": false,
-      "viewCount": 13409,
+      "viewCount": 13410,
       "likeCount": 1295,
       "commentCount": 189
     },
@@ -695,7 +695,7 @@
       "duration": "PT1M33S",
       "durationSeconds": 93,
       "isShort": true,
-      "viewCount": 2555,
+      "viewCount": 2558,
       "likeCount": 60,
       "commentCount": 1
     },
@@ -731,7 +731,7 @@
       "duration": "PT1H11M54S",
       "durationSeconds": 4314,
       "isShort": false,
-      "viewCount": 90743,
+      "viewCount": 90745,
       "likeCount": 1913,
       "commentCount": 108
     },
