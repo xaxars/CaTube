@@ -755,33 +755,47 @@ async function showVideoFromAPI(videoId) {
     if (videoResult.video) {
         const video = videoResult.video;
 
+        // Títol del vídeo
         document.getElementById('videoTitle').textContent = video.title;
-        document.getElementById('videoViews').innerHTML = `
-            <i data-lucide="eye"></i>
-            ${formatViews(video.viewCount)} visualitzacions
-        `;
-        document.getElementById('videoDate').textContent = formatDate(video.publishedAt);
+
+        // Estadístiques (visualitzacions i data)
+        document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
+        document.getElementById('videoDate').textContent = formatDateFull(video.publishedAt);
+
+        // Likes
         document.getElementById('videoLikes').textContent = formatViews(video.likeCount);
+
+        // Descripció
+        const descriptionText = document.getElementById('videoDescription');
+        descriptionText.textContent = video.description || 'Sense descripció';
+
+        // Configurar toggle de descripció
+        initDescriptionToggle();
 
         // Obtenir informació del canal
         const channelResult = await YouTubeAPI.getChannelDetails(video.channelId);
 
         if (channelResult.channel) {
             const channel = channelResult.channel;
-            const channelInfo = document.getElementById('channelInfo');
-            channelInfo.innerHTML = `
-                <div class="channel-header">
-                    <img src="${channel.thumbnail}" alt="${escapeHtml(channel.title)}" class="channel-avatar-large">
-                    <div class="channel-details">
-                        <div class="channel-name-large">${escapeHtml(channel.title)}</div>
-                        <div class="channel-subscribers">${formatViews(channel.subscriberCount)} subscriptors</div>
-                    </div>
-                    ${CONFIG.features.subscriptions ? `
-                        <button class="subscribe-btn">Subscriu-te</button>
-                    ` : ''}
-                </div>
-                <div class="video-description">${escapeHtml(video.description).substring(0, 500)}${video.description.length > 500 ? '...' : ''}</div>
-            `;
+
+            // Avatar del canal
+            const channelAvatar = document.getElementById('channelAvatar');
+            channelAvatar.src = channel.thumbnail;
+            channelAvatar.alt = escapeHtml(channel.title);
+
+            // Nom del canal
+            document.getElementById('channelName').textContent = channel.title;
+
+            // Subscriptors
+            document.getElementById('channelSubscribers').textContent = `${formatViews(channel.subscriberCount)} subscriptors`;
+
+            // Mostrar/amagar botó de subscripció
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            if (CONFIG.features.subscriptions) {
+                subscribeBtn.style.display = 'block';
+            } else {
+                subscribeBtn.style.display = 'none';
+            }
         }
     }
 
@@ -803,41 +817,130 @@ async function showVideoFromAPI(videoId) {
     }
 }
 
+// Inicialitzar el toggle de descripció
+function initDescriptionToggle() {
+    const descriptionBox = document.getElementById('descriptionBox');
+    const descriptionToggle = document.getElementById('descriptionToggle');
+
+    if (!descriptionBox || !descriptionToggle) return;
+
+    // Resetar estat
+    descriptionBox.classList.remove('expanded');
+    descriptionToggle.textContent = 'Mostra més';
+
+    descriptionToggle.onclick = (e) => {
+        e.stopPropagation();
+        descriptionBox.classList.toggle('expanded');
+        descriptionToggle.textContent = descriptionBox.classList.contains('expanded') ? 'Mostra menys' : 'Mostra més';
+    };
+
+    descriptionBox.onclick = () => {
+        if (!descriptionBox.classList.contains('expanded')) {
+            descriptionBox.classList.add('expanded');
+            descriptionToggle.textContent = 'Mostra menys';
+        }
+    };
+}
+
+// Formatar data completa (ex: "15 gen. 2024")
+function formatDateFull(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const months = ['gen.', 'febr.', 'març', 'abr.', 'maig', 'juny', 'jul.', 'ag.', 'set.', 'oct.', 'nov.', 'des.'];
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+}
+
 // Carregar comentaris des de l'API
 async function loadCommentsFromAPI(videoId) {
     const result = await YouTubeAPI.getVideoComments(videoId, 20);
-    const commentsSection = document.getElementById('commentsSection');
+    const commentsCount = document.getElementById('commentsCount');
+    const commentsList = document.getElementById('commentsList');
 
     if (result.error || result.items.length === 0) {
-        commentsSection.innerHTML = '<p class="no-comments">No hi ha comentaris disponibles</p>';
+        commentsCount.textContent = '0 comentaris';
+        commentsList.innerHTML = `
+            <div class="yt-no-comments">
+                <i data-lucide="message-circle-off"></i>
+                <p>No hi ha comentaris disponibles per a aquest vídeo</p>
+            </div>
+        `;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
         return;
     }
 
-    commentsSection.innerHTML = `
-        <h2 class="comments-header">${result.items.length} comentaris</h2>
-        ${result.items.map(comment => `
-            <div class="comment">
-                <img src="${comment.authorAvatar}" alt="${escapeHtml(comment.authorName)}" class="comment-avatar">
-                <div class="comment-content">
-                    <div class="comment-header">
-                        <span class="comment-author">${escapeHtml(comment.authorName)}</span>
-                        <span class="comment-date">${formatDate(comment.publishedAt)}</span>
-                    </div>
-                    <div class="comment-text">${comment.text}</div>
-                    <div class="comment-actions">
-                        <button class="comment-like-btn">
-                            <i data-lucide="thumbs-up"></i>
-                            <span>${comment.likeCount}</span>
-                        </button>
-                    </div>
+    // Actualitzar comptador de comentaris
+    commentsCount.textContent = `${result.items.length} comentaris`;
+
+    // Renderitzar comentaris amb estil YouTube
+    commentsList.innerHTML = result.items.map(comment => `
+        <div class="yt-comment">
+            <img src="${comment.authorAvatar}" alt="${escapeHtml(comment.authorName)}" class="yt-comment-avatar">
+            <div class="yt-comment-content">
+                <div class="yt-comment-header">
+                    <span class="yt-comment-author">${escapeHtml(comment.authorName)}</span>
+                    <span class="yt-comment-date">${formatTimeAgo(comment.publishedAt)}</span>
+                </div>
+                <div class="yt-comment-text">${formatCommentText(comment.text)}</div>
+                <div class="yt-comment-actions">
+                    <button class="yt-comment-action-btn yt-comment-like-btn">
+                        <i data-lucide="thumbs-up"></i>
+                    </button>
+                    ${comment.likeCount > 0 ? `<span class="yt-comment-like-count">${formatViews(comment.likeCount)}</span>` : ''}
+                    <button class="yt-comment-action-btn yt-comment-dislike-btn">
+                        <i data-lucide="thumbs-down"></i>
+                    </button>
+                    <button class="yt-comment-action-btn yt-comment-reply-btn">Respon</button>
                 </div>
             </div>
-        `).join('')}
-    `;
+        </div>
+    `).join('');
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+}
+
+// Formatar text del comentari (convertir URLs i salts de línia)
+function formatCommentText(text) {
+    if (!text) return '';
+    // Escapar HTML
+    let formatted = escapeHtml(text);
+    // Convertir URLs a enllaços
+    formatted = formatted.replace(
+        /(https?:\/\/[^\s]+)/g,
+        '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #3ea6ff;">$1</a>'
+    );
+    // Convertir salts de línia
+    formatted = formatted.replace(/\n/g, '<br>');
+    return formatted;
+}
+
+// Formatar temps relatiu (fa X temps)
+function formatTimeAgo(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+
+    const intervals = [
+        { label: 'any', plural: 'anys', seconds: 31536000 },
+        { label: 'mes', plural: 'mesos', seconds: 2592000 },
+        { label: 'setmana', plural: 'setmanes', seconds: 604800 },
+        { label: 'dia', plural: 'dies', seconds: 86400 },
+        { label: 'hora', plural: 'hores', seconds: 3600 },
+        { label: 'minut', plural: 'minuts', seconds: 60 }
+    ];
+
+    for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count >= 1) {
+            return `fa ${count} ${count === 1 ? interval.label : interval.plural}`;
+        }
+    }
+
+    return 'fa un moment';
 }
 
 // Carregar vídeos relacionats des de l'API
@@ -1007,28 +1110,41 @@ function showVideo(videoId) {
         </div>
     `;
 
+    // Títol del vídeo
     document.getElementById('videoTitle').textContent = video.title;
-    document.getElementById('videoViews').innerHTML = `
-        <i data-lucide="eye"></i>
-        ${formatViews(video.views)} visualitzacions
-    `;
-    document.getElementById('videoDate').textContent = formatDate(video.uploadDate);
+
+    // Estadístiques (visualitzacions i data)
+    document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
+    document.getElementById('videoDate').textContent = formatDateFull(video.uploadDate);
+
+    // Likes
     document.getElementById('videoLikes').textContent = formatViews(video.likes);
 
-    const channelInfo = document.getElementById('channelInfo');
-    channelInfo.innerHTML = `
-        <div class="channel-header">
-            <img src="${channel.avatar}" alt="${channel.name}" class="channel-avatar-large">
-            <div class="channel-details">
-                <div class="channel-name-large">${channel.name}</div>
-                <div class="channel-subscribers">${formatViews(channel.subscribers)} subscriptors</div>
-            </div>
-            ${CONFIG.features.subscriptions ? `
-                <button class="subscribe-btn">Subscriu-te</button>
-            ` : ''}
-        </div>
-        <div class="video-description">${video.description}</div>
-    `;
+    // Descripció
+    const descriptionText = document.getElementById('videoDescription');
+    descriptionText.textContent = video.description || 'Sense descripció';
+
+    // Configurar toggle de descripció
+    initDescriptionToggle();
+
+    // Avatar del canal
+    const channelAvatar = document.getElementById('channelAvatar');
+    channelAvatar.src = channel.avatar;
+    channelAvatar.alt = channel.name;
+
+    // Nom del canal
+    document.getElementById('channelName').textContent = channel.name;
+
+    // Subscriptors
+    document.getElementById('channelSubscribers').textContent = `${formatViews(channel.subscribers)} subscriptors`;
+
+    // Mostrar/amagar botó de subscripció
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    if (CONFIG.features.subscriptions) {
+        subscribeBtn.style.display = 'block';
+    } else {
+        subscribeBtn.style.display = 'none';
+    }
 
     if (CONFIG.features.comments) {
         loadComments(videoId);
@@ -1048,31 +1164,49 @@ function showVideo(videoId) {
 // Carregar comentaris (estàtic)
 function loadComments(videoId) {
     const comments = getCommentsByVideoId(videoId);
-    const commentsSection = document.getElementById('commentsSection');
+    const commentsCount = document.getElementById('commentsCount');
+    const commentsList = document.getElementById('commentsList');
 
-    if (comments.length === 0) return;
+    if (comments.length === 0) {
+        commentsCount.textContent = '0 comentaris';
+        commentsList.innerHTML = `
+            <div class="yt-no-comments">
+                <i data-lucide="message-circle-off"></i>
+                <p>No hi ha comentaris disponibles per a aquest vídeo</p>
+            </div>
+        `;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        return;
+    }
 
-    commentsSection.innerHTML = `
-        <h2 class="comments-header">${comments.length} comentaris</h2>
-        ${comments.map(comment => `
-            <div class="comment">
-                <img src="${comment.avatar}" alt="${comment.author}" class="comment-avatar">
-                <div class="comment-content">
-                    <div class="comment-header">
-                        <span class="comment-author">${comment.author}</span>
-                        <span class="comment-date">${formatDate(comment.timestamp)}</span>
-                    </div>
-                    <div class="comment-text">${comment.text}</div>
-                    <div class="comment-actions">
-                        <button class="comment-like-btn">
-                            <i data-lucide="thumbs-up"></i>
-                            <span>${comment.likes}</span>
-                        </button>
-                    </div>
+    // Actualitzar comptador de comentaris
+    commentsCount.textContent = `${comments.length} comentaris`;
+
+    // Renderitzar comentaris amb estil YouTube
+    commentsList.innerHTML = comments.map(comment => `
+        <div class="yt-comment">
+            <img src="${comment.avatar}" alt="${escapeHtml(comment.author)}" class="yt-comment-avatar">
+            <div class="yt-comment-content">
+                <div class="yt-comment-header">
+                    <span class="yt-comment-author">${escapeHtml(comment.author)}</span>
+                    <span class="yt-comment-date">${formatTimeAgo(comment.timestamp)}</span>
+                </div>
+                <div class="yt-comment-text">${formatCommentText(comment.text)}</div>
+                <div class="yt-comment-actions">
+                    <button class="yt-comment-action-btn yt-comment-like-btn">
+                        <i data-lucide="thumbs-up"></i>
+                    </button>
+                    ${comment.likes > 0 ? `<span class="yt-comment-like-count">${formatViews(comment.likes)}</span>` : ''}
+                    <button class="yt-comment-action-btn yt-comment-dislike-btn">
+                        <i data-lucide="thumbs-down"></i>
+                    </button>
+                    <button class="yt-comment-action-btn yt-comment-reply-btn">Respon</button>
                 </div>
             </div>
-        `).join('')}
-    `;
+        </div>
+    `).join('');
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();

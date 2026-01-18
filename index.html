@@ -130,29 +130,64 @@
             <div class="watch-container">
                 <div class="watch-main">
                     <div class="video-player" id="videoPlayer"></div>
-                    <div class="video-info">
-                        <h1 class="video-title" id="videoTitle"></h1>
-                        <div class="video-stats">
-                            <span id="videoViews"></span>
-                            <span>•</span>
-                            <span id="videoDate"></span>
+
+                    <!-- Títol del vídeo -->
+                    <h1 class="yt-video-title" id="videoTitle"></h1>
+
+                    <!-- Informació principal: Canal i accions -->
+                    <div class="yt-video-primary-info">
+                        <div class="yt-channel-info">
+                            <a href="#" class="yt-channel-avatar-link" id="channelAvatarLink">
+                                <img src="" alt="" class="yt-channel-avatar" id="channelAvatar">
+                            </a>
+                            <div class="yt-channel-details">
+                                <div class="yt-channel-name" id="channelName"></div>
+                                <div class="yt-channel-subscribers" id="channelSubscribers"></div>
+                            </div>
+                            <button class="yt-subscribe-btn" id="subscribeBtn">Subscriu-te</button>
                         </div>
-                        <div class="video-actions">
-                            <button class="action-btn">
-                                <i data-lucide="thumbs-up"></i>
-                                <span id="videoLikes"></span>
-                            </button>
-                            <button class="action-btn">
-                                <i data-lucide="thumbs-down"></i>
-                            </button>
-                            <button class="action-btn">
-                                <i data-lucide="share-2"></i>
+                        <div class="yt-video-actions">
+                            <div class="yt-like-dislike-container">
+                                <button class="yt-action-btn yt-like-btn">
+                                    <i data-lucide="thumbs-up"></i>
+                                    <span id="videoLikes">0</span>
+                                </button>
+                                <div class="yt-action-divider"></div>
+                                <button class="yt-action-btn yt-dislike-btn">
+                                    <i data-lucide="thumbs-down"></i>
+                                </button>
+                            </div>
+                            <button class="yt-action-btn yt-share-btn">
+                                <i data-lucide="share"></i>
                                 <span>Compartir</span>
+                            </button>
+                            <button class="yt-action-btn yt-more-btn">
+                                <i data-lucide="more-horizontal"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="channel-info" id="channelInfo"></div>
-                    <div class="comments-section" id="commentsSection"></div>
+
+                    <!-- Descripció expandible -->
+                    <div class="yt-description-box" id="descriptionBox">
+                        <div class="yt-description-stats">
+                            <span class="yt-views" id="videoViews"></span>
+                            <span class="yt-date" id="videoDate"></span>
+                        </div>
+                        <div class="yt-description-text" id="videoDescription"></div>
+                        <button class="yt-description-toggle" id="descriptionToggle">Mostra més</button>
+                    </div>
+
+                    <!-- Secció de comentaris -->
+                    <div class="yt-comments-section" id="commentsSection">
+                        <div class="yt-comments-header">
+                            <span class="yt-comments-count" id="commentsCount">0 comentaris</span>
+                            <button class="yt-comments-sort">
+                                <i data-lucide="list-filter"></i>
+                                <span>Ordena per</span>
+                            </button>
+                        </div>
+                        <div class="yt-comments-list" id="commentsList"></div>
+                    </div>
                 </div>
                 <div class="watch-sidebar">
                     <h2 class="related-title">Vídeos relacionats</h2>
