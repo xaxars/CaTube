@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-01-18T14:24:33.362Z",
+  "generatedAt": "2026-01-18T15:25:39.280Z",
   "videos": [
+    {
+      "id": "IRSCPSg654s",
+      "title": "Sant Tornem-hi. Dia 49 de La Volta al Món a Peu",
+      "thumbnail": "https://i.ytimg.com/vi/IRSCPSg654s/mqdefault.jpg",
+      "channelId": "UCDawX1bxeC4-hZiGnkqevbw",
+      "channelTitle": "Enric Adventures",
+      "publishedAt": "2026-01-18T14:26:33Z",
+      "categories": [
+        "vida"
+      ],
+      "sourceChannelId": "@EnricAdventures",
+      "duration": "PT18M12S",
+      "durationSeconds": 1092,
+      "isShort": false,
+      "viewCount": 881,
+      "likeCount": 188,
+      "commentCount": 24
+    },
     {
       "id": "Zw-EL0TJK4c",
       "title": "Tània Verge diu que abandona la política per sempre i torna a la universitat /2026 01 17",
@@ -15,9 +33,9 @@
       "duration": "PT46M22S",
       "durationSeconds": 2782,
       "isShort": false,
-      "viewCount": 636,
-      "likeCount": 151,
-      "commentCount": 38
+      "viewCount": 672,
+      "likeCount": 155,
+      "commentCount": 40
     },
     {
       "id": "din1pM12Alg",
@@ -52,7 +70,7 @@
       "duration": "PT32M11S",
       "durationSeconds": 1931,
       "isShort": false,
-      "viewCount": 1027,
+      "viewCount": 1031,
       "likeCount": 216,
       "commentCount": 52
     },
@@ -89,7 +107,7 @@
       "duration": "PT33M52S",
       "durationSeconds": 2032,
       "isShort": false,
-      "viewCount": 1267,
+      "viewCount": 1266,
       "likeCount": 184,
       "commentCount": 45
     },
@@ -126,8 +144,8 @@
       "duration": "PT1H6M17S",
       "durationSeconds": 3977,
       "isShort": false,
-      "viewCount": 62014,
-      "likeCount": 1352,
+      "viewCount": 62185,
+      "likeCount": 1354,
       "commentCount": 77
     },
     {
@@ -162,7 +180,7 @@
       "duration": "PT1M12S",
       "durationSeconds": 72,
       "isShort": true,
-      "viewCount": 2930,
+      "viewCount": 2937,
       "likeCount": 79,
       "commentCount": 3
     },
@@ -180,8 +198,8 @@
       "duration": "PT17M59S",
       "durationSeconds": 1079,
       "isShort": false,
-      "viewCount": 13492,
-      "likeCount": 1095,
+      "viewCount": 13531,
+      "likeCount": 1096,
       "commentCount": 117
     },
     {
@@ -217,7 +235,7 @@
       "duration": "PT1M9S",
       "durationSeconds": 69,
       "isShort": true,
-      "viewCount": 4670,
+      "viewCount": 4677,
       "likeCount": 137,
       "commentCount": 3
     },
@@ -309,8 +327,8 @@
       "duration": "PT13M51S",
       "durationSeconds": 831,
       "isShort": false,
-      "viewCount": 14345,
-      "likeCount": 1310,
+      "viewCount": 14365,
+      "likeCount": 1311,
       "commentCount": 184
     },
     {
@@ -438,7 +456,7 @@
       "duration": "PT30M28S",
       "durationSeconds": 1828,
       "isShort": false,
-      "viewCount": 1234,
+      "viewCount": 1235,
       "likeCount": 202,
       "commentCount": 64
     },
@@ -456,8 +474,8 @@
       "duration": "PT19M21S",
       "durationSeconds": 1161,
       "isShort": false,
-      "viewCount": 14396,
-      "likeCount": 1249,
+      "viewCount": 14406,
+      "likeCount": 1250,
       "commentCount": 121
     },
     {
@@ -511,7 +529,7 @@
       "duration": "PT2H4M43S",
       "durationSeconds": 7483,
       "isShort": false,
-      "viewCount": 14665,
+      "viewCount": 14668,
       "likeCount": 976,
       "commentCount": 56
     },
@@ -568,24 +586,6 @@
       "viewCount": 1329,
       "likeCount": 209,
       "commentCount": 69
-    },
-    {
-      "id": "nW27ngR9GK4",
-      "title": "El punt més alt d'aquest absurd país. Dia 34 de La Volta al Món a Peu",
-      "thumbnail": "https://i.ytimg.com/vi/nW27ngR9GK4/mqdefault.jpg",
-      "channelId": "UCDawX1bxeC4-hZiGnkqevbw",
-      "channelTitle": "Enric Adventures",
-      "publishedAt": "2026-01-03T15:01:24Z",
-      "categories": [
-        "vida"
-      ],
-      "sourceChannelId": "@EnricAdventures",
-      "duration": "PT18M13S",
-      "durationSeconds": 1093,
-      "isShort": false,
-      "viewCount": 15991,
-      "likeCount": 1343,
-      "commentCount": 177
     },
     {
       "id": "FLR3gEYe3cs",
@@ -731,7 +731,7 @@
       "duration": "PT1H11M54S",
       "durationSeconds": 4314,
       "isShort": false,
-      "viewCount": 90745,
+      "viewCount": 90775,
       "likeCount": 1913,
       "commentCount": 108
     },
@@ -862,7 +862,7 @@
       "duration": "PT51M18S",
       "durationSeconds": 3078,
       "isShort": false,
-      "viewCount": 1014,
+      "viewCount": 1015,
       "likeCount": 58,
       "commentCount": 15
     },
@@ -954,7 +954,7 @@
       "duration": "PT51S",
       "durationSeconds": 51,
       "isShort": true,
-      "viewCount": 4043,
+      "viewCount": 4048,
       "likeCount": 76,
       "commentCount": 0
     },
@@ -1027,7 +1027,7 @@
       "duration": "PT12M",
       "durationSeconds": 720,
       "isShort": false,
-      "viewCount": 279,
+      "viewCount": 280,
       "likeCount": 31,
       "commentCount": 3
     },
