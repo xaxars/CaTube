@@ -145,7 +145,8 @@ function initEventListeners() {
             if (homeNav) {
                 homeNav.classList.add('active');
             }
-            history.pushState({}, '', window.location.pathname);
+            const basePath = window.location.pathname.replace(/\/index\.html$/, '/');
+            history.pushState({}, '', basePath);
             showHome();
             if (useYouTubeAPI) {
                 loadVideosFromAPI();
