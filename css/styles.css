@@ -1890,30 +1890,7 @@ body.light-mode .yt-video-actions-bar {
     height: 18px;
 }
 
-/* Accions del vídeo (likes, compartir) */
-
-.yt-like-dislike-container {
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-body.light-mode .yt-like-dislike-container {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.yt-action-divider {
-    width: 1px;
-    height: 24px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-body.light-mode .yt-action-divider {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
+/* Accions del vídeo (compartir) */
 .yt-action-btn {
     display: flex;
     align-items: center;
@@ -1944,28 +1921,6 @@ body.light-mode .yt-action-btn:hover {
 .yt-action-btn svg {
     width: 20px;
     height: 20px;
-}
-
-.yt-like-btn, .yt-dislike-btn {
-    background-color: transparent;
-    border-radius: 0;
-}
-
-.yt-like-btn {
-    padding-right: 12px;
-}
-
-.yt-dislike-btn {
-    padding-left: 12px;
-}
-
-.yt-like-btn:hover, .yt-dislike-btn:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-body.light-mode .yt-like-btn:hover,
-body.light-mode .yt-dislike-btn:hover {
-    background-color: rgba(0, 0, 0, 0.08);
 }
 
 
@@ -2217,10 +2172,6 @@ body.light-mode .yt-comment-reply-btn:hover {
 
     .yt-action-btn span {
         display: none;
-    }
-
-    .yt-like-btn span {
-        display: inline;
     }
 
     .yt-share-btn {

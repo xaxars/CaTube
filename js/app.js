@@ -765,9 +765,6 @@ async function showVideoFromAPI(videoId) {
         document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
         document.getElementById('videoDate').textContent = formatDateFull(video.publishedAt);
 
-        // Likes
-        document.getElementById('videoLikes').textContent = formatViews(video.likeCount);
-
         // Descripció
         const descriptionText = document.getElementById('videoDescription');
         descriptionText.textContent = video.description || 'Sense descripció';
@@ -1099,9 +1096,6 @@ function showVideo(videoId) {
     // Estadístiques (visualitzacions i data)
     document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
     document.getElementById('videoDate').textContent = formatDateFull(video.uploadDate);
-
-    // Likes
-    document.getElementById('videoLikes').textContent = formatViews(video.likes);
 
     // Descripció
     const descriptionText = document.getElementById('videoDescription');
