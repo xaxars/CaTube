@@ -1381,3 +1381,21 @@ body.sidebar-collapsed .main-content {
     background-color: #e84393;
     color: #ffffff;
 }
+
+@media (max-width: 768px) {
+    .hero-eyebrow {
+        font-size: 10px;
+    }
+
+    .hero-title {
+        font-size: 22px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .hero-duration {
+        font-size: 10px;
+    }
+}
