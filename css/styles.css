@@ -52,12 +52,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 12px;
-    backdrop-filter: blur(8px);
 }
 
 .theme-title {
     font-size: 13px;
-    opacity: 0.9;
     margin-bottom: 10px;
 }
 
