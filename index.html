@@ -132,24 +132,26 @@
                     <div class="video-player" id="videoPlayer"></div>
                     <div class="video-info">
                         <h1 class="video-title" id="videoTitle"></h1>
-                        <div class="video-stats">
+                        <div class="video-meta">
+                            <span class="video-handle" id="videoHandle"></span>
+                            <span aria-hidden="true">•</span>
                             <span id="videoViews"></span>
-                            <span>•</span>
+                            <span aria-hidden="true">•</span>
                             <span id="videoDate"></span>
                         </div>
-                        <div class="video-actions">
-                            <button class="action-btn">
+                        <div class="video-social">
+                            <span class="video-social-item">
                                 <i data-lucide="thumbs-up"></i>
                                 <span id="videoLikes"></span>
-                            </button>
-                            <button class="action-btn">
-                                <i data-lucide="thumbs-down"></i>
-                            </button>
-                            <button class="action-btn">
+                            </span>
+                            <span class="video-social-item">
                                 <i data-lucide="share-2"></i>
                                 <span>Compartir</span>
-                            </button>
+                            </span>
                         </div>
+                        <a class="video-source" id="videoSource" href="#" target="_blank" rel="noopener noreferrer">
+                            Veure el mateix vídeo a YouTube
+                        </a>
                     </div>
                     <div class="channel-info" id="channelInfo"></div>
                     <div class="comments-section" id="commentsSection"></div>

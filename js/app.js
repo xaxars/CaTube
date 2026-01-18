@@ -756,12 +756,12 @@ async function showVideoFromAPI(videoId) {
         const video = videoResult.video;
 
         document.getElementById('videoTitle').textContent = video.title;
-        document.getElementById('videoViews').innerHTML = `
-            <i data-lucide="eye"></i>
-            ${formatViews(video.viewCount)} visualitzacions
-        `;
+        document.getElementById('videoHandle').textContent = `@${video.channelTitle}`;
+        document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
         document.getElementById('videoDate').textContent = formatDate(video.publishedAt);
         document.getElementById('videoLikes').textContent = formatViews(video.likeCount);
+        const videoSource = document.getElementById('videoSource');
+        videoSource.href = `https://www.youtube.com/watch?v=${videoId}`;
 
         // Obtenir informació del canal
         const channelResult = await YouTubeAPI.getChannelDetails(video.channelId);
@@ -1008,12 +1008,12 @@ function showVideo(videoId) {
     `;
 
     document.getElementById('videoTitle').textContent = video.title;
-    document.getElementById('videoViews').innerHTML = `
-        <i data-lucide="eye"></i>
-        ${formatViews(video.views)} visualitzacions
-    `;
+    document.getElementById('videoHandle').textContent = `@${channel.name}`;
+    document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
     document.getElementById('videoDate').textContent = formatDate(video.uploadDate);
     document.getElementById('videoLikes').textContent = formatViews(video.likes);
+    const videoSource = document.getElementById('videoSource');
+    videoSource.href = video.videoUrl.replace('embed/', 'watch?v=');
 
     const channelInfo = document.getElementById('channelInfo');
     channelInfo.innerHTML = `
