@@ -195,6 +195,11 @@ function initEventListeners() {
             selectedCategory = chip.dataset.cat || 'Tot';
             document.querySelectorAll('.chip').forEach((item) => item.classList.remove('is-active'));
             chip.classList.add('is-active');
+            const basePath = window.location.pathname.replace(/\/index\.html$/, '/');
+            history.pushState({}, '', basePath);
+            stopVideoPlayback();
+            showHome();
+            setPageTitle(getCategoryPageTitle(selectedCategory));
             renderFeed();
             return;
         }
@@ -278,6 +283,13 @@ function setPageTitle(title) {
     if (pageTitle) {
         pageTitle.textContent = title;
     }
+}
+
+function getCategoryPageTitle(category) {
+    if (!category || category === 'Tot') {
+        return 'Recomanat per a tu';
+    }
+    return category;
 }
 
 function getNewestVideoFromList(videos) {
@@ -412,11 +424,14 @@ function loadCategories() {
             item.classList.add('active');
 
             const categoryId = item.dataset.category;
+            const basePath = window.location.pathname.replace(/\/index\.html$/, '/');
+            history.pushState({}, '', basePath);
+            stopVideoPlayback();
+            showHome();
             if (useYouTubeAPI) {
                 const category = CONFIG.categories.find(c => c.id === categoryId);
                 selectedCategory = category ? category.name : 'Tot';
                 setPageTitle(category ? category.name : 'Categoria');
-                showHome();
                 renderFeed();
             } else {
                 loadVideosByCategoryStatic(categoryId);
