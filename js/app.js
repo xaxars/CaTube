@@ -756,7 +756,7 @@ async function showVideoFromAPI(videoId) {
         const video = videoResult.video;
 
         document.getElementById('videoTitle').textContent = video.title;
-        document.getElementById('videoHandle').textContent = `@${video.channelTitle}`;
+        document.getElementById('videoChannelName').textContent = video.channelTitle;
         document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
         document.getElementById('videoDate').textContent = formatDate(video.publishedAt);
         document.getElementById('videoLikes').textContent = formatViews(video.likeCount);
@@ -1008,7 +1008,7 @@ function showVideo(videoId) {
     `;
 
     document.getElementById('videoTitle').textContent = video.title;
-    document.getElementById('videoHandle').textContent = `@${channel.name}`;
+    document.getElementById('videoChannelName').textContent = channel.name;
     document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
     document.getElementById('videoDate').textContent = formatDate(video.uploadDate);
     document.getElementById('videoLikes').textContent = formatViews(video.likes);
