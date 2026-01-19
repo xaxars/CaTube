@@ -132,23 +132,21 @@
                     <div class="video-player" id="videoPlayer"></div>
                     <div class="video-info">
                         <h1 class="video-title" id="videoTitle"></h1>
-                        <div class="video-stats">
-                            <span id="videoViews"></span>
-                            <span>•</span>
-                            <span id="videoDate"></span>
-                        </div>
-                        <div class="video-actions">
-                            <button class="action-btn">
-                                <i data-lucide="thumbs-up"></i>
-                                <span id="videoLikes"></span>
-                            </button>
-                            <button class="action-btn">
-                                <i data-lucide="thumbs-down"></i>
-                            </button>
-                            <button class="action-btn">
-                                <i data-lucide="share-2"></i>
-                                <span>Compartir</span>
-                            </button>
+
+                        <div class="video-meta-row">
+                            <div class="meta-left">
+                                <div class="info-badge">
+                                    <i data-lucide="thumbs-up"></i>
+                                    <span id="videoLikes"></span>
+                                </div>
+                            </div>
+
+                            <div class="meta-right">
+                                <span id="videoViews" class="meta-views"></span>
+                                <button class="icon-btn-ghost" id="shareBtn" aria-label="Compartir">
+                                    <i data-lucide="share-2"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="channel-info" id="channelInfo"></div>

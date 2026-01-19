@@ -758,45 +758,67 @@ body.sidebar-collapsed .main-content {
 .video-title {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-.video-stats {
+.video-meta-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    gap: 12px;
     color: var(--color-text-secondary);
     font-size: 14px;
-    margin-bottom: 16px;
 }
 
-.video-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.action-btn {
+.meta-left,
+.meta-right {
     display: flex;
     align-items: center;
+    gap: 12px;
+}
+
+.info-badge {
+    display: inline-flex;
+    align-items: center;
     gap: 8px;
-    padding: 10px 16px;
+    padding: 6px 12px;
     background-color: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.info-badge svg {
+    width: 18px;
+    height: 18px;
+}
+
+.meta-views {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.icon-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     border: none;
-    border-radius: 24px;
+    background-color: transparent;
     color: var(--color-text);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
     transition: background 0.2s;
 }
 
-.action-btn:hover {
-    background-color: rgba(255,255,255,0.2);
+.icon-btn-ghost:hover {
+    background-color: rgba(255,255,255,0.15);
 }
 
-.action-btn svg {
-    width: 20px;
-    height: 20px;
+.icon-btn-ghost svg {
+    width: 18px;
+    height: 18px;
 }
 
 .channel-info {

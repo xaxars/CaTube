@@ -753,13 +753,7 @@ async function showVideoFromAPI(videoId) {
     const cachedVideo = cachedAPIVideos.find(video => video.id === videoId);
     if (cachedVideo) {
         document.getElementById('videoTitle').textContent = cachedVideo.title || '';
-        document.getElementById('videoViews').innerHTML = `
-            <i data-lucide="eye"></i>
-            ${formatViews(cachedVideo.viewCount || 0)} visualitzacions
-        `;
-        document.getElementById('videoDate').textContent = cachedVideo.publishedAt
-            ? formatDate(cachedVideo.publishedAt)
-            : '';
+        document.getElementById('videoViews').textContent = `${formatViews(cachedVideo.viewCount || 0)} visualitzacions`;
 
         const likeCountElement = document.getElementById('videoLikes');
         if (likeCountElement) {
@@ -785,13 +779,6 @@ async function showVideoFromAPI(videoId) {
         }
     }
 
-    // AMAGAR el botó de Dislike (No m'agrada) fins i tot en mode fallback
-    const dislikeIcon = document.querySelector('.action-btn i[data-lucide="thumbs-down"]');
-    if (dislikeIcon) {
-        const dislikeBtn = dislikeIcon.closest('button');
-        if (dislikeBtn) dislikeBtn.style.display = 'none';
-    }
-
     // 2. Enriquiment progressiu via API
     try {
         const videoResult = await YouTubeAPI.getVideoDetails(videoId);
@@ -801,24 +788,12 @@ async function showVideoFromAPI(videoId) {
 
             // 1. Actualitzar estadístiques principals
             document.getElementById('videoTitle').textContent = video.title;
-            document.getElementById('videoViews').innerHTML = `
-                <i data-lucide="eye"></i>
-                ${formatViews(video.viewCount)} visualitzacions
-            `;
-            document.getElementById('videoDate').textContent = formatDate(video.publishedAt);
+            document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
 
             // 2. Mostrar Likes
             const likeCountElement = document.getElementById('videoLikes');
             if (likeCountElement) {
                 likeCountElement.textContent = formatViews(video.likeCount);
-            }
-
-            // 3. AMAGAR el botó de Dislike (No m'agrada)
-            // Busquem el botó que conté la icona thumbs-down
-            const dislikeIcon = document.querySelector('.action-btn i[data-lucide="thumbs-down"]');
-            if (dislikeIcon) {
-                const dislikeBtn = dislikeIcon.closest('button');
-                if (dislikeBtn) dislikeBtn.style.display = 'none';
             }
 
             // Obtenir informació del canal
@@ -1071,24 +1046,12 @@ function showVideo(videoId) {
 
     // 1. Actualitzar estadístiques principals
     document.getElementById('videoTitle').textContent = video.title;
-    document.getElementById('videoViews').innerHTML = `
-        <i data-lucide="eye"></i>
-        ${formatViews(video.views)} visualitzacions
-    `;
-    document.getElementById('videoDate').textContent = formatDate(video.uploadDate);
+    document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
 
     // 2. Mostrar Likes
     const likeCountElement = document.getElementById('videoLikes');
     if (likeCountElement) {
         likeCountElement.textContent = formatViews(video.likes);
-    }
-
-    // 3. AMAGAR el botó de Dislike (No m'agrada)
-    // Busquem el botó que conté la icona thumbs-down
-    const dislikeIcon = document.querySelector('.action-btn i[data-lucide="thumbs-down"]');
-    if (dislikeIcon) {
-        const dislikeBtn = dislikeIcon.closest('button');
-        if (dislikeBtn) dislikeBtn.style.display = 'none';
     }
 
     const channelInfo = document.getElementById('channelInfo');
