@@ -786,11 +786,27 @@ body.sidebar-collapsed .main-content {
     border-radius: 999px;
     color: var(--color-text);
     font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .info-badge svg {
     width: 18px;
     height: 18px;
+    fill: transparent;
+    stroke: currentColor;
+    transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+}
+
+.info-badge.liked {
+    color: #ff0000;
+}
+
+.info-badge.liked svg {
+    fill: currentColor;
+    stroke: currentColor;
+    transform: scale(1.08);
 }
 
 .meta-views {

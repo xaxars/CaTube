@@ -659,6 +659,93 @@ function closeShortModal() {
     document.body.classList.remove('no-scroll');
 }
 
+function getLikedVideoIds() {
+    const stored = localStorage.getItem('user_liked_videos');
+    if (!stored) {
+        return [];
+    }
+    try {
+        const parsed = JSON.parse(stored);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.warn('No es pot llegir user_liked_videos', error);
+        return [];
+    }
+}
+
+function setLikedVideoIds(ids) {
+    localStorage.setItem('user_liked_videos', JSON.stringify(ids));
+}
+
+function setupLikeBadge(videoId, likeCount) {
+    const likeBadge = document.querySelector('.info-badge');
+    if (!likeBadge) {
+        return;
+    }
+
+    const likeIcon = likeBadge.querySelector('i[data-lucide]');
+    if (likeIcon && likeIcon.getAttribute('data-lucide') !== 'heart') {
+        likeIcon.setAttribute('data-lucide', 'heart');
+    }
+
+    const likeCountElement = likeBadge.querySelector('#videoLikes');
+    const normalizedId = String(videoId);
+    const parsedLikes = Number(likeCount);
+    const baseLikes = Number.isFinite(parsedLikes) ? parsedLikes : 0;
+
+    likeBadge.setAttribute('role', 'button');
+    likeBadge.setAttribute('tabindex', '0');
+    likeBadge.dataset.videoId = normalizedId;
+    likeBadge.dataset.baseLikes = String(baseLikes);
+
+    const likedIds = getLikedVideoIds();
+    const isLiked = likedIds.includes(normalizedId);
+    likeBadge.classList.toggle('liked', isLiked);
+    likeBadge.setAttribute('aria-pressed', isLiked ? 'true' : 'false');
+
+    if (likeCountElement) {
+        const displayLikes = baseLikes + (isLiked ? 1 : 0);
+        likeCountElement.textContent = formatViews(displayLikes);
+    }
+
+    if (likeBadge._likeHandler) {
+        likeBadge.removeEventListener('click', likeBadge._likeHandler);
+        likeBadge.removeEventListener('keydown', likeBadge._likeHandler);
+    }
+
+    likeBadge._likeHandler = (event) => {
+        if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') {
+            return;
+        }
+        if (event.type === 'keydown') {
+            event.preventDefault();
+        }
+
+        const ids = getLikedVideoIds();
+        const wasLiked = ids.includes(normalizedId);
+        const nextIds = wasLiked
+            ? ids.filter(id => id !== normalizedId)
+            : [...ids, normalizedId];
+        setLikedVideoIds(nextIds);
+
+        const isNowLiked = !wasLiked;
+        likeBadge.classList.toggle('liked', isNowLiked);
+        likeBadge.setAttribute('aria-pressed', isNowLiked ? 'true' : 'false');
+
+        if (likeCountElement) {
+            const updatedLikes = baseLikes + (isNowLiked ? 1 : 0);
+            likeCountElement.textContent = formatViews(updatedLikes);
+        }
+    };
+
+    likeBadge.addEventListener('click', likeBadge._likeHandler);
+    likeBadge.addEventListener('keydown', likeBadge._likeHandler);
+
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
 // Renderitzar resultats de cerca (sense estadístiques)
 function renderSearchResults(videos) {
     const newest = getNewestVideoFromList(videos);
@@ -755,10 +842,7 @@ async function showVideoFromAPI(videoId) {
         document.getElementById('videoTitle').textContent = cachedVideo.title || '';
         document.getElementById('videoViews').textContent = `${formatViews(cachedVideo.viewCount || 0)} visualitzacions`;
 
-        const likeCountElement = document.getElementById('videoLikes');
-        if (likeCountElement) {
-            likeCountElement.textContent = formatViews(cachedVideo.likeCount || 0);
-        }
+        setupLikeBadge(videoId, cachedVideo.likeCount || 0);
 
         const channelInfo = document.getElementById('channelInfo');
         if (channelInfo) {
@@ -791,10 +875,7 @@ async function showVideoFromAPI(videoId) {
             document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
 
             // 2. Mostrar Likes
-            const likeCountElement = document.getElementById('videoLikes');
-            if (likeCountElement) {
-                likeCountElement.textContent = formatViews(video.likeCount);
-            }
+            setupLikeBadge(videoId, video.likeCount);
 
             // Obtenir informació del canal
             const channelResult = await YouTubeAPI.getChannelDetails(video.channelId);
@@ -1049,10 +1130,7 @@ function showVideo(videoId) {
     document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
 
     // 2. Mostrar Likes
-    const likeCountElement = document.getElementById('videoLikes');
-    if (likeCountElement) {
-        likeCountElement.textContent = formatViews(video.likes);
-    }
+    setupLikeBadge(videoId, video.likes);
 
     const channelInfo = document.getElementById('channelInfo');
     const channelUrl = `https://www.youtube.com/channel/${channel.id}`;
