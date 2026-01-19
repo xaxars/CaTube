@@ -677,36 +677,21 @@ function setLikedVideoIds(ids) {
     localStorage.setItem('user_liked_videos', JSON.stringify(ids));
 }
 
-function setupLikeBadge(videoId, likeCount) {
-    const likeBadge = document.querySelector('.info-badge');
+function setupLikeBadge(videoId) {
+    const likeBadge = document.getElementById('likeToggle');
     if (!likeBadge) {
         return;
     }
 
-    const likeIcon = likeBadge.querySelector('i[data-lucide]');
-    if (likeIcon && likeIcon.getAttribute('data-lucide') !== 'heart') {
-        likeIcon.setAttribute('data-lucide', 'heart');
-    }
-
-    const likeCountElement = likeBadge.querySelector('#videoLikes');
     const normalizedId = String(videoId);
-    const parsedLikes = Number(likeCount);
-    const baseLikes = Number.isFinite(parsedLikes) ? parsedLikes : 0;
 
     likeBadge.setAttribute('role', 'button');
-    likeBadge.setAttribute('tabindex', '0');
     likeBadge.dataset.videoId = normalizedId;
-    likeBadge.dataset.baseLikes = String(baseLikes);
 
     const likedIds = getLikedVideoIds();
     const isLiked = likedIds.includes(normalizedId);
     likeBadge.classList.toggle('liked', isLiked);
     likeBadge.setAttribute('aria-pressed', isLiked ? 'true' : 'false');
-
-    if (likeCountElement) {
-        const displayLikes = baseLikes + (isLiked ? 1 : 0);
-        likeCountElement.textContent = formatViews(displayLikes);
-    }
 
     if (likeBadge._likeHandler) {
         likeBadge.removeEventListener('click', likeBadge._likeHandler);
@@ -732,18 +717,10 @@ function setupLikeBadge(videoId, likeCount) {
         likeBadge.classList.toggle('liked', isNowLiked);
         likeBadge.setAttribute('aria-pressed', isNowLiked ? 'true' : 'false');
 
-        if (likeCountElement) {
-            const updatedLikes = baseLikes + (isNowLiked ? 1 : 0);
-            likeCountElement.textContent = formatViews(updatedLikes);
-        }
     };
 
     likeBadge.addEventListener('click', likeBadge._likeHandler);
     likeBadge.addEventListener('keydown', likeBadge._likeHandler);
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
 }
 
 // Renderitzar resultats de cerca (sense estadístiques)
@@ -842,7 +819,7 @@ async function showVideoFromAPI(videoId) {
         document.getElementById('videoTitle').textContent = cachedVideo.title || '';
         document.getElementById('videoViews').textContent = `${formatViews(cachedVideo.viewCount || 0)} visualitzacions`;
 
-        setupLikeBadge(videoId, cachedVideo.likeCount || 0);
+        setupLikeBadge(videoId);
 
         const channelInfo = document.getElementById('channelInfo');
         if (channelInfo) {
@@ -875,7 +852,7 @@ async function showVideoFromAPI(videoId) {
             document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
 
             // 2. Mostrar Likes
-            setupLikeBadge(videoId, video.likeCount);
+            setupLikeBadge(videoId);
 
             // Obtenir informació del canal
             const channelResult = await YouTubeAPI.getChannelDetails(video.channelId);
@@ -1130,7 +1107,7 @@ function showVideo(videoId) {
     document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
 
     // 2. Mostrar Likes
-    setupLikeBadge(videoId, video.likes);
+    setupLikeBadge(videoId);
 
     const channelInfo = document.getElementById('channelInfo');
     const channelUrl = `https://www.youtube.com/channel/${channel.id}`;
