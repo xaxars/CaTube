@@ -885,6 +885,12 @@ body.sidebar-collapsed .main-content {
     margin-bottom: 4px;
 }
 
+@media (min-width: 1024px) {
+    .channel-name-large {
+        font-size: 17px;
+    }
+}
+
 .channel-subscribers {
     font-size: 12px;
     color: var(--color-text-secondary);
