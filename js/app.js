@@ -823,6 +823,9 @@ async function showVideoFromAPI(videoId) {
     const cachedVideo = cachedAPIVideos.find(video => video.id === videoId);
     if (cachedVideo) {
         document.getElementById('videoTitle').textContent = cachedVideo.title || '';
+        document.getElementById('videoDate').textContent = cachedVideo.publishedAt
+            ? formatDate(cachedVideo.publishedAt)
+            : '';
         document.getElementById('videoViews').textContent = `${formatViews(cachedVideo.viewCount || 0)} visualitzacions`;
 
         const channelInfo = document.getElementById('channelInfo');
@@ -860,6 +863,7 @@ async function showVideoFromAPI(videoId) {
 
             // 1. Actualitzar estadístiques principals
             document.getElementById('videoTitle').textContent = video.title;
+            document.getElementById('videoDate').textContent = formatDate(video.publishedAt);
             document.getElementById('videoViews').textContent = `${formatViews(video.viewCount)} visualitzacions`;
 
             // Obtenir informació del canal
@@ -1119,6 +1123,7 @@ function showVideo(videoId) {
 
     // 1. Actualitzar estadístiques principals
     document.getElementById('videoTitle').textContent = video.title;
+    document.getElementById('videoDate').textContent = formatDate(video.uploadDate);
     document.getElementById('videoViews').textContent = `${formatViews(video.views)} visualitzacions`;
 
     // 2. Mostrar Likes

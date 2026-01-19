@@ -764,7 +764,7 @@ body.sidebar-collapsed .main-content {
 .video-meta-row {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 12px;
     color: var(--color-text-secondary);
     font-size: 14px;
@@ -816,6 +816,10 @@ body.sidebar-collapsed .main-content {
 .meta-views {
     color: var(--color-text-secondary);
     font-weight: 500;
+}
+
+.meta-dot {
+    color: var(--color-text-secondary);
 }
 
 .icon-btn-ghost {
@@ -873,6 +877,20 @@ body.sidebar-collapsed .main-content {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+@media (min-width: 1024px) {
+    .video-title {
+        font-size: 40px;
+    }
+
+    .video-meta-row {
+        font-size: 28px;
+    }
+
+    .channel-name-large {
+        font-size: 32px;
+    }
 }
 
 .channel-subscribers {
