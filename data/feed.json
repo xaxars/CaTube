@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-01-20T05:35:21.430Z",
+  "generatedAt": "2026-01-20T06:47:00.239Z",
   "videos": [
+    {
+      "id": "u66_6odnN0E",
+      "title": "🎴 Juguem en directe: DEAD CELLS de Devir | Un roguelite de taula",
+      "thumbnail": "https://i.ytimg.com/vi/u66_6odnN0E/mqdefault.jpg",
+      "channelId": "UChOzqUp9V9AQPB4WzOhu-Xw",
+      "channelTitle": "Aya_ZholvaX: Jocs de taula",
+      "publishedAt": "2026-01-20T06:37:29Z",
+      "categories": [
+        "gaming",
+        "cultura"
+      ],
+      "sourceChannelId": "@AyaZholvaX",
+      "duration": "PT1H39M27S",
+      "durationSeconds": 5967,
+      "isShort": false,
+      "viewCount": 21,
+      "likeCount": 4,
+      "commentCount": 0
+    },
     {
       "id": "ZF7hXf91tls",
       "title": "Un accident estrany a Adamuz i l'estranya malaltia de Salvador Illa. Tot molt estrany /2026 01 19",
@@ -15,28 +34,9 @@
       "duration": "PT38M43S",
       "durationSeconds": 2323,
       "isShort": false,
-      "viewCount": 239,
-      "likeCount": 64,
-      "commentCount": 22
-    },
-    {
-      "id": "u66_6odnN0E",
-      "title": "🎴 Juguem en directe: DEAD CELLS de Devir | Un roguelite de taula",
-      "thumbnail": "https://i.ytimg.com/vi/u66_6odnN0E/mqdefault_live.jpg",
-      "channelId": "UChOzqUp9V9AQPB4WzOhu-Xw",
-      "channelTitle": "Aya_ZholvaX: Jocs de taula",
-      "publishedAt": "2026-01-19T16:23:32Z",
-      "categories": [
-        "gaming",
-        "cultura"
-      ],
-      "sourceChannelId": "@AyaZholvaX",
-      "duration": "PT1H39M28S",
-      "durationSeconds": 5968,
-      "isShort": false,
-      "viewCount": 21,
-      "likeCount": 4,
-      "commentCount": 0
+      "viewCount": 273,
+      "likeCount": 73,
+      "commentCount": 23
     },
     {
       "id": "9Pthe4kKb_Q",
@@ -71,9 +71,9 @@
       "duration": "PT15M21S",
       "durationSeconds": 921,
       "isShort": false,
-      "viewCount": 8716,
-      "likeCount": 1012,
-      "commentCount": 108
+      "viewCount": 8747,
+      "likeCount": 1019,
+      "commentCount": 111
     },
     {
       "id": "STZqF2Oq0hM",
@@ -127,7 +127,7 @@
       "durationSeconds": 2782,
       "isShort": false,
       "viewCount": 1159,
-      "likeCount": 220,
+      "likeCount": 221,
       "commentCount": 69
     },
     {
@@ -237,8 +237,8 @@
       "duration": "PT1H6M17S",
       "durationSeconds": 3977,
       "isShort": false,
-      "viewCount": 66371,
-      "likeCount": 1385,
+      "viewCount": 66438,
+      "likeCount": 1386,
       "commentCount": 78
     },
     {
@@ -549,7 +549,7 @@
       "duration": "PT30M28S",
       "durationSeconds": 1828,
       "isShort": false,
-      "viewCount": 1243,
+      "viewCount": 1244,
       "likeCount": 203,
       "commentCount": 64
     },
@@ -640,8 +640,8 @@
       "duration": "PT18M58S",
       "durationSeconds": 1138,
       "isShort": false,
-      "viewCount": 15162,
-      "likeCount": 1434,
+      "viewCount": 15164,
+      "likeCount": 1435,
       "commentCount": 160
     },
     {
@@ -788,7 +788,7 @@
       "duration": "PT1H11M54S",
       "durationSeconds": 4314,
       "isShort": false,
-      "viewCount": 91277,
+      "viewCount": 91282,
       "likeCount": 1919,
       "commentCount": 109
     },
@@ -1027,7 +1027,7 @@
       "duration": "PT12M",
       "durationSeconds": 720,
       "isShort": false,
-      "viewCount": 288,
+      "viewCount": 289,
       "likeCount": 32,
       "commentCount": 3
     },
