@@ -14,9 +14,9 @@ window.FEED_UPDATES = [
     "duration": "PT38M43S",
     "durationSeconds": 2323,
     "isShort": false,
-    "viewCount": 88,
-    "likeCount": 19,
-    "commentCount": 14
+    "viewCount": 177,
+    "likeCount": 47,
+    "commentCount": 22
   },
   {
     "id": "u66_6odnN0E",
@@ -33,7 +33,7 @@ window.FEED_UPDATES = [
     "duration": "PT1H39M28S",
     "durationSeconds": 5968,
     "isShort": false,
-    "viewCount": 18,
+    "viewCount": 21,
     "likeCount": 4,
     "commentCount": 0
   },
@@ -70,9 +70,9 @@ window.FEED_UPDATES = [
     "duration": "PT15M21S",
     "durationSeconds": 921,
     "isShort": false,
-    "viewCount": 7148,
-    "likeCount": 963,
-    "commentCount": 103
+    "viewCount": 8600,
+    "likeCount": 1001,
+    "commentCount": 105
   },
   {
     "id": "STZqF2Oq0hM",
@@ -107,8 +107,8 @@ window.FEED_UPDATES = [
     "duration": "PT18M12S",
     "durationSeconds": 1092,
     "isShort": false,
-    "viewCount": 12442,
-    "likeCount": 1213,
+    "viewCount": 12762,
+    "likeCount": 1222,
     "commentCount": 143
   },
   {
@@ -236,8 +236,8 @@ window.FEED_UPDATES = [
     "duration": "PT1H6M17S",
     "durationSeconds": 3977,
     "isShort": false,
-    "viewCount": 66013,
-    "likeCount": 1385,
+    "viewCount": 66351,
+    "likeCount": 1384,
     "commentCount": 78
   },
   {
@@ -254,7 +254,7 @@ window.FEED_UPDATES = [
     "duration": "PT45M22S",
     "durationSeconds": 2722,
     "isShort": false,
-    "viewCount": 1098,
+    "viewCount": 1101,
     "likeCount": 202,
     "commentCount": 41
   },
@@ -272,8 +272,8 @@ window.FEED_UPDATES = [
     "duration": "PT1M12S",
     "durationSeconds": 72,
     "isShort": true,
-    "viewCount": 3020,
-    "likeCount": 79,
+    "viewCount": 3049,
+    "likeCount": 80,
     "commentCount": 3
   },
   {
@@ -290,8 +290,8 @@ window.FEED_UPDATES = [
     "duration": "PT17M59S",
     "durationSeconds": 1079,
     "isShort": false,
-    "viewCount": 14085,
-    "likeCount": 1126,
+    "viewCount": 14097,
+    "likeCount": 1127,
     "commentCount": 119
   },
   {
@@ -327,7 +327,7 @@ window.FEED_UPDATES = [
     "duration": "PT1M9S",
     "durationSeconds": 69,
     "isShort": true,
-    "viewCount": 4740,
+    "viewCount": 4767,
     "likeCount": 138,
     "commentCount": 3
   },
@@ -382,7 +382,7 @@ window.FEED_UPDATES = [
     "duration": "PT15M40S",
     "durationSeconds": 940,
     "isShort": false,
-    "viewCount": 14599,
+    "viewCount": 14630,
     "likeCount": 1203,
     "commentCount": 158
   },
@@ -419,8 +419,8 @@ window.FEED_UPDATES = [
     "duration": "PT13M51S",
     "durationSeconds": 831,
     "isShort": false,
-    "viewCount": 14516,
-    "likeCount": 1327,
+    "viewCount": 14558,
+    "likeCount": 1328,
     "commentCount": 185
   },
   {
@@ -437,7 +437,7 @@ window.FEED_UPDATES = [
     "duration": "PT13M46S",
     "durationSeconds": 826,
     "isShort": false,
-    "viewCount": 14285,
+    "viewCount": 14297,
     "likeCount": 1372,
     "commentCount": 153
   },
@@ -492,7 +492,7 @@ window.FEED_UPDATES = [
     "duration": "PT17M20S",
     "durationSeconds": 1040,
     "isShort": false,
-    "viewCount": 15496,
+    "viewCount": 15520,
     "likeCount": 1322,
     "commentCount": 147
   },
@@ -566,7 +566,7 @@ window.FEED_UPDATES = [
     "duration": "PT19M21S",
     "durationSeconds": 1161,
     "isShort": false,
-    "viewCount": 14475,
+    "viewCount": 14485,
     "likeCount": 1257,
     "commentCount": 121
   },
@@ -603,7 +603,7 @@ window.FEED_UPDATES = [
     "duration": "PT30M7S",
     "durationSeconds": 1807,
     "isShort": false,
-    "viewCount": 1217,
+    "viewCount": 1221,
     "likeCount": 180,
     "commentCount": 49
   },
@@ -621,7 +621,7 @@ window.FEED_UPDATES = [
     "duration": "PT2H4M43S",
     "durationSeconds": 7483,
     "isShort": false,
-    "viewCount": 14717,
+    "viewCount": 14723,
     "likeCount": 977,
     "commentCount": 56
   },
@@ -639,7 +639,7 @@ window.FEED_UPDATES = [
     "duration": "PT18M58S",
     "durationSeconds": 1138,
     "isShort": false,
-    "viewCount": 15139,
+    "viewCount": 15162,
     "likeCount": 1434,
     "commentCount": 160
   },
@@ -733,7 +733,7 @@ window.FEED_UPDATES = [
     "duration": "PT37M38S",
     "durationSeconds": 2258,
     "isShort": false,
-    "viewCount": 587,
+    "viewCount": 589,
     "likeCount": 41,
     "commentCount": 9
   },
@@ -751,8 +751,8 @@ window.FEED_UPDATES = [
     "duration": "PT1M33S",
     "durationSeconds": 93,
     "isShort": true,
-    "viewCount": 2578,
-    "likeCount": 60,
+    "viewCount": 2584,
+    "likeCount": 61,
     "commentCount": 1
   },
   {
@@ -769,7 +769,7 @@ window.FEED_UPDATES = [
     "duration": "PT1M15S",
     "durationSeconds": 75,
     "isShort": true,
-    "viewCount": 2741,
+    "viewCount": 2745,
     "likeCount": 47,
     "commentCount": 0
   },
@@ -787,8 +787,8 @@ window.FEED_UPDATES = [
     "duration": "PT1H11M54S",
     "durationSeconds": 4314,
     "isShort": false,
-    "viewCount": 91211,
-    "likeCount": 1920,
+    "viewCount": 91250,
+    "likeCount": 1919,
     "commentCount": 109
   },
   {
@@ -805,7 +805,7 @@ window.FEED_UPDATES = [
     "duration": "PT40S",
     "durationSeconds": 40,
     "isShort": true,
-    "viewCount": 4878,
+    "viewCount": 4888,
     "likeCount": 72,
     "commentCount": 3
   },
@@ -823,7 +823,7 @@ window.FEED_UPDATES = [
     "duration": "PT1M14S",
     "durationSeconds": 74,
     "isShort": true,
-    "viewCount": 4001,
+    "viewCount": 4003,
     "likeCount": 67,
     "commentCount": 1
   },
@@ -936,7 +936,7 @@ window.FEED_UPDATES = [
     "duration": "PT1M14S",
     "durationSeconds": 74,
     "isShort": true,
-    "viewCount": 406,
+    "viewCount": 407,
     "likeCount": 12,
     "commentCount": 0
   },
@@ -972,7 +972,7 @@ window.FEED_UPDATES = [
     "duration": "PT51S",
     "durationSeconds": 51,
     "isShort": true,
-    "viewCount": 4069,
+    "viewCount": 4072,
     "likeCount": 76,
     "commentCount": 0
   },
@@ -990,7 +990,7 @@ window.FEED_UPDATES = [
     "duration": "PT1M16S",
     "durationSeconds": 76,
     "isShort": true,
-    "viewCount": 2447,
+    "viewCount": 2449,
     "likeCount": 80,
     "commentCount": 3
   },
@@ -1267,7 +1267,7 @@ window.FEED_UPDATES = [
     "duration": "PT40M9S",
     "durationSeconds": 2409,
     "isShort": false,
-    "viewCount": 851,
+    "viewCount": 852,
     "likeCount": 52,
     "commentCount": 2
   },
