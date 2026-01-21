@@ -933,6 +933,8 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
     if (!videoPlayer) {
         return;
     }
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        || window.matchMedia('(max-width: 768px)').matches;
     if (videoId) {
         videoPlayer.dataset.playingVideoId = videoId;
     }
@@ -940,7 +942,7 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         ? `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD`
         : addAutoplayParam(videoUrl);
     const existingIframe = videoPlayer.querySelector('iframe');
-    if (existingIframe) {
+    if (!isMobile && existingIframe) {
         existingIframe.src = iframeSrc;
         return;
     }
