@@ -1229,20 +1229,11 @@ async function showVideoFromAPI(videoId) {
 
     // 1. Renderitzat immediat des del catxé si està disponible
     const cachedVideo = cachedAPIVideos.find(video => video.id === videoId);
-    if (isMini) {
-        queuePlayback({
-            videoId,
-            source: 'api',
-            thumbnail: cachedVideo?.thumbnail || '',
-            title: cachedVideo?.title || ''
-        });
-    } else {
-        updatePlayerIframe({ source: 'api', videoId });
-        preparePlayerForPlayback({
-            thumbnail: cachedVideo?.thumbnail || '',
-            title: cachedVideo?.title || ''
-        });
-    }
+    updatePlayerIframe({ source: 'api', videoId });
+    preparePlayerForPlayback({
+        thumbnail: cachedVideo?.thumbnail || '',
+        title: cachedVideo?.title || ''
+    });
     if (cachedVideo) {
         addToHistory({
             ...cachedVideo,
@@ -1294,16 +1285,7 @@ async function showVideoFromAPI(videoId) {
                 ...video,
                 historySource: 'api'
             });
-            if (isMini) {
-                queuePlayback({
-                    videoId,
-                    source: 'api',
-                    thumbnail: video.thumbnail,
-                    title: video.title
-                });
-            } else {
-                setPlaceholderImage(video.thumbnail, video.title);
-            }
+            setPlaceholderImage(video.thumbnail, video.title);
 
             // 1. Actualitzar estadístiques principals
             document.getElementById('videoTitle').textContent = video.title;
@@ -1594,25 +1576,15 @@ function showVideo(videoId) {
     homePage.classList.add('hidden');
     watchPage.classList.remove('hidden');
 
-    if (isMini) {
-        queuePlayback({
-            videoId,
-            source: 'static',
-            videoUrl: video.videoUrl,
-            thumbnail: video.thumbnail,
-            title: video.title
-        });
-    } else {
-        updatePlayerIframe({
-            source: 'static',
-            videoId,
-            videoUrl: video.videoUrl
-        });
-        preparePlayerForPlayback({
-            thumbnail: video.thumbnail,
-            title: video.title
-        });
-    }
+    updatePlayerIframe({
+        source: 'static',
+        videoId,
+        videoUrl: video.videoUrl
+    });
+    preparePlayerForPlayback({
+        thumbnail: video.thumbnail,
+        title: video.title
+    });
 
     // 1. Actualitzar estadístiques principals
     document.getElementById('videoTitle').textContent = video.title;
