@@ -922,11 +922,16 @@ function addAutoplayParam(url) {
     if (!url) {
         return url;
     }
-    if (url.includes('autoplay=1')) {
-        return url;
+    let newUrl = url;
+    if (!newUrl.includes('playsinline=1')) {
+        const separator = newUrl.includes('?') ? '&' : '?';
+        newUrl = `${newUrl}${separator}playsinline=1`;
     }
-    const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}autoplay=1`;
+    if (!newUrl.includes('autoplay=1')) {
+        const separator = newUrl.includes('?') ? '&' : '?';
+        newUrl = `${newUrl}${separator}autoplay=1`;
+    }
+    return newUrl;
 }
 
 function updatePlayerIframe({ source, videoId, videoUrl }) {
