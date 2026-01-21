@@ -918,13 +918,24 @@ function loadNewVideoInMiniPlayer(videoId, source, videoUrl, thumbnail, title) {
     setupMiniPlayerToggle();
 }
 
+function addAutoplayParam(url) {
+    if (!url) {
+        return url;
+    }
+    if (url.includes('autoplay=1')) {
+        return url;
+    }
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}autoplay=1`;
+}
+
 function updatePlayerIframe({ source, videoId, videoUrl }) {
     if (!videoPlayer) {
         return;
     }
     const iframeSrc = source === 'api'
         ? `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD`
-        : videoUrl;
+        : addAutoplayParam(videoUrl);
     const existingIframe = videoPlayer.querySelector('iframe');
     if (existingIframe) {
         existingIframe.src = iframeSrc;
