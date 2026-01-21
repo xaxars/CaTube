@@ -929,6 +929,13 @@ body.sidebar-collapsed .main-content {
     stroke-width: 2.5;
 }
 
+button:disabled,
+.icon-btn-ghost:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 #videoPlayer:not(.mini-player-active) .drag-handle,
 #videoPlayer:not(.mini-player-active) .close-mini-player-btn,
 #videoPlayer:not(.mini-player-active) .expand-mini-player-btn {

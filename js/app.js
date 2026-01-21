@@ -1196,9 +1196,10 @@ function updateMiniPlayerToggleIcon(isActive) {
     if (!miniToggle) {
         return;
     }
+    miniToggle.disabled = isActive;
     miniToggle.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     miniToggle.setAttribute('aria-label', isActive ? 'Restaurar reproductor' : 'Mini reproductor');
-    miniToggle.innerHTML = `<i data-lucide="${isActive ? 'maximize-2' : 'minimize-2'}"></i>`;
+    miniToggle.innerHTML = `<i data-lucide="minimize-2"></i>`;
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
