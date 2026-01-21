@@ -43,13 +43,13 @@
         </form>
 
         <nav class="actions" aria-label="Navegació">
-            <a class="icon-btn" href="/library" aria-label="Biblioteca" title="Biblioteca">
+            <a class="icon-btn nav-trigger" href="#" data-page="library" aria-label="Biblioteca" title="Biblioteca">
                 <i data-lucide="library"></i>
             </a>
-            <a class="icon-btn" href="/history" aria-label="Historial" title="Historial">
+            <a class="icon-btn nav-trigger" href="#" data-page="history" aria-label="Historial" title="Historial">
                 <i data-lucide="history"></i>
             </a>
-            <a class="icon-btn" href="/subscriptions" aria-label="Subscripcions" title="Subscripcions">
+            <a class="icon-btn nav-trigger" href="#" data-page="subscriptions" aria-label="Subscripcions" title="Subscripcions">
                 <i data-lucide="users"></i>
             </a>
             <button class="icon-btn" id="backgroundBtn" type="button" aria-label="Color de fons" title="Color de fons">
@@ -150,6 +150,22 @@
             </div>
         </div>
     </main>
+
+    <div id="historyPage" class="main-content hidden">
+        <h1 class="page-title">Historial</h1>
+        <section class="chips-bar history-filters" id="historyFilters" aria-label="Filtres d'historial">
+            <button class="chip is-active" data-history-cat="Tot" type="button" aria-pressed="true">Tot</button>
+            <button class="chip" data-history-cat="Vida" type="button" aria-pressed="false">Vida</button>
+            <button class="chip" data-history-cat="Cultura" type="button" aria-pressed="false">Cultura</button>
+            <button class="chip" data-history-cat="Humor" type="button" aria-pressed="false">Humor</button>
+            <button class="chip" data-history-cat="Societat" type="button" aria-pressed="false">Societat</button>
+            <button class="chip" data-history-cat="Gaming" type="button" aria-pressed="false">Gaming</button>
+            <button class="chip" data-history-filter="liked" type="button" aria-pressed="false" aria-label="Només m'agrada">
+                <i data-lucide="heart"></i>
+            </button>
+        </section>
+        <div class="videos-grid" id="historyGrid"></div>
+    </div>
 
     <div id="short-modal" class="short-modal hidden" aria-hidden="true">
         <div class="short-modal-backdrop" onclick="closeShortModal()"></div>
