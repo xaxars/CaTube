@@ -790,6 +790,65 @@ function setupLikeBadge(videoId) {
     likeBadge.addEventListener('keydown', likeBadge._likeHandler);
 }
 
+function setupMiniPlayerToggle() {
+    const miniToggle = document.getElementById('miniPlayerToggle');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const watchMain = document.querySelector('.watch-main');
+
+    if (!miniToggle || !videoPlayer || !watchMain) {
+        return;
+    }
+
+    const updateToggleIcon = (isActive) => {
+        miniToggle.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        miniToggle.setAttribute('aria-label', isActive ? 'Restaurar reproductor' : 'Mini reproductor');
+        miniToggle.innerHTML = `<i data-lucide="${isActive ? 'maximize-2' : 'minimize-2'}"></i>`;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    };
+
+    const applyPlaceholder = (height) => {
+        watchMain.style.setProperty('--mini-player-placeholder-height', height);
+        watchMain.classList.add('mini-player-placeholder');
+    };
+
+    const clearPlaceholder = () => {
+        watchMain.classList.remove('mini-player-placeholder');
+        watchMain.style.removeProperty('--mini-player-placeholder-height');
+    };
+
+    const setMiniPlayerState = (isActive) => {
+        if (isActive) {
+            const placeholderHeight = videoPlayer.dataset.normalHeight
+                || `${videoPlayer.getBoundingClientRect().height + 16}px`;
+            applyPlaceholder(placeholderHeight);
+        } else {
+            clearPlaceholder();
+            delete videoPlayer.dataset.normalHeight;
+        }
+
+        videoPlayer.classList.toggle('mini-player-active', isActive);
+        updateToggleIcon(isActive);
+    };
+
+    if (miniToggle._miniHandler) {
+        miniToggle.removeEventListener('click', miniToggle._miniHandler);
+    }
+
+    miniToggle._miniHandler = () => {
+        const isActive = videoPlayer.classList.contains('mini-player-active');
+        if (!isActive) {
+            const rect = videoPlayer.getBoundingClientRect();
+            videoPlayer.dataset.normalHeight = `${rect.height + 16}px`;
+        }
+        setMiniPlayerState(!isActive);
+    };
+
+    miniToggle.addEventListener('click', miniToggle._miniHandler);
+    setMiniPlayerState(videoPlayer.classList.contains('mini-player-active'));
+}
+
 // Renderitzar resultats de cerca (sense estadístiques)
 function renderSearchResults(videos) {
     const newest = getNewestVideoFromList(videos);
@@ -917,6 +976,9 @@ async function showVideoFromAPI(videoId) {
                         <button class="info-badge" id="likeToggle" type="button" aria-pressed="false" aria-label="M'agrada">
                             ${HEART_TOGGLE_SVG}
                         </button>
+                        <button class="icon-btn-ghost" id="miniPlayerToggle" type="button" aria-label="Mini reproductor" aria-pressed="false">
+                            <i data-lucide="minimize-2"></i>
+                        </button>
                         <button class="icon-btn-ghost" id="shareBtn" aria-label="Compartir">
                             <i data-lucide="share-2"></i>
                         </button>
@@ -925,6 +987,7 @@ async function showVideoFromAPI(videoId) {
                 <div class="video-description"></div>
             `;
             setupLikeBadge(videoId);
+            setupMiniPlayerToggle();
         }
     }
 
@@ -963,6 +1026,9 @@ async function showVideoFromAPI(videoId) {
                             <button class="info-badge" id="likeToggle" type="button" aria-pressed="false" aria-label="M'agrada">
                                 ${HEART_TOGGLE_SVG}
                             </button>
+                            <button class="icon-btn-ghost" id="miniPlayerToggle" type="button" aria-label="Mini reproductor" aria-pressed="false">
+                                <i data-lucide="minimize-2"></i>
+                            </button>
                             <button class="icon-btn-ghost" id="shareBtn" aria-label="Compartir">
                                 <i data-lucide="share-2"></i>
                             </button>
@@ -971,6 +1037,7 @@ async function showVideoFromAPI(videoId) {
                     <div class="video-description">${escapeHtml(video.description).substring(0, 500)}${video.description.length > 500 ? '...' : ''}</div>
                 `;
                 setupLikeBadge(videoId);
+                setupMiniPlayerToggle();
             }
         }
     } catch (error) {
@@ -1162,8 +1229,15 @@ function stopVideoPlayback() {
         return;
     }
     const videoPlayer = document.getElementById('videoPlayer');
+    const watchMain = document.querySelector('.watch-main');
     if (videoPlayer) {
         videoPlayer.innerHTML = '';
+        videoPlayer.classList.remove('mini-player-active');
+        delete videoPlayer.dataset.normalHeight;
+    }
+    if (watchMain) {
+        watchMain.classList.remove('mini-player-placeholder');
+        watchMain.style.removeProperty('--mini-player-placeholder-height');
     }
     currentVideoId = null;
 }
@@ -1242,6 +1316,9 @@ function showVideo(videoId) {
                 <button class="info-badge" id="likeToggle" type="button" aria-pressed="false" aria-label="M'agrada">
                     ${HEART_TOGGLE_SVG}
                 </button>
+                <button class="icon-btn-ghost" id="miniPlayerToggle" type="button" aria-label="Mini reproductor" aria-pressed="false">
+                    <i data-lucide="minimize-2"></i>
+                </button>
                 <button class="icon-btn-ghost" id="shareBtn" aria-label="Compartir">
                     <i data-lucide="share-2"></i>
                 </button>
@@ -1250,6 +1327,7 @@ function showVideo(videoId) {
         <div class="video-description">${video.description}</div>
     `;
     setupLikeBadge(videoId);
+    setupMiniPlayerToggle();
 
     if (CONFIG.features.comments) {
         loadComments(videoId);

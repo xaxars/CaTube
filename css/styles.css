@@ -775,10 +775,41 @@ body.sidebar-collapsed .main-content {
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .video-player iframe {
     width: 100%;
+}
+
+.mini-player-active {
+    position: fixed;
+    bottom: calc(24px + var(--safe-bottom));
+    right: calc(24px + var(--safe-right));
+    width: 400px;
+    z-index: 2000;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+}
+
+.mini-player-active .video-embed-wrap {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.watch-main.mini-player-placeholder::before {
+    content: "";
+    display: block;
+    height: var(--mini-player-placeholder-height, 0px);
+}
+
+@media (max-width: 768px) {
+    .mini-player-active {
+        width: min(100%, 360px);
+        right: 16px;
+        bottom: calc(16px + var(--safe-bottom));
+    }
 }
 
 .video-info {
