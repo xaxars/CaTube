@@ -850,6 +850,96 @@ function updateMiniPlayerSize() {
     videoPlayer.style.height = `${height}px`;
 }
 
+function clearPlayOverlay() {
+    if (!videoPlaceholder) {
+        return;
+    }
+    const overlay = videoPlaceholder.querySelector('.play-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+    videoPlaceholder.onclick = null;
+}
+
+function ensurePlayOverlay(onPlay) {
+    if (!videoPlaceholder) {
+        return;
+    }
+    let overlay = videoPlaceholder.querySelector('.play-overlay');
+    if (!overlay) {
+        overlay = document.createElement('button');
+        overlay.type = 'button';
+        overlay.className = 'play-overlay';
+        overlay.setAttribute('aria-label', 'Reproduir vídeo');
+        overlay.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M8 5v14l11-7z"></path>
+            </svg>
+        `;
+        videoPlaceholder.appendChild(overlay);
+    }
+
+    if (overlay._playHandler) {
+        overlay.removeEventListener('click', overlay._playHandler);
+    }
+
+    overlay._playHandler = (event) => {
+        event.stopPropagation();
+        onPlay();
+    };
+
+    overlay.addEventListener('click', overlay._playHandler);
+    videoPlaceholder.onclick = onPlay;
+}
+
+function queuePlayback({ videoId, source, videoUrl, thumbnail, title }) {
+    if (!videoPlaceholder) {
+        return;
+    }
+    videoPlaceholder.classList.remove('hidden');
+    videoPlaceholder.classList.remove('is-placeholder-hidden');
+    setPlaceholderImage(thumbnail, title);
+    ensurePlayOverlay(() => playVideoNow({
+        videoId,
+        source,
+        videoUrl,
+        thumbnail,
+        title
+    }));
+}
+
+function playVideoNow({ videoId, source, videoUrl, thumbnail, title }) {
+    if (!videoPlayer) {
+        return;
+    }
+
+    videoPlayer.classList.remove('mini-player-active');
+    videoPlayer.style.removeProperty('top');
+    videoPlayer.style.removeProperty('left');
+    videoPlayer.style.removeProperty('bottom');
+    videoPlayer.style.removeProperty('right');
+
+    const iframeSrc = source === 'api'
+        ? `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD`
+        : videoUrl;
+
+    videoPlayer.innerHTML = `
+        <div class="drag-handle" aria-hidden="true"></div>
+        <div class="video-embed-wrap">
+            <iframe
+                src="${iframeSrc}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+        </div>
+    `;
+
+    clearPlayOverlay();
+    preparePlayerForPlayback({ thumbnail, title });
+    setupMiniPlayerToggle();
+}
+
 function makeDraggable(element, handle) {
     if (!element || !handle) {
         return;
@@ -953,6 +1043,7 @@ function preparePlayerForPlayback({ thumbnail, title }) {
             videoPlaceholder.classList.remove('is-placeholder-hidden');
         } else {
             videoPlaceholder.classList.add('is-placeholder-hidden');
+            clearPlayOverlay();
         }
     }
 
@@ -1105,39 +1196,44 @@ async function showVideoFromAPI(videoId) {
     history.pushState({ videoId }, '', `?v=${videoId}`);
 
     // Mostrar pàgina de vídeo
-    if (!miniActive) {
-        if (mainContent) {
-            mainContent.classList.remove('hidden');
-        }
-        if (historyPage) {
-            historyPage.classList.add('hidden');
-        }
-        if (chipsBar) {
-            chipsBar.classList.add('hidden');
-        }
-        homePage.classList.add('hidden');
-        watchPage.classList.remove('hidden');
+    if (mainContent) {
+        mainContent.classList.remove('hidden');
     }
-
-    // Carregar reproductor
-    videoPlayer.innerHTML = `
-        <div class="drag-handle" aria-hidden="true"></div>
-        <div class="video-embed-wrap">
-            <iframe
-                src="https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-        </div>
-    `;
+    if (historyPage) {
+        historyPage.classList.add('hidden');
+    }
+    if (chipsBar) {
+        chipsBar.classList.add('hidden');
+    }
+    homePage.classList.add('hidden');
+    watchPage.classList.remove('hidden');
 
     // 1. Renderitzat immediat des del catxé si està disponible
     const cachedVideo = cachedAPIVideos.find(video => video.id === videoId);
-    preparePlayerForPlayback({
-        thumbnail: cachedVideo?.thumbnail || '',
-        title: cachedVideo?.title || ''
-    });
+    if (miniActive) {
+        queuePlayback({
+            videoId,
+            source: 'api',
+            thumbnail: cachedVideo?.thumbnail || '',
+            title: cachedVideo?.title || ''
+        });
+    } else {
+        videoPlayer.innerHTML = `
+            <div class="drag-handle" aria-hidden="true"></div>
+            <div class="video-embed-wrap">
+                <iframe
+                    src="https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        `;
+        preparePlayerForPlayback({
+            thumbnail: cachedVideo?.thumbnail || '',
+            title: cachedVideo?.title || ''
+        });
+    }
     if (cachedVideo) {
         addToHistory({
             ...cachedVideo,
@@ -1189,7 +1285,16 @@ async function showVideoFromAPI(videoId) {
                 ...video,
                 historySource: 'api'
             });
-            setPlaceholderImage(video.thumbnail, video.title);
+            if (miniActive) {
+                queuePlayback({
+                    videoId,
+                    source: 'api',
+                    thumbnail: video.thumbnail,
+                    title: video.title
+                });
+            } else {
+                setPlaceholderImage(video.thumbnail, video.title);
+            }
 
             // 1. Actualitzar estadístiques principals
             document.getElementById('videoTitle').textContent = video.title;
@@ -1243,9 +1348,7 @@ async function showVideoFromAPI(videoId) {
         loadRelatedVideosFromAPI(videoId);
     }
 
-    if (!miniActive) {
-        window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
     hideLoading();
 
     if (typeof lucide !== 'undefined') {
@@ -1433,6 +1536,7 @@ function stopVideoPlayback() {
         placeholderImage.src = '';
         placeholderImage.alt = '';
     }
+    clearPlayOverlay();
     currentVideoId = null;
 }
 
@@ -1470,35 +1574,43 @@ function showVideo(videoId) {
 
     history.pushState({ videoId }, '', `?v=${videoId}`);
 
-    if (!miniActive) {
-        if (mainContent) {
-            mainContent.classList.remove('hidden');
-        }
-        if (historyPage) {
-            historyPage.classList.add('hidden');
-        }
-        if (chipsBar) {
-            chipsBar.classList.add('hidden');
-        }
-        homePage.classList.add('hidden');
-        watchPage.classList.remove('hidden');
+    if (mainContent) {
+        mainContent.classList.remove('hidden');
     }
+    if (historyPage) {
+        historyPage.classList.add('hidden');
+    }
+    if (chipsBar) {
+        chipsBar.classList.add('hidden');
+    }
+    homePage.classList.add('hidden');
+    watchPage.classList.remove('hidden');
 
-    videoPlayer.innerHTML = `
-        <div class="drag-handle" aria-hidden="true"></div>
-        <div class="video-embed-wrap">
-            <iframe
-                src="${video.videoUrl}"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-        </div>
-    `;
-    preparePlayerForPlayback({
-        thumbnail: video.thumbnail,
-        title: video.title
-    });
+    if (miniActive) {
+        queuePlayback({
+            videoId,
+            source: 'static',
+            videoUrl: video.videoUrl,
+            thumbnail: video.thumbnail,
+            title: video.title
+        });
+    } else {
+        videoPlayer.innerHTML = `
+            <div class="drag-handle" aria-hidden="true"></div>
+            <div class="video-embed-wrap">
+                <iframe
+                    src="${video.videoUrl}"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        `;
+        preparePlayerForPlayback({
+            thumbnail: video.thumbnail,
+            title: video.title
+        });
+    }
 
     // 1. Actualitzar estadístiques principals
     document.getElementById('videoTitle').textContent = video.title;
@@ -1541,9 +1653,7 @@ function showVideo(videoId) {
         loadRelatedVideos(videoId);
     }
 
-    if (!miniActive) {
-        window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
