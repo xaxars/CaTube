@@ -1084,7 +1084,35 @@ function setupDragHandle() {
     const onClose = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        stopVideoPlayback();
+        const isWatchPageVisible = watchPage && !watchPage.classList.contains('hidden');
+
+        if (isWatchPageVisible) {
+            if (videoPlayer) {
+                videoPlayer.innerHTML = '';
+                videoPlayer.style.display = 'none';
+                videoPlayer.classList.remove('mini-player-active');
+                videoPlayer.style.top = '';
+                videoPlayer.style.left = '';
+                videoPlayer.style.width = '';
+                videoPlayer.style.height = '';
+            }
+
+            if (videoPlaceholder) {
+                videoPlaceholder.classList.remove('hidden');
+                videoPlaceholder.classList.remove('is-placeholder-hidden');
+                ensurePlayOverlay(() => {
+                    if (currentVideoId) {
+                        if (useYouTubeAPI) {
+                            showVideoFromAPI(currentVideoId);
+                        } else {
+                            showVideo(currentVideoId);
+                        }
+                    }
+                });
+            }
+        } else {
+            stopVideoPlayback();
+        }
     };
 
     const onExpand = (event) => {
