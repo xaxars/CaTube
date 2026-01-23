@@ -704,6 +704,26 @@ body.sidebar-collapsed .main-content {
     flex-shrink: 0;
 }
 
+.channel-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.channel-link {
+    cursor: pointer;
+}
+
+.channel-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
 .video-info-container {
     flex: 1;
     min-width: 0;
@@ -1127,6 +1147,21 @@ button:disabled,
     margin-bottom: 24px;
 }
 
+.video-metadata-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.video-metadata-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
 .channel-header {
     display: flex;
     align-items: center;
@@ -1156,6 +1191,9 @@ button:disabled,
     font-size: 15px;
     font-weight: 600;
     margin-right: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -1176,8 +1214,8 @@ button:disabled,
     padding: 6px 14px;
     border-radius: 999px;
     border: 1px solid var(--color-primary);
-    background: transparent;
-    color: var(--color-primary);
+    background: var(--color-primary);
+    color: #ffffff;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -1185,8 +1223,8 @@ button:disabled,
 }
 
 .follow-channel-btn.is-followed {
-    background: var(--color-primary);
-    color: #ffffff;
+    background: transparent;
+    color: var(--color-primary);
 }
 
 .follow-channel-btn:hover {
