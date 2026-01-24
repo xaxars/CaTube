@@ -923,19 +923,71 @@ async function loadVideosFromAPI() {
     hideLoading();
 }
 
+/**
+ * Calculates a "Gravity Score" for each video to determine trending status.
+ * Algorithm: (Interactions) / (AgeInHours + 2)^1.5
+ */
+function getTrendingVideos(videos, feedGeneratedAt) {
+    if (!Array.isArray(videos)) {
+        return [];
+    }
+    // Use feed generation time as 'now' to ensure consistency, or fallback to current time
+    const now = feedGeneratedAt ? new Date(feedGeneratedAt).getTime() : Date.now();
+    const scoredVideos = videos.map(video => {
+        // Calculate age in hours
+        const pubDate = video.publishedAt || video.uploadDate;
+        const publishedAt = new Date(pubDate).getTime();
+        const diffMs = Math.max(0, now - publishedAt);
+        const hoursOld = diffMs / (1000 * 60 * 60);
+        // Calculate Interaction Score
+        const views = parseInt(video.viewCount || video.views || 0, 10);
+        const likes = parseInt(video.likeCount || video.likes || 0, 10);
+        const comments = parseInt(video.commentCount || 0, 10);
+        let interactionScore = views + (likes * 5) + (comments * 10);
+        // Penalty for Shorts (they get views too easily)
+        if (video.isShort) {
+            interactionScore = interactionScore / 2;
+        }
+        // Apply Gravity Formula
+        const gravity = 1.5;
+        const trendingScore = interactionScore / Math.pow(hoursOld + 2, gravity);
+        return {
+            ...video,
+            trendingScore: trendingScore
+        };
+    });
+    // Sort by Score Descending
+    scoredVideos.sort((a, b) => b.trendingScore - a.trendingScore);
+    // Return Top 20 Trending
+    return scoredVideos.slice(0, 20);
+}
+
 // Carregar vídeos en tendència
 async function loadTrendingVideos() {
     showLoading();
     setPageTitle('Tendències');
 
-    const result = await YouTubeAPI.getPopularVideos(24);
-
-    if (result.error) {
+    // 1. Determine source of videos (Local Feed > Cache > Static)
+    let videosSource = [];
+    if (typeof YouTubeAPI !== 'undefined' && YouTubeAPI.feedLoaded && YouTubeAPI.feedVideos.length > 0) {
+        videosSource = YouTubeAPI.feedVideos;
+    } else if (typeof cachedAPIVideos !== 'undefined' && cachedAPIVideos.length > 0) {
+        videosSource = cachedAPIVideos;
+    } else if (typeof VIDEOS !== 'undefined') {
+        videosSource = VIDEOS;
+    }
+    // If no data available, show empty state
+    if (videosSource.length === 0) {
+        if (videosGrid) {
+            videosGrid.innerHTML = '<div class="empty-state">No hi ha dades disponibles per calcular tendències.</div>';
+        }
         hideLoading();
         return;
     }
 
-    setFeedContext(result.items, getFeedDataForFilter(), renderVideos);
+    const feedGeneratedAt = localStorage.getItem('iutube_feed_generatedAt');
+    const trendingVideos = getTrendingVideos(videosSource, feedGeneratedAt);
+    setFeedContext(trendingVideos, getFeedDataForFilter(), renderVideos);
     hideLoading();
 }
 
