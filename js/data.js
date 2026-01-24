@@ -179,16 +179,121 @@ function formatViews(views) {
     return views;
 }
 
+/**
+ * Noms dels dies de la setmana en català
+ */
+const CATALAN_DAYS = [
+    'Diumenge', 'Dilluns', 'Dimarts', 'Dimecres',
+    'Dijous', 'Divendres', 'Dissabte'
+];
+
+/**
+ * Noms dels mesos en català
+ */
+const CATALAN_MONTHS = [
+    'gener', 'febrer', 'març', 'abril', 'maig', 'juny',
+    'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'
+];
+
+/**
+ * Formata una data de manera natural i llegible en català
+ * @param {string|Date} dateString - Data a formatar
+ * @returns {string} Data formatada en català
+ */
 function formatDate(dateString) {
-    const date = new Date(dateString);
+    if (!dateString) return '';
+
+    // Si rebem una data en format ISO curt (YYYY-MM-DD), la tractem com a local
+    // per evitar desplaçaments de fus horari que confonguin "avui" amb "ahir".
+    const isoShortMatch = typeof dateString === 'string'
+        ? dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+        : null;
+    const date = isoShortMatch
+        ? new Date(Number(isoShortMatch[1]), Number(isoShortMatch[2]) - 1, Number(isoShortMatch[3]))
+        : new Date(dateString);
     const now = new Date();
-    const diffTime = Math.abs(now - date);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays === 0) return 'Avui';
-    if (diffDays === 1) return 'Ahir';
-    if (diffDays < 7) return `Fa ${diffDays} dies`;
-    if (diffDays < 30) return `Fa ${Math.floor(diffDays / 7)} setmanes`;
-    if (diffDays < 365) return `Fa ${Math.floor(diffDays / 30)} mesos`;
-    return `Fa ${Math.floor(diffDays / 365)} anys`;
+
+    // Normalitzar dates a mitjanit en UTC per comparacions precises de dies
+    const dateAtMidnightUTC = Date.UTC(
+        date.getUTCFullYear(),
+        date.getUTCMonth(),
+        date.getUTCDate()
+    );
+    const nowAtMidnightUTC = Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCDate()
+    );
+
+    // Diferència en dies
+    const diffTime = nowAtMidnightUTC - dateAtMidnightUTC;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    // Si la data és futura o invàlida, mostrem el format complet per no confondre
+    if (Number.isNaN(diffDays) || diffDays < 0) {
+        const day = date.getUTCDate();
+        const monthName = CATALAN_MONTHS[date.getUTCMonth()];
+        const year = date.getUTCFullYear();
+        return year === now.getUTCFullYear()
+            ? `El ${day} de ${monthName}`
+            : `El ${day} de ${monthName} de ${year}`;
+    }
+
+    // Avui
+    if (diffDays === 0) {
+        return 'Avui';
+    }
+
+    // Ahir
+    if (diffDays === 1) {
+        return 'Ahir';
+    }
+
+    // Aquesta setmana (dimarts, dimecres, etc.)
+    if (diffDays >= 2 && diffDays <= 6) {
+        return CATALAN_DAYS[date.getUTCDay()];
+    }
+
+    // La setmana passada (7-13 dies)
+    if (diffDays >= 7 && diffDays <= 13) {
+        return 'La setmana passada';
+    }
+
+    // Fa 2-3 setmanes
+    if (diffDays >= 14 && diffDays <= 27) {
+        const weeks = Math.floor(diffDays / 7);
+        return `Fa ${weeks} setmanes`;
+    }
+
+    // Mateix mes (mostrar dia)
+    if (date.getUTCMonth() === now.getUTCMonth() && date.getUTCFullYear() === now.getUTCFullYear()) {
+        const day = date.getUTCDate();
+        const monthName = CATALAN_MONTHS[date.getUTCMonth()];
+        return `El ${day} de ${monthName}`;
+    }
+
+    // El mes passat
+    const lastMonth = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1));
+    if (date.getUTCMonth() === lastMonth.getUTCMonth() && date.getUTCFullYear() === lastMonth.getUTCFullYear()) {
+        return 'El mes passat';
+    }
+
+    // Fa X mesos (2-11 mesos enrere)
+    const monthsDiff = (now.getUTCFullYear() - date.getUTCFullYear()) * 12 + (now.getUTCMonth() - date.getUTCMonth());
+    if (monthsDiff >= 2 && monthsDiff <= 11) {
+        return `Fa ${monthsDiff} mesos`;
+    }
+
+    // Mateix any (mostrar dia i mes)
+    if (date.getUTCFullYear() === now.getUTCFullYear()) {
+        const day = date.getUTCDate();
+        const monthName = CATALAN_MONTHS[date.getUTCMonth()];
+        return `El ${day} de ${monthName}`;
+    }
+
+    // Anys anteriors (mostrar dia, mes i any)
+    const day = date.getUTCDate();
+    const monthName = CATALAN_MONTHS[date.getUTCMonth()];
+    const year = date.getUTCFullYear();
+    return `El ${day} de ${monthName} de ${year}`;
 }
