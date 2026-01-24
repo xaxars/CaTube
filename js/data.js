@@ -179,16 +179,96 @@ function formatViews(views) {
     return views;
 }
 
+/**
+ * Noms dels dies de la setmana en català
+ */
+const CATALAN_DAYS = [
+    'Diumenge', 'Dilluns', 'Dimarts', 'Dimecres',
+    'Dijous', 'Divendres', 'Dissabte'
+];
+
+/**
+ * Noms dels mesos en català
+ */
+const CATALAN_MONTHS = [
+    'gener', 'febrer', 'març', 'abril', 'maig', 'juny',
+    'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'
+];
+
+/**
+ * Formata una data de manera natural i llegible en català
+ * @param {string|Date} dateString - Data a formatar
+ * @returns {string} Data formatada en català
+ */
 function formatDate(dateString) {
+    if (!dateString) return '';
+
     const date = new Date(dateString);
     const now = new Date();
-    const diffTime = Math.abs(now - date);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays === 0) return 'Avui';
-    if (diffDays === 1) return 'Ahir';
-    if (diffDays < 7) return `Fa ${diffDays} dies`;
-    if (diffDays < 30) return `Fa ${Math.floor(diffDays / 7)} setmanes`;
-    if (diffDays < 365) return `Fa ${Math.floor(diffDays / 30)} mesos`;
-    return `Fa ${Math.floor(diffDays / 365)} anys`;
+
+    // Normalitzar dates a mitjanit per comparacions precises de dies
+    const dateAtMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    const nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    // Diferència en dies
+    const diffTime = nowAtMidnight - dateAtMidnight;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    // Avui
+    if (diffDays === 0) {
+        return 'Avui';
+    }
+
+    // Ahir
+    if (diffDays === 1) {
+        return 'Ahir';
+    }
+
+    // Aquesta setmana (dimarts, dimecres, etc.)
+    if (diffDays >= 2 && diffDays <= 6) {
+        return CATALAN_DAYS[date.getDay()];
+    }
+
+    // La setmana passada (7-13 dies)
+    if (diffDays >= 7 && diffDays <= 13) {
+        return 'La setmana passada';
+    }
+
+    // Fa 2-3 setmanes
+    if (diffDays >= 14 && diffDays <= 27) {
+        const weeks = Math.floor(diffDays / 7);
+        return `Fa ${weeks} setmanes`;
+    }
+
+    // Mateix mes (mostrar dia)
+    if (date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear()) {
+        const day = date.getDate();
+        const monthName = CATALAN_MONTHS[date.getMonth()];
+        return `El ${day} de ${monthName}`;
+    }
+
+    // El mes passat
+    const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1);
+    if (date.getMonth() === lastMonth.getMonth() && date.getFullYear() === lastMonth.getFullYear()) {
+        return 'El mes passat';
+    }
+
+    // Fa X mesos (2-11 mesos enrere)
+    const monthsDiff = (now.getFullYear() - date.getFullYear()) * 12 + (now.getMonth() - date.getMonth());
+    if (monthsDiff >= 2 && monthsDiff <= 11) {
+        return `Fa ${monthsDiff} mesos`;
+    }
+
+    // Mateix any (mostrar dia i mes)
+    if (date.getFullYear() === now.getFullYear()) {
+        const day = date.getDate();
+        const monthName = CATALAN_MONTHS[date.getMonth()];
+        return `El ${day} de ${monthName}`;
+    }
+
+    // Anys anteriors (mostrar dia, mes i any)
+    const day = date.getDate();
+    const monthName = CATALAN_MONTHS[date.getMonth()];
+    const year = date.getFullYear();
+    return `El ${day} de ${monthName} de ${year}`;
 }
