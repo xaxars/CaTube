@@ -57,6 +57,15 @@ let cachedChannels = {};
 let cachedAPIVideos = [];
 let activeFollowTab = 'following';
 
+// --- Helper: Fisher-Yates Shuffle ---
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 function mergeChannelCategories(channel, categories) {
     if (!channel || !Array.isArray(categories) || categories.length === 0) {
         return;
@@ -924,7 +933,8 @@ async function loadVideosFromAPI() {
         }
     });
 
-    setFeedContext(result.items, getFeedDataForFilter(), renderVideos);
+    const shuffledVideos = shuffleArray([...result.items]);
+    setFeedContext(shuffledVideos, getFeedDataForFilter(), renderVideos);
     hideLoading();
 }
 
