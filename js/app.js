@@ -2953,7 +2953,12 @@ function addToHistory(video) {
         history.splice(existingIndex, 1);
     }
 
-    history.unshift(video);
+    const historyEntry = {
+        ...video,
+        viewedAt: new Date().toISOString()
+    };
+
+    history.unshift(historyEntry);
 
     if (history.length > HISTORY_LIMIT) {
         history.length = HISTORY_LIMIT;
@@ -3093,8 +3098,8 @@ function renderHistory() {
 
     let currentLabel = null;
     const groupedMarkup = historyItems.map(video => {
-        const publishedAt = video.publishedAt || video.uploadDate || video.snippet?.publishedAt || '';
-        const label = publishedAt ? formatDate(publishedAt) : 'Sense data';
+        const viewedAt = video.viewedAt || video.publishedAt || video.uploadDate || video.snippet?.publishedAt || '';
+        const label = viewedAt ? formatDate(viewedAt) : 'Sense data';
         const heading = label !== currentLabel
             ? `<h2 class="history-group-title">${escapeHtml(label)}</h2>`
             : '';
