@@ -21,6 +21,7 @@ let selectedCategory = 'Tot';
 let historySelectedCategory = 'Tot';
 let historyFilterLiked = false;
 let currentFeedVideos = [];
+let apiFeedVideos = [];
 let currentFeedData = null;
 let currentFeedRenderer = null;
 let activePlaylistVideo = null;
@@ -839,9 +840,13 @@ function renderFeed() {
 
     // Don't filter by category on the Trending page
     const isTrendingPage = pageTitle?.textContent === 'Tendències';
+    const isDiscoveryFeed = useYouTubeAPI && pageTitle?.textContent === 'Recomanat per a tu';
+    const baseVideos = (!isTrendingPage && isDiscoveryFeed && selectedCategory !== 'Tot' && apiFeedVideos.length > 0)
+        ? apiFeedVideos
+        : currentFeedVideos;
     const filtered = isTrendingPage
-        ? currentFeedVideos
-        : filterVideosByCategory(currentFeedVideos, currentFeedData);
+        ? baseVideos
+        : filterVideosByCategory(baseVideos, currentFeedData);
 
     if (selectedCategory !== 'Tot' && filtered.length === 0 && !isTrendingPage) {
         updateHero(null);
@@ -933,6 +938,7 @@ async function loadVideosFromAPI() {
         }
     });
 
+    apiFeedVideos = result.items;
     const shuffledVideos = shuffleArray([...result.items]);
     setFeedContext(shuffledVideos, getFeedDataForFilter(), renderVideos);
     hideLoading();
@@ -3197,6 +3203,7 @@ async function loadRelatedVideosFromAPI(videoId) {
 // Carregar vídeos estàtics
 function loadVideos() {
     setPageTitle('Recomanat per a tu');
+    apiFeedVideos = [];
     setFeedContext(VIDEOS, getFeedDataForFilter(), renderStaticVideos);
 }
 
