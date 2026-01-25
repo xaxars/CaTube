@@ -1716,9 +1716,11 @@ function loadShort(index) {
 
     const short = currentShortsQueue[index];
     const iframe = document.getElementById('short-iframe');
-    const src = `https://www.youtube.com/embed/${encodeURIComponent(short.id)}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD`;
+    const origin = encodeURIComponent(window.location.origin || '');
+    const src = `https://www.youtube.com/embed/${encodeURIComponent(short.id)}?playsinline=1&rel=0&modestbranding=1&autoplay=1&enablejsapi=1&origin=${origin}&hl=ca&cc_lang_pref=ca&gl=AD`;
 
     iframe.src = src;
+    iframe.dataset.shortPaused = 'false';
 
     const titleEl = document.getElementById('shortTitle');
     const channelEl = document.getElementById('shortChannel');
@@ -1773,15 +1775,20 @@ function updateShortNavButtons() {
 function setupShortScroll() {
     const playerWrap = document.getElementById('shortPlayerWrap')
         || document.querySelector('.short-player-wrap');
+    const gestureOverlay = document.getElementById('shortGestureOverlay');
 
-    if (!playerWrap || playerWrap.dataset.shortScrollBound === 'true') return;
+    if (!playerWrap || !gestureOverlay || gestureOverlay.dataset.shortScrollBound === 'true') return;
 
-    playerWrap.dataset.shortScrollBound = 'true';
+    gestureOverlay.dataset.shortScrollBound = 'true';
     let startY = 0;
+    let startX = 0;
+    let startTime = 0;
     let isDragging = false;
 
     const handleStart = (e) => {
         startY = e.touches ? e.touches[0].clientY : e.clientY;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+        startTime = Date.now();
         isDragging = true;
     };
 
@@ -1790,25 +1797,46 @@ function setupShortScroll() {
         isDragging = false;
 
         const endY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+        const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
         const deltaY = startY - endY;
+        const deltaX = startX - endX;
+        const elapsed = Date.now() - startTime;
+        const isTap = Math.abs(deltaY) < 10 && Math.abs(deltaX) < 10 && elapsed < 250;
 
-        if (deltaY > 50) {
+        if (isTap) {
+            toggleShortPlayback();
+        } else if (deltaY > 50) {
             handleScrollIntent(1);
         } else if (deltaY < -50) {
             handleScrollIntent(-1);
         }
     };
 
-    playerWrap.addEventListener('touchstart', handleStart, { passive: true });
-    playerWrap.addEventListener('touchend', handleEnd);
-    playerWrap.addEventListener('mousedown', handleStart);
-    playerWrap.addEventListener('mouseup', handleEnd);
+    gestureOverlay.addEventListener('touchstart', handleStart, { passive: true });
+    gestureOverlay.addEventListener('touchend', handleEnd);
+    gestureOverlay.addEventListener('mousedown', handleStart);
+    gestureOverlay.addEventListener('mouseup', handleEnd);
 
-    playerWrap.addEventListener('wheel', (e) => {
+    gestureOverlay.addEventListener('wheel', (e) => {
         e.preventDefault();
         const direction = e.deltaY > 0 ? 1 : -1;
         handleScrollIntent(direction);
     }, { passive: false });
+}
+
+function toggleShortPlayback() {
+    const iframe = document.getElementById('short-iframe');
+    if (!iframe || !iframe.contentWindow) {
+        return;
+    }
+    const isPaused = iframe.dataset.shortPaused === 'true';
+    const func = isPaused ? 'playVideo' : 'pauseVideo';
+    iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command',
+        func,
+        args: []
+    }), '*');
+    iframe.dataset.shortPaused = isPaused ? 'false' : 'true';
 }
 
 function closeShortModal() {
