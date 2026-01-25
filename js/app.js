@@ -30,9 +30,8 @@ let activePlaylistId = null;
 let activePlaylistName = '';
 let isPlaylistNavigation = false;
 let isPlaylistMode = false;
-let currentShortsQueue = [];
 let currentShortIndex = 0;
-let isNavigatingShort = false;
+let availableShorts = [];
 let youtubeMessageListenerInitialized = false;
 let searchDropdownItems = [];
 let searchDropdownActiveIndex = -1;
@@ -1662,150 +1661,110 @@ function createShortCard(video) {
     `;
 }
 
-// ==================== ADVANCED SHORTS MANAGEMENT ====================
+// ==================== SHORTS MANAGEMENT ====================
 
 function openShortModal(videoId) {
-    const modal = document.getElementById('short-modal');
-    if (!modal) return;
+    availableShorts = currentFeedVideos.filter(v => v.isShort);
 
-    // 1. Build the Queue
-    let sourceVideos = currentFeedVideos;
-    // If current list is empty or has no shorts, fallback to cache
-    if (!sourceVideos || sourceVideos.length === 0 || !sourceVideos.some(v => v.isShort)) {
-        sourceVideos = cachedAPIVideos;
+    if (availableShorts.length === 0) {
+        console.warn('No hi ha shorts disponibles');
+        return;
     }
 
-    // Filter only Shorts
-    currentShortsQueue = sourceVideos.filter(v => v.isShort);
-
-    // If the clicked video isn't in the queue, add it to the front
-    const currentVideoIdStr = String(videoId);
-    if (!currentShortsQueue.find(v => String(v.id) === currentVideoIdStr)) {
-        const video = cachedAPIVideos.find(v => String(v.id) === currentVideoIdStr)
-                      || { id: videoId, isShort: true, title: '' };
-        currentShortsQueue.unshift(video);
-    }
-
-    // Find start index
-    currentShortIndex = currentShortsQueue.findIndex(v => String(v.id) === currentVideoIdStr);
+    currentShortIndex = availableShorts.findIndex(v => String(v.id) === String(videoId));
     if (currentShortIndex === -1) currentShortIndex = 0;
 
-    // UI Setup
-    const panel = modal.querySelector('.short-modal-panel');
-    if (panel) {
-        panel.classList.add('immersive');
-        panel.innerHTML = '';
-    }
-
+    const modal = document.getElementById('short-modal');
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
-    
-    renderShortPlayer(true);
-}
 
-function renderShortPlayer(showHint = false) {
-    const video = currentShortsQueue[currentShortIndex];
-    if (!video) return;
+    loadShort(currentShortIndex);
+    setupShortScroll();
 
-    const modalPanel = document.querySelector('#short-modal .short-modal-panel');
-    if (!modalPanel) return;
-
-    const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
-    const ARROW_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>`;
-
-    const hintHTML = showHint ? `
-        <div class="swipe-hint-overlay">
-            <div class="swipe-arrow">${ARROW_ICON}</div>
-            <span class="swipe-text">Llisca per veure'n més</span>
-        </div>` : '';
-
-    // Render Player with Autoplay enabled
-    modalPanel.innerHTML = `
-        <button class="short-close-x" type="button" aria-label="Tancar">
-            ${CLOSE_ICON}
-        </button>
-        ${hintHTML}
-        <div class="short-player-wrap" style="height: 100%; width: 100%; border-radius: 0; margin: 0;">
-            <iframe id="short-iframe"
-                src="https://www.youtube.com/embed/${video.id}?playsinline=1&rel=0&modestbranding=1&autoplay=1&controls=0&loop=1&playlist=${video.id}&hl=ca&gl=AD"
-                style="width:100%; height:100%; border:0;"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-    `;
-
-    // Re-attach close event
-    const closeBtn = modalPanel.querySelector('.short-close-x');
-    if (closeBtn) closeBtn.addEventListener('click', closeShortModal);
-
-    // Re-attach gestures
-    setupShortsGestures(modalPanel);
-}
-
-function setupShortsGestures(element) {
-    // Desktop Wheel
-    element.onwheel = (e) => {
-        e.preventDefault();
-        handleScrollIntent(e.deltaY > 0 ? 1 : -1);
-    };
-
-    // Mobile Touch
-    let touchStartY = 0;
-    element.ontouchstart = (e) => {
-        touchStartY = e.touches[0].clientY;
-    };
-    
-    element.ontouchend = (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchStartY - touchEndY;
-        
-        if (Math.abs(diff) > 50) {
-            // Diff > 0 means swipe UP (Next video)
-            handleScrollIntent(diff > 0 ? 1 : -1);
-        }
-    };
-}
-
-function handleScrollIntent(direction) {
-    if (isNavigatingShort) return;
-
-    if (direction > 0) {
-        // NEXT VIDEO
-        if (currentShortIndex < currentShortsQueue.length - 1) {
-            isNavigatingShort = true;
-            currentShortIndex++;
-            renderShortPlayer(false);
-            setTimeout(() => {
-                isNavigatingShort = false;
-            }, 800);
-        }
-    } else {
-        // PREVIOUS VIDEO
-        if (currentShortIndex > 0) {
-            isNavigatingShort = true;
-            currentShortIndex--;
-            renderShortPlayer(false);
-            setTimeout(() => {
-                isNavigatingShort = false;
-            }, 800);
-        }
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
     }
+}
+
+function loadShort(index) {
+    if (index < 0 || index >= availableShorts.length) return;
+
+    const short = availableShorts[index];
+    const iframe = document.getElementById('short-iframe');
+    const src = `https://www.youtube.com/embed/${encodeURIComponent(short.id)}?playsinline=1&rel=0&modestbranding=1&autoplay=1&hl=ca&cc_lang_pref=ca&gl=AD`;
+
+    iframe.src = src;
+
+    const titleEl = document.getElementById('shortTitle');
+    const channelEl = document.getElementById('shortChannel');
+    if (titleEl) titleEl.textContent = short.title || '';
+    if (channelEl) channelEl.textContent = short.channelTitle || '';
+
+    updateShortNavButtons();
+}
+
+function navigateShort(direction) {
+    const newIndex = currentShortIndex + direction;
+
+    if (newIndex >= 0 && newIndex < availableShorts.length) {
+        currentShortIndex = newIndex;
+        loadShort(currentShortIndex);
+    }
+}
+
+function updateShortNavButtons() {
+    const prevBtn = document.querySelector('.short-nav-prev');
+    const nextBtn = document.querySelector('.short-nav-next');
+
+    if (prevBtn) prevBtn.disabled = currentShortIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentShortIndex === availableShorts.length - 1;
+}
+
+function setupShortScroll() {
+    const playerWrap = document.getElementById('shortPlayerWrap');
+    if (!playerWrap || playerWrap.dataset.shortScrollBound === 'true') return;
+
+    playerWrap.dataset.shortScrollBound = 'true';
+    let startY = 0;
+    let isDragging = false;
+
+    const handleStart = (e) => {
+        startY = e.touches ? e.touches[0].clientY : e.clientY;
+        isDragging = true;
+    };
+
+    const handleEnd = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const endY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+        const deltaY = startY - endY;
+
+        if (deltaY > 50) {
+            navigateShort(1);
+        } else if (deltaY < -50) {
+            navigateShort(-1);
+        }
+    };
+
+    playerWrap.addEventListener('touchstart', handleStart);
+    playerWrap.addEventListener('touchend', handleEnd);
+    playerWrap.addEventListener('mousedown', handleStart);
+    playerWrap.addEventListener('mouseup', handleEnd);
 }
 
 function closeShortModal() {
     const modal = document.getElementById('short-modal');
-    const panel = modal.querySelector('.short-modal-panel');
-    
-    if (panel) {
-        panel.innerHTML = '';
-        panel.classList.remove('immersive');
-    }
+    const iframe = document.getElementById('short-iframe');
 
+    iframe.src = '';
     modal.classList.add('hidden');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('no-scroll');
+
+    currentShortIndex = 0;
+    availableShorts = [];
 }
 
 function getLikedVideoIds() {

@@ -695,11 +695,25 @@ body.sidebar-collapsed .main-content {
 }
 
 .short-modal-close {
-    width: 100%;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 12;
+    width: 40px;
+    height: 40px;
     border: 0;
-    padding: 12px 12px;
-    border-radius: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+}
+
+.short-modal-close svg {
+    width: 20px;
+    height: 20px;
 }
 
 .short-player-wrap {
@@ -730,7 +744,8 @@ body.sidebar-collapsed .main-content {
     }
 
     .short-modal-close {
-        border-radius: 0;
+        top: 20px;
+        right: 20px;
     }
 
     .short-player-wrap {
@@ -925,6 +940,62 @@ body.sidebar-collapsed .main-content {
 
 @keyframes fadeOutHint {
     to { opacity: 0; visibility: hidden; }
+}
+
+.short-nav-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.short-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.short-nav-prev {
+    top: 60px;
+}
+
+.short-nav-next {
+    bottom: 60px;
+}
+
+.short-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.short-info {
+    position: absolute;
+    bottom: 80px;
+    left: 16px;
+    right: 16px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.short-info h3 {
+    font-size: 14px;
+    margin: 0 0 4px;
+    font-weight: 600;
+}
+
+.short-info p {
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.9;
 }
 
 .channel-link {
