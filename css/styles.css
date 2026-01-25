@@ -296,6 +296,7 @@ main,
     height: 20px;
 }
 
+/* Force hide tawk.to container to prevent flicker on load */
 #tawkchat-container {
     display: none !important;
 }
