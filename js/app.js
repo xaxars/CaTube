@@ -56,7 +56,7 @@ const HISTORY_STORAGE_KEY = 'catube_history';
 const HISTORY_LIMIT = 50;
 const PLAYLIST_STORAGE_KEY = 'catube_playlists';
 const FOLLOW_STORAGE_KEY = 'catube_follows';
-const WATCH_CATEGORY_VIDEOS_LIMIT = 16;
+const WATCH_CATEGORY_VIDEOS_LIMIT = 30;
 const DESKTOP_BREAKPOINT = 1024;
 
 // Cache de canals carregats de l'API
@@ -3414,7 +3414,7 @@ function renderDesktopSidebar(channel, channelVideos, currentVideoId) {
     const avatar = channel.avatar
         || channel.thumbnail
         || getFollowChannelAvatar(channel.id)
-        || 'img/icon-192.png';
+        || '';
     const subsText = channel.subscriberCount
         ? formatViews(channel.subscriberCount) + ' subscriptors'
         : '';
