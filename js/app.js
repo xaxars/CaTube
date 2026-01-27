@@ -3547,18 +3547,24 @@ function renderDesktopSidebar(channel, channelVideos, currentVideoId) {
         : '';
     const description = channel.description || 'Sense descripció disponible.';
 
+    const channelName = channel.title || channel.name || 'Canal';
     channelInfoContainer.innerHTML = `
         <div class="sidebar-channel-header">
-            <img class="sidebar-channel-avatar" src="${avatar}" alt="${escapeHtml(channel.title || channel.name)}">
+            <img class="sidebar-channel-avatar" src="${avatar}" alt="${escapeHtml(channelName)}">
             <div>
-                <h3 class="sidebar-channel-name">${escapeHtml(channel.title || channel.name)}</h3>
+                <h3 class="sidebar-channel-name">${escapeHtml(channelName)}</h3>
                 ${subsText ? `<span class="sidebar-channel-subs">${subsText}</span>` : ''}
             </div>
         </div>
         <div class="sidebar-channel-description">${escapeHtml(description)}</div>
-        <button class="follow-channel-btn" type="button" data-follow-channel="${channel.id}" aria-pressed="false">
-            Segueix
-        </button>
+        <div class="sidebar-channel-actions">
+            <button class="follow-channel-btn" type="button" data-follow-channel="${channel.id}" aria-pressed="false">
+                Segueix
+            </button>
+            <button class="btn-round-icon" type="button" data-share-channel-id="${channel.id}" data-share-channel-name="${encodeURIComponent(channelName)}" data-share-channel-description="${encodeURIComponent(description)}" title="Compartir canal">
+                <i data-lucide="share-2"></i>
+            </button>
+        </div>
     `;
 
     if (filteredVideos.length > 0) {
@@ -3723,9 +3729,6 @@ async function showVideoFromAPI(videoId) {
                             <button class="follow-btn-pill" type="button" data-follow-channel="${channel.id}" aria-pressed="false">
                                 Segueix
                             </button>
-                            <button class="btn-round-icon" type="button" data-share-channel-id="${channel.id}" data-share-channel-name="${encodeURIComponent(channel.title || '')}" data-share-channel-description="${encodeURIComponent(matchedChannel?.description || '')}" title="Compartir canal">
-                                <i data-lucide="share-2"></i>
-                            </button>
                             <button class="btn-heart" id="likeToggle" type="button" aria-label="M'agrada" aria-pressed="false">
                                 <i data-lucide="heart"></i>
                             </button>
@@ -3831,9 +3834,6 @@ async function showVideoFromAPI(videoId) {
                         <div class="channel-actions-inline">
                             <button class="follow-btn-pill" type="button" data-follow-channel="${channel.id}" aria-pressed="false">
                                 Segueix
-                            </button>
-                            <button class="btn-round-icon" type="button" data-share-channel-id="${channel.id}" data-share-channel-name="${encodeURIComponent(channel.title || '')}" data-share-channel-description="${encodeURIComponent(channel.description || matchedChannel?.description || '')}" title="Compartir canal">
-                                <i data-lucide="share-2"></i>
                             </button>
                             <button class="btn-heart" id="likeToggle" type="button" aria-label="M'agrada" aria-pressed="false">
                                 <i data-lucide="heart"></i>

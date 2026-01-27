@@ -1955,6 +1955,18 @@ button:disabled,
         margin-bottom: 12px;
     }
 
+    .sidebar-channel-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .sidebar-channel-actions .btn-round-icon {
+        width: 40px;
+        height: 40px;
+    }
+
     .sidebar-channel-videos-title {
         font-size: 14px;
         font-weight: 600;
