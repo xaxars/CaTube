@@ -3775,7 +3775,13 @@ async function showVideoFromAPI(videoId) {
     } else if (CONFIG.features.recommendations) {
         if (isDesktopView()) {
             const channelId = video?.channelId || cachedVideo?.channelId;
-            const channelData = channelResult?.channel
+            const channelList = Array.isArray(YouTubeAPI?.getAllChannels?.())
+                ? YouTubeAPI.getAllChannels()
+                : [];
+            const matchedChannel = channelList.find(channelItem => String(channelItem.id) === String(channelId));
+            const channelData = matchedChannel
+                ? { ...channelResult?.channel, ...matchedChannel }
+                : channelResult?.channel
                 || cachedChannels[channelId]
                 || { id: channelId, title: video?.channelTitle || cachedVideo?.channelTitle };
 
