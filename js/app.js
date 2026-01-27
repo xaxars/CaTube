@@ -73,6 +73,25 @@ function mergeChannelCategories(channel, categories) {
     channel.categories = [...new Set([...(channel.categories || []), ...categories])];
 }
 
+function resolveChannelAvatar(channelId, channelObj) {
+    if (cachedChannels[channelId]) {
+        if (cachedChannels[channelId].thumbnail) return cachedChannels[channelId].thumbnail;
+        if (cachedChannels[channelId].avatar) return cachedChannels[channelId].avatar;
+    }
+
+    if (channelObj) {
+        if (channelObj.thumbnail) return channelObj.thumbnail;
+        if (channelObj.avatar) return channelObj.avatar;
+        if (channelObj.snippet?.thumbnails?.medium?.url) return channelObj.snippet.thumbnails.medium.url;
+        if (channelObj.snippet?.thumbnails?.default?.url) return channelObj.snippet.thumbnails.default.url;
+    }
+
+    const followAvatar = getFollowChannelAvatar(channelId);
+    if (followAvatar) return followAvatar;
+
+    return 'img/icon-192.png';
+}
+
 function isDesktopView() {
     return window.innerWidth > DESKTOP_BREAKPOINT;
 }
@@ -3411,10 +3430,7 @@ function renderDesktopSidebar(channel, channelVideos, currentVideoId) {
 
     const filteredVideos = channelVideos.filter(v => String(v.id) !== String(currentVideoId));
 
-    const avatar = channel.avatar
-        || channel.thumbnail
-        || getFollowChannelAvatar(channel.id)
-        || '';
+    const avatar = resolveChannelAvatar(channel.id, channel);
     const subsText = channel.subscriberCount
         ? formatViews(channel.subscriberCount) + ' subscriptors'
         : '';
@@ -3566,10 +3582,10 @@ async function showVideoFromAPI(videoId) {
                 ? YouTubeAPI.getAllChannels()
                 : [];
             const matchedChannel = channelList.find(channelItem => String(channelItem.id) === String(cachedVideo.channelId));
-            const cachedChannelAvatar = matchedChannel?.avatar
-                || cachedVideo.channelThumbnail
-                || getFollowChannelAvatar(cachedVideo.channelId)
-                || 'img/icon-192.png';
+            const cachedChannelAvatar = resolveChannelAvatar(
+                cachedVideo.channelId,
+                matchedChannel || { thumbnail: cachedVideo.channelThumbnail }
+            );
             const channel = {
                 id: cachedVideo.channelId || '',
                 title: cachedChannelTitle,
@@ -3682,11 +3698,7 @@ async function showVideoFromAPI(videoId) {
                     ? YouTubeAPI.getAllChannels()
                     : [];
                 const matchedChannel = channelList.find(channelItem => String(channelItem.id) === String(currentVideo.channelId));
-                const channelAvatar = matchedChannel?.avatar
-                    || channel.thumbnail
-                    || channel.avatar
-                    || getFollowChannelAvatar(channel.id)
-                    || 'img/icon-192.png';
+                const channelAvatar = resolveChannelAvatar(channel.id, { ...channel, ...matchedChannel });
                 const subsText = channel.subscriberCount
                     ? formatViews(channel.subscriberCount) + ' subscriptors'
                     : 'Subscriptors ocults';
