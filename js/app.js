@@ -1,4 +1,16 @@
 // App Principal
+function isMatch(text, query) {
+    if (!text || !query) {
+        return false;
+    }
+    const normalizedQuery = String(query).trim();
+    if (!normalizedQuery) {
+        return false;
+    }
+    const escapedQuery = normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = new RegExp(`\\b${escapedQuery}\\b`, 'i');
+    return pattern.test(String(text));
+}
 
 // Elements del DOM
 let sidebar, menuBtn, videosGrid, homePage, watchPage, loading, mainContent;
@@ -1229,17 +1241,19 @@ function updateHero(video, source = 'static') {
 function filterVideosByCategory(videos, feed) {
     if (selectedCategory === 'Tot' || selectedCategory === 'Novetats') return videos;
     if (isCustomCategory(selectedCategory)) {
-        const query = selectedCategory.toLowerCase();
-        if (!query) {
+        const categoryName = normalizeCustomTag(selectedCategory);
+        if (!categoryName) {
             return videos;
         }
         return videos.filter(video => {
             const title = video.title || video.snippet?.title || '';
             const description = video.description || video.snippet?.description || '';
-            const tagsValue = video.tags || video.snippet?.tags || [];
-            const tagsText = Array.isArray(tagsValue) ? tagsValue.join(' ') : String(tagsValue || '');
-            const haystack = `${title} ${description} ${tagsText}`.toLowerCase();
-            return haystack.includes(query);
+            const tagsValue = video.tags ?? video.snippet?.tags;
+            const tags = Array.isArray(tagsValue) ? tagsValue : (tagsValue ? [String(tagsValue)] : []);
+            if (isMatch(title, categoryName) || isMatch(description, categoryName)) {
+                return true;
+            }
+            return tags.some(tag => isMatch(tag, categoryName));
         });
     }
     if (selectedCategory === 'Seguint') {
@@ -2080,17 +2094,18 @@ function ensureSearchDropdown() {
 }
 
 function getMatchScore(text, query) {
-    if (!text) {
+    const normalizedQuery = String(query || '').trim().toLowerCase();
+    if (!text || !normalizedQuery) {
         return 0;
     }
     const lowerText = String(text).toLowerCase();
-    if (lowerText === query) {
+    if (isMatch(lowerText, normalizedQuery)) {
         return 3;
     }
-    if (lowerText.startsWith(query)) {
+    if (lowerText.startsWith(normalizedQuery)) {
         return 2;
     }
-    if (lowerText.includes(query)) {
+    if (normalizedQuery.length > 3 && lowerText.includes(normalizedQuery)) {
         return 1;
     }
     return 0;
@@ -2189,9 +2204,12 @@ function performLocalSearch(query) {
         .map(video => {
             const titleScore = getMatchScore(video.title, normalizedQuery);
             const descriptionScore = getMatchScore(video.description, normalizedQuery);
+            const tagsValue = video.tags ?? video.snippet?.tags;
+            const tags = Array.isArray(tagsValue) ? tagsValue : (tagsValue ? [String(tagsValue)] : []);
+            const tagScore = tags.reduce((total, tag) => total + getMatchScore(tag, normalizedQuery), 0);
             return {
                 ...video,
-                score: (titleScore * 2) + descriptionScore
+                score: (titleScore * 2) + descriptionScore + tagScore
             };
         })
         .filter(video => video.score > 0)
