@@ -586,6 +586,9 @@ body.sidebar-collapsed .main-content {
 }
 
 .chips-bar {
+    position: sticky;
+    top: calc(var(--header-height) + var(--safe-top));
+    z-index: 900;
     display: flex;
     gap: 10px;
     padding: 10px 24px;
@@ -595,6 +598,7 @@ body.sidebar-collapsed .main-content {
     scroll-snap-type: x mandatory;
     touch-action: pan-x;
     border-bottom: 1px solid var(--color-surface-border);
+    background: var(--color-background);
 }
 
 .chips-bar::-webkit-scrollbar {
@@ -621,6 +625,11 @@ body.sidebar-collapsed .main-content {
 .chip.is-active {
     background: #ffffff;
     color: #000;
+}
+
+.chip.is-dragging {
+    opacity: 0.6;
+    cursor: grabbing;
 }
 
 .empty-state {

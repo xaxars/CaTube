@@ -57,6 +57,7 @@ const HISTORY_STORAGE_KEY = 'catube_history';
 const HISTORY_LIMIT = 50;
 const PLAYLIST_STORAGE_KEY = 'catube_playlists';
 const FOLLOW_STORAGE_KEY = 'catube_follows';
+const CHIPS_ORDER_STORAGE_KEY = 'catube_chip_order';
 const WATCH_CATEGORY_VIDEOS_LIMIT = 30;
 const DESKTOP_BREAKPOINT = 1024;
 const WATCH_SIDEBAR_VIDEOS_LIMIT = 55;
@@ -1445,7 +1446,154 @@ function loadCategories() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+    setupChipsBarOrdering();
     setupVideoCardActionButtons();
+}
+
+function setupChipsBarOrdering() {
+    if (!chipsBar) {
+        return;
+    }
+
+    const defaultChips = Array.from(chipsBar.querySelectorAll('.chip')).map(chip => ({
+        label: chip.textContent.trim(),
+        value: chip.dataset.cat || chip.textContent.trim(),
+        isActive: chip.classList.contains('is-active')
+    }));
+
+    if (defaultChips.length === 0) {
+        return;
+    }
+
+    const storedOrder = getStoredChipOrder();
+    const chipsByValue = new Map(defaultChips.map(chip => [chip.value, chip]));
+    const orderedChips = [];
+
+    if (storedOrder) {
+        storedOrder.forEach((value) => {
+            const chip = chipsByValue.get(value);
+            if (chip) {
+                orderedChips.push(chip);
+                chipsByValue.delete(value);
+            }
+        });
+    }
+
+    defaultChips.forEach((chip) => {
+        if (chipsByValue.has(chip.value)) {
+            orderedChips.push(chip);
+            chipsByValue.delete(chip.value);
+        }
+    });
+
+    const activeValue = selectedCategory;
+    chipsBar.innerHTML = '';
+    orderedChips.forEach((chip) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'chip';
+        button.dataset.cat = chip.value;
+        button.textContent = chip.label;
+        button.draggable = true;
+        const isActive = chip.value === activeValue || chip.isActive;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        chipsBar.appendChild(button);
+    });
+
+    saveChipOrder(getChipOrderFromDom());
+
+    if (chipsBar.dataset.dragBound !== 'true') {
+        chipsBar.dataset.dragBound = 'true';
+        chipsBar.addEventListener('dragstart', handleChipDragStart);
+        chipsBar.addEventListener('dragover', handleChipDragOver);
+        chipsBar.addEventListener('dragend', handleChipDragEnd);
+        chipsBar.addEventListener('drop', handleChipDrop);
+    }
+}
+
+function getStoredChipOrder() {
+    const stored = localStorage.getItem(CHIPS_ORDER_STORAGE_KEY);
+    if (!stored) {
+        return null;
+    }
+    try {
+        const parsed = JSON.parse(stored);
+        return Array.isArray(parsed) ? parsed : null;
+    } catch (error) {
+        console.warn('No es pot llegir catube_chip_order', error);
+        return null;
+    }
+}
+
+function saveChipOrder(order) {
+    if (!Array.isArray(order)) {
+        return;
+    }
+    localStorage.setItem(CHIPS_ORDER_STORAGE_KEY, JSON.stringify(order));
+}
+
+function getChipOrderFromDom() {
+    if (!chipsBar) {
+        return [];
+    }
+    return Array.from(chipsBar.querySelectorAll('.chip')).map(chip => chip.dataset.cat || chip.textContent.trim());
+}
+
+let draggedChip = null;
+
+function handleChipDragStart(event) {
+    const chip = event.target.closest('.chip');
+    if (!chip) {
+        return;
+    }
+    draggedChip = chip;
+    chip.classList.add('is-dragging');
+    if (event.dataTransfer) {
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', chip.dataset.cat || '');
+    }
+}
+
+function handleChipDragOver(event) {
+    event.preventDefault();
+    if (!chipsBar || !draggedChip) {
+        return;
+    }
+    const afterElement = getChipDragAfterElement(chipsBar, event.clientX);
+    if (!afterElement) {
+        chipsBar.appendChild(draggedChip);
+    } else if (afterElement !== draggedChip) {
+        chipsBar.insertBefore(draggedChip, afterElement);
+    }
+}
+
+function handleChipDrop(event) {
+    event.preventDefault();
+    if (!chipsBar) {
+        return;
+    }
+    saveChipOrder(getChipOrderFromDom());
+}
+
+function handleChipDragEnd() {
+    if (draggedChip) {
+        draggedChip.classList.remove('is-dragging');
+        draggedChip = null;
+    }
+    saveChipOrder(getChipOrderFromDom());
+}
+
+function getChipDragAfterElement(container, x) {
+    const draggableElements = [...container.querySelectorAll('.chip:not(.is-dragging)')];
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = x - box.left - box.width / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset, element: child };
+        }
+        return closest;
+    }, { offset: Number.NEGATIVE_INFINITY, element: null }).element;
 }
 
 // ==================== CARREGAR VÍDEOS AMB API ====================
