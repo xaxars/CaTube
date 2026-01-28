@@ -8,6 +8,8 @@ let followPage, followGrid, followTabs;
 let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow, heroChannel;
 let pageTitle;
 let backgroundModal, backgroundBtn, backgroundOptions;
+let currentColorDisplay, expandedColorPicker, closeExpandedColorPicker;
+let fontDecreaseBtn, fontIncreaseBtn, fontSizeDisplay;
 let playlistModal, playlistModalBody;
 let videoPlayer, videoPlaceholder, placeholderImage;
 let channelPage, channelVideosGrid;
@@ -40,10 +42,12 @@ let searchDropdownItems = [];
 let searchDropdownActiveIndex = -1;
 let searchDebounceTimeout = null;
 let installPromptEvent = null;
+let currentFontSize = null;
 const featuredVideoBySection = new Map();
 const HYBRID_CATEGORY_SORT = new Set(['Cultura', 'Humor', 'Actualitat', 'Vida', 'Gaming']);
 
 const BACKGROUND_STORAGE_KEY = 'catube_background_color';
+const FONT_SIZE_STORAGE_KEY = 'catube_font_size';
 const BACKGROUND_COLORS = [
     '#333333',
     '#3d3d3d',
@@ -387,6 +391,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupShareButtons();
     initBackgroundModal();
     initBackgroundPicker();
+    initFontSizeControls();
     loadCategories();
     renderPlaylistsPage();
     initYouTubeMessageListener();
@@ -455,6 +460,12 @@ function initElements() {
     backgroundModal = document.getElementById('backgroundModal');
     backgroundBtn = document.getElementById('backgroundBtn');
     backgroundOptions = document.getElementById('backgroundOptions');
+    currentColorDisplay = document.getElementById('currentColorDisplay');
+    expandedColorPicker = document.getElementById('expandedColorPicker');
+    closeExpandedColorPicker = document.getElementById('closeExpandedColorPicker');
+    fontDecreaseBtn = document.getElementById('fontDecreaseBtn');
+    fontIncreaseBtn = document.getElementById('fontIncreaseBtn');
+    fontSizeDisplay = document.getElementById('fontSizeDisplay');
     heroSection = document.getElementById('heroSection');
     heroTitle = document.getElementById('heroTitle');
     heroDescription = document.getElementById('heroDescription');
@@ -859,11 +870,18 @@ function initBackgroundModal() {
         if (e.target === backgroundModal) closeBackgroundModal();
     });
 
+    if (currentColorDisplay && expandedColorPicker) {
+        currentColorDisplay.addEventListener('click', showExpandedColorPicker);
+    }
+    if (closeExpandedColorPicker && expandedColorPicker) {
+        closeExpandedColorPicker.addEventListener('click', hideExpandedColorPicker);
+    }
+
     const buttons = backgroundOptions.querySelectorAll('[data-color]');
     buttons.forEach(button => {
         const color = button.dataset.color;
         button.style.backgroundColor = color;
-        button.addEventListener('click', () => applyBackgroundColor(color));
+        button.addEventListener('click', () => applyBackgroundColor(color, true, true));
     });
 }
 
@@ -873,13 +891,16 @@ function initBackgroundPicker() {
     applyBackgroundColor(initial, false);
 }
 
-function applyBackgroundColor(color, persist = true) {
+function applyBackgroundColor(color, persist = true, collapsePicker = false) {
     if (!BACKGROUND_COLORS.includes(color)) {
         return;
     }
     document.documentElement.style.setProperty('--color-background', color);
     if (persist) {
         localStorage.setItem(BACKGROUND_STORAGE_KEY, color);
+    }
+    if (currentColorDisplay) {
+        currentColorDisplay.style.backgroundColor = color;
     }
     if (backgroundOptions) {
         backgroundOptions.querySelectorAll('[data-color]').forEach(button => {
@@ -888,11 +909,67 @@ function applyBackgroundColor(color, persist = true) {
             button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
     }
+    if (collapsePicker) {
+        hideExpandedColorPicker();
+    }
+}
+
+function showExpandedColorPicker() {
+    if (!currentColorDisplay || !expandedColorPicker) {
+        return;
+    }
+    currentColorDisplay.classList.add('hidden');
+    expandedColorPicker.classList.remove('hidden');
+}
+
+function hideExpandedColorPicker() {
+    if (!currentColorDisplay || !expandedColorPicker) {
+        return;
+    }
+    expandedColorPicker.classList.add('hidden');
+    currentColorDisplay.classList.remove('hidden');
+}
+
+function initFontSizeControls() {
+    if (!fontDecreaseBtn || !fontIncreaseBtn || !fontSizeDisplay) {
+        return;
+    }
+    const stored = localStorage.getItem(FONT_SIZE_STORAGE_KEY);
+    const storedValue = stored ? Number.parseFloat(stored) : null;
+    const computedValue = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+    currentFontSize = Number.isFinite(storedValue) ? storedValue : (computedValue || 16);
+    document.documentElement.style.fontSize = `${currentFontSize}px`;
+    updateFontSizeDisplay();
+
+    fontDecreaseBtn.addEventListener('click', () => adjustFontSize(-1));
+    fontIncreaseBtn.addEventListener('click', () => adjustFontSize(1));
+}
+
+function adjustFontSize(delta) {
+    const minSize = 12;
+    const maxSize = 22;
+    const nextSize = Math.min(maxSize, Math.max(minSize, (currentFontSize || 16) + delta));
+    if (nextSize === currentFontSize) {
+        return;
+    }
+    currentFontSize = nextSize;
+    document.documentElement.style.fontSize = `${currentFontSize}px`;
+    localStorage.setItem(FONT_SIZE_STORAGE_KEY, String(currentFontSize));
+    updateFontSizeDisplay();
+}
+
+function updateFontSizeDisplay() {
+    if (!fontSizeDisplay) {
+        return;
+    }
+    const size = currentFontSize || parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    fontSizeDisplay.textContent = `Font ${Math.round(size)}px`;
 }
 
 function openBackgroundModal() {
     if (!backgroundModal) return;
     backgroundModal.classList.add('active');
+    hideExpandedColorPicker();
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
