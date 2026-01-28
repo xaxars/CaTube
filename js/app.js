@@ -47,6 +47,7 @@ const featuredVideoBySection = new Map();
 const HYBRID_CATEGORY_SORT = new Set(['Cultura', 'Humor', 'Actualitat', 'Vida', 'Gaming']);
 
 const BACKGROUND_STORAGE_KEY = 'catube_background_color';
+const FONT_SIZE_STORAGE_KEY = 'catube_font_size';
 const BACKGROUND_COLORS = [
     '#333333',
     '#3d3d3d',
@@ -390,7 +391,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupShareButtons();
     initBackgroundModal();
     initBackgroundPicker();
-    initFontControls();
+    initFontSizeControls();
     loadCategories();
     renderPlaylistsPage();
     initYouTubeMessageListener();
@@ -929,12 +930,15 @@ function hideExpandedColorPicker() {
     currentColorDisplay.classList.remove('hidden');
 }
 
-function initFontControls() {
+function initFontSizeControls() {
     if (!fontDecreaseBtn || !fontIncreaseBtn || !fontSizeDisplay) {
         return;
     }
-    const baseFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-    currentFontSize = currentFontSize || baseFontSize;
+    const stored = localStorage.getItem(FONT_SIZE_STORAGE_KEY);
+    const storedValue = stored ? Number.parseFloat(stored) : null;
+    const computedValue = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+    currentFontSize = Number.isFinite(storedValue) ? storedValue : (computedValue || 16);
+    document.documentElement.style.fontSize = `${currentFontSize}px`;
     updateFontSizeDisplay();
 
     fontDecreaseBtn.addEventListener('click', () => adjustFontSize(-1));
@@ -950,6 +954,7 @@ function adjustFontSize(delta) {
     }
     currentFontSize = nextSize;
     document.documentElement.style.fontSize = `${currentFontSize}px`;
+    localStorage.setItem(FONT_SIZE_STORAGE_KEY, String(currentFontSize));
     updateFontSizeDisplay();
 }
 
