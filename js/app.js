@@ -2529,7 +2529,14 @@ function navigateToSearchResults(query) {
         </section>
     ` : '';
 
+    const safeQuery = trimmedQuery.replace(/'/g, "\\'");
+
     videosGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; margin-bottom: 1rem; display: flex; justify-content: center;">
+            <button class="btn-action-pill btn-save-search" onclick="addCustomTag('${safeQuery}')">
+                <i data-lucide="plus-circle"></i> Guardar cerca com a pestanya
+            </button>
+        </div>
         ${channelSection}
         ${videoSection}
     `;
