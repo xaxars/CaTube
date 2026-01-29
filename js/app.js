@@ -1673,7 +1673,7 @@ function getVideoDurationSeconds(video) {
 function renderFeed() {
     if (!currentFeedRenderer) return;
     if (isCustomCategory(selectedCategory)) {
-        setPageTitle(getCategoryPageTitle(selectedCategory));
+        renderCategoryActions(getCategoryPageTitle(selectedCategory));
     }
 
     // Don't filter by category on the Trending page
