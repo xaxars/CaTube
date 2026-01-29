@@ -716,6 +716,7 @@ body.sidebar-collapsed .main-content {
     background: none;
     color: var(--color-text);
     font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
     text-decoration: underline;
 }

@@ -1812,7 +1812,7 @@ function renderFeed() {
                 videosGrid.innerHTML = `
                     <div class="empty-state">
                         <button class="empty-state-action" type="button" data-follow-cta>
-                            Selecciona els teus Youtubers preferits
+                            Afegeix aquesta categoria als teus Youtubers preferits
                         </button>
                     </div>
                 `;
