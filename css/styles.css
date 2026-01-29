@@ -721,6 +721,48 @@ body.sidebar-collapsed .main-content {
     text-decoration: underline;
 }
 
+.empty-state-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.empty-state-plus {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    color: var(--color-text);
+    font-size: 2.5rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.empty-state-plus:hover {
+    border-color: var(--color-text);
+}
+
+@media (min-width: 1024px) {
+    .empty-state-custom {
+        text-align: center;
+    }
+
+    .empty-state-action {
+        font-size: 1.25rem;
+    }
+
+    .empty-state-plus {
+        width: 96px;
+        height: 96px;
+        font-size: 3rem;
+    }
+}
+
 .shorts-section {
     grid-column: 1 / -1;
     overflow-x: hidden;

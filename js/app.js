@@ -1810,20 +1810,21 @@ function renderFeed() {
         if (videosGrid) {
             if (isCustomCategoryTag(selectedCategory)) {
                 videosGrid.innerHTML = `
-                    <div class="empty-state">
+                    <div class="empty-state empty-state-custom">
                         <button class="empty-state-action" type="button" data-follow-cta>
                             Afegeix aquesta categoria als teus Youtubers preferits
                         </button>
+                        <button class="empty-state-plus" type="button" data-follow-cta aria-label="Afegir categoria a Segueix!">+</button>
                     </div>
                 `;
-                const followCta = videosGrid.querySelector('[data-follow-cta]');
-                if (followCta) {
+                const followCtas = videosGrid.querySelectorAll('[data-follow-cta]');
+                followCtas.forEach((followCta) => {
                     followCta.addEventListener('click', (event) => {
                         event.preventDefault();
                         setActiveNavItem('follow');
                         showFollow('all');
                     });
-                }
+                });
             } else {
                 videosGrid.innerHTML = `
                     <div class="empty-state">No hi ha vídeos per aquesta categoria.</div>
