@@ -1729,10 +1729,11 @@ button:disabled,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
+    gap: 12px;
+    flex-wrap: nowrap;
     padding-top: 0;
     margin-bottom: 0;
+    width: 100%;
 }
 
 .video-metadata-actions {
@@ -3277,6 +3278,7 @@ button:disabled,
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* Row 1: Channel Header */
@@ -3388,6 +3390,11 @@ button:disabled,
     align-items: center;
     border: none;
     height: 36px;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .btn-pill-red:active { transform: scale(0.98); }
@@ -3480,13 +3487,15 @@ html[style*="--color-background: #224262"] .btn-round-icon {
     }
 
     .btn-round-icon {
-        width: 64px;
-        height: 64px;
+        width: 3.5em;
+        height: 3.5em;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .btn-round-icon svg {
-        width: 1.6em;
-        height: 1.6em;
+        width: 50%;
+        height: 50%;
     }
 
     .btn-pill-red {
