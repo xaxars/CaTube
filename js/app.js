@@ -20,7 +20,7 @@ let playlistsPage, playlistsList, playlistNameInput, createPlaylistBtn;
 let followPage, followGrid, followTabs;
 let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow, heroChannel;
 let pageTitle;
-let backgroundModal, backgroundBtn, backgroundOptions;
+let backgroundModal, backgroundBtn, backgroundOptions, buttonOptions;
 let currentColorDisplay, expandedColorPicker, closeExpandedColorPicker;
 let fontDecreaseBtn, fontIncreaseBtn, fontSizeDisplay;
 let playlistModal, playlistModalBody;
@@ -923,6 +923,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupShareButtons();
     initBackgroundModal();
     initBackgroundPicker();
+    initButtonPicker();
     initFontSizeControls();
     const urlParams = new URLSearchParams(window.location.search);
     const addTagParam = urlParams.get('add_tag');
@@ -1008,6 +1009,7 @@ function initElements() {
     backgroundModal = document.getElementById('backgroundModal');
     backgroundBtn = document.getElementById('backgroundBtn');
     backgroundOptions = document.getElementById('backgroundOptions');
+    buttonOptions = document.getElementById('buttonOptions');
     customCategoryModal = document.getElementById('customCategoryModal');
     customCategoryInput = document.getElementById('customCategoryInput');
     customCategoryAddBtn = document.getElementById('customCategoryAddBtn');
@@ -1508,6 +1510,23 @@ function initBackgroundPicker() {
     applyBackgroundColor(initial, false);
 }
 
+function initButtonPicker() {
+    if (!buttonOptions) {
+        return;
+    }
+    buttonOptions.innerHTML = '';
+    Object.entries(BUTTON_COLORS).forEach(([backgroundColor, buttonColor], index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'background-option';
+        button.dataset.backgroundColor = backgroundColor;
+        button.style.backgroundColor = buttonColor;
+        button.setAttribute('aria-label', `Color de botó ${index + 1}`);
+        button.addEventListener('click', () => applyBackgroundColor(backgroundColor, true));
+        buttonOptions.appendChild(button);
+    });
+}
+
 function applyBackgroundColor(color, persist = true, collapsePicker = false) {
     if (!BACKGROUND_COLORS.includes(color)) {
         return;
@@ -1523,6 +1542,13 @@ function applyBackgroundColor(color, persist = true, collapsePicker = false) {
     if (backgroundOptions) {
         backgroundOptions.querySelectorAll('[data-color]').forEach(button => {
             const isActive = button.dataset.color === color;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    }
+    if (buttonOptions) {
+        buttonOptions.querySelectorAll('[data-background-color]').forEach(button => {
+            const isActive = button.dataset.backgroundColor === color;
             button.classList.toggle('is-active', isActive);
             button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
