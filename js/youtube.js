@@ -974,11 +974,11 @@ const YouTubeAPI = {
         });
     },
 
-    // Comprovar si un vídeo és Short (<= 120 segons)
+    // Comprovar si un vídeo és Short (<= 180 segons)
     isShortVideo(isoDuration) {
         const seconds = this.parseDurationSeconds(isoDuration);
         if (seconds === null) return false;
-        return seconds <= 120;
+        return seconds <= 180;
     },
 
     // Parsejar duració ISO 8601 a segons
