@@ -4000,7 +4000,7 @@ function handlePlaylistVideoEnded() {
         currentPlaylistIndex += 1;
         loadVideoInSequence();
     } else {
-        exitPlaylistMode();
+        exitPlaylistMode({ showQueueMessage: true });
     }
 }
 
@@ -4026,7 +4026,7 @@ function updatePlaylistModeBadge() {
     }
 }
 
-function exitPlaylistMode() {
+function exitPlaylistMode({ showQueueMessage = false } = {}) {
     isPlaylistMode = false;
     activePlaylistQueue = [];
     currentPlaylistIndex = 0;
@@ -4037,8 +4037,13 @@ function exitPlaylistMode() {
     const relatedContainer = document.getElementById('relatedVideos');
 
     if (queueContainer) {
-        queueContainer.innerHTML = '';
-        queueContainer.classList.add('hidden');
+        if (showQueueMessage) {
+            queueContainer.innerHTML = '<div class="playlist-queue-title">No hi ha més vídeos en aquesta llista</div>';
+            queueContainer.classList.remove('hidden');
+        } else {
+            queueContainer.innerHTML = '';
+            queueContainer.classList.add('hidden');
+        }
     }
     if (relatedContainer) {
         relatedContainer.style.display = 'block';
@@ -4130,6 +4135,7 @@ function getPlaylistVideoData(video) {
         title: video.title || video.snippet?.title || '',
         thumbnail: getPreferredThumbnail(video),
         channelTitle: video.channelTitle || video.snippet?.channelTitle || '',
+        channelId: video.channelId || video.snippet?.channelId || '',
         duration: video.duration || video.contentDetails?.duration || '',
         source
     };
@@ -4943,6 +4949,54 @@ function renderDesktopSidebar(channel, channelVideos, currentVideoId) {
     });
 }
 
+function getStaticChannelVideos(channelId) {
+    const localVideos = typeof VIDEOS !== 'undefined' && Array.isArray(VIDEOS) ? VIDEOS : [];
+    return localVideos
+        .filter(video => String(video.channelId) === String(channelId) && !video.isShort)
+        .map(video => ({
+            id: video.id,
+            title: video.title,
+            thumbnail: video.thumbnail || 'img/icon-192.png',
+            viewCount: video.views,
+            publishedAt: video.uploadDate
+        }));
+}
+
+function renderChannelSidebarFromApi(channelId, currentVideoId, channelResult, fallbackTitle = '') {
+    if (!isDesktopView()) {
+        return;
+    }
+    const channelList = Array.isArray(YouTubeAPI?.getAllChannels?.())
+        ? YouTubeAPI.getAllChannels()
+        : [];
+    const matchedChannel = channelList.find(channelItem => String(channelItem.id) === String(channelId));
+    const channelData = matchedChannel
+        ? { ...channelResult?.channel, ...matchedChannel }
+        : channelResult?.channel
+        || cachedChannels[channelId]
+        || { id: channelId, title: fallbackTitle };
+
+    const feedVideos = Array.isArray(YouTubeAPI?.feedVideos) ? YouTubeAPI.feedVideos : [];
+    const channelVideos = [...feedVideos, ...cachedAPIVideos]
+        .filter(v => String(v.channelId) === String(channelId) && !v.isShort);
+
+    renderDesktopSidebar(channelData, channelVideos, currentVideoId);
+}
+
+function renderChannelSidebarFromStatic(channel, currentVideoId) {
+    if (!isDesktopView() || !channel) {
+        return;
+    }
+    const channelData = {
+        ...channel,
+        title: channel.name,
+        subscriberCount: channel.subscribers,
+        avatar: channel.avatar
+    };
+    const channelVideos = getStaticChannelVideos(channel.id);
+    renderDesktopSidebar(channelData, channelVideos, currentVideoId);
+}
+
 function renderCategoryVideosBelow(currentChannelId, currentVideoId) {
     const extraContainer = extraVideosGrid || document.getElementById('extraVideosGrid');
     if (!extraContainer) {
@@ -5266,28 +5320,17 @@ async function showVideoFromAPI(videoId) {
     }
 
     // Carregar vídeos relacionats o cua de la llista
+    const channelId = video?.channelId || cachedVideo?.channelId;
     if (isPlaylistMode) {
         renderPlaylistQueue();
+        if (channelId) {
+            renderChannelSidebarFromApi(channelId, videoId, channelResult, video?.channelTitle || cachedVideo?.channelTitle || '');
+        }
     } else if (CONFIG.features.recommendations) {
-        const channelId = video?.channelId || cachedVideo?.channelId;
-        if (isDesktopView()) {
-            const channelList = Array.isArray(YouTubeAPI?.getAllChannels?.())
-                ? YouTubeAPI.getAllChannels()
-                : [];
-            const matchedChannel = channelList.find(channelItem => String(channelItem.id) === String(channelId));
-            const channelData = matchedChannel
-                ? { ...channelResult?.channel, ...matchedChannel }
-                : channelResult?.channel
-                || cachedChannels[channelId]
-                || { id: channelId, title: video?.channelTitle || cachedVideo?.channelTitle };
-
-            const feedVideos = Array.isArray(YouTubeAPI?.feedVideos) ? YouTubeAPI.feedVideos : [];
-            const channelVideos = [...feedVideos, ...cachedAPIVideos]
-                .filter(v => String(v.channelId) === String(channelId) && !v.isShort);
-
-            renderDesktopSidebar(channelData, channelVideos, videoId);
+        if (channelId && isDesktopView()) {
+            renderChannelSidebarFromApi(channelId, videoId, channelResult, video?.channelTitle || cachedVideo?.channelTitle || '');
             renderCategoryVideosBelow(channelId, videoId);
-        } else {
+        } else if (channelId) {
             renderCategoryVideosBelow(channelId, videoId);
         }
     }
@@ -5668,6 +5711,7 @@ function showVideo(videoId) {
 
     if (isPlaylistMode) {
         renderPlaylistQueue();
+        renderChannelSidebarFromStatic(channel, videoId);
     } else if (CONFIG.features.recommendations) {
         loadRelatedVideos(videoId);
     }
