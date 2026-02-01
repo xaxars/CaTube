@@ -8,7 +8,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-31T19:00:23Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT16M59S",
@@ -191,7 +191,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-31T13:53:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT29S",
@@ -229,7 +229,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-31T10:22:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT1M1S",
@@ -687,7 +687,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-30T19:00:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT21M27S",
@@ -1062,7 +1062,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-30T12:05:46Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT52M4S",
@@ -1188,7 +1188,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-30T11:01:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT31S",
@@ -1259,7 +1259,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-30T09:38:07Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M54S",
@@ -1278,7 +1278,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-30T09:20:47Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M",
@@ -1406,7 +1406,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-30T00:01:16Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT6M2S",
@@ -1704,7 +1704,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-29T16:00:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M11S",
@@ -1773,7 +1773,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-29T15:19:20Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M19S",
@@ -1879,7 +1879,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-29T12:05:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT52M58S",
@@ -2019,7 +2019,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-29T10:00:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M34S",
@@ -2074,7 +2074,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-29T09:26:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT52S",
@@ -2227,7 +2227,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-28T21:55:30Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT33M26S",
@@ -2292,7 +2292,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-28T19:30:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M9S",
@@ -2507,7 +2507,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-28T15:01:07Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M13S",
@@ -2655,7 +2655,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-28T12:34:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT46M21S",
@@ -2721,7 +2721,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-28T11:15:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT57S",
@@ -2771,7 +2771,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-28T11:01:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT20M45S",
@@ -2841,7 +2841,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-28T10:03:25Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M14S",
@@ -2896,7 +2896,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-28T09:36:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H7M27S",
@@ -2915,7 +2915,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-28T08:58:57Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M1S",
@@ -2953,7 +2953,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-27T22:44:52Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT29M28S",
@@ -3024,7 +3024,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-27T19:01:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT12M32S",
@@ -3107,7 +3107,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-27T17:59:54Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT54M11S",
@@ -3284,7 +3284,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-27T15:14:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT45S",
@@ -3610,7 +3610,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-27T11:20:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT34S",
@@ -3660,7 +3660,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-27T11:01:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT46M38S",
@@ -3789,7 +3789,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-27T08:39:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M46S",
@@ -3946,7 +3946,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-26T22:00:55Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT29M2S",
@@ -4015,7 +4015,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-26T21:00:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1H13M49S",
@@ -4237,7 +4237,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-26T12:43:48Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT59M57S",
@@ -4378,7 +4378,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-26T11:00:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT17M27S",
@@ -4491,7 +4491,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-26T09:17:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M29S",
@@ -4577,7 +4577,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-25T19:00:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT41M57S",
@@ -4696,7 +4696,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-25T11:00:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT25M29S",
@@ -4882,7 +4882,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-24T19:00:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT19M40S",
@@ -5433,7 +5433,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-23T22:10:05Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT41M",
@@ -5504,7 +5504,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-23T19:00:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT17M1S",
@@ -5661,7 +5661,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-23T13:29:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT52M41S",
@@ -5707,7 +5707,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-23T09:43:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M11S",
@@ -5726,7 +5726,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-23T09:16:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M6S",
@@ -5770,7 +5770,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-22T22:02:09Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT31M18S",
@@ -5816,7 +5816,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-22T19:00:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT4M36S",
@@ -5898,7 +5898,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-22T17:06:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT1M1S",
@@ -5917,7 +5917,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-22T16:05:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT56M53S",
@@ -6032,7 +6032,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-22T08:48:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT28S",
@@ -6051,7 +6051,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-22T08:45:30Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M39S",
@@ -6070,7 +6070,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-22T07:47:46Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT4M44S",
@@ -6114,7 +6114,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-21T22:41:22Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT34M21S",
@@ -6185,7 +6185,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-21T17:35:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT51M26S",
@@ -6238,7 +6238,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-21T16:51:07Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M5S",
@@ -6257,7 +6257,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-21T16:29:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT24S",
@@ -6320,7 +6320,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-21T12:01:58Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT34S",
@@ -6364,7 +6364,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-21T11:01:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT24M43S",
@@ -6397,7 +6397,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-21T10:45:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M21S",
@@ -6496,7 +6496,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-21T07:08:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H3M21S",
@@ -6515,7 +6515,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-20T22:10:36Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT45M26S",
@@ -6586,7 +6586,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-20T19:00:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT12M32S",
@@ -6693,7 +6693,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-20T16:21:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT57M39S",
@@ -6733,7 +6733,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-20T14:38:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT42S",
@@ -6752,7 +6752,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-20T11:00:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT38M10S",
@@ -6806,7 +6806,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-20T08:46:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT39S",
@@ -6825,7 +6825,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-20T08:24:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M",
@@ -6884,7 +6884,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-19T22:34:26Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT38M43S",
@@ -6930,7 +6930,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-19T21:00:54Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1H7M3S",
@@ -7063,7 +7063,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-19T15:19:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT56M9S",
@@ -7153,7 +7153,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-19T09:46:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M3S",
@@ -7222,7 +7222,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-18T19:00:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT39M55S",
@@ -7255,7 +7255,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2026-01-18T15:51:25Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H11M52S",
@@ -7293,7 +7293,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-18T11:00:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT26M51S",
@@ -7324,7 +7324,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-18T00:55:54Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M48S",
@@ -7343,7 +7343,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-17T22:15:26Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT46M22S",
@@ -7389,7 +7389,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-17T19:00:37Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT21M22S",
@@ -7448,7 +7448,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-17T11:05:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT53S",
@@ -7551,7 +7551,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-16T22:54:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M",
@@ -7570,7 +7570,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-16T19:00:54Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT16M29S",
@@ -7605,7 +7605,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-16T15:00:06Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT52M27S",
@@ -7651,7 +7651,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-16T11:48:25Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT2H51M28S",
@@ -7683,7 +7683,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-16T08:36:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M52S",
@@ -7702,7 +7702,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-15T21:53:15Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT32M11S",
@@ -7817,7 +7817,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-15T14:54:46Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT55M17S",
@@ -7950,7 +7950,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-15T08:41:17Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT13M4S",
@@ -7969,7 +7969,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-14T21:59:11Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT33M52S",
@@ -8015,7 +8015,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-14T19:01:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M7S",
@@ -8048,7 +8048,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-14T16:57:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT51M45S",
@@ -8124,7 +8124,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-14T12:20:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT52M7S",
@@ -8152,7 +8152,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-14T11:00:45Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT57M26S",
@@ -8180,7 +8180,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-14T10:34:35Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT29S",
@@ -8211,7 +8211,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-14T08:46:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M15S",
@@ -8230,7 +8230,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-14T07:12:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H6M17S",
@@ -8249,7 +8249,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-13T22:14:52Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT45M22S",
@@ -8295,7 +8295,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-13T19:01:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT12M2S",
@@ -8329,7 +8329,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-13T17:08:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M12S",
@@ -8392,7 +8392,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-13T11:01:03Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT36M20S",
@@ -8494,7 +8494,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2026-01-13T10:08:35Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M9S",
@@ -8513,7 +8513,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-13T08:53:59Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT13M2S",
@@ -8612,7 +8612,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-12T21:56:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT32M52S",
@@ -8658,7 +8658,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-12T17:41:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT55M2S",
@@ -8749,7 +8749,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-12T12:10:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT23M10S",
@@ -8782,7 +8782,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-12T09:39:25Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M16S",
@@ -8826,7 +8826,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-11T19:00:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT35M15S",
@@ -8920,7 +8920,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-10T19:00:50Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT11M28S",
@@ -8954,7 +8954,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-10T17:22:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M41S",
@@ -9060,7 +9060,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-09T19:01:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT29M27S",
@@ -9121,7 +9121,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-09T16:11:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT56M",
@@ -9178,7 +9178,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-09T08:28:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M48S",
@@ -9197,7 +9197,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-09T08:25:51Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT36M52S",
@@ -9243,7 +9243,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-09T07:31:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT54M50S",
@@ -9305,7 +9305,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-08T18:04:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT59M51S",
@@ -9557,7 +9557,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-08T09:12:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M32S",
@@ -9576,7 +9576,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-08T08:57:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1M21S",
@@ -9607,7 +9607,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-08T07:48:35Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT30M28S",
@@ -9653,7 +9653,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2026-01-07T21:26:34Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H45M39S",
@@ -9791,7 +9791,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-07T11:33:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT49M41S",
@@ -9822,7 +9822,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2026-01-07T09:50:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT16M30S",
@@ -9866,7 +9866,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-07T08:04:45Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "P0D",
@@ -9902,7 +9902,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-07T08:00:56Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT30M7S",
@@ -9948,7 +9948,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-06T23:48:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT2M56S",
@@ -9994,7 +9994,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-06T11:00:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT21M",
@@ -10151,7 +10151,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-05T16:45:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT53M59S",
@@ -10173,7 +10173,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-05T09:42:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT1H50M7S",
@@ -10253,7 +10253,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-04T11:01:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT24M20S",
@@ -10292,7 +10292,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2026-01-04T09:12:36Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT45M50S",
@@ -10338,7 +10338,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-03T19:00:07Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT8M54S",
@@ -10487,7 +10487,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-02T19:00:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT16M32S",
@@ -10650,7 +10650,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2026-01-01T19:00:03Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT6M21S",
@@ -10694,7 +10694,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2026-01-01T05:24:52Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT2M58S",
@@ -10713,7 +10713,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-31T19:00:25Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT2M46S",
@@ -10768,7 +10768,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-31T13:57:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT1H4M44S",
@@ -10802,7 +10802,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-31T01:52:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT6M2S",
@@ -10821,7 +10821,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-30T21:17:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT46M25S",
@@ -10900,7 +10900,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-30T16:02:58Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT25S",
@@ -10959,7 +10959,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-30T11:00:39Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT29M53S",
@@ -11069,7 +11069,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-30T08:05:30Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT32M58S",
@@ -11115,7 +11115,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-29T21:05:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT46M37S",
@@ -11143,7 +11143,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-29T21:00:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT1H17M16S",
@@ -11198,7 +11198,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-29T07:56:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT36M36S",
@@ -11244,7 +11244,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-28T22:36:06Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT46M34S",
@@ -11267,7 +11267,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-28T21:40:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT29M31S",
@@ -11311,7 +11311,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-28T14:39:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT1H59M16S",
@@ -11335,7 +11335,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-12-28T12:10:10Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT37M38S",
@@ -11354,7 +11354,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-28T11:01:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT26M23S",
@@ -11389,7 +11389,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-27T22:26:23Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT31S",
@@ -11427,7 +11427,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-27T19:00:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT16M3S",
@@ -11525,7 +11525,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-12-27T07:48:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H18M28S",
@@ -11544,7 +11544,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-26T11:01:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT17M34S",
@@ -11579,7 +11579,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-25T19:00:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT4M39S",
@@ -11614,7 +11614,7 @@ window.FEED_UPDATES = [
     "channelTitle": "EVA",
     "publishedAt": "2025-12-25T11:01:48Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCOzd_BhDxbQZ8Y2H1j9wOOg",
     "duration": "PT57M44S",
@@ -11722,7 +11722,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-12-24T20:15:21Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M30S",
@@ -11757,7 +11757,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-24T17:01:40Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M33S",
@@ -11776,7 +11776,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-24T15:04:33Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT50M9S",
@@ -11817,7 +11817,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-24T10:12:52Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M15S",
@@ -11836,7 +11836,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-24T08:55:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H11M54S",
@@ -11855,7 +11855,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-23T17:29:14Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT40S",
@@ -11874,7 +11874,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-23T17:29:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M14S",
@@ -12030,7 +12030,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-23T10:35:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT58M1S",
@@ -12052,7 +12052,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-23T09:57:39Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT31M39S",
@@ -12098,7 +12098,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-23T07:33:09Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M",
@@ -12138,7 +12138,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-22T14:38:40Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT50M30S",
@@ -12245,7 +12245,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-22T08:51:50Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT26M18S",
@@ -12291,7 +12291,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-22T07:45:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT51M14S",
@@ -12371,7 +12371,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-20T22:55:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT2M41S",
@@ -12417,7 +12417,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-20T18:26:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M",
@@ -12466,7 +12466,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-12-20T09:45:58Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT51M18S",
@@ -12557,7 +12557,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-12-20T05:01:08Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M43S",
@@ -12595,7 +12595,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-19T17:15:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT47M57S",
@@ -12636,7 +12636,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-19T13:34:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M16S",
@@ -12655,7 +12655,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-19T09:33:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M14S",
@@ -12684,7 +12684,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-19T07:45:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT27M19S",
@@ -12730,7 +12730,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Jau Fibla",
     "publishedAt": "2025-12-18T23:36:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
     "duration": "PT3M17S",
@@ -12749,7 +12749,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-18T16:37:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M12S",
@@ -12797,7 +12797,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-18T11:29:26Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT28M51S",
@@ -12880,7 +12880,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-18T10:57:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT51S",
@@ -12976,7 +12976,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-18T08:35:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M49S",
@@ -12995,7 +12995,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-17T17:42:32Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M2S",
@@ -13081,7 +13081,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-12-17T13:15:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT59M6S",
@@ -13100,7 +13100,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-17T11:20:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M16S",
@@ -13119,7 +13119,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-17T08:23:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H4M21S",
@@ -13138,7 +13138,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-17T07:54:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT33M23S",
@@ -13184,7 +13184,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-17T02:08:25Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1H49M40S",
@@ -13213,7 +13213,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-12-16T20:23:44Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT23M27S",
@@ -13270,7 +13270,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-16T14:50:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT9M2S",
@@ -13289,7 +13289,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-16T09:08:50Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT16S",
@@ -13308,7 +13308,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-16T08:26:56Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT24M37S",
@@ -13455,7 +13455,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-15T20:20:58Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT12M",
@@ -13484,7 +13484,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-15T10:59:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT9M48S",
@@ -13503,7 +13503,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-15T07:32:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT22M8S",
@@ -13568,7 +13568,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-12-14T15:43:00Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H10M50S",
@@ -13725,7 +13725,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-12T14:43:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M19S",
@@ -13744,7 +13744,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-12T08:21:56Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT34M22S",
@@ -13832,7 +13832,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-11T08:34:21Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M59S",
@@ -13928,7 +13928,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-11T07:52:18Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT33M34S",
@@ -13993,7 +13993,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-10T08:45:40Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M18S",
@@ -14031,7 +14031,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-09T12:54:31Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M37S",
@@ -14167,7 +14167,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-09T07:52:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT27M1S",
@@ -14232,7 +14232,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-12-09T05:00:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT23M41S",
@@ -14354,7 +14354,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-08T07:45:15Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT28M43S",
@@ -14556,7 +14556,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-12-05T22:32:52Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT15M23S",
@@ -14598,7 +14598,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-05T21:03:37Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M30S",
@@ -14627,7 +14627,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-12-05T21:03:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M30S",
@@ -14684,7 +14684,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-05T08:54:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M18S",
@@ -14703,7 +14703,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-05T07:39:21Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT28M4S",
@@ -14863,7 +14863,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-04T08:32:39Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M42S",
@@ -14882,7 +14882,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-04T07:46:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT27M1S",
@@ -14928,7 +14928,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-12-03T12:00:57Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1H4M30S",
@@ -14947,7 +14947,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-03T09:25:20Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT9M30S",
@@ -14966,7 +14966,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-03T08:49:15Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M",
@@ -14985,7 +14985,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-03T07:38:02Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT25M24S",
@@ -15031,7 +15031,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-03T07:27:16Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H5M9S",
@@ -15050,7 +15050,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-12-02T15:54:31Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M26S",
@@ -15069,7 +15069,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-02T14:48:59Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT13M5S",
@@ -15214,7 +15214,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-02T09:45:46Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT28M12S",
@@ -15260,7 +15260,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-12-01T09:48:16Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT9M21S",
@@ -15279,7 +15279,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-12-01T07:43:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT25M54S",
@@ -15362,7 +15362,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-30T21:06:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT42M28S",
@@ -15562,7 +15562,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-28T09:33:13Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M43S",
@@ -15581,7 +15581,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-28T07:34:51Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT19M20S",
@@ -15711,7 +15711,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-27T16:35:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT3M13S",
@@ -15740,7 +15740,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-27T12:18:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT25S",
@@ -15769,7 +15769,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-27T09:50:44Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M12S",
@@ -15788,7 +15788,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-27T09:34:13Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT36S",
@@ -15807,7 +15807,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-27T09:33:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT25S",
@@ -15826,7 +15826,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-27T07:45:43Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT26M1S",
@@ -15872,7 +15872,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-11-27T05:00:22Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M58S",
@@ -15912,7 +15912,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-26T09:25:18Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M50S",
@@ -15931,7 +15931,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-26T08:03:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H9M38S",
@@ -15950,7 +15950,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-26T07:55:58Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT31M52S",
@@ -15996,7 +15996,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-25T19:05:23Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT55S",
@@ -16058,7 +16058,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-25T10:42:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M5S",
@@ -16077,7 +16077,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-25T09:44:35Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M41S",
@@ -16096,7 +16096,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-25T07:54:54Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT29M5S",
@@ -16142,7 +16142,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-24T09:26:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M21S",
@@ -16161,7 +16161,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-24T07:56:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT30M39S",
@@ -16207,7 +16207,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-24T00:26:50Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT9M6S",
@@ -16329,7 +16329,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-21T09:54:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M37S",
@@ -16348,7 +16348,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-11-21T07:50:24Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H18M58S",
@@ -16367,7 +16367,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-21T07:45:21Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT29M6S",
@@ -16413,7 +16413,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-20T09:01:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT14M7S",
@@ -16432,7 +16432,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-20T09:00:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M50S",
@@ -16461,7 +16461,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-20T07:45:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT25M48S",
@@ -16549,7 +16549,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-19T10:40:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M51S",
@@ -16568,7 +16568,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-11-19T09:32:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT43S",
@@ -16587,7 +16587,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-19T09:00:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M53S",
@@ -16616,7 +16616,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-11-19T08:24:44Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1H3M9S",
@@ -16635,7 +16635,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-19T07:35:51Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT19M17S",
@@ -16681,7 +16681,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-19T07:20:44Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H5M37S",
@@ -16700,7 +16700,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-18T16:34:59Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M48S",
@@ -16719,7 +16719,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-18T10:45:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M13S",
@@ -16738,7 +16738,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-18T09:44:15Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M38S",
@@ -16757,7 +16757,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-18T07:32:53Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT21M9S",
@@ -16842,7 +16842,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-17T09:02:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M22S",
@@ -16861,7 +16861,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-17T07:46:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT29M22S",
@@ -16907,7 +16907,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-16T22:38:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT57M35S",
@@ -16972,7 +16972,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-15T11:01:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M44S",
@@ -17085,7 +17085,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-11-15T05:35:49Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT33M55S",
@@ -17117,7 +17117,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-14T10:06:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M9S",
@@ -17136,7 +17136,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-14T09:51:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M50S",
@@ -17165,7 +17165,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-14T07:42:27Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT24M44S",
@@ -17211,7 +17211,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-13T14:15:39Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M26S",
@@ -17230,7 +17230,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-13T10:51:28Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT41S",
@@ -17249,7 +17249,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Notícies Un Quart de Galves",
     "publishedAt": "2025-11-13T08:14:51Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
     "duration": "PT26M17S",
@@ -17295,7 +17295,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-12T20:27:17Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M59S",
@@ -17324,7 +17324,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-11-12T20:26:48Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M45S",
@@ -17353,7 +17353,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-12T17:52:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT9M35S",
@@ -17372,7 +17372,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-12T13:51:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT22S",
@@ -17391,7 +17391,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-12T07:31:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H8M28S",
@@ -17410,7 +17410,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-11T18:39:48Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M38S",
@@ -17429,7 +17429,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-11T17:53:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT40S",
@@ -17490,7 +17490,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-11T10:29:47Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M22S",
@@ -17509,7 +17509,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-10T09:22:55Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT12M14S",
@@ -17590,7 +17590,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-07T10:14:52Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M",
@@ -17609,7 +17609,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-06T15:15:56Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT10M47S",
@@ -17628,7 +17628,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-11-06T10:58:14Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT28M25S",
@@ -17647,7 +17647,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-05T17:58:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M14S",
@@ -17723,7 +17723,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-11-05T11:04:14Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT48S",
@@ -17742,7 +17742,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-05T09:49:06Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT31S",
@@ -17761,7 +17761,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-11-05T09:06:58Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT58M51S",
@@ -17780,7 +17780,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Enric Bastardas",
     "publishedAt": "2025-11-05T08:42:29Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCT8sBQf4grkfLMjOXdIkV2w",
     "duration": "PT11M",
@@ -17799,7 +17799,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-05T07:13:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1H8M39S",
@@ -17818,7 +17818,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-04T19:08:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M17S",
@@ -17837,7 +17837,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-11-04T17:40:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M43S",
@@ -17892,7 +17892,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-11-02T12:44:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT39M58S",
@@ -18023,7 +18023,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-10-30T09:29:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M8S",
@@ -18042,7 +18042,7 @@ window.FEED_UPDATES = [
     "channelTitle": "La Sotana",
     "publishedAt": "2025-10-29T17:34:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCNSmn5NLUDrV_paFZl--7qw",
     "duration": "PT1M14S",
@@ -18186,7 +18186,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-28T05:02:43Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT28M42S",
@@ -18224,7 +18224,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-27T17:47:57Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT11M43S",
@@ -18359,7 +18359,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-25T02:56:54Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT24M5S",
@@ -18772,7 +18772,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-10-19T17:18:41Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M14S",
@@ -18801,7 +18801,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-10-19T10:54:43Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT39M26S",
@@ -18872,7 +18872,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-10-16T09:22:47Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT51S",
@@ -18891,7 +18891,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-10-16T09:01:43Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1H3M56S",
@@ -19058,7 +19058,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-13T04:00:40Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT8M28S",
@@ -19155,7 +19155,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-12T04:00:25Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT19M17S",
@@ -19191,7 +19191,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-10-11T23:27:20Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M46S",
@@ -19220,7 +19220,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-10-11T23:26:48Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT58S",
@@ -19371,7 +19371,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-10-10T11:46:04Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT53M38S",
@@ -19390,7 +19390,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-10-10T11:04:30Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT6M11S",
@@ -19707,7 +19707,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-05T18:05:40Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT1H27M59S",
@@ -19937,7 +19937,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-10-03T09:42:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT37M54S",
@@ -19956,7 +19956,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-10-01T15:01:43Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT54S",
@@ -19975,7 +19975,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-10-01T14:53:45Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT53M47S",
@@ -19994,7 +19994,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-10-01T03:25:49Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT35M43S",
@@ -20027,7 +20027,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-30T04:00:23Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT19M52S",
@@ -20094,7 +20094,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-28T10:00:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT3M",
@@ -20123,7 +20123,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-27T16:21:14Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT3M",
@@ -20233,7 +20233,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-09-27T06:36:19Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT39M55S",
@@ -20252,7 +20252,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-26T07:04:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT3M22S",
@@ -20281,7 +20281,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-24T04:00:46Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M35S",
@@ -20322,7 +20322,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-09-23T16:45:42Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT55M14S",
@@ -20413,7 +20413,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-23T10:01:45Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M30S",
@@ -20487,7 +20487,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-22T04:01:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT18M5S",
@@ -20519,7 +20519,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-21T18:32:03Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M31S",
@@ -20633,7 +20633,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-20T19:35:53Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT30M6S",
@@ -20746,7 +20746,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-18T07:43:37Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M47S",
@@ -20813,7 +20813,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-09-15T15:01:13Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT35M14S",
@@ -20861,7 +20861,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-13T03:49:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT16M4S",
@@ -20902,7 +20902,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-09-10T12:40:56Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT42M31S",
@@ -20961,7 +20961,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-08T14:30:35Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT10M52S",
@@ -21067,7 +21067,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-09-06T13:39:20Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT56M27S",
@@ -21086,7 +21086,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-09-05T18:31:39Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT37M24S",
@@ -21105,7 +21105,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-05T10:01:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M57S",
@@ -21134,7 +21134,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-05T04:00:45Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M58S",
@@ -21168,7 +21168,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-09-04T07:06:12Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M57S",
@@ -21233,7 +21233,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-09-01T20:30:56Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT22M55S",
@@ -21292,7 +21292,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-08-30T11:27:32Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT40M32S",
@@ -21311,7 +21311,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-28T10:01:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT38S",
@@ -21340,7 +21340,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-27T08:26:10Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT41S",
@@ -21397,7 +21397,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-08-20T10:44:00Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT44M44S",
@@ -21458,7 +21458,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-08-19T04:00:09Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT18M17S",
@@ -21492,7 +21492,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-17T17:03:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT5M36S",
@@ -21552,7 +21552,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-08-16T15:18:10Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT40M9S",
@@ -21571,7 +21571,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-14T09:53:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M57S",
@@ -21600,7 +21600,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-13T11:31:38Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M1S",
@@ -21629,7 +21629,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-08-13T10:22:39Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT35M52S",
@@ -21648,7 +21648,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-12T18:01:27Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT22S",
@@ -21677,7 +21677,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-11T15:53:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT12S",
@@ -21732,7 +21732,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-08-07T12:36:13Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT22M25S",
@@ -21751,7 +21751,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-08-06T07:14:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M",
@@ -21878,7 +21878,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-08-01T04:00:03Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT1H7M18S",
@@ -21915,7 +21915,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-07-30T17:58:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT58M34S",
@@ -21957,7 +21957,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-07-30T11:52:55Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT40M9S",
@@ -21976,7 +21976,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-30T06:34:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT4M15S",
@@ -22005,7 +22005,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-07-29T08:58:29Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H7M17S",
@@ -22024,7 +22024,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-07-29T08:52:54Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT52M22S",
@@ -22061,7 +22061,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-28T15:47:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT53S",
@@ -22165,7 +22165,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-26T07:01:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M30S",
@@ -22194,7 +22194,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-25T07:00:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M33S",
@@ -22223,7 +22223,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-07-23T15:48:47Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT42M57S",
@@ -22242,7 +22242,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-23T14:51:06Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT50M56S",
@@ -22261,7 +22261,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-23T14:03:50Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT59S",
@@ -22280,7 +22280,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-20T11:47:08Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT12M47S",
@@ -22309,7 +22309,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-19T14:13:39Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT48S",
@@ -22364,7 +22364,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-18T07:00:15Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M37S",
@@ -22393,7 +22393,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-17T06:52:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M40S",
@@ -22418,7 +22418,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-07-16T14:45:30Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT33M59S",
@@ -22437,7 +22437,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-16T11:31:03Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT59S",
@@ -22456,7 +22456,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-16T10:25:52Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT56M34S",
@@ -22475,7 +22475,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-07-13T16:43:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT24M32S",
@@ -22514,7 +22514,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-12T15:35:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT58S",
@@ -22611,7 +22611,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-10T10:43:04Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT56M20S",
@@ -22630,7 +22630,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-10T06:42:30Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT50S",
@@ -22659,7 +22659,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-10T06:13:09Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT53S",
@@ -22688,7 +22688,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-07-10T04:47:53Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT17M46S",
@@ -22719,7 +22719,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-07-09T19:20:43Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT51M35S",
@@ -22738,7 +22738,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-09T18:45:11Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT33S",
@@ -22767,7 +22767,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-09T17:11:18Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT34S",
@@ -22839,7 +22839,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-07T21:06:53Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT2M35S",
@@ -22868,7 +22868,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Esquetxes comèdia en català",
     "publishedAt": "2025-07-06T19:18:00Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UC5ytRP5VNigPHovAY7kyicQ",
     "duration": "PT1M21S",
@@ -22897,7 +22897,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-07-03T08:45:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT47M20S",
@@ -22916,7 +22916,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-07-02T13:37:55Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT47M31S",
@@ -22989,7 +22989,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-06-25T15:06:03Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT38M36S",
@@ -23008,7 +23008,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-25T11:28:31Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT59S",
@@ -23027,7 +23027,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-25T11:12:02Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1H3M43S",
@@ -23092,7 +23092,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-06-24T09:13:08Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT53M10S",
@@ -23178,7 +23178,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-06-22T05:00:40Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M",
@@ -23214,7 +23214,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-18T11:06:13Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT50S",
@@ -23233,7 +23233,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-18T11:03:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT37M32S",
@@ -23323,7 +23323,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-06-17T12:19:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT58M14S",
@@ -23342,7 +23342,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-06-15T05:00:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M43S",
@@ -23373,7 +23373,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-06-13T02:42:44Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT9M36S",
@@ -23409,7 +23409,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-06-11T19:32:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT36M13S",
@@ -23428,7 +23428,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-11T14:18:57Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT55S",
@@ -23494,7 +23494,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-11T10:40:57Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT53M36S",
@@ -23532,7 +23532,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-06-08T13:00:42Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT37M42S",
@@ -23551,7 +23551,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-06-04T15:19:24Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT57M9S",
@@ -23570,7 +23570,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-04T07:14:59Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT39S",
@@ -23589,7 +23589,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-06-04T07:14:51Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT52M45S",
@@ -23670,7 +23670,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-05-31T12:03:35Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT39M35S",
@@ -23723,7 +23723,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-05-28T12:20:19Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H1M6S",
@@ -23742,7 +23742,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-28T11:36:05Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT49S",
@@ -23761,7 +23761,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-28T11:33:01Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT44M19S",
@@ -23840,7 +23840,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-23T17:38:49Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M40S",
@@ -23898,7 +23898,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-05-21T14:30:39Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT40M56S",
@@ -23917,7 +23917,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-21T14:22:58Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT45S",
@@ -23936,7 +23936,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-21T14:16:17Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT44M51S",
@@ -23974,7 +23974,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-05-20T19:19:47Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H5M6S",
@@ -24018,7 +24018,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-19T05:00:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT1H7M23S",
@@ -24151,7 +24151,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-05-14T15:34:00Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT1H6M43S",
@@ -24170,7 +24170,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-14T11:18:59Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT44S",
@@ -24189,7 +24189,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-14T11:03:14Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT44M1S",
@@ -24246,7 +24246,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-11T08:03:20Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT3M6S",
@@ -24278,7 +24278,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-10T18:26:10Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT3M43S",
@@ -24311,7 +24311,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-10T00:35:46Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT22M12S",
@@ -24351,7 +24351,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-07T16:22:40Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1M",
@@ -24370,7 +24370,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-05-07T15:59:36Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT58M56S",
@@ -24389,7 +24389,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-07T14:49:46Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M44S",
@@ -24428,7 +24428,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-05-07T13:44:19Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT50M3S",
@@ -24447,7 +24447,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-07T05:00:28Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT6M3S",
@@ -24480,7 +24480,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-07T00:12:34Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT7M43S",
@@ -24517,7 +24517,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-05-06T21:49:11Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT7M1S",
@@ -24576,7 +24576,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-05-02T09:38:29Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT36M31S",
@@ -24620,7 +24620,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-30T11:38:49Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT59S",
@@ -24639,7 +24639,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-30T11:01:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT58M54S",
@@ -24684,7 +24684,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-25T06:15:24Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT35S",
@@ -24703,7 +24703,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-25T05:00:44Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT52M42S",
@@ -24741,7 +24741,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-04-21T19:13:22Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H8M53S",
@@ -24923,7 +24923,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-04-19T05:01:02Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT14M14S",
@@ -25021,7 +25021,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-04-16T16:53:57Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT31M54S",
@@ -25107,7 +25107,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-16T14:24:36Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT49M4S",
@@ -25126,7 +25126,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-16T13:41:15Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT56S",
@@ -25207,7 +25207,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-04-15T05:00:00Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M8S",
@@ -25296,7 +25296,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-04-14T05:00:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT6M4S",
@@ -25387,7 +25387,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-04-13T11:11:19Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT54M30S",
@@ -25406,7 +25406,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-04-09T14:56:34Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT59M11S",
@@ -25425,7 +25425,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-09T11:49:40Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1M",
@@ -25444,7 +25444,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-09T11:41:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT42M43S",
@@ -25463,7 +25463,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-04-07T04:00:31Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT15M9S",
@@ -25500,7 +25500,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-04-04T20:24:32Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT23M25S",
@@ -25549,7 +25549,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-04-02T17:30:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT39M32S",
@@ -25568,7 +25568,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-02T13:52:37Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT48S",
@@ -25587,7 +25587,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-04-02T13:46:33Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT46M36S",
@@ -25606,7 +25606,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-27T15:32:06Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT51S",
@@ -25625,7 +25625,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-27T14:41:34Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT1H8M12S",
@@ -25644,7 +25644,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-25T12:52:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT14M9S",
@@ -25676,7 +25676,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-25T08:52:13Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT54S",
@@ -25695,7 +25695,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-03-22T08:51:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT55M51S",
@@ -25744,7 +25744,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-03-19T19:09:38Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT34M34S",
@@ -25763,7 +25763,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-19T12:47:17Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT43M36S",
@@ -25782,7 +25782,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-17T11:09:17Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT11M27S",
@@ -25820,7 +25820,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-17T10:03:31Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT6M4S",
@@ -25850,7 +25850,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-14T13:34:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT20M59S",
@@ -25888,7 +25888,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-13T14:21:22Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT54S",
@@ -25907,7 +25907,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-03-12T18:43:09Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT25M47S",
@@ -25926,7 +25926,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-12T13:56:42Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT53S",
@@ -25945,7 +25945,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-12T12:56:26Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT45M28S",
@@ -25964,7 +25964,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-03-07T09:33:10Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT52M40S",
@@ -25983,7 +25983,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Gent De Merda",
     "publishedAt": "2025-03-05T12:09:54Z",
     "categories": [
-      "humor"
+      "diversio"
     ],
     "sourceChannelId": "UCQvIQnJGSDFX_IAiV9JuBew",
     "duration": "PT39M14S",
@@ -26002,7 +26002,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-03T16:04:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT15M18S",
@@ -26038,7 +26038,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-03-01T06:00:02Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT10M31S",
@@ -26077,7 +26077,7 @@ window.FEED_UPDATES = [
     "channelTitle": "NetInformacio",
     "publishedAt": "2025-02-28T20:07:40Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
     "duration": "PT5M25S",
@@ -26107,7 +26107,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-02-26T18:08:34Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT44M20S",
@@ -26126,7 +26126,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-02-19T18:00:24Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT51M32S",
@@ -26145,7 +26145,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2025-02-15T08:55:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H51S",
@@ -26185,7 +26185,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-02-12T11:32:50Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT54M54S",
@@ -26204,7 +26204,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Mai Tant Podcast",
     "publishedAt": "2025-02-10T18:31:23Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
     "duration": "PT48M42S",
@@ -26223,7 +26223,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2025-02-04T09:18:21Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT55M6S",
@@ -26242,7 +26242,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-12-27T15:46:06Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT41M11S",
@@ -26284,7 +26284,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-12-15T14:47:05Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H6M18S",
@@ -26303,7 +26303,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-12-07T12:21:05Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H7M53S",
@@ -26345,7 +26345,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-11-27T11:00:40Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT39M1S",
@@ -26364,7 +26364,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-11-18T11:21:44Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H20M19S",
@@ -26383,7 +26383,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-11-12T16:12:38Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H2M12S",
@@ -26429,7 +26429,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-10-23T06:47:03Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT54M3S",
@@ -26448,7 +26448,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-10-08T09:17:39Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H9M56S",
@@ -26467,7 +26467,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-10-01T10:27:29Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT54M11S",
@@ -26486,7 +26486,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-08-28T18:52:23Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT51M31S",
@@ -26528,7 +26528,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-08-27T12:55:17Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H24M1S",
@@ -26547,7 +26547,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-08-17T15:51:26Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT53M39S",
@@ -26566,7 +26566,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-08-07T11:15:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT56M31S",
@@ -26585,7 +26585,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-07-30T10:25:01Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT53M19S",
@@ -26604,7 +26604,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-07-16T11:25:53Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT49M55S",
@@ -26623,7 +26623,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-07-11T08:03:05Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT58M38S",
@@ -26665,7 +26665,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-07-09T15:59:08Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT41M26S",
@@ -26684,7 +26684,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-06-14T08:21:00Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT24M2S",
@@ -26703,7 +26703,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-06-07T13:33:46Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H17M59S",
@@ -26722,7 +26722,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-05-09T13:03:41Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT21M59S",
@@ -26741,7 +26741,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-05-08T10:41:20Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H11M59S",
@@ -26787,7 +26787,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-05-07T11:21:36Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT28M1S",
@@ -26806,7 +26806,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-05-03T13:04:05Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT18M40S",
@@ -26825,7 +26825,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-04-07T12:05:07Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H34M45S",
@@ -26844,7 +26844,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-03-31T09:38:55Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT52M31S",
@@ -26863,7 +26863,7 @@ window.FEED_UPDATES = [
     "channelTitle": "Víctor Puig ",
     "publishedAt": "2024-03-28T12:05:26Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
     "duration": "PT1H8M32S",
@@ -26907,7 +26907,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-03-22T09:03:43Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H20M35S",
@@ -26926,7 +26926,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-02-15T11:38:31Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H54M11S",
@@ -26945,7 +26945,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2024-02-02T11:59:18Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT38M57S",
@@ -26964,7 +26964,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-12-31T12:25:44Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT53M33S",
@@ -26983,7 +26983,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-12-15T18:30:12Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT51M30S",
@@ -27002,7 +27002,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-11-05T14:07:32Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT7M33S",
@@ -27021,7 +27021,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-10-29T14:22:36Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT37M4S",
@@ -27040,7 +27040,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-10-07T13:55:16Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H25S",
@@ -27059,7 +27059,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-09-10T08:30:10Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H27M25S",
@@ -27078,7 +27078,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-08-30T09:00:12Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H17S",
@@ -27097,7 +27097,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-08-10T11:14:33Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H21M59S",
@@ -27116,7 +27116,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-08-04T11:12:54Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT34M46S",
@@ -27135,7 +27135,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-07-27T08:26:03Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT29M3S",
@@ -27157,7 +27157,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-07-20T12:13:21Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H26M15S",
@@ -27176,7 +27176,7 @@ window.FEED_UPDATES = [
     "channelTitle": "L´ESCAQUIMAT",
     "publishedAt": "2023-07-16T06:21:45Z",
     "categories": [
-      "societat"
+      "el-mon"
     ],
     "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
     "duration": "PT1H3M6S",
