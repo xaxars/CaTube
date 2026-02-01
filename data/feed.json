@@ -1,65 +1,21 @@
 {
-  "generatedAt": "2026-02-01T15:56:00.348Z",
+  "generatedAt": "2026-02-01T17:24:05.409Z",
   "channels": {
-    "UCaYXWVFYirJdDmprjozHdmA": {
-      "name": "VilaWeb",
-      "avatar": "https://yt3.ggpht.com/Scu_Hgh8vX_fv9HkqfXVLxVCIRd3j23cRoa9W9q50mkGj3aAwjdPOb0VphSB3LIcnUzosXnzcQ=s800-c-k-c0x00ffffff-no-rj",
-      "description": "VilaWeb.cat és el principal diari electrònic en llengua catalana, creat el 1995.",
-      "handle": "@vilaweb",
-      "subscriberCount": 20700,
+    "UCXajnbaMh6cxofmw5ki43DA": {
+      "name": "Diari ARA",
+      "avatar": "https://yt3.ggpht.com/wKc0-7uTnyIOxCH8-vegFsavqQBHkEGsrRmaB169nOjmHP1Yr_6kcczvKGGFzv-8RIYCK502nqk=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Canal oficial del diari ARA.\nVegeu tots els vídeos d'Ara Vídeos a: http://www.ara.cat/videos/",
+      "handle": "@diariara",
+      "subscriberCount": 57600,
       "categories": [
         "mitjans"
       ],
       "topTags": [
+        "ara.cat",
         "Barcelona",
         "Catalunya",
-        "País Valencià",
-        "Països Catalans",
-        "VilaWeb"
-      ]
-    },
-    "UCaCWG8cBOwER_Vf3qAsr8Zg": {
-      "name": "Notícies Un Quart de Galves",
-      "avatar": "https://yt3.ggpht.com/Hw-5OfXTofpK0KUBT5G8txv5DVPbv16sd4sdnpOT5VILlx7Hs-wlFKvVXVJ-ZEjgtfyw44J0Yw=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Les notícies de cada dia en 15 minuts. Comentades i explicades per Jordi Galves.",
-      "handle": "@unquartdegalves",
-      "subscriberCount": 4430,
-      "categories": [
-        "societat"
-      ],
-      "topTags": [
-        "Actualitat",
-        "catala",
-        "catalunya",
-        "europa noticias en español",
-        "generalitat de catalunya",
-        "ib3 notícies",
-        "Informatiu",
-        "Mati",
-        "noticias cataluña en vivo",
-        "noticias cataluña hoy"
-      ]
-    },
-    "UCW1ZdYsRaVbp4X_ppZ9_wZg": {
-      "name": "No Passa Res",
-      "avatar": "https://yt3.ggpht.com/PJUhYGx0SNrUQo_8eI5xMVisDeLqz6cYU55x69wVbf_xbYjZVcsnD9JWighTgYlVhFHvRt0NVw=s800-c-k-c0x00ffffff-no-rj",
-      "description": "NO PASSA RES és un programa online d'entrevistes a personatges rellevants de l'àmbit cultural, polític, i artístic català. Presentat per Guillem Pujol. \n\nDijous 15 de Gener 2026 a les 20:00 estrena de la T2 amb Juana Dolores.\n\n",
-      "handle": "@nopassares",
-      "subscriberCount": 923,
-      "categories": [
-        "cultura"
-      ],
-      "topTags": [
-        "catalunya",
-        "politica",
-        "satira",
-        "#comèdia",
-        "#feminisme",
-        "#humor",
-        "#humorcatalà",
-        "#nopassares",
-        "#standup",
-        "1 de cada 5"
+        "Diari ARA",
+        "periodisme"
       ]
     },
     "UCT8sBQf4grkfLMjOXdIkV2w": {
@@ -70,6 +26,17 @@
       "subscriberCount": 304,
       "categories": [
         "diversió"
+      ],
+      "topTags": []
+    },
+    "UCbOj46zFDV0_EquDRQzr5HQ": {
+      "name": "Mai Tant Podcast",
+      "avatar": "https://yt3.ggpht.com/HfCsmFGfsZAGizN3e3QrauAJrjwTYJrPwj8t3UOYzrmdjKMPZ2amNivGffNXPypf7YvgqM1qtzo=s800-c-k-c0x00ffffff-no-rj",
+      "description": "CADA DIMECRES A LA TARDA",
+      "handle": "@maitantpodcast",
+      "subscriberCount": 824,
+      "categories": [
+        "el món"
       ],
       "topTags": []
     },
@@ -84,16 +51,27 @@
       ],
       "topTags": []
     },
-    "UCQvIQnJGSDFX_IAiV9JuBew": {
-      "name": "Gent De Merda",
-      "avatar": "https://yt3.ggpht.com/oFX1aYmDyuNmIqVuUPhmhRKNSOx-0R5MGHYOqRQi2D__zaS5KG4lWNIfNUBwqbVRv84sl9C8hA=s800-c-k-c0x00ffffff-no-rj",
-      "description": "La Clàudia Rius, la Paula Carreras, la Rita Roig i l'Ofèlia Carbonell som gent de merda. I tu també.",
-      "handle": "@gentdemerda",
-      "subscriberCount": 2150,
+    "UCHwg1QG8c6WrDZm_J6oAweg": {
+      "name": "País Invisible Podcast",
+      "avatar": "https://yt3.ggpht.com/1R4bRkAmN1kd9_OiyVePRZh0pYp7uUzJLrEoFhlAsgk7jaQtm-NQvrYspw_ziU6g9ePZvGYt5B8=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Viatge sonor des de la Vall d'Aran fins a Torí. Llengua, música i història. Un #podcast per escampar la boira. 🔆🏔📢\n\nPrograma quinzenal de dissabtes.\n",
+      "handle": "@paisinvisible",
+      "subscriberCount": 2250,
       "categories": [
-        "diversió"
+        "cultura"
       ],
-      "topTags": []
+      "topTags": [
+        "3cat",
+        "catalunya",
+        "ieo",
+        "lingüística",
+        "oc",
+        "uab",
+        "vall",
+        "català",
+        "farri",
+        "icat"
+      ]
     },
     "UChOzqUp9V9AQPB4WzOhu-Xw": {
       "name": "Aya_ZholvaX: Jocs de taula",
@@ -117,28 +95,6 @@
         "jocs"
       ]
     },
-    "UCgvW4vAO6jNWA4qeYk87BEA": {
-      "name": "NetInformacio",
-      "avatar": "https://yt3.ggpht.com/Ju_aoLg8v32K2oujVN8MREw4MCmBeoy6Qj1l5lvrzHAMBSbAlihAlMHGYhHDxlGCRIUqqnpIa7s=s800-c-k-c0x00ffffff-no-rj",
-      "description": "NetInformació és el canal de YouTube oficial de la web Informacio.Net.\n\nHi trobareu informació i opinió política independent i informada sobre tot tipus d'afers que afectin a Catalunya i als catalans.\n\nEl més important és que puguem mantenir conversa i debats honestos sobre els temes més variats, pu...",
-      "handle": "@netinformacio",
-      "subscriberCount": 25400,
-      "categories": [
-        "societat"
-      ],
-      "topTags": [
-        "Carles Valbuena",
-        "NetInformació",
-        "Catalunya",
-        "independència",
-        "Puigdemont",
-        "ERC",
-        "Junts",
-        "Esquerra",
-        "Junqueras",
-        "Rússia"
-      ]
-    },
     "UC995eaX8sye3WGZB3XUl9lg": {
       "name": "L´ESCAQUIMAT",
       "avatar": "https://yt3.ggpht.com/3HUwOrjELA_Ef0xAacNO0df-YHiFP2o6FL41qhhv9pjL3LEDjFgxFc6iERK6-SozdJi8PnIJ7yk=s800-c-k-c0x00ffffff-no-rj",
@@ -146,55 +102,33 @@
       "handle": "@lescaquimat4658",
       "subscriberCount": 1920,
       "categories": [
-        "societat"
+        "el món"
       ],
       "topTags": [
         "L´escaquimat",
         "llengua catalana"
       ]
     },
-    "UCjPL0bozxQmzcMqPsnvLLTA": {
-      "name": "Jau Fibla",
-      "avatar": "https://yt3.ggpht.com/vfBCh2Wmc74q3fvgMiVyZ2ECnc8ZmGZPwDPTq0aLDl91clIBKtcXpQQ19Mu8lEo1M--nSwAsTFs=s800-c-k-c0x00ffffff-no-rj",
-      "description": "El canal oficial en català d'en Jau Fibla!!! Aquí hi trobareu reportatges especials, cançons i programes com: \n\"Un home 9\", un magazine on parlem de notícies, efemèrides, cinema, actors i actrius i molt més,!\n\"CINEJAU\", el programa que us informa de les estrenes de cinema i us recomana films i sèrie...",
-      "handle": "@jaufibla",
-      "subscriberCount": 605,
+    "UCaCWG8cBOwER_Vf3qAsr8Zg": {
+      "name": "Notícies Un Quart de Galves",
+      "avatar": "https://yt3.ggpht.com/Hw-5OfXTofpK0KUBT5G8txv5DVPbv16sd4sdnpOT5VILlx7Hs-wlFKvVXVJ-ZEjgtfyw44J0Yw=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Les notícies de cada dia en 15 minuts. Comentades i explicades per Jordi Galves.",
+      "handle": "@unquartdegalves",
+      "subscriberCount": 4430,
       "categories": [
-        "humor"
+        "el món"
       ],
       "topTags": [
-        "twitch",
-        "games",
-        "trump",
+        "Actualitat",
+        "catala",
         "catalunya",
-        "notícies",
-        "streamer català",
-        "vlog personal",
-        "català",
-        "creadorstv",
-        "jaufibla"
-      ]
-    },
-    "UCSfMEzJX9i4-3Xl6KFv3DAA": {
-      "name": "3Cat",
-      "avatar": "https://yt3.ggpht.com/EQRzSLoNFI8gFQT0FkJuAQ1SA7_Rh-3lrSsTazDQ2DwadIb-ti2TxgjERc7es6gKLZufHfhkUw=s800-c-k-c0x00ffffff-no-rj",
-      "description": "#Som3Cat, passeu, passeu!\n\nEn aquest canal trobaràs contingut exclusiu dels teus programes preferits, estrenes digitals de tot l’univers de TV3 i Catalunya Ràdio, i formats d'èxit com Polònia o La Renaixença.\n\n\n",
-      "handle": "@som3cat",
-      "subscriberCount": 481000,
-      "categories": [
-        "mitjans"
-      ],
-      "topTags": [
-        "TV3",
-        "3Cat",
-        "Som3Cat",
-        "euforia",
-        "euforia tv3",
-        "euforia 3cat",
-        "euforia 4",
-        "3cat",
-        "musica en directe",
-        "ot"
+        "europa noticias en español",
+        "generalitat de catalunya",
+        "ib3 notícies",
+        "Informatiu",
+        "Mati",
+        "noticias cataluña en vivo",
+        "noticias cataluña hoy"
       ]
     },
     "UC5ytRP5VNigPHovAY7kyicQ": {
@@ -216,67 +150,6 @@
         "humor catala",
         "humor català",
         "sketch"
-      ]
-    },
-    "UCptKQCkfc-LV4ybc9Th5_OA": {
-      "name": "Víctor Puig ",
-      "avatar": "https://yt3.ggpht.com/fxi_Kqr7o9raXV-TJHt9jemmkN-JNAHHKLGMqG7D_MuxhCJrxWgrY7_s8s22sC1TCpk3snh2cXs=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Entrevistes i comentari polític.\nPerspectiva catalanocèntrica.\nAjuda'ns a créixer: ES56 3025 0014 0214 0009 6845\n\n",
-      "handle": "@victor_puig_",
-      "subscriberCount": 4920,
-      "categories": [
-        "societat"
-      ],
-      "topTags": [
-        "Víctor Puig",
-        "política catalana",
-        "cultura catalana",
-        "sobirania catalana",
-        "catalunya",
-        "Catalunya",
-        "Catalunya 2024",
-        "Com fer-se ric",
-        "drets humans",
-        "economia"
-      ]
-    },
-    "UCXajnbaMh6cxofmw5ki43DA": {
-      "name": "Diari ARA",
-      "avatar": "https://yt3.ggpht.com/wKc0-7uTnyIOxCH8-vegFsavqQBHkEGsrRmaB169nOjmHP1Yr_6kcczvKGGFzv-8RIYCK502nqk=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Canal oficial del diari ARA.\nVegeu tots els vídeos d'Ara Vídeos a: http://www.ara.cat/videos/",
-      "handle": "@diariara",
-      "subscriberCount": 57600,
-      "categories": [
-        "mitjans"
-      ],
-      "topTags": [
-        "ara.cat",
-        "Barcelona",
-        "Catalunya",
-        "Diari ARA",
-        "periodisme"
-      ]
-    },
-    "UCHwg1QG8c6WrDZm_J6oAweg": {
-      "name": "País Invisible Podcast",
-      "avatar": "https://yt3.ggpht.com/1R4bRkAmN1kd9_OiyVePRZh0pYp7uUzJLrEoFhlAsgk7jaQtm-NQvrYspw_ziU6g9ePZvGYt5B8=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Viatge sonor des de la Vall d'Aran fins a Torí. Llengua, música i història. Un #podcast per escampar la boira. 🔆🏔📢\n\nPrograma quinzenal de dissabtes.\n",
-      "handle": "@paisinvisible",
-      "subscriberCount": 2250,
-      "categories": [
-        "cultura"
-      ],
-      "topTags": [
-        "3cat",
-        "catalunya",
-        "ieo",
-        "lingüística",
-        "oc",
-        "uab",
-        "vall",
-        "català",
-        "farri",
-        "icat"
       ]
     },
     "UCOzd_BhDxbQZ8Y2H1j9wOOg": {
@@ -301,23 +174,12 @@
         "la cabra"
       ]
     },
-    "UCbOj46zFDV0_EquDRQzr5HQ": {
-      "name": "Mai Tant Podcast",
-      "avatar": "https://yt3.ggpht.com/HfCsmFGfsZAGizN3e3QrauAJrjwTYJrPwj8t3UOYzrmdjKMPZ2amNivGffNXPypf7YvgqM1qtzo=s800-c-k-c0x00ffffff-no-rj",
-      "description": "CADA DIMECRES A LA TARDA",
-      "handle": "@maitantpodcast",
-      "subscriberCount": 824,
-      "categories": [
-        "societat"
-      ],
-      "topTags": []
-    },
     "UC5Ha9G3Tp_17qcC38GPPvQg": {
       "name": "Èric López",
       "avatar": "https://yt3.ggpht.com/K97ftPusNCdyMm4n3U2-4KpY3kN2avIyR4VPeBJYPfcmWyah1Qhen2byHbS8XD5FXCt95nKbMg=s800-c-k-c0x00ffffff-no-rj",
       "description": "🌎 De Catalunya al Món\n",
       "handle": "@ericlopezr",
-      "subscriberCount": 222,
+      "subscriberCount": 223,
       "categories": [
         "vida"
       ],
@@ -334,26 +196,81 @@
         "aprender catalan"
       ]
     },
-    "UCDawX1bxeC4-hZiGnkqevbw": {
-      "name": "Enric Adventures",
-      "avatar": "https://yt3.ggpht.com/ECuCXTvGzVbIoiUIJGUS3AjNSFbkFHhR1oKwwK3g44xXvNRIIBgYbbcU-Jht8EXWOnpzknIE=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Em dic Enric Luzán i en aquest canal trobareu senderisme, travesses i bolets\n\nContacte professional: enricadventures@gmail.com\n",
-      "handle": "@enricadventures",
-      "subscriberCount": 22100,
+    "UCW1ZdYsRaVbp4X_ppZ9_wZg": {
+      "name": "No Passa Res",
+      "avatar": "https://yt3.ggpht.com/PJUhYGx0SNrUQo_8eI5xMVisDeLqz6cYU55x69wVbf_xbYjZVcsnD9JWighTgYlVhFHvRt0NVw=s800-c-k-c0x00ffffff-no-rj",
+      "description": "NO PASSA RES és un programa online d'entrevistes a personatges rellevants de l'àmbit cultural, polític, i artístic català. Presentat per Guillem Pujol. \n\nDijous 15 de Gener 2026 a les 20:00 estrena de la T2 amb Juana Dolores.\n\n",
+      "handle": "@nopassares",
+      "subscriberCount": 923,
+      "categories": [
+        "cultura"
+      ],
+      "topTags": [
+        "catalunya",
+        "politica",
+        "satira",
+        "#comèdia",
+        "#feminisme",
+        "#humor",
+        "#humorcatalà",
+        "#nopassares",
+        "#standup",
+        "1 de cada 5"
+      ]
+    },
+    "UCQvIQnJGSDFX_IAiV9JuBew": {
+      "name": "Gent De Merda",
+      "avatar": "https://yt3.ggpht.com/oFX1aYmDyuNmIqVuUPhmhRKNSOx-0R5MGHYOqRQi2D__zaS5KG4lWNIfNUBwqbVRv84sl9C8hA=s800-c-k-c0x00ffffff-no-rj",
+      "description": "La Clàudia Rius, la Paula Carreras, la Rita Roig i l'Ofèlia Carbonell som gent de merda. I tu també.",
+      "handle": "@gentdemerda",
+      "subscriberCount": 2150,
+      "categories": [
+        "diversió"
+      ],
+      "topTags": []
+    },
+    "UCPikYBuH-XamjDe1OuEiLfA": {
+      "name": "Pol Codina 🌍",
+      "avatar": "https://yt3.ggpht.com/YgMNk0AypTg0-7ydfinXaS8kwWTUHZK50Tu6F3pQlV33ImzIQODrpI7jItnHt7eD3bpUDWS7LaE=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Benvinguts! Soc en Pol, aquí trobareu vídeos sobre viatges, esports, curses, reptes, amics i tot allò que tingui a veure en sortir de casa i passar-ho bé.🌍✈️⛰✌🏼\n\nEspero que us molin! \n\nXarxes socials:\n\nInstagram: https://www.instagram.com/pol_codina?igsh=NWw0YXZwaW53M21o&utm_source=qr\n\nStrava: htt...",
+      "handle": "@polcodina",
+      "subscriberCount": 2640,
       "categories": [
         "vida"
       ],
       "topTags": [
-        "hiking",
-        "osprey",
-        "senderisme",
-        "senderismo",
-        "alt Empordà",
-        "exos 38",
-        "osprey exos",
-        "thru hiking",
-        "begur",
-        "Catalunya"
+        "Catalunya",
+        "Català",
+        "Running",
+        "Trailrunning",
+        "Esport",
+        "Muntanya",
+        "Ciclisme",
+        "Mtb",
+        "Dolomites",
+        "Gravel"
+      ]
+    },
+    "UCgvW4vAO6jNWA4qeYk87BEA": {
+      "name": "NetInformacio",
+      "avatar": "https://yt3.ggpht.com/Ju_aoLg8v32K2oujVN8MREw4MCmBeoy6Qj1l5lvrzHAMBSbAlihAlMHGYhHDxlGCRIUqqnpIa7s=s800-c-k-c0x00ffffff-no-rj",
+      "description": "NetInformació és el canal de YouTube oficial de la web Informacio.Net.\n\nHi trobareu informació i opinió política independent i informada sobre tot tipus d'afers que afectin a Catalunya i als catalans.\n\nEl més important és que puguem mantenir conversa i debats honestos sobre els temes més variats, pu...",
+      "handle": "@netinformacio",
+      "subscriberCount": 25400,
+      "categories": [
+        "el món"
+      ],
+      "topTags": [
+        "Carles Valbuena",
+        "NetInformació",
+        "Catalunya",
+        "independència",
+        "Puigdemont",
+        "ERC",
+        "Junts",
+        "Esquerra",
+        "Junqueras",
+        "Rússia"
       ]
     },
     "UCe609vWJJ1yXOTiZcjuaffQ": {
@@ -378,30 +295,157 @@
         "Sílvia Abril"
       ]
     },
-    "UCPikYBuH-XamjDe1OuEiLfA": {
-      "name": "Pol Codina 🌍",
-      "avatar": "https://yt3.ggpht.com/YgMNk0AypTg0-7ydfinXaS8kwWTUHZK50Tu6F3pQlV33ImzIQODrpI7jItnHt7eD3bpUDWS7LaE=s800-c-k-c0x00ffffff-no-rj",
-      "description": "Benvinguts! Soc en Pol, aquí trobareu vídeos sobre viatges, esports, curses, reptes, amics i tot allò que tingui a veure en sortir de casa i passar-ho bé.🌍✈️⛰✌🏼\n\nEspero que us molin! \n\nXarxes socials:\n\nInstagram: https://www.instagram.com/pol_codina?igsh=NWw0YXZwaW53M21o&utm_source=qr\n\nStrava: htt...",
-      "handle": "@polcodina",
-      "subscriberCount": 2640,
+    "UCjPL0bozxQmzcMqPsnvLLTA": {
+      "name": "Jau Fibla",
+      "avatar": "https://yt3.ggpht.com/vfBCh2Wmc74q3fvgMiVyZ2ECnc8ZmGZPwDPTq0aLDl91clIBKtcXpQQ19Mu8lEo1M--nSwAsTFs=s800-c-k-c0x00ffffff-no-rj",
+      "description": "El canal oficial en català d'en Jau Fibla!!! Aquí hi trobareu reportatges especials, cançons i programes com: \n\"Un home 9\", un magazine on parlem de notícies, efemèrides, cinema, actors i actrius i molt més,!\n\"CINEJAU\", el programa que us informa de les estrenes de cinema i us recomana films i sèrie...",
+      "handle": "@jaufibla",
+      "subscriberCount": 605,
+      "categories": [
+        "diversió"
+      ],
+      "topTags": [
+        "twitch",
+        "games",
+        "trump",
+        "catalunya",
+        "notícies",
+        "streamer català",
+        "vlog personal",
+        "català",
+        "creadorstv",
+        "jaufibla"
+      ]
+    },
+    "UCDawX1bxeC4-hZiGnkqevbw": {
+      "name": "Enric Adventures",
+      "avatar": "https://yt3.ggpht.com/ECuCXTvGzVbIoiUIJGUS3AjNSFbkFHhR1oKwwK3g44xXvNRIIBgYbbcU-Jht8EXWOnpzknIE=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Em dic Enric Luzán i en aquest canal trobareu senderisme, travesses i bolets\n\nContacte professional: enricadventures@gmail.com\n",
+      "handle": "@enricadventures",
+      "subscriberCount": 22100,
       "categories": [
         "vida"
       ],
       "topTags": [
+        "hiking",
+        "osprey",
+        "senderisme",
+        "senderismo",
+        "alt Empordà",
+        "exos 38",
+        "osprey exos",
+        "thru hiking",
+        "begur",
+        "Catalunya"
+      ]
+    },
+    "UCptKQCkfc-LV4ybc9Th5_OA": {
+      "name": "Víctor Puig ",
+      "avatar": "https://yt3.ggpht.com/fxi_Kqr7o9raXV-TJHt9jemmkN-JNAHHKLGMqG7D_MuxhCJrxWgrY7_s8s22sC1TCpk3snh2cXs=s800-c-k-c0x00ffffff-no-rj",
+      "description": "Entrevistes i comentari polític.\nPerspectiva catalanocèntrica.\nAjuda'ns a créixer: ES56 3025 0014 0214 0009 6845\n\n",
+      "handle": "@victor_puig_",
+      "subscriberCount": 4920,
+      "categories": [
+        "el món"
+      ],
+      "topTags": [
+        "Víctor Puig",
+        "política catalana",
+        "cultura catalana",
+        "sobirania catalana",
+        "catalunya",
         "Catalunya",
-        "Català",
-        "Running",
-        "Trailrunning",
-        "Esport",
-        "Muntanya",
-        "Ciclisme",
-        "Mtb",
-        "Dolomites",
-        "Gravel"
+        "Catalunya 2024",
+        "Com fer-se ric",
+        "drets humans",
+        "economia"
+      ]
+    },
+    "UCaYXWVFYirJdDmprjozHdmA": {
+      "name": "VilaWeb",
+      "avatar": "https://yt3.ggpht.com/Scu_Hgh8vX_fv9HkqfXVLxVCIRd3j23cRoa9W9q50mkGj3aAwjdPOb0VphSB3LIcnUzosXnzcQ=s800-c-k-c0x00ffffff-no-rj",
+      "description": "VilaWeb.cat és el principal diari electrònic en llengua catalana, creat el 1995.",
+      "handle": "@vilaweb",
+      "subscriberCount": 20700,
+      "categories": [
+        "mitjans"
+      ],
+      "topTags": [
+        "Barcelona",
+        "Catalunya",
+        "País Valencià",
+        "Països Catalans",
+        "VilaWeb"
+      ]
+    },
+    "UCSfMEzJX9i4-3Xl6KFv3DAA": {
+      "name": "3Cat",
+      "avatar": "https://yt3.ggpht.com/EQRzSLoNFI8gFQT0FkJuAQ1SA7_Rh-3lrSsTazDQ2DwadIb-ti2TxgjERc7es6gKLZufHfhkUw=s800-c-k-c0x00ffffff-no-rj",
+      "description": "#Som3Cat, passeu, passeu!\n\nEn aquest canal trobaràs contingut exclusiu dels teus programes preferits, estrenes digitals de tot l’univers de TV3 i Catalunya Ràdio, i formats d'èxit com Polònia o La Renaixença.\n\n\n",
+      "handle": "@som3cat",
+      "subscriberCount": 481000,
+      "categories": [
+        "mitjans"
+      ],
+      "topTags": [
+        "TV3",
+        "3Cat",
+        "Som3Cat",
+        "euforia",
+        "euforia tv3",
+        "euforia 3cat",
+        "euforia 4",
+        "3cat",
+        "musica en directe",
+        "ot"
       ]
     }
   },
   "videos": [
+    {
+      "id": "Dx3RpM5Sn7g",
+      "title": "Damià del Clot i Albert Calls: “Hi ha prou elements per a poder defensar que és un crim polític”",
+      "thumbnail": "https://i.ytimg.com/vi/Dx3RpM5Sn7g/maxresdefault.jpg",
+      "channelId": "UCaYXWVFYirJdDmprjozHdmA",
+      "channelTitle": "VilaWeb",
+      "publishedAt": "2026-02-01T17:00:16Z",
+      "categories": [
+        "mitjans"
+      ],
+      "sourceChannelId": "UCaYXWVFYirJdDmprjozHdmA",
+      "duration": "PT1M37S",
+      "durationSeconds": 97,
+      "isShort": true,
+      "viewCount": 18,
+      "likeCount": 0,
+      "commentCount": 0,
+      "tags": [
+        "VilaWeb",
+        "Barcelona",
+        "Catalunya",
+        "País Valencià",
+        "Països Catalans"
+      ]
+    },
+    {
+      "id": "2ekFYmTkgII",
+      "title": "Curling Bisiac. Dia 63 de La Volta al Món a Peu ",
+      "thumbnail": "https://i.ytimg.com/vi/2ekFYmTkgII/sddefault.jpg",
+      "channelId": "UCDawX1bxeC4-hZiGnkqevbw",
+      "channelTitle": "Enric Adventures",
+      "publishedAt": "2026-02-01T16:50:07Z",
+      "categories": [
+        "vida"
+      ],
+      "sourceChannelId": "UCDawX1bxeC4-hZiGnkqevbw",
+      "duration": "PT16M4S",
+      "durationSeconds": 964,
+      "isShort": false,
+      "viewCount": 643,
+      "likeCount": 127,
+      "commentCount": 10,
+      "tags": []
+    },
     {
       "id": "n-rwr-gE6Iw",
       "title": "Va de Verd - Ibisc: què aporta?",
@@ -416,7 +460,7 @@
       "duration": "PT44S",
       "durationSeconds": 44,
       "isShort": true,
-      "viewCount": 0,
+      "viewCount": 1,
       "likeCount": 0,
       "commentCount": 0,
       "tags": []
@@ -429,14 +473,14 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2026-02-01T15:12:31Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT36M50S",
       "durationSeconds": 2210,
       "isShort": false,
-      "viewCount": 12,
-      "likeCount": 1,
+      "viewCount": 28,
+      "likeCount": 4,
       "commentCount": 0,
       "tags": []
     },
@@ -454,8 +498,8 @@
       "duration": "PT4M10S",
       "durationSeconds": 250,
       "isShort": false,
-      "viewCount": 74,
-      "likeCount": 8,
+      "viewCount": 146,
+      "likeCount": 11,
       "commentCount": 0,
       "tags": [
         "Humor",
@@ -483,8 +527,8 @@
       "duration": "PT24M58S",
       "durationSeconds": 1498,
       "isShort": false,
-      "viewCount": 69,
-      "likeCount": 12,
+      "viewCount": 93,
+      "likeCount": 13,
       "commentCount": 0,
       "tags": [
         "3CatEVA",
@@ -512,7 +556,7 @@
       "duration": "PT1M23S",
       "durationSeconds": 83,
       "isShort": true,
-      "viewCount": 234,
+      "viewCount": 275,
       "likeCount": 0,
       "commentCount": 3,
       "tags": [
@@ -567,7 +611,7 @@
       "duration": "PT26S",
       "durationSeconds": 26,
       "isShort": true,
-      "viewCount": 4,
+      "viewCount": 6,
       "likeCount": 0,
       "commentCount": 0,
       "tags": [
@@ -699,8 +743,8 @@
       "duration": "PT16M59S",
       "durationSeconds": 1019,
       "isShort": false,
-      "viewCount": 370,
-      "likeCount": 10,
+      "viewCount": 450,
+      "likeCount": 13,
       "commentCount": 0,
       "tags": [
         "3CatEVA",
@@ -733,7 +777,7 @@
       "duration": "PT1M30S",
       "durationSeconds": 90,
       "isShort": true,
-      "viewCount": 15,
+      "viewCount": 18,
       "likeCount": 1,
       "commentCount": 1,
       "tags": []
@@ -796,9 +840,9 @@
       "duration": "PT10M28S",
       "durationSeconds": 628,
       "isShort": false,
-      "viewCount": 8167,
-      "likeCount": 931,
-      "commentCount": 81,
+      "viewCount": 8422,
+      "likeCount": 943,
+      "commentCount": 82,
       "tags": []
     },
     {
@@ -815,7 +859,7 @@
       "duration": "PT1M1S",
       "durationSeconds": 61,
       "isShort": true,
-      "viewCount": 9,
+      "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
       "tags": []
@@ -834,7 +878,7 @@
       "duration": "PT2M3S",
       "durationSeconds": 123,
       "isShort": false,
-      "viewCount": 519,
+      "viewCount": 522,
       "likeCount": 24,
       "commentCount": 0,
       "tags": [
@@ -882,8 +926,8 @@
       "duration": "PT29S",
       "durationSeconds": 29,
       "isShort": true,
-      "viewCount": 1017,
-      "likeCount": 27,
+      "viewCount": 1094,
+      "likeCount": 26,
       "commentCount": 1,
       "tags": []
     },
@@ -914,13 +958,13 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-31T10:22:24Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT1M1S",
       "durationSeconds": 61,
       "isShort": true,
-      "viewCount": 18,
+      "viewCount": 19,
       "likeCount": 0,
       "commentCount": 0,
       "tags": []
@@ -963,8 +1007,8 @@
       "duration": "PT1M53S",
       "durationSeconds": 113,
       "isShort": true,
-      "viewCount": 1150,
-      "likeCount": 21,
+      "viewCount": 1237,
+      "likeCount": 24,
       "commentCount": 1,
       "tags": [
         "TV3"
@@ -984,8 +1028,8 @@
       "duration": "PT1M44S",
       "durationSeconds": 104,
       "isShort": true,
-      "viewCount": 1125,
-      "likeCount": 37,
+      "viewCount": 1171,
+      "likeCount": 38,
       "commentCount": 6,
       "tags": [
         "TV3"
@@ -1005,7 +1049,7 @@
       "duration": "PT2M47S",
       "durationSeconds": 167,
       "isShort": false,
-      "viewCount": 623,
+      "viewCount": 645,
       "likeCount": 12,
       "commentCount": 1,
       "tags": [
@@ -1026,8 +1070,8 @@
       "duration": "PT1M41S",
       "durationSeconds": 101,
       "isShort": true,
-      "viewCount": 2341,
-      "likeCount": 42,
+      "viewCount": 2451,
+      "likeCount": 45,
       "commentCount": 5,
       "tags": [
         "TV3"
@@ -1047,8 +1091,8 @@
       "duration": "PT1M52S",
       "durationSeconds": 112,
       "isShort": true,
-      "viewCount": 1412,
-      "likeCount": 52,
+      "viewCount": 1491,
+      "likeCount": 54,
       "commentCount": 3,
       "tags": [
         "TV3"
@@ -1068,9 +1112,9 @@
       "duration": "PT1M47S",
       "durationSeconds": 107,
       "isShort": true,
-      "viewCount": 773,
-      "likeCount": 20,
-      "commentCount": 3,
+      "viewCount": 797,
+      "likeCount": 21,
+      "commentCount": 4,
       "tags": [
         "TV3"
       ]
@@ -1089,7 +1133,7 @@
       "duration": "PT2M6S",
       "durationSeconds": 126,
       "isShort": false,
-      "viewCount": 1081,
+      "viewCount": 1138,
       "likeCount": 29,
       "commentCount": 2,
       "tags": [
@@ -1110,8 +1154,8 @@
       "duration": "PT2M1S",
       "durationSeconds": 121,
       "isShort": false,
-      "viewCount": 1461,
-      "likeCount": 44,
+      "viewCount": 1528,
+      "likeCount": 45,
       "commentCount": 4,
       "tags": [
         "TV3"
@@ -1131,8 +1175,8 @@
       "duration": "PT1M47S",
       "durationSeconds": 107,
       "isShort": true,
-      "viewCount": 927,
-      "likeCount": 34,
+      "viewCount": 1000,
+      "likeCount": 37,
       "commentCount": 1,
       "tags": [
         "TV3"
@@ -1152,8 +1196,8 @@
       "duration": "PT2M6S",
       "durationSeconds": 126,
       "isShort": false,
-      "viewCount": 873,
-      "likeCount": 19,
+      "viewCount": 994,
+      "likeCount": 21,
       "commentCount": 1,
       "tags": [
         "TV3"
@@ -1173,9 +1217,9 @@
       "duration": "PT1M58S",
       "durationSeconds": 118,
       "isShort": true,
-      "viewCount": 1257,
-      "likeCount": 22,
-      "commentCount": 0,
+      "viewCount": 1324,
+      "likeCount": 25,
+      "commentCount": 2,
       "tags": [
         "TV3"
       ]
@@ -1194,8 +1238,8 @@
       "duration": "PT1M46S",
       "durationSeconds": 106,
       "isShort": true,
-      "viewCount": 852,
-      "likeCount": 21,
+      "viewCount": 872,
+      "likeCount": 22,
       "commentCount": 0,
       "tags": [
         "TV3"
@@ -1257,8 +1301,8 @@
       "duration": "PT1H13M39S",
       "durationSeconds": 4419,
       "isShort": false,
-      "viewCount": 117,
-      "likeCount": 11,
+      "viewCount": 122,
+      "likeCount": 12,
       "commentCount": 2,
       "tags": [
         "ieo",
@@ -1332,7 +1376,7 @@
       "duration": "PT1M46S",
       "durationSeconds": 106,
       "isShort": true,
-      "viewCount": 1753,
+      "viewCount": 1822,
       "likeCount": 46,
       "commentCount": 6,
       "tags": [
@@ -1353,7 +1397,7 @@
       "duration": "PT55S",
       "durationSeconds": 55,
       "isShort": true,
-      "viewCount": 785,
+      "viewCount": 798,
       "likeCount": 0,
       "commentCount": 2,
       "tags": [
@@ -1378,7 +1422,7 @@
       "duration": "PT21M27S",
       "durationSeconds": 1287,
       "isShort": false,
-      "viewCount": 86,
+      "viewCount": 87,
       "likeCount": 3,
       "commentCount": 0,
       "tags": [
@@ -1433,8 +1477,8 @@
       "duration": "PT43S",
       "durationSeconds": 43,
       "isShort": true,
-      "viewCount": 968,
-      "likeCount": 37,
+      "viewCount": 1000,
+      "likeCount": 39,
       "commentCount": 0,
       "tags": [
         "3Cat",
@@ -1475,7 +1519,7 @@
       "duration": "PT5M59S",
       "durationSeconds": 359,
       "isShort": false,
-      "viewCount": 523,
+      "viewCount": 524,
       "likeCount": 24,
       "commentCount": 1,
       "tags": [
@@ -1500,7 +1544,7 @@
       "duration": "PT59S",
       "durationSeconds": 59,
       "isShort": true,
-      "viewCount": 1520,
+      "viewCount": 1521,
       "likeCount": 17,
       "commentCount": 0,
       "tags": [
@@ -1549,7 +1593,7 @@
       "duration": "PT26M37S",
       "durationSeconds": 1597,
       "isShort": false,
-      "viewCount": 87,
+      "viewCount": 88,
       "likeCount": 3,
       "commentCount": 0,
       "tags": [
@@ -1574,7 +1618,7 @@
       "duration": "PT58M11S",
       "durationSeconds": 3491,
       "isShort": false,
-      "viewCount": 2484,
+      "viewCount": 2595,
       "likeCount": 0,
       "commentCount": 5,
       "tags": [
@@ -1618,8 +1662,8 @@
       "duration": "PT11M6S",
       "durationSeconds": 666,
       "isShort": false,
-      "viewCount": 1848,
-      "likeCount": 130,
+      "viewCount": 1902,
+      "likeCount": 132,
       "commentCount": 18,
       "tags": [
         "Montserrat",
@@ -1648,8 +1692,8 @@
       "duration": "PT2M26S",
       "durationSeconds": 146,
       "isShort": false,
-      "viewCount": 2282,
-      "likeCount": 48,
+      "viewCount": 2357,
+      "likeCount": 49,
       "commentCount": 0,
       "tags": [
         "Humor",
@@ -1677,8 +1721,8 @@
       "duration": "PT17M21S",
       "durationSeconds": 1041,
       "isShort": false,
-      "viewCount": 10970,
-      "likeCount": 1223,
+      "viewCount": 11034,
+      "likeCount": 1226,
       "commentCount": 113,
       "tags": []
     },
@@ -1747,7 +1791,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-30T12:05:46Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT52M4S",
@@ -1854,7 +1898,7 @@
       "duration": "PT2M35S",
       "durationSeconds": 155,
       "isShort": false,
-      "viewCount": 1189,
+      "viewCount": 1222,
       "likeCount": 0,
       "commentCount": 1,
       "tags": [
@@ -1879,7 +1923,7 @@
       "duration": "PT31S",
       "durationSeconds": 31,
       "isShort": true,
-      "viewCount": 126,
+      "viewCount": 125,
       "likeCount": 4,
       "commentCount": 0,
       "tags": [
@@ -1969,8 +2013,8 @@
       "duration": "PT1M",
       "durationSeconds": 60,
       "isShort": true,
-      "viewCount": 1321,
-      "likeCount": 36,
+      "viewCount": 1328,
+      "likeCount": 35,
       "commentCount": 0,
       "tags": []
     },
@@ -1988,7 +2032,7 @@
       "duration": "PT1M22S",
       "durationSeconds": 82,
       "isShort": true,
-      "viewCount": 407,
+      "viewCount": 408,
       "likeCount": 0,
       "commentCount": 0,
       "tags": [
@@ -2091,7 +2135,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-30T00:01:16Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT6M2S",
@@ -2170,8 +2214,8 @@
       "duration": "PT31M53S",
       "durationSeconds": 1913,
       "isShort": false,
-      "viewCount": 14116,
-      "likeCount": 452,
+      "viewCount": 14294,
+      "likeCount": 453,
       "commentCount": 31,
       "tags": [
         "TV3",
@@ -2244,8 +2288,8 @@
       "duration": "PT1M31S",
       "durationSeconds": 91,
       "isShort": true,
-      "viewCount": 1023,
-      "likeCount": 32,
+      "viewCount": 1035,
+      "likeCount": 33,
       "commentCount": 2,
       "tags": []
     },
@@ -2263,7 +2307,7 @@
       "duration": "PT1M38S",
       "durationSeconds": 98,
       "isShort": true,
-      "viewCount": 1122,
+      "viewCount": 1118,
       "likeCount": 34,
       "commentCount": 0,
       "tags": []
@@ -2301,8 +2345,8 @@
       "duration": "PT15M17S",
       "durationSeconds": 917,
       "isShort": false,
-      "viewCount": 3127,
-      "likeCount": 87,
+      "viewCount": 3137,
+      "likeCount": 88,
       "commentCount": 3,
       "tags": [
         "3Cat",
@@ -2332,7 +2376,7 @@
       "duration": "PT4M57S",
       "durationSeconds": 297,
       "isShort": false,
-      "viewCount": 822,
+      "viewCount": 823,
       "likeCount": 33,
       "commentCount": 2,
       "tags": [
@@ -2376,7 +2420,7 @@
       "duration": "PT1M59S",
       "durationSeconds": 119,
       "isShort": true,
-      "viewCount": 21,
+      "viewCount": 22,
       "likeCount": 1,
       "commentCount": 1,
       "tags": []
@@ -2426,7 +2470,7 @@
       "duration": "PT15M2S",
       "durationSeconds": 902,
       "isShort": false,
-      "viewCount": 11250,
+      "viewCount": 11265,
       "likeCount": 1124,
       "commentCount": 117,
       "tags": []
@@ -2564,7 +2608,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-29T12:05:56Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT52M58S",
@@ -2784,7 +2828,7 @@
       "duration": "PT34M10S",
       "durationSeconds": 2050,
       "isShort": false,
-      "viewCount": 1562,
+      "viewCount": 1575,
       "likeCount": 43,
       "commentCount": 5,
       "tags": [
@@ -2912,13 +2956,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-28T21:55:30Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT33M26S",
       "durationSeconds": 2006,
       "isShort": false,
-      "viewCount": 1221,
+      "viewCount": 1222,
       "likeCount": 201,
       "commentCount": 25,
       "tags": [
@@ -3014,7 +3058,7 @@
       "duration": "PT44M40S",
       "durationSeconds": 2680,
       "isShort": false,
-      "viewCount": 2431,
+      "viewCount": 2442,
       "likeCount": 0,
       "commentCount": 2,
       "tags": [
@@ -3039,7 +3083,7 @@
       "duration": "PT30M38S",
       "durationSeconds": 1838,
       "isShort": false,
-      "viewCount": 587,
+      "viewCount": 588,
       "likeCount": 11,
       "commentCount": 0,
       "tags": [
@@ -3255,8 +3299,8 @@
       "duration": "PT12M25S",
       "durationSeconds": 745,
       "isShort": false,
-      "viewCount": 11784,
-      "likeCount": 1127,
+      "viewCount": 11799,
+      "likeCount": 1128,
       "commentCount": 148,
       "tags": []
     },
@@ -3274,7 +3318,7 @@
       "duration": "PT2M37S",
       "durationSeconds": 157,
       "isShort": false,
-      "viewCount": 1188,
+      "viewCount": 1193,
       "likeCount": 39,
       "commentCount": 3,
       "tags": [
@@ -3340,7 +3384,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-28T12:34:56Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT46M21S",
@@ -3368,7 +3412,7 @@
       "duration": "PT1M11S",
       "durationSeconds": 71,
       "isShort": true,
-      "viewCount": 1184,
+      "viewCount": 1182,
       "likeCount": 0,
       "commentCount": 2,
       "tags": [
@@ -3431,8 +3475,8 @@
       "duration": "PT47M26S",
       "durationSeconds": 2846,
       "isShort": false,
-      "viewCount": 2730,
-      "likeCount": 79,
+      "viewCount": 2760,
+      "likeCount": 80,
       "commentCount": 9,
       "tags": [
         "3Cat",
@@ -3494,7 +3538,7 @@
       "duration": "PT28S",
       "durationSeconds": 28,
       "isShort": true,
-      "viewCount": 11,
+      "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
       "tags": []
@@ -3587,8 +3631,8 @@
       "duration": "PT1H7M27S",
       "durationSeconds": 4047,
       "isShort": false,
-      "viewCount": 66651,
-      "likeCount": 1644,
+      "viewCount": 66841,
+      "likeCount": 1645,
       "commentCount": 88,
       "tags": []
     },
@@ -3625,7 +3669,7 @@
       "duration": "PT1M32S",
       "durationSeconds": 92,
       "isShort": true,
-      "viewCount": 70,
+      "viewCount": 68,
       "likeCount": 2,
       "commentCount": 0,
       "tags": []
@@ -3638,13 +3682,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-27T22:44:52Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT29M28S",
       "durationSeconds": 1768,
       "isShort": false,
-      "viewCount": 1253,
+      "viewCount": 1254,
       "likeCount": 254,
       "commentCount": 78,
       "tags": [
@@ -3748,7 +3792,7 @@
       "duration": "PT41M4S",
       "durationSeconds": 2464,
       "isShort": false,
-      "viewCount": 1048,
+      "viewCount": 1049,
       "likeCount": 0,
       "commentCount": 2,
       "tags": [
@@ -3792,7 +3836,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-27T17:59:54Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT54M11S",
@@ -3839,7 +3883,7 @@
       "duration": "PT1M39S",
       "durationSeconds": 99,
       "isShort": true,
-      "viewCount": 627,
+      "viewCount": 629,
       "likeCount": 0,
       "commentCount": 0,
       "tags": [
@@ -3908,8 +3952,8 @@
       "duration": "PT1M36S",
       "durationSeconds": 96,
       "isShort": true,
-      "viewCount": 7616,
-      "likeCount": 150,
+      "viewCount": 7735,
+      "likeCount": 151,
       "commentCount": 2,
       "tags": [
         "3Cat",
@@ -4045,8 +4089,8 @@
       "duration": "PT12M6S",
       "durationSeconds": 726,
       "isShort": false,
-      "viewCount": 11759,
-      "likeCount": 1173,
+      "viewCount": 11773,
+      "likeCount": 1174,
       "commentCount": 143,
       "tags": []
     },
@@ -4188,7 +4232,7 @@
       "duration": "PT38M49S",
       "durationSeconds": 2329,
       "isShort": false,
-      "viewCount": 851,
+      "viewCount": 859,
       "likeCount": 14,
       "commentCount": 1,
       "tags": [
@@ -4282,8 +4326,8 @@
       "duration": "PT46M56S",
       "durationSeconds": 2816,
       "isShort": false,
-      "viewCount": 2823,
-      "likeCount": 85,
+      "viewCount": 2842,
+      "likeCount": 87,
       "commentCount": 3,
       "tags": [
         "3Cat",
@@ -4313,7 +4357,7 @@
       "duration": "PT46M38S",
       "durationSeconds": 2798,
       "isShort": false,
-      "viewCount": 302,
+      "viewCount": 303,
       "likeCount": 6,
       "commentCount": 2,
       "tags": [
@@ -4392,7 +4436,7 @@
       "duration": "PT1M7S",
       "durationSeconds": 67,
       "isShort": true,
-      "viewCount": 1611,
+      "viewCount": 1606,
       "likeCount": 0,
       "commentCount": 0,
       "tags": [
@@ -4545,7 +4589,7 @@
       "duration": "PT32S",
       "durationSeconds": 32,
       "isShort": true,
-      "viewCount": 1098,
+      "viewCount": 1105,
       "likeCount": 39,
       "commentCount": 2,
       "tags": [
@@ -4568,7 +4612,7 @@
       "duration": "PT2M6S",
       "durationSeconds": 126,
       "isShort": false,
-      "viewCount": 1872,
+      "viewCount": 1885,
       "likeCount": 18,
       "commentCount": 0,
       "tags": [
@@ -4593,13 +4637,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-26T22:00:55Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT29M2S",
       "durationSeconds": 1742,
       "isShort": false,
-      "viewCount": 1183,
+      "viewCount": 1184,
       "likeCount": 221,
       "commentCount": 35,
       "tags": [
@@ -4645,7 +4689,7 @@
       "duration": "PT1H40S",
       "durationSeconds": 3640,
       "isShort": false,
-      "viewCount": 9924,
+      "viewCount": 9941,
       "likeCount": 169,
       "commentCount": 9,
       "tags": [
@@ -4668,7 +4712,7 @@
       "duration": "PT1H13M49S",
       "durationSeconds": 4429,
       "isShort": false,
-      "viewCount": 6723,
+      "viewCount": 6724,
       "likeCount": 187,
       "commentCount": 89,
       "tags": [
@@ -4725,7 +4769,7 @@
       "duration": "PT27M51S",
       "durationSeconds": 1671,
       "isShort": false,
-      "viewCount": 7171,
+      "viewCount": 7182,
       "likeCount": 0,
       "commentCount": 11,
       "tags": [
@@ -4775,7 +4819,7 @@
       "duration": "PT28S",
       "durationSeconds": 28,
       "isShort": true,
-      "viewCount": 1590,
+      "viewCount": 1589,
       "likeCount": 0,
       "commentCount": 5,
       "tags": [
@@ -4800,7 +4844,7 @@
       "duration": "PT1M34S",
       "durationSeconds": 94,
       "isShort": true,
-      "viewCount": 314,
+      "viewCount": 318,
       "likeCount": 15,
       "commentCount": 0,
       "tags": [
@@ -4840,8 +4884,8 @@
       "duration": "PT12M52S",
       "durationSeconds": 772,
       "isShort": false,
-      "viewCount": 11775,
-      "likeCount": 1093,
+      "viewCount": 11796,
+      "likeCount": 1094,
       "commentCount": 124,
       "tags": []
     },
@@ -4859,8 +4903,8 @@
       "duration": "PT1M5S",
       "durationSeconds": 65,
       "isShort": true,
-      "viewCount": 3781,
-      "likeCount": 172,
+      "viewCount": 3804,
+      "likeCount": 174,
       "commentCount": 2,
       "tags": [
         "3Cat",
@@ -4884,7 +4928,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-26T12:43:48Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT59M57S",
@@ -4925,7 +4969,7 @@
       "duration": "PT1M15S",
       "durationSeconds": 75,
       "isShort": true,
-      "viewCount": 1609,
+      "viewCount": 1608,
       "likeCount": 0,
       "commentCount": 6,
       "tags": [
@@ -4950,7 +4994,7 @@
       "duration": "PT39S",
       "durationSeconds": 39,
       "isShort": true,
-      "viewCount": 1048,
+      "viewCount": 1049,
       "likeCount": 0,
       "commentCount": 2,
       "tags": [
@@ -4975,8 +5019,8 @@
       "duration": "PT46M18S",
       "durationSeconds": 2778,
       "isShort": false,
-      "viewCount": 3017,
-      "likeCount": 83,
+      "viewCount": 3033,
+      "likeCount": 84,
       "commentCount": 3,
       "tags": [
         "3Cat",
@@ -5031,7 +5075,7 @@
       "duration": "PT17M27S",
       "durationSeconds": 1047,
       "isShort": false,
-      "viewCount": 2200,
+      "viewCount": 2209,
       "likeCount": 56,
       "commentCount": 3,
       "tags": [
@@ -5205,7 +5249,7 @@
       "duration": "PT1M7S",
       "durationSeconds": 67,
       "isShort": true,
-      "viewCount": 1772,
+      "viewCount": 1771,
       "likeCount": 0,
       "commentCount": 7,
       "tags": [
@@ -5330,7 +5374,7 @@
       "duration": "PT22M41S",
       "durationSeconds": 1361,
       "isShort": false,
-      "viewCount": 13314,
+      "viewCount": 13316,
       "likeCount": 1217,
       "commentCount": 159,
       "tags": []
@@ -5349,8 +5393,8 @@
       "duration": "PT25M29S",
       "durationSeconds": 1529,
       "isShort": false,
-      "viewCount": 220,
-      "likeCount": 11,
+      "viewCount": 225,
+      "likeCount": 12,
       "commentCount": 1,
       "tags": [
         "3CatEVA",
@@ -5460,7 +5504,7 @@
       "duration": "PT1H51M21S",
       "durationSeconds": 6681,
       "isShort": false,
-      "viewCount": 1882,
+      "viewCount": 1881,
       "likeCount": 30,
       "commentCount": 2,
       "tags": [
@@ -5485,7 +5529,7 @@
       "duration": "PT3H30M21S",
       "durationSeconds": 12621,
       "isShort": false,
-      "viewCount": 1889,
+      "viewCount": 1888,
       "likeCount": 17,
       "commentCount": 5,
       "tags": [
@@ -5510,7 +5554,7 @@
       "duration": "PT16M7S",
       "durationSeconds": 967,
       "isShort": false,
-      "viewCount": 1170,
+      "viewCount": 1171,
       "likeCount": 9,
       "commentCount": 0,
       "tags": [
@@ -5535,7 +5579,7 @@
       "duration": "PT19M40S",
       "durationSeconds": 1180,
       "isShort": false,
-      "viewCount": 254,
+      "viewCount": 255,
       "likeCount": 10,
       "commentCount": 2,
       "tags": [
@@ -5617,7 +5661,7 @@
       "duration": "PT3M4S",
       "durationSeconds": 184,
       "isShort": false,
-      "viewCount": 1375,
+      "viewCount": 1378,
       "likeCount": 35,
       "commentCount": 1,
       "tags": [
@@ -5729,8 +5773,8 @@
       "duration": "PT2M5S",
       "durationSeconds": 125,
       "isShort": false,
-      "viewCount": 3513,
-      "likeCount": 75,
+      "viewCount": 3553,
+      "likeCount": 76,
       "commentCount": 5,
       "tags": [
         "TV3",
@@ -5840,8 +5884,8 @@
       "duration": "PT1M37S",
       "durationSeconds": 97,
       "isShort": true,
-      "viewCount": 1575,
-      "likeCount": 27,
+      "viewCount": 1601,
+      "likeCount": 28,
       "commentCount": 1,
       "tags": [
         "TV3",
@@ -6043,7 +6087,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-23T22:10:05Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT41M",
@@ -6233,7 +6277,7 @@
       "duration": "PT18M2S",
       "durationSeconds": 1082,
       "isShort": false,
-      "viewCount": 13070,
+      "viewCount": 13087,
       "likeCount": 1225,
       "commentCount": 129,
       "tags": []
@@ -6271,7 +6315,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-23T13:29:55Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT52M41S",
@@ -6380,7 +6424,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-22T22:02:09Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT31M18S",
@@ -6464,7 +6508,7 @@
       "duration": "PT1H51S",
       "durationSeconds": 3651,
       "isShort": false,
-      "viewCount": 8865,
+      "viewCount": 8861,
       "likeCount": 0,
       "commentCount": 32,
       "tags": [
@@ -6508,7 +6552,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-22T17:06:42Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT1M1S",
@@ -6527,7 +6571,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-22T16:05:11Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT56M53S",
@@ -6554,8 +6598,8 @@
       "duration": "PT16M24S",
       "durationSeconds": 984,
       "isShort": false,
-      "viewCount": 13231,
-      "likeCount": 1234,
+      "viewCount": 13239,
+      "likeCount": 1235,
       "commentCount": 236,
       "tags": []
     },
@@ -6680,7 +6724,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-22T07:47:46Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT4M44S",
@@ -6705,7 +6749,7 @@
       "duration": "PT51M3S",
       "durationSeconds": 3063,
       "isShort": false,
-      "viewCount": 24664,
+      "viewCount": 24668,
       "likeCount": 515,
       "commentCount": 97,
       "tags": [
@@ -6724,13 +6768,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-21T22:41:22Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT34M21S",
       "durationSeconds": 2061,
       "isShort": false,
-      "viewCount": 2514,
+      "viewCount": 2515,
       "likeCount": 300,
       "commentCount": 85,
       "tags": [
@@ -6795,7 +6839,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-21T17:35:08Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT51M26S",
@@ -6892,8 +6936,8 @@
       "duration": "PT23M59S",
       "durationSeconds": 1439,
       "isShort": false,
-      "viewCount": 14412,
-      "likeCount": 1383,
+      "viewCount": 14421,
+      "likeCount": 1384,
       "commentCount": 188,
       "tags": []
     },
@@ -7112,8 +7156,8 @@
       "duration": "PT1H3M21S",
       "durationSeconds": 3801,
       "isShort": false,
-      "viewCount": 81792,
-      "likeCount": 2248,
+      "viewCount": 81857,
+      "likeCount": 2249,
       "commentCount": 170,
       "tags": []
     },
@@ -7125,7 +7169,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-20T22:10:36Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT45M26S",
@@ -7177,7 +7221,7 @@
       "duration": "PT1M14S",
       "durationSeconds": 74,
       "isShort": true,
-      "viewCount": 506,
+      "viewCount": 503,
       "likeCount": 0,
       "commentCount": 1,
       "tags": [
@@ -7303,7 +7347,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-20T16:21:01Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT57M39S",
@@ -7330,7 +7374,7 @@
       "duration": "PT14M20S",
       "durationSeconds": 860,
       "isShort": false,
-      "viewCount": 12411,
+      "viewCount": 12410,
       "likeCount": 1206,
       "commentCount": 123,
       "tags": []
@@ -7494,13 +7538,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-19T22:34:26Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT38M43S",
       "durationSeconds": 2323,
       "isShort": false,
-      "viewCount": 1985,
+      "viewCount": 1986,
       "likeCount": 284,
       "commentCount": 77,
       "tags": [
@@ -7546,7 +7590,7 @@
       "duration": "PT1H7M3S",
       "durationSeconds": 4023,
       "isShort": false,
-      "viewCount": 6008,
+      "viewCount": 6021,
       "likeCount": 121,
       "commentCount": 16,
       "tags": [
@@ -7583,7 +7627,7 @@
       "duration": "PT26M15S",
       "durationSeconds": 1575,
       "isShort": false,
-      "viewCount": 10872,
+      "viewCount": 10865,
       "likeCount": 0,
       "commentCount": 23,
       "tags": [
@@ -7673,7 +7717,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-19T15:19:26Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT56M9S",
@@ -7700,35 +7744,10 @@
       "duration": "PT15M21S",
       "durationSeconds": 921,
       "isShort": false,
-      "viewCount": 13231,
+      "viewCount": 13232,
       "likeCount": 1288,
       "commentCount": 128,
       "tags": []
-    },
-    {
-      "id": "Vz5f2xJB-iQ",
-      "title": "Les imatges aèries de l’accident tràgic d’Adamuz",
-      "thumbnail": "https://i.ytimg.com/vi/Vz5f2xJB-iQ/maxresdefault.jpg",
-      "channelId": "UCaYXWVFYirJdDmprjozHdmA",
-      "channelTitle": "VilaWeb",
-      "publishedAt": "2026-01-19T11:10:03Z",
-      "categories": [
-        "mitjans"
-      ],
-      "sourceChannelId": "UCaYXWVFYirJdDmprjozHdmA",
-      "duration": "PT48S",
-      "durationSeconds": 48,
-      "isShort": true,
-      "viewCount": 3431,
-      "likeCount": 0,
-      "commentCount": 0,
-      "tags": [
-        "VilaWeb",
-        "Barcelona",
-        "Catalunya",
-        "País Valencià",
-        "Països Catalans"
-      ]
     },
     {
       "id": "STZqF2Oq0hM",
@@ -7815,7 +7834,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2026-01-18T15:51:25Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H11M52S",
@@ -7859,7 +7878,7 @@
       "duration": "PT26M51S",
       "durationSeconds": 1611,
       "isShort": false,
-      "viewCount": 1049,
+      "viewCount": 1052,
       "likeCount": 64,
       "commentCount": 3,
       "tags": [
@@ -7884,7 +7903,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-18T00:55:54Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M48S",
@@ -7903,13 +7922,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-17T22:15:26Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT46M22S",
       "durationSeconds": 2782,
       "isShort": false,
-      "viewCount": 1309,
+      "viewCount": 1310,
       "likeCount": 236,
       "commentCount": 69,
       "tags": [
@@ -7986,7 +8005,7 @@
       "duration": "PT13M10S",
       "durationSeconds": 790,
       "isShort": false,
-      "viewCount": 1438,
+      "viewCount": 1440,
       "likeCount": 147,
       "commentCount": 32,
       "tags": [
@@ -8008,7 +8027,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-17T11:05:36Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT53S",
@@ -8111,7 +8130,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-16T22:54:11Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M",
@@ -8165,7 +8184,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-16T15:00:06Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT52M27S",
@@ -8211,7 +8230,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-16T11:48:25Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT2H51M28S",
@@ -8262,7 +8281,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-15T21:53:15Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT32M11S",
@@ -8377,7 +8396,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-15T14:54:46Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT55M17S",
@@ -8529,7 +8548,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-14T21:59:11Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT33M52S",
@@ -8608,7 +8627,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-14T16:57:56Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT51M45S",
@@ -8684,7 +8703,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-14T12:20:21Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT52M7S",
@@ -8718,7 +8737,7 @@
       "duration": "PT57M26S",
       "durationSeconds": 3446,
       "isShort": false,
-      "viewCount": 703,
+      "viewCount": 702,
       "likeCount": 32,
       "commentCount": 3,
       "tags": [
@@ -8746,7 +8765,7 @@
       "duration": "PT29S",
       "durationSeconds": 29,
       "isShort": true,
-      "viewCount": 320,
+      "viewCount": 321,
       "likeCount": 10,
       "commentCount": 0,
       "tags": [
@@ -8796,8 +8815,8 @@
       "duration": "PT1H6M17S",
       "durationSeconds": 3977,
       "isShort": false,
-      "viewCount": 73216,
-      "likeCount": 1445,
+      "viewCount": 73236,
+      "likeCount": 1446,
       "commentCount": 81,
       "tags": []
     },
@@ -8809,7 +8828,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-13T22:14:52Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT45M22S",
@@ -8939,7 +8958,7 @@
       "duration": "PT17M59S",
       "durationSeconds": 1079,
       "isShort": false,
-      "viewCount": 14944,
+      "viewCount": 14942,
       "likeCount": 1178,
       "commentCount": 122,
       "tags": []
@@ -9172,7 +9191,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-12T21:56:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT32M52S",
@@ -9218,7 +9237,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-12T17:41:41Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT55M2S",
@@ -9315,7 +9334,7 @@
       "duration": "PT23M10S",
       "durationSeconds": 1390,
       "isShort": false,
-      "viewCount": 10592,
+      "viewCount": 10513,
       "likeCount": 11,
       "commentCount": 3,
       "tags": [
@@ -9392,7 +9411,7 @@
       "duration": "PT35M15S",
       "durationSeconds": 2115,
       "isShort": false,
-      "viewCount": 10922,
+      "viewCount": 10884,
       "likeCount": 33,
       "commentCount": 2,
       "tags": [
@@ -9467,7 +9486,7 @@
       "duration": "PT13M51S",
       "durationSeconds": 831,
       "isShort": false,
-      "viewCount": 15034,
+      "viewCount": 15035,
       "likeCount": 1355,
       "commentCount": 185,
       "tags": []
@@ -9514,7 +9533,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-10T17:22:27Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M41S",
@@ -9539,7 +9558,7 @@
       "duration": "PT8M20S",
       "durationSeconds": 500,
       "isShort": false,
-      "viewCount": 6579,
+      "viewCount": 6580,
       "likeCount": 321,
       "commentCount": 92,
       "tags": [
@@ -9681,7 +9700,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-09T16:11:05Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT56M",
@@ -9757,7 +9776,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-09T08:25:51Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT36M52S",
@@ -9803,7 +9822,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-09T07:31:21Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT54M50S",
@@ -9852,7 +9871,7 @@
       "duration": "PT17M20S",
       "durationSeconds": 1040,
       "isShort": false,
-      "viewCount": 15910,
+      "viewCount": 15911,
       "likeCount": 1344,
       "commentCount": 146,
       "tags": []
@@ -9865,7 +9884,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-08T18:04:51Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT59M51S",
@@ -10098,7 +10117,7 @@
       "duration": "PT28M40S",
       "durationSeconds": 1720,
       "isShort": false,
-      "viewCount": 10830,
+      "viewCount": 10831,
       "likeCount": 131,
       "commentCount": 3,
       "tags": [
@@ -10167,13 +10186,13 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-08T07:48:35Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT30M28S",
       "durationSeconds": 1828,
       "isShort": false,
-      "viewCount": 1317,
+      "viewCount": 1318,
       "likeCount": 204,
       "commentCount": 64,
       "tags": [
@@ -10213,7 +10232,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2026-01-07T21:26:34Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H45M39S",
@@ -10238,7 +10257,7 @@
       "duration": "PT19M21S",
       "durationSeconds": 1161,
       "isShort": false,
-      "viewCount": 14829,
+      "viewCount": 14831,
       "likeCount": 1278,
       "commentCount": 121,
       "tags": []
@@ -10426,7 +10445,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-07T08:04:45Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "P0D",
@@ -10462,7 +10481,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-07T08:00:56Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT30M7S",
@@ -10508,7 +10527,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-06T23:48:32Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT2M56S",
@@ -10533,7 +10552,7 @@
       "duration": "PT2H4M43S",
       "durationSeconds": 7483,
       "isShort": false,
-      "viewCount": 15014,
+      "viewCount": 15013,
       "likeCount": 984,
       "commentCount": 56,
       "tags": [
@@ -10560,7 +10579,7 @@
       "duration": "PT21M",
       "durationSeconds": 1260,
       "isShort": false,
-      "viewCount": 10577,
+      "viewCount": 10569,
       "likeCount": 12,
       "commentCount": 0,
       "tags": [
@@ -10698,8 +10717,8 @@
       "duration": "PT18M58S",
       "durationSeconds": 1138,
       "isShort": false,
-      "viewCount": 15532,
-      "likeCount": 1454,
+      "viewCount": 15536,
+      "likeCount": 1455,
       "commentCount": 161,
       "tags": []
     },
@@ -10711,7 +10730,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-05T16:45:55Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT53M59S",
@@ -10733,7 +10752,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-05T09:42:24Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT1H50M7S",
@@ -10800,7 +10819,7 @@
       "duration": "PT16M42S",
       "durationSeconds": 1002,
       "isShort": false,
-      "viewCount": 13839,
+      "viewCount": 13844,
       "likeCount": 1315,
       "commentCount": 190,
       "tags": []
@@ -10852,7 +10871,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2026-01-04T09:12:36Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT45M50S",
@@ -10957,7 +10976,7 @@
       "duration": "PT18M13S",
       "durationSeconds": 1093,
       "isShort": false,
-      "viewCount": 16393,
+      "viewCount": 16388,
       "likeCount": 1369,
       "commentCount": 178,
       "tags": []
@@ -11079,7 +11098,7 @@
       "duration": "PT10M20S",
       "durationSeconds": 620,
       "isShort": false,
-      "viewCount": 13362,
+      "viewCount": 13361,
       "likeCount": 1206,
       "commentCount": 155,
       "tags": []
@@ -11254,7 +11273,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2026-01-01T05:24:52Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT2M58S",
@@ -11328,7 +11347,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-31T13:57:55Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT1H4M44S",
@@ -11362,7 +11381,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-31T01:52:21Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT6M2S",
@@ -11381,7 +11400,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-30T21:17:02Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT46M25S",
@@ -11447,8 +11466,8 @@
       "duration": "PT13M58S",
       "durationSeconds": 838,
       "isShort": false,
-      "viewCount": 13577,
-      "likeCount": 1242,
+      "viewCount": 13578,
+      "likeCount": 1243,
       "commentCount": 134,
       "tags": []
     },
@@ -11460,7 +11479,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-30T16:02:58Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT25S",
@@ -11629,7 +11648,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-30T08:05:30Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT32M58S",
@@ -11675,7 +11694,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-29T21:05:00Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT46M37S",
@@ -11709,7 +11728,7 @@
       "duration": "PT1H17M16S",
       "durationSeconds": 4636,
       "isShort": false,
-      "viewCount": 5270,
+      "viewCount": 5271,
       "likeCount": 118,
       "commentCount": 26,
       "tags": [
@@ -11758,7 +11777,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-29T07:56:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT36M36S",
@@ -11804,7 +11823,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-28T22:36:06Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT46M34S",
@@ -11827,7 +11846,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-28T21:40:29Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT29M31S",
@@ -11858,7 +11877,7 @@
       "duration": "PT19M46S",
       "durationSeconds": 1186,
       "isShort": false,
-      "viewCount": 14719,
+      "viewCount": 14714,
       "likeCount": 1275,
       "commentCount": 133,
       "tags": []
@@ -11871,7 +11890,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-28T14:39:24Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT1H59M16S",
@@ -11895,7 +11914,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-12-28T12:10:10Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT37M38S",
@@ -11949,7 +11968,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-27T22:26:23Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT31S",
@@ -12085,7 +12104,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-12-27T07:48:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H18M28S",
@@ -12216,7 +12235,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-12-24T20:15:21Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M30S",
@@ -12270,7 +12289,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-24T15:04:33Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT50M9S",
@@ -12336,7 +12355,7 @@
       "duration": "PT1H11M54S",
       "durationSeconds": 4314,
       "isShort": false,
-      "viewCount": 93914,
+      "viewCount": 93933,
       "likeCount": 1958,
       "commentCount": 110,
       "tags": []
@@ -12524,7 +12543,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-23T10:35:04Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT58M1S",
@@ -12546,7 +12565,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-23T09:57:39Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT31M39S",
@@ -12592,7 +12611,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-23T07:33:09Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M",
@@ -12619,7 +12638,7 @@
       "duration": "PT13M33S",
       "durationSeconds": 813,
       "isShort": false,
-      "viewCount": 13720,
+      "viewCount": 13721,
       "likeCount": 1288,
       "commentCount": 130,
       "tags": []
@@ -12632,7 +12651,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-22T14:38:40Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT50M30S",
@@ -12739,7 +12758,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-22T08:51:50Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT26M18S",
@@ -12785,7 +12804,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-22T07:45:27Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT51M14S",
@@ -12865,7 +12884,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-20T22:55:11Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT2M41S",
@@ -12911,7 +12930,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-20T18:26:38Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M",
@@ -12960,13 +12979,13 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-12-20T09:45:58Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT51M18S",
       "durationSeconds": 3078,
       "isShort": false,
-      "viewCount": 1050,
+      "viewCount": 1051,
       "likeCount": 60,
       "commentCount": 15,
       "tags": []
@@ -13051,7 +13070,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-12-20T05:01:08Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M43S",
@@ -13089,7 +13108,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-19T17:15:10Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT47M57S",
@@ -13117,7 +13136,7 @@
       "duration": "PT16M6S",
       "durationSeconds": 966,
       "isShort": false,
-      "viewCount": 15462,
+      "viewCount": 15461,
       "likeCount": 1369,
       "commentCount": 170,
       "tags": []
@@ -13178,7 +13197,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-19T07:45:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT27M19S",
@@ -13224,7 +13243,7 @@
       "channelTitle": "Jau Fibla",
       "publishedAt": "2025-12-18T23:36:56Z",
       "categories": [
-        "humor"
+        "diversió"
       ],
       "sourceChannelId": "UCjPL0bozxQmzcMqPsnvLLTA",
       "duration": "PT3M17S",
@@ -13278,7 +13297,7 @@
       "duration": "PT13M42S",
       "durationSeconds": 822,
       "isShort": false,
-      "viewCount": 14655,
+      "viewCount": 14659,
       "likeCount": 1324,
       "commentCount": 162,
       "tags": []
@@ -13291,7 +13310,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-18T11:29:26Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT28M51S",
@@ -13619,7 +13638,7 @@
       "duration": "PT1H4M21S",
       "durationSeconds": 3861,
       "isShort": false,
-      "viewCount": 66150,
+      "viewCount": 66152,
       "likeCount": 1353,
       "commentCount": 64,
       "tags": []
@@ -13632,7 +13651,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-17T07:54:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT33M23S",
@@ -13707,7 +13726,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-12-16T20:23:44Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT23M27S",
@@ -13751,7 +13770,7 @@
       "duration": "PT17M1S",
       "durationSeconds": 1021,
       "isShort": false,
-      "viewCount": 15230,
+      "viewCount": 15234,
       "likeCount": 1459,
       "commentCount": 338,
       "tags": []
@@ -13802,7 +13821,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-16T08:26:56Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT24M37S",
@@ -13997,7 +14016,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-15T07:32:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT22M8S",
@@ -14062,7 +14081,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-12-14T15:43:00Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H10M50S",
@@ -14149,7 +14168,7 @@
       "duration": "PT17M43S",
       "durationSeconds": 1063,
       "isShort": false,
-      "viewCount": 14941,
+      "viewCount": 14943,
       "likeCount": 1333,
       "commentCount": 166,
       "tags": []
@@ -14206,7 +14225,7 @@
       "duration": "PT14M23S",
       "durationSeconds": 863,
       "isShort": false,
-      "viewCount": 14594,
+      "viewCount": 14596,
       "likeCount": 1347,
       "commentCount": 134,
       "tags": []
@@ -14238,7 +14257,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-12T08:21:56Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT34M22S",
@@ -14422,7 +14441,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-11T07:52:18Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT33M34S",
@@ -14474,7 +14493,7 @@
       "duration": "PT15M12S",
       "durationSeconds": 912,
       "isShort": false,
-      "viewCount": 17769,
+      "viewCount": 17771,
       "likeCount": 1537,
       "commentCount": 188,
       "tags": []
@@ -14661,7 +14680,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-09T07:52:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT27M1S",
@@ -14713,7 +14732,7 @@
       "duration": "PT10M16S",
       "durationSeconds": 616,
       "isShort": false,
-      "viewCount": 15401,
+      "viewCount": 15402,
       "likeCount": 1352,
       "commentCount": 115,
       "tags": []
@@ -14726,7 +14745,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-12-09T05:00:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT23M41S",
@@ -14848,7 +14867,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-08T07:45:15Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT28M43S",
@@ -14923,7 +14942,7 @@
       "duration": "PT14M35S",
       "durationSeconds": 875,
       "isShort": false,
-      "viewCount": 17384,
+      "viewCount": 17382,
       "likeCount": 1644,
       "commentCount": 201,
       "tags": [
@@ -15050,7 +15069,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-12-05T22:32:52Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT15M23S",
@@ -15156,8 +15175,8 @@
       "duration": "PT18M12S",
       "durationSeconds": 1092,
       "isShort": false,
-      "viewCount": 17013,
-      "likeCount": 1517,
+      "viewCount": 17015,
+      "likeCount": 1518,
       "commentCount": 154,
       "tags": [
         "osprey",
@@ -15197,7 +15216,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-05T07:39:21Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT28M4S",
@@ -15234,25 +15253,6 @@
         "notícies catalanes",
         "ib3 notícies"
       ]
-    },
-    {
-      "id": "mobBXwDWj14",
-      "title": "Empordanesos i empordaneses. Dia 4 de La Volta al Món a Peu",
-      "thumbnail": "https://i.ytimg.com/vi/mobBXwDWj14/sddefault.jpg",
-      "channelId": "UCDawX1bxeC4-hZiGnkqevbw",
-      "channelTitle": "Enric Adventures",
-      "publishedAt": "2025-12-04T20:12:27Z",
-      "categories": [
-        "vida"
-      ],
-      "sourceChannelId": "UCDawX1bxeC4-hZiGnkqevbw",
-      "duration": "PT12M20S",
-      "durationSeconds": 740,
-      "isShort": false,
-      "viewCount": 17361,
-      "likeCount": 1660,
-      "commentCount": 165,
-      "tags": []
     },
     {
       "id": "n2k8pHw1Gp8",
@@ -15376,7 +15376,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-04T07:46:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT27M1S",
@@ -15479,7 +15479,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-03T07:38:02Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT25M24S",
@@ -15708,7 +15708,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-02T09:45:46Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT28M12S",
@@ -15773,7 +15773,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-12-01T07:43:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT25M54S",
@@ -15856,7 +15856,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-30T21:06:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT42M28S",
@@ -16075,7 +16075,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-28T07:34:51Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT19M20S",
@@ -16320,7 +16320,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-27T07:45:43Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT26M1S",
@@ -16366,7 +16366,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-11-27T05:00:22Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M58S",
@@ -16444,7 +16444,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-26T07:55:58Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT31M52S",
@@ -16590,7 +16590,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-25T07:54:54Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT29M5S",
@@ -16655,7 +16655,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-24T07:56:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT30M39S",
@@ -16701,7 +16701,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-24T00:26:50Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT9M6S",
@@ -16842,7 +16842,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-11-21T07:50:24Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H18M58S",
@@ -16861,7 +16861,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-21T07:45:21Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT29M6S",
@@ -16955,7 +16955,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-20T07:45:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT25M48S",
@@ -17129,7 +17129,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-19T07:35:51Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT19M17S",
@@ -17181,7 +17181,7 @@
       "duration": "PT1H5M37S",
       "durationSeconds": 3937,
       "isShort": false,
-      "viewCount": 71427,
+      "viewCount": 71429,
       "likeCount": 1479,
       "commentCount": 89,
       "tags": []
@@ -17251,7 +17251,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-18T07:32:53Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT21M9S",
@@ -17355,7 +17355,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-17T07:46:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT29M22S",
@@ -17401,7 +17401,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-16T22:38:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT57M35S",
@@ -17579,7 +17579,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-11-15T05:35:49Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT33M55S",
@@ -17659,7 +17659,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-14T07:42:27Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT24M44S",
@@ -17743,7 +17743,7 @@
       "channelTitle": "Notícies Un Quart de Galves",
       "publishedAt": "2025-11-13T08:14:51Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCaCWG8cBOwER_Vf3qAsr8Zg",
       "duration": "PT26M17S",
@@ -17891,7 +17891,7 @@
       "duration": "PT1H8M28S",
       "durationSeconds": 4108,
       "isShort": false,
-      "viewCount": 70273,
+      "viewCount": 70272,
       "likeCount": 1451,
       "commentCount": 71,
       "tags": []
@@ -18122,7 +18122,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-11-06T10:58:14Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT28M25S",
@@ -18299,7 +18299,7 @@
       "duration": "PT1H8M39S",
       "durationSeconds": 4119,
       "isShort": false,
-      "viewCount": 65066,
+      "viewCount": 65064,
       "likeCount": 1527,
       "commentCount": 85,
       "tags": []
@@ -18386,7 +18386,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-11-02T12:44:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT39M58S",
@@ -18680,7 +18680,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-28T05:02:43Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT28M42S",
@@ -18718,7 +18718,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-27T17:47:57Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT11M43S",
@@ -18853,13 +18853,13 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-25T02:56:54Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT24M5S",
       "durationSeconds": 1445,
       "isShort": false,
-      "viewCount": 17213,
+      "viewCount": 17214,
       "likeCount": 2006,
       "commentCount": 281,
       "tags": [
@@ -19295,7 +19295,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-10-19T10:54:43Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT39M26S",
@@ -19447,7 +19447,7 @@
       "durationSeconds": 407,
       "isShort": false,
       "viewCount": 248,
-      "likeCount": 23,
+      "likeCount": 24,
       "commentCount": 8,
       "tags": [
         "IKEA",
@@ -19552,7 +19552,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-13T04:00:40Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT8M28S",
@@ -19649,7 +19649,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-12T04:00:25Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT19M17S",
@@ -19768,7 +19768,7 @@
       "duration": "PT1H1M54S",
       "durationSeconds": 3714,
       "isShort": false,
-      "viewCount": 308,
+      "viewCount": 307,
       "likeCount": 36,
       "commentCount": 6,
       "tags": [
@@ -19865,7 +19865,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-10-10T11:46:04Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT53M38S",
@@ -20201,7 +20201,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-05T18:05:40Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT1H27M59S",
@@ -20431,7 +20431,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-10-03T09:42:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT37M54S",
@@ -20488,7 +20488,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-10-01T03:25:49Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT35M43S",
@@ -20521,7 +20521,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-30T04:00:23Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT19M52S",
@@ -20727,7 +20727,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-09-27T06:36:19Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT39M55S",
@@ -20775,7 +20775,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-24T04:00:46Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M35S",
@@ -20816,7 +20816,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-09-23T16:45:42Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT55M14S",
@@ -20981,7 +20981,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-22T04:01:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT18M5S",
@@ -21127,7 +21127,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-20T19:35:53Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT30M6S",
@@ -21235,7 +21235,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-09-15T15:01:13Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT35M14S",
@@ -21283,7 +21283,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-13T03:49:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT16M4S",
@@ -21324,7 +21324,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-09-10T12:40:56Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT42M31S",
@@ -21489,7 +21489,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-09-06T13:39:20Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT56M27S",
@@ -21508,7 +21508,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-09-05T18:31:39Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT37M24S",
@@ -21556,7 +21556,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-05T04:00:45Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M58S",
@@ -21655,7 +21655,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-09-01T20:30:56Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT22M55S",
@@ -21714,7 +21714,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-08-30T11:27:32Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT40M32S",
@@ -21819,7 +21819,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-08-20T10:44:00Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT44M44S",
@@ -21880,7 +21880,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-08-19T04:00:09Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT18M17S",
@@ -21974,7 +21974,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-08-16T15:18:10Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT40M9S",
@@ -22051,7 +22051,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-08-13T10:22:39Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT35M52S",
@@ -22154,7 +22154,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-08-07T12:36:13Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT22M25S",
@@ -22300,7 +22300,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-08-01T04:00:03Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT1H7M18S",
@@ -22337,7 +22337,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-07-30T17:58:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT58M34S",
@@ -22379,7 +22379,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-07-30T11:52:55Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT40M9S",
@@ -22427,7 +22427,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-07-29T08:58:29Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H7M17S",
@@ -22446,7 +22446,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-07-29T08:52:54Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT52M22S",
@@ -22645,7 +22645,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-07-23T15:48:47Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT42M57S",
@@ -22840,7 +22840,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-07-16T14:45:30Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT33M59S",
@@ -22897,7 +22897,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-07-13T16:43:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT24M32S",
@@ -23110,7 +23110,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-07-10T04:47:53Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT17M46S",
@@ -23141,7 +23141,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-07-09T19:20:43Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT51M35S",
@@ -23338,7 +23338,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-07-02T13:37:55Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT47M31S",
@@ -23411,7 +23411,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-06-25T15:06:03Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT38M36S",
@@ -23514,7 +23514,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-06-24T09:13:08Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT53M10S",
@@ -23600,7 +23600,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-06-22T05:00:40Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M",
@@ -23745,7 +23745,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-06-17T12:19:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT58M14S",
@@ -23764,7 +23764,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-06-15T05:00:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M43S",
@@ -23795,7 +23795,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-06-13T02:42:44Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT9M36S",
@@ -23831,7 +23831,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-06-11T19:32:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT36M13S",
@@ -23954,7 +23954,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-06-08T13:00:42Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT37M42S",
@@ -23973,7 +23973,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-06-04T15:19:24Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT57M9S",
@@ -24092,7 +24092,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-05-31T12:03:35Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT39M35S",
@@ -24145,7 +24145,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-05-28T12:20:19Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H1M6S",
@@ -24262,7 +24262,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-23T17:38:49Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M40S",
@@ -24320,7 +24320,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-05-21T14:30:39Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT40M56S",
@@ -24396,7 +24396,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-05-20T19:19:47Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H5M6S",
@@ -24440,7 +24440,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-19T05:00:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT1H7M23S",
@@ -24573,7 +24573,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-05-14T15:34:00Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT1H6M43S",
@@ -24668,7 +24668,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-11T08:03:20Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT3M6S",
@@ -24700,7 +24700,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-10T18:26:10Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT3M43S",
@@ -24733,7 +24733,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-10T00:35:46Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT22M12S",
@@ -24792,7 +24792,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-05-07T15:59:36Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT58M56S",
@@ -24811,7 +24811,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-07T14:49:46Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M44S",
@@ -24869,7 +24869,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-07T05:00:28Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT6M3S",
@@ -24902,7 +24902,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-07T00:12:34Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT7M43S",
@@ -24939,7 +24939,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-05-06T21:49:11Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT7M1S",
@@ -24998,7 +24998,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-05-02T09:38:29Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT36M31S",
@@ -25163,13 +25163,13 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-04-21T19:13:22Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H8M53S",
       "durationSeconds": 4133,
       "isShort": false,
-      "viewCount": 12442,
+      "viewCount": 12443,
       "likeCount": 705,
       "commentCount": 110,
       "tags": [
@@ -25345,7 +25345,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-04-19T05:01:02Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT14M14S",
@@ -25443,7 +25443,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-04-16T16:53:57Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT31M54S",
@@ -25629,7 +25629,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-04-15T05:00:00Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M8S",
@@ -25718,7 +25718,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-04-14T05:00:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT6M4S",
@@ -25809,7 +25809,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-04-13T11:11:19Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT54M30S",
@@ -25828,7 +25828,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-04-09T14:56:34Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT59M11S",
@@ -25885,7 +25885,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-04-07T04:00:31Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT15M9S",
@@ -25922,13 +25922,13 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-04-04T20:24:32Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT23M25S",
       "durationSeconds": 1405,
       "isShort": false,
-      "viewCount": 20254,
+      "viewCount": 20256,
       "likeCount": 1982,
       "commentCount": 183,
       "tags": [
@@ -25971,7 +25971,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-04-02T17:30:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT39M32S",
@@ -26053,7 +26053,7 @@
       "duration": "PT1H8M12S",
       "durationSeconds": 4092,
       "isShort": false,
-      "viewCount": 2138,
+      "viewCount": 2137,
       "likeCount": 40,
       "commentCount": 1,
       "tags": []
@@ -26066,7 +26066,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-25T12:52:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT14M9S",
@@ -26117,7 +26117,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-03-22T08:51:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT55M51S",
@@ -26166,7 +26166,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-03-19T19:09:38Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT34M34S",
@@ -26204,7 +26204,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-17T11:09:17Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT11M27S",
@@ -26242,7 +26242,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-17T10:03:31Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT6M4S",
@@ -26272,7 +26272,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-14T13:34:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT20M59S",
@@ -26329,7 +26329,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-03-12T18:43:09Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT25M47S",
@@ -26386,7 +26386,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-03-07T09:33:10Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT52M40S",
@@ -26424,7 +26424,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-03T16:04:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT15M18S",
@@ -26460,7 +26460,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-03-01T06:00:02Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT10M31S",
@@ -26499,7 +26499,7 @@
       "channelTitle": "NetInformacio",
       "publishedAt": "2025-02-28T20:07:40Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCgvW4vAO6jNWA4qeYk87BEA",
       "duration": "PT5M25S",
@@ -26529,7 +26529,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-02-26T18:08:34Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT44M20S",
@@ -26548,7 +26548,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-02-19T18:00:24Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT51M32S",
@@ -26567,14 +26567,14 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2025-02-15T08:55:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H51S",
       "durationSeconds": 3651,
       "isShort": false,
-      "viewCount": 26061,
-      "likeCount": 1314,
+      "viewCount": 26080,
+      "likeCount": 1316,
       "commentCount": 207,
       "tags": [
         "Wokisme i Islam",
@@ -26607,7 +26607,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-02-12T11:32:50Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT54M54S",
@@ -26626,7 +26626,7 @@
       "channelTitle": "Mai Tant Podcast",
       "publishedAt": "2025-02-10T18:31:23Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCbOj46zFDV0_EquDRQzr5HQ",
       "duration": "PT48M42S",
@@ -26645,7 +26645,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2025-02-04T09:18:21Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT55M6S",
@@ -26664,7 +26664,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-12-27T15:46:06Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT41M11S",
@@ -26706,7 +26706,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-12-15T14:47:05Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H6M18S",
@@ -26725,13 +26725,13 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-12-07T12:21:05Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H7M53S",
       "durationSeconds": 4073,
       "isShort": false,
-      "viewCount": 14224,
+      "viewCount": 14225,
       "likeCount": 567,
       "commentCount": 115,
       "tags": [
@@ -26767,7 +26767,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-11-27T11:00:40Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT39M1S",
@@ -26786,7 +26786,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-11-18T11:21:44Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H20M19S",
@@ -26805,7 +26805,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-11-12T16:12:38Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H2M12S",
@@ -26851,7 +26851,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-10-23T06:47:03Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT54M3S",
@@ -26870,7 +26870,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-10-08T09:17:39Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H9M56S",
@@ -26889,7 +26889,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-10-01T10:27:29Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT54M11S",
@@ -26908,7 +26908,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-08-28T18:52:23Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT51M31S",
@@ -26950,7 +26950,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-08-27T12:55:17Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H24M1S",
@@ -26969,7 +26969,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-08-17T15:51:26Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT53M39S",
@@ -26988,7 +26988,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-08-07T11:15:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT56M31S",
@@ -27007,7 +27007,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-07-30T10:25:01Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT53M19S",
@@ -27026,7 +27026,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-07-16T11:25:53Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT49M55S",
@@ -27045,7 +27045,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-07-11T08:03:05Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT58M38S",
@@ -27087,7 +27087,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-07-09T15:59:08Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT41M26S",
@@ -27106,7 +27106,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-06-14T08:21:00Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT24M2S",
@@ -27125,7 +27125,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-06-07T13:33:46Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H17M59S",
@@ -27144,7 +27144,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-05-09T13:03:41Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT21M59S",
@@ -27163,7 +27163,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-05-08T10:41:20Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H11M59S",
@@ -27209,7 +27209,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-05-07T11:21:36Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT28M1S",
@@ -27228,7 +27228,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-05-03T13:04:05Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT18M40S",
@@ -27247,7 +27247,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-04-07T12:05:07Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H34M45S",
@@ -27266,7 +27266,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-03-31T09:38:55Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT52M31S",
@@ -27285,7 +27285,7 @@
       "channelTitle": "Víctor Puig ",
       "publishedAt": "2024-03-28T12:05:26Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UCptKQCkfc-LV4ybc9Th5_OA",
       "duration": "PT1H8M32S",
@@ -27329,7 +27329,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-03-22T09:03:43Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H20M35S",
@@ -27348,7 +27348,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-02-15T11:38:31Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H54M11S",
@@ -27367,7 +27367,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2024-02-02T11:59:18Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT38M57S",
@@ -27386,7 +27386,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-12-31T12:25:44Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT53M33S",
@@ -27405,7 +27405,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-12-15T18:30:12Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT51M30S",
@@ -27424,7 +27424,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-11-05T14:07:32Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT7M33S",
@@ -27443,7 +27443,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-10-29T14:22:36Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT37M4S",
@@ -27462,7 +27462,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-10-07T13:55:16Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H25S",
@@ -27481,7 +27481,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-09-10T08:30:10Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H27M25S",
@@ -27500,7 +27500,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-08-30T09:00:12Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H17S",
@@ -27519,7 +27519,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-08-10T11:14:33Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H21M59S",
@@ -27538,7 +27538,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-08-04T11:12:54Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT34M46S",
@@ -27557,7 +27557,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-07-27T08:26:03Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT29M3S",
@@ -27579,7 +27579,7 @@
       "channelTitle": "L´ESCAQUIMAT",
       "publishedAt": "2023-07-20T12:13:21Z",
       "categories": [
-        "societat"
+        "el món"
       ],
       "sourceChannelId": "UC995eaX8sye3WGZB3XUl9lg",
       "duration": "PT1H26M15S",
@@ -27904,7 +27904,7 @@
       "duration": "PT36M31S",
       "durationSeconds": 2191,
       "isShort": false,
-      "viewCount": 3195,
+      "viewCount": 3194,
       "likeCount": 65,
       "commentCount": 22,
       "tags": [
