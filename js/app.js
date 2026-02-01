@@ -2870,7 +2870,7 @@ function performLocalSearch(query) {
                 score: (titleScore * 2) + descriptionScore + tagScore
             };
         })
-        .filter(video => video.score > 0)
+        .filter(video => video.score > 0 && !video.isShort)
         .sort((a, b) => {
             if (b.score !== a.score) {
                 return b.score - a.score;
