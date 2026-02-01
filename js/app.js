@@ -3853,6 +3853,11 @@ function addVideoToPlaylist(playlistId, video) {
         playlist.videos.unshift(video);
     }
     savePlaylists(playlists);
+    if (activePlaylistId === playlistId && isPlaylistMode) {
+        activePlaylistQueue = playlist.videos;
+        updatePlaylistModeBadge();
+        renderPlaylistQueue();
+    }
 }
 
 function removeVideoFromPlaylist(playlistId, videoId) {
