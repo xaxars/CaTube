@@ -3288,9 +3288,34 @@ async function searchVideos(query) {
     const detailsResult = await fetchVideoDetails(videoIds);
 
     if (detailsResult.length > 0) {
-        renderVideos(detailsResult);
+        const nonShortResults = detailsResult.filter(video => !video.isShort);
+        if (nonShortResults.length > 0) {
+            renderVideos(nonShortResults);
+        } else {
+            featuredVideoBySection.delete(getHeroSectionKey());
+            updateHero(null);
+            videosGrid.innerHTML = `
+                <div class="search-error">
+                    <i data-lucide="video-off"></i>
+                    <p>No s'han trobat vídeos per aquesta cerca.</p>
+                </div>
+            `;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
     } else {
-        renderSearchResults(result.items);
+        featuredVideoBySection.delete(getHeroSectionKey());
+        updateHero(null);
+        videosGrid.innerHTML = `
+            <div class="search-error">
+                <i data-lucide="video-off"></i>
+                <p>No s'han trobat vídeos per aquesta cerca.</p>
+            </div>
+        `;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     }
 
     hideLoading();
