@@ -6757,7 +6757,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     if (params.has('list')) {
         const listId = params.get('list');
-
+        
         // 1. Initial Loading Modal
         const modal = document.createElement('div');
         modal.className = 'modal-overlay active';
@@ -6783,7 +6783,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         (async () => {
             try {
-                // 2. Fetch Playlist IDs
+                // 2. Fetch Playlist IDs from Server
                 const res = await fetch(`${SEGUEIX_API_URL}?id=${listId}`);
                 const data = await res.json();
 
@@ -6792,15 +6792,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const ids = idsRaw.map(id => id.trim()).filter(id => id.length > 0);
                     const playlistName = data.nom;
 
-                    // 3. Update Status
-                    modal.querySelector('.modal-description').textContent = `Cercant dades de ${ids.length} vídeos...`;
+                    modal.querySelector('.modal-description').textContent = `Processant ${ids.length} vídeos...`;
 
-                    // 4. RESOLVE VIDEOS
+                    // 3. RESOLVE VIDEOS
                     const resolvedVideos = [];
                     const missingIds = [];
+                    
+                    // Helper to check API Key
+                    const getApiKey = () => {
+                        return (typeof YouTubeAPI !== 'undefined' && YouTubeAPI.getApiKey) 
+                            ? YouTubeAPI.getApiKey() 
+                            : localStorage.getItem('youtube_api_key');
+                    };
+                    const apiKey = getApiKey();
 
-                    // Access API helper safely
-                    const ytApi = (typeof YouTubeAPI !== 'undefined') ? YouTubeAPI : (window.YouTubeAPI || null);
                     const allKnownVideos = [...(window.cachedAPIVideos || []), ...(window.VIDEOS || [])];
 
                     // Check local cache first
@@ -6813,22 +6818,39 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     });
 
-                    // Fetch missing from API
-                    if (missingIds.length > 0 && ytApi && ytApi.getApiKey()) {
+                    // Fetch missing from API if Key exists
+                    if (missingIds.length > 0 && apiKey) {
                         try {
+                            // Fetch in chunks
                             for (let i = 0; i < missingIds.length; i += 50) {
                                 const chunk = missingIds.slice(i, i + 50).join(',');
-                                const ytRes = await fetch(`${ytApi.BASE_URL}/videos?part=snippet,contentDetails,statistics&id=${chunk}&key=${ytApi.getApiKey()}`);
-                                const ytData = await ytRes.json();
+                                const ytRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${chunk}&key=${apiKey}`);
+                                
+                                if (ytRes.ok) {
+                                    const ytData = await ytRes.json();
+                                    if (ytData.items) {
+                                        // Use YouTubeAPI helper if available, otherwise manual map
+                                        let newItems = [];
+                                        if (typeof YouTubeAPI !== 'undefined' && YouTubeAPI.transformVideoResults) {
+                                            newItems = YouTubeAPI.transformVideoResults(ytData.items);
+                                        } else {
+                                            // Manual fallback mapping
+                                            newItems = ytData.items.map(item => ({
+                                                id: item.id,
+                                                title: item.snippet.title,
+                                                thumbnail: item.snippet.thumbnails?.medium?.url || '',
+                                                channelTitle: item.snippet.channelTitle,
+                                                source: 'api'
+                                            }));
+                                        }
 
-                                if (ytData.items) {
-                                    const newItems = ytApi.transformVideoResults(ytData.items);
-                                    if (!window.cachedAPIVideos) window.cachedAPIVideos = [];
-                                    window.cachedAPIVideos.push(...newItems);
-
-                                    newItems.forEach(item => {
-                                        resolvedVideos.push(getPlaylistVideoData(item));
-                                    });
+                                        if (!window.cachedAPIVideos) window.cachedAPIVideos = [];
+                                        window.cachedAPIVideos.push(...newItems);
+                                        
+                                        newItems.forEach(item => {
+                                            resolvedVideos.push(getPlaylistVideoData(item));
+                                        });
+                                    }
                                 }
                             }
                         } catch (e) {
@@ -6836,28 +6858,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
 
-                    // 5. CONSTRUCT FINAL LIST (With Fallback)
+                    // 4. CONSTRUCT FINAL LIST (Robust Fallback)
                     const orderedVideos = [];
                     ids.forEach(id => {
                         let v = resolvedVideos.find(rv => String(rv.id) === String(id));
-
-                        // FALLBACK: If API failed or video deleted, use ID as title so link still works
+                        
+                        // CRITICAL FIX: Even if fallback, ensure source is 'api' so it's playable
                         if (!v) {
                             v = {
                                 id: id,
                                 title: `Vídeo ${id}`,
-                                thumbnail: 'img/icon-192.png',
-                                channelTitle: 'Informació no disponible'
+                                thumbnail: 'img/icon-192.png', 
+                                channelTitle: 'Informació no disponible',
+                                source: 'api'
                             };
+                        } else {
+                            // Ensure source is set on found videos too
+                            if (!v.source) v.source = 'api';
                         }
                         orderedVideos.push(v);
                     });
 
-                    // 6. AUTO-SAVE
+                    // 5. AUTO-SAVE
                     const playlists = getPlaylists();
                     const newId = `shared_${listId}`;
                     const existingIndex = playlists.findIndex(p => p.id === newId);
-
+                    
                     const newPlaylistObj = {
                         id: newId,
                         name: playlistName,
@@ -6875,7 +6901,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         renderPlaylistsPage();
                     }
 
-                    // 7. SHOW RESULT
+                    // 6. SHOW RESULT
                     const modalHeader = modal.querySelector('.modal-header');
                     modalHeader.innerHTML = `
                         <h2 class="modal-title" style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:85%;">
@@ -6886,20 +6912,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                         </button>
                     `;
 
+                    // Generate HTML (Clickable items)
                     const listHtml = orderedVideos.map(video => `
-                        <div style="display:flex; gap:10px; align-items:center; padding:10px 15px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <div class="playlist-import-item" onclick="if(typeof showVideoFromAPI === 'function') { showVideoFromAPI('${video.id}'); }" style="display:flex; gap:10px; align-items:center; padding:10px 15px; border-bottom:1px solid rgba(255,255,255,0.05); cursor:pointer;">
                             <img src="${video.thumbnail}" style="width:60px; height:34px; object-fit:cover; border-radius:4px; flex-shrink:0; background:#333;">
                             <div style="min-width:0; flex-grow:1;">
-                                <div style="font-size:0.85rem; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(video.title)}</div>
+                                <div style="font-size:0.85rem; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color: var(--text-primary);">${escapeHtml(video.title)}</div>
                                 <div style="font-size:0.75rem; color:var(--color-text-secondary);">${escapeHtml(video.channelTitle || '')}</div>
                             </div>
+                            <i data-lucide="play-circle" style="width:16px; height:16px; opacity:0.5;"></i>
                         </div>
                     `).join('');
 
                     modal.querySelector('.modal-body').innerHTML = `
                         <div style="padding: 15px; background: rgba(46, 204, 113, 0.1); border-bottom:1px solid rgba(255,255,255,0.05); color: #2ecc71; font-size:0.9rem;">
                             <i data-lucide="check-circle" style="width:16px; vertical-align:text-bottom;"></i>
-                            Llista importada correctament (${orderedVideos.length} vídeos).
+                            Llista guardada correctament!
                         </div>
                         <div style="max-height: 50vh; overflow-y: auto; text-align:left;">
                             ${listHtml}
