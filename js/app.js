@@ -6661,125 +6661,94 @@ async function shareSegueixPlaylist(playlistName) {
         return alert('Aquesta llista és buida o no existeix.');
     }
 
-    // 1. Open "Loading" Modal
-    const existingModal = document.querySelector('.share-modal-overlay');
-    if (existingModal) existingModal.remove();
-
-    const modal = document.createElement('div');
-    modal.className = 'modal-overlay active share-modal-overlay';
-    modal.innerHTML = `
+    // 1. Show "Loading" Modal
+    const loadingModal = document.createElement('div');
+    loadingModal.className = 'modal-overlay active share-modal-overlay';
+    loadingModal.innerHTML = `
         <div class="modal modal-small">
-            <div class="modal-header">
-                <h2 class="modal-title">
-                    <div class="spinner" style="width:20px;height:20px;border-width:2px;margin-right:10px;"></div>
-                    Carregant...
-                </h2>
-                <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align:center; padding: 40px 20px;">
-                <p class="modal-description">Generant l'enllaç per compartir...</p>
+            <div class="modal-body" style="text-align:center; padding: 30px;">
+                <div class="spinner" style="width:20px;height:20px;border-width:2px;margin:0 auto 15px auto;"></div>
+                <p>Generant enllaç...</p>
             </div>
         </div>
     `;
-    document.body.appendChild(modal);
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-
-    // 2. Send to API
-    const ids = targetPlaylist.videos.map(v => v.id).join(',');
+    document.body.appendChild(loadingModal);
 
     try {
+        const ids = targetPlaylist.videos.map(v => v.id).join(',');
+
+        // Call API
         const res = await fetch(SEGUEIX_API_URL, {
             method: 'POST',
             body: JSON.stringify({ nom: playlistName, ids: ids })
         });
         const data = await res.json();
 
+        // Remove loading modal
+        loadingModal.remove();
+
         if (data.status === 'success') {
             const shareUrl = `${window.location.origin}${window.location.pathname}?list=${data.id}`;
-            const { text: shareText } = await buildShareData(playlistName, shareUrl);
+            const shareTitle = `Llista: ${playlistName}`;
+            const shareText = `Mira aquesta llista de reproducció "${playlistName}" a CaTube!`;
 
-            // 3. Update Modal with "Share" state
-            const modalTitle = modal.querySelector('.modal-title');
-            const modalBody = modal.querySelector('.modal-body');
+            // A) NATIVE SHARING (Mobile: opens WhatsApp, Telegram, Mail, etc.)
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: shareTitle,
+                        text: shareText,
+                        url: shareUrl
+                    });
+                    console.log('Compartit amb èxit');
+                    return;
+                } catch (err) {
+                    console.log('User cancelled or native share failed', err);
+                }
+            }
 
-            modalTitle.innerHTML = `
-                <i data-lucide="share-2" style="margin-right:10px;"></i>
-                Comparteix
-            `;
-
-            modalBody.innerHTML = `
-                <p class="modal-description" style="margin-bottom:20px;">
-                    Comparteix la llista: <br><strong>${escapeHtml(playlistName)}</strong>
-                </p>
-
-                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 20px; word-break: break-all; font-family: monospace; font-size: 0.8rem; color: var(--color-text-secondary);">
-                    ${shareUrl}
-                </div>
-
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                    <button class="hero-button" onclick="window.open('https://wa.me/?text=${encodeURIComponent(shareText)}', '_blank')">
-                        <i data-lucide="message-circle" style="width:18px; display:inline-block; vertical-align:middle;"></i> Whatsapp
-                    </button>
-                    <button class="hero-button" style="background:#333; color:white;" id="copyLinkBtn">
-                        <i data-lucide="link" style="width:18px; display:inline-block; vertical-align:middle;"></i> Copiar Link
-                    </button>
-                </div>
-            `;
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-
-            // Handle Copy Button
-            const copyBtn = modal.querySelector('#copyLinkBtn');
-            copyBtn.onclick = () => {
-                navigator.clipboard.writeText(shareUrl);
-                copyBtn.innerHTML = '<i data-lucide="check"></i> Copiat!';
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-                setTimeout(() => {
-                    copyBtn.innerHTML = '<i data-lucide="link"></i> Copiar Link';
-                    if (typeof lucide !== 'undefined') lucide.createIcons();
-                }, 2000);
-            };
+            // B) MANUAL FALLBACK (Desktop)
+            showManualShareModal(playlistName, shareUrl);
 
         } else {
             throw new Error(data.message);
         }
     } catch (err) {
-        modal.querySelector('.modal-body').innerHTML = `
-            <p style="color:#ff6b6b;">Error: ${err.message || 'Error de connexió'}</p>
-        `;
+        loadingModal.remove();
+        alert('Error: ' + (err.message || 'No s\'ha pogut generar l\'enllaç'));
     }
 }
 
-async function fetchMissingVideoDetails(videoIdsArray) {
-    // Filter which videos are NOT in local cache
-    const allKnown = [...(window.cachedAPIVideos || []), ...(window.VIDEOS || [])];
-    const missingIds = videoIdsArray.filter(id => !allKnown.find(v => String(v.id) === String(id)));
+function showManualShareModal(name, url) {
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay active';
+    modal.innerHTML = `
+        <div class="modal modal-small">
+            <div class="modal-header">
+                <h2 class="modal-title">Comparteix la llista</h2>
+                <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align:center; padding: 20px;">
+                <p style="margin-bottom:15px;">Copia l'enllaç per enviar-lo per on vulguis:</p>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; word-break: break-all; font-family: monospace; font-size: 0.85rem; margin-bottom: 20px; user-select: all;">
+                    ${url}
+                </div>
+                <button class="hero-button" id="copyBtn">
+                    <i data-lucide="copy"></i> Copiar Enllaç
+                </button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    if (missingIds.length === 0) return;
-
-    // Fetch missing details from YouTube API
-    if (typeof YouTubeAPI !== 'undefined' && YouTubeAPI.getApiKey()) {
-        try {
-            const chunkSize = 50;
-            for (let i = 0; i < missingIds.length; i += chunkSize) {
-                const chunk = missingIds.slice(i, i + chunkSize);
-                const idsString = chunk.join(',');
-
-                const response = await fetch(
-                    `${YouTubeAPI.BASE_URL}/videos?part=snippet,contentDetails,statistics&id=${idsString}&key=${YouTubeAPI.getApiKey()}`
-                );
-
-                if (response.ok) {
-                    const data = await response.json();
-                    const items = YouTubeAPI.transformVideoResults(data.items);
-                    window.cachedAPIVideos.push(...items);
-                }
-            }
-        } catch (e) {
-            console.warn('Error fetching details for shared videos:', e);
-        }
-    }
+    modal.querySelector('#copyBtn').onclick = function() {
+        navigator.clipboard.writeText(url);
+        this.innerHTML = '<i data-lucide="check"></i> Copiat!';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    };
 }
 
 // 2. Listener per DETECTAR llistes compartides
@@ -6789,7 +6758,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (params.has('list')) {
         const listId = params.get('list');
 
-        // 1. Show Floating "Loading" Modal
+        // 1. Initial Loading Modal
         const modal = document.createElement('div');
         modal.className = 'modal-overlay active';
         modal.id = 'importPlaylistModal';
@@ -6803,106 +6772,149 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </h2>
                 </div>
                 <div class="modal-body" style="text-align:center; padding: 40px 20px;">
-                    <p class="modal-description">Obtenint la llista compartida...</p>
+                    <p class="modal-description">Descarregant informació de la llista...</p>
                 </div>
             </div>
         `;
         document.body.appendChild(modal);
 
         // Clean URL
-        const newUrl = window.location.pathname;
-        window.history.replaceState({}, document.title, newUrl);
+        window.history.replaceState({}, document.title, window.location.pathname);
 
-        try {
-            // 2. Fetch IDs
-            const res = await fetch(`${SEGUEIX_API_URL}?id=${listId}`);
-            const data = await res.json();
+        (async () => {
+            try {
+                // 2. Fetch Playlist IDs
+                const res = await fetch(`${SEGUEIX_API_URL}?id=${listId}`);
+                const data = await res.json();
 
-            if (data.status === 'success') {
-                const ids = data.ids.split(',');
-                const playlistName = data.nom;
+                if (data.status === 'success') {
+                    const idsRaw = data.ids.split(',');
+                    const ids = idsRaw.map(id => id.trim()).filter(id => id.length > 0);
+                    const playlistName = data.nom;
 
-                // 3. ENRICH DATA: Load real titles and thumbnails
-                modal.querySelector('.modal-description').textContent = "Carregant informació dels vídeos...";
-                await fetchMissingVideoDetails(ids);
+                    // 3. Update Status
+                    modal.querySelector('.modal-description').textContent = `Cercant dades de ${ids.length} vídeos...`;
 
-                // 4. Construct Playlist Object
-                const allKnownVideos = [...(window.cachedAPIVideos || []), ...(window.VIDEOS || [])];
-                const resolvedVideos = ids.map(id => {
-                    const found = allKnownVideos.find(v => String(v.id) === String(id));
-                    if (found) return getPlaylistVideoData(found);
-                    return { id: id, title: 'Vídeo no disponible', thumbnail: 'img/icon-192.png', channelTitle: '' };
-                });
+                    // 4. RESOLVE VIDEOS (Fetch from YouTube API if missing)
+                    const allKnownVideos = [...(window.cachedAPIVideos || []), ...(window.VIDEOS || [])];
+                    const resolvedVideos = [];
+                    const missingIds = [];
 
-                // 5. AUTO-SAVE
-                const playlists = getPlaylists();
-                const alreadyExists = playlists.some(p => p.id === `shared_${listId}`);
+                    // Check local cache
+                    ids.forEach(id => {
+                        const found = allKnownVideos.find(v => String(v.id) === String(id));
+                        if (found) {
+                            resolvedVideos.push(getPlaylistVideoData(found));
+                        } else {
+                            missingIds.push(id);
+                        }
+                    });
 
-                if (!alreadyExists) {
-                    const newPlaylist = {
-                        id: `shared_${listId}`,
+                    // Fetch missing from API
+                    if (missingIds.length > 0 && typeof YouTubeAPI !== 'undefined' && YouTubeAPI.getApiKey()) {
+                        try {
+                            for (let i = 0; i < missingIds.length; i += 50) {
+                                const chunk = missingIds.slice(i, i + 50).join(',');
+                                const ytRes = await fetch(`${YouTubeAPI.BASE_URL}/videos?part=snippet,contentDetails,statistics&id=${chunk}&key=${YouTubeAPI.getApiKey()}`);
+                                const ytData = await ytRes.json();
+
+                                if (ytData.items) {
+                                    const newItems = YouTubeAPI.transformVideoResults(ytData.items);
+                                    if (!window.cachedAPIVideos) window.cachedAPIVideos = [];
+                                    window.cachedAPIVideos.push(...newItems);
+
+                                    newItems.forEach(item => {
+                                        resolvedVideos.push(getPlaylistVideoData(item));
+                                    });
+                                }
+                            }
+                        } catch (e) {
+                            console.error("Error fetching YouTube details:", e);
+                        }
+                    }
+
+                    // Reorder
+                    const orderedVideos = [];
+                    ids.forEach(id => {
+                        const v = resolvedVideos.find(rv => String(rv.id) === String(id));
+                        if (v) orderedVideos.push(v);
+                    });
+
+                    // 5. AUTO-SAVE
+                    const playlists = getPlaylists();
+                    const newId = `shared_${listId}`;
+                    const existingIndex = playlists.findIndex(p => p.id === newId);
+
+                    const newPlaylistObj = {
+                        id: newId,
                         name: playlistName,
-                        videos: resolvedVideos
+                        videos: orderedVideos
                     };
-                    playlists.push(newPlaylist);
+
+                    if (existingIndex >= 0) {
+                        playlists[existingIndex] = newPlaylistObj;
+                    } else {
+                        playlists.push(newPlaylistObj);
+                    }
                     savePlaylists(playlists);
 
-                    if (playlistsList && !playlistsPage.classList.contains('hidden')) {
+                    if (typeof renderPlaylistsPage === 'function' && !playlistsPage.classList.contains('hidden')) {
                         renderPlaylistsPage();
                     }
-                }
 
-                // 6. Show Content in Modal (View Only with X to close)
-                const modalHeader = modal.querySelector('.modal-header');
-                modalHeader.innerHTML = `
-                    <h2 class="modal-title" style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                        📂 ${escapeHtml(playlistName)}
-                    </h2>
-                    <button class="modal-close" onclick="document.getElementById('importPlaylistModal').remove()">
-                        <i data-lucide="x"></i>
-                    </button>
-                `;
+                    // 6. SHOW RESULT (View Only)
+                    const modalHeader = modal.querySelector('.modal-header');
+                    modalHeader.innerHTML = `
+                        <h2 class="modal-title" style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:85%;">
+                            📂 ${escapeHtml(playlistName)}
+                        </h2>
+                        <button class="modal-close" onclick="document.getElementById('importPlaylistModal').remove()">
+                            <i data-lucide="x"></i>
+                        </button>
+                    `;
 
-                const modalBody = modal.querySelector('.modal-body');
-                modalBody.style.textAlign = 'left';
-                modalBody.style.padding = '0';
+                    let listHtml = '';
+                    if (orderedVideos.length === 0) {
+                        listHtml = '<div style="padding:20px; color:#aaa;">No s\'han pogut recuperar els vídeos.</div>';
+                    } else {
+                        listHtml = orderedVideos.map(video => `
+                            <div style="display:flex; gap:10px; align-items:center; padding:10px 15px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <img src="${video.thumbnail}" style="width:60px; height:34px; object-fit:cover; border-radius:4px; flex-shrink:0; background:#333;">
+                                <div style="min-width:0; flex-grow:1;">
+                                    <div style="font-size:0.85rem; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(video.title)}</div>
+                                    <div style="font-size:0.75rem; color:var(--color-text-secondary);">${escapeHtml(video.channelTitle || '')}</div>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
 
-                const videosListHTML = resolvedVideos.map(video => `
-                    <div style="display:flex; gap:10px; align-items:center; padding:10px 20px; border-bottom:1px solid rgba(255,255,255,0.05);">
-                        <img src="${video.thumbnail}" style="width:60px; height:34px; object-fit:cover; border-radius:4px; flex-shrink:0;">
-                        <div style="min-width:0;">
-                            <div style="font-size:0.85rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(video.title)}</div>
-                            <div style="font-size:0.75rem; color:var(--color-text-secondary);">${escapeHtml(video.channelTitle)}</div>
+                    modal.querySelector('.modal-body').innerHTML = `
+                        <div style="padding: 15px; background: rgba(46, 204, 113, 0.1); border-bottom:1px solid rgba(255,255,255,0.05); color: #2ecc71; font-size:0.9rem;">
+                            <i data-lucide="check-circle" style="width:16px; vertical-align:text-bottom;"></i>
+                            Llista importada i guardada correctament.
                         </div>
-                    </div>
-                `).join('');
+                        <div style="max-height: 50vh; overflow-y: auto; text-align:left;">
+                            ${listHtml}
+                        </div>
+                    `;
+                    modal.querySelector('.modal-body').style.padding = '0';
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
 
-                modalBody.innerHTML = `
-                    <div style="padding: 15px 20px; background: rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.05);">
-                        <p style="font-size:0.9rem; color: #aaa; margin:0;">
-                            Llista importada correctament. La trobaràs a la teva biblioteca.
-                        </p>
-                    </div>
-                    <div style="max-height: 50vh; overflow-y: auto;">
-                        ${videosListHTML}
-                    </div>
+                } else {
+                    throw new Error('La llista no existeix al servidor.');
+                }
+            } catch (err) {
+                console.error(err);
+                modal.querySelector('.modal-header').innerHTML = `
+                    <h2 class="modal-title">Error</h2>
+                    <button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i data-lucide="x"></i></button>
                 `;
-
+                modal.querySelector('.modal-body').innerHTML = `
+                    <p style="color:#ff6b6b;">${err.message || "Error desconegut."}</p>
+                `;
                 if (typeof lucide !== 'undefined') lucide.createIcons();
-
-            } else {
-                throw new Error('Llista no trobada');
             }
-        } catch (err) {
-            modal.querySelector('.modal-header').innerHTML = `
-                <h2 class="modal-title">Error</h2>
-                <button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i data-lucide="x"></i></button>
-            `;
-            modal.querySelector('.modal-body').innerHTML = `
-                <p style="color:#ff6b6b;">No s'ha pogut carregar la llista.</p>
-            `;
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
+        })();
     }
 });
 
