@@ -146,11 +146,20 @@ function countMarkerMatches(text, markers) {
 function isCatalan(video) {
     const defaultAudioLanguage = video?.defaultAudioLanguage?.toLowerCase();
     const defaultLanguage = video?.defaultLanguage?.toLowerCase();
+    const neutralLanguages = new Set(['', 'zxx', 'mul', undefined, null]);
 
-    if (defaultAudioLanguage === 'ca' || defaultLanguage === 'ca') {
+    const hasCatalan = [defaultAudioLanguage, defaultLanguage].some(code => code?.startsWith('ca'));
+    if (hasCatalan) {
         return true;
     }
-    if (defaultAudioLanguage === 'es' || defaultLanguage === 'es') {
+
+    const hasForeignLanguage = [defaultAudioLanguage, defaultLanguage].some(code => {
+        if (!code || neutralLanguages.has(code)) {
+            return false;
+        }
+        return !code.startsWith('ca');
+    });
+    if (hasForeignLanguage) {
         return false;
     }
 
@@ -359,7 +368,8 @@ async function main() {
                 ? channelVideos.filter(video => {
                     const keep = isCatalan(video);
                     if (!keep) {
-                        console.log(`🚫 Skipped Spanish content: ${video.title || video.id}`);
+                        const languageCode = (video.defaultAudioLanguage || video.defaultLanguage || 'unknown').toLowerCase();
+                        console.log(`🚫 Filtered out [lang=${languageCode}]: ${video.title || video.id}`);
                     }
                     return keep;
                 })
