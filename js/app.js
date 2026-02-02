@@ -6676,11 +6676,12 @@ async function shareSegueixPlaylist(playlistName) {
 
     try {
         const ids = targetPlaylist.videos.map(v => v.id).join(',');
+        const urls = targetPlaylist.videos.map(v => `https://www.youtube.com/watch?v=${v.id}`);
 
         // Call API
         const res = await fetch(SEGUEIX_API_URL, {
             method: 'POST',
-            body: JSON.stringify({ nom: playlistName, ids: ids })
+            body: JSON.stringify({ nom: playlistName, urls: urls })
         });
         const data = await res.json();
 
