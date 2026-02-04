@@ -56,7 +56,8 @@ let searchForm, searchInput, searchDropdown;
 let extraVideosGrid;
 let currentVideoId = null;
 let useYouTubeAPI = false;
-let selectedCategory = 'Novetats';
+const LAST_CATEGORY_STORAGE_KEY = 'catube_last_category';
+let selectedCategory = localStorage.getItem(LAST_CATEGORY_STORAGE_KEY) || 'Novetats';
 let historySelectedCategory = 'Novetats';
 let historyFilterLiked = false;
 let currentFeedVideos = [];
@@ -1021,17 +1022,14 @@ function initIntroSplash() {
     if (!splash) {
         return;
     }
-    if (sessionStorage.getItem('catube_intro_splash_shown')) {
-        splash.remove();
-        return;
-    }
+    const splashDisplayDurationMs = 2000;
+    const splashFadeDurationMs = 500;
     setTimeout(() => {
         splash.classList.add('splash-hidden');
         setTimeout(() => {
             splash.remove();
-            sessionStorage.setItem('catube_intro_splash_shown', 'true');
-        }, 500);
-    }, 2000);
+        }, splashFadeDurationMs);
+    }, splashDisplayDurationMs);
 }
 
 // Inicialitzar l'aplicació
@@ -1055,9 +1053,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (normalizedTag) {
             if (isStandardCategory(normalizedTag)) {
                 selectedCategory = normalizedTag;
+                localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
             } else {
                 const addedTag = addCustomTag(normalizedTag);
                 selectedCategory = addedTag || selectedCategory;
+                localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
             }
         }
         urlParams.delete('add_tag');
@@ -1445,6 +1445,7 @@ function initEventListeners() {
                 return;
             }
             selectedCategory = chip.dataset.cat || 'Tot';
+            localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
             document.querySelectorAll('.chip').forEach((item) => item.classList.remove('is-active'));
             chip.classList.add('is-active');
             const basePath = window.location.pathname.replace(/\/index\.html$/, '/');
@@ -1758,6 +1759,7 @@ function handleCustomCategoryCreation() {
         return;
     }
     selectedCategory = addedTag;
+    localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
     setupChipsBarOrdering();
     closeCustomCategoryModal();
 
@@ -2496,6 +2498,7 @@ function loadCategories() {
             if (useYouTubeAPI) {
                 const category = CONFIG.categories.find(c => c.id === categoryId);
                 selectedCategory = category ? category.name : 'Tot';
+                localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
                 renderCategoryActions(category ? category.name : 'Categoria');
                 renderFeed();
             } else {
@@ -2630,6 +2633,7 @@ function getChipOrderFromDom() {
 
 function activateCategory(category) {
     selectedCategory = category;
+    localStorage.setItem(LAST_CATEGORY_STORAGE_KEY, selectedCategory);
     renderCategoryActions(getCategoryPageTitle(category));
     if (!chipsBar) {
         return;
