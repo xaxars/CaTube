@@ -1856,15 +1856,28 @@ function updateHero(video, source = 'static') {
 
     const title = video.title || video.snippet?.title || 'Vídeo destacat';
     const description = video.description || video.snippet?.description || '';
+    const videoId = String(video.id || video.videoId || video.snippet?.resourceId?.videoId || '');
     const thumbnail = video.thumbnail || video.snippet?.thumbnails?.maxres?.url || video.snippet?.thumbnails?.standard?.url || video.snippet?.thumbnails?.high?.url || '';
     const duration = getVideoDisplayDuration(video);
 
     heroSection.classList.remove('hidden');
-    heroSection.dataset.videoId = video.id;
+    heroSection.dataset.videoId = videoId;
     heroSection.dataset.source = source;
     heroTitle.textContent = title;
     heroDescription.textContent = description ? description.substring(0, 140) + (description.length > 140 ? '...' : '') : '';
-    heroImage.src = thumbnail;
+    const lowResThumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '';
+    heroImage.src = lowResThumbnail || thumbnail;
+    if (thumbnail) {
+        const loadingVideoId = videoId;
+        const highResImage = new Image();
+        highResImage.onload = () => {
+            if (heroSection.dataset.videoId !== loadingVideoId) {
+                return;
+            }
+            heroImage.src = thumbnail;
+        };
+        highResImage.src = thumbnail;
+    }
     heroImage.alt = title;
     if (duration) {
         heroDuration.textContent = duration;
