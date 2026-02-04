@@ -4871,21 +4871,37 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         return;
     }
     videoPlayer.innerHTML = `
-        <div class="drag-handle" aria-hidden="true" style="position:absolute; inset:0; z-index:2001; cursor:grab;"></div>
-        <div class="mini-player-controls-overlay" style="position:absolute; inset:0; z-index:2002; pointer-events:none; display:flex; justify-content:space-between; padding:8px; transition: opacity 0.3s ease; opacity:1;">
-            <button class="expand-mini-player-btn" type="button" aria-label="Restaurar" style="pointer-events:auto;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
+        <div class="drag-handle" aria-hidden="true" style="
+            position: absolute;
+            inset: 0;
+            z-index: 2001;
+            cursor: grab;
+            background: radial-gradient(circle 50px at center, transparent 100%, rgba(0,0,0,0) 100%);
+        "></div>
+        <div class="mini-player-controls-overlay" style="
+            position: absolute;
+            inset: 0;
+            z-index: 2002;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        ">
+            <button class="expand-mini-player-btn" type="button" aria-label="Restaurar" style="pointer-events: auto; background: none; border: none; color: white;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="14" y1="10" x2="21" y2="3"></line>
+                    <polyline points="21 10 21 3 14 3"></polyline>
                     <line x1="3" y1="21" x2="10" y2="14"></line>
+                    <polyline points="3 14 3 21 10 21"></polyline>
                 </svg>
             </button>
-            <button class="close-mini-player-btn" type="button" aria-label="Tancar" style="pointer-events:auto;">
+            <button class="close-mini-player-btn" type="button" aria-label="Tancar" style="pointer-events: auto; background: none; border: none; color: white;">
                 <i data-lucide="x"></i>
             </button>
         </div>
-        <div class="video-embed-wrap">
+        <div class="video-embed-wrap" style="pointer-events: auto;">
             <iframe
                 id="catube-player"
                 src="${iframeSrc}"
@@ -4911,40 +4927,26 @@ function makeDraggable(element, handle) {
         return;
     }
 
-    let frameId = null;
-    let pendingPosition = null;
-
     const startDrag = (clientX, clientY) => {
         const rect = element.getBoundingClientRect();
         const offsetX = clientX - rect.left;
         const offsetY = clientY - rect.top;
 
-        element.style.setProperty('top', `${rect.top}px`, 'important');
-        element.style.setProperty('left', `${rect.left}px`, 'important');
-        element.style.setProperty('bottom', 'auto', 'important');
-        element.style.setProperty('right', 'auto', 'important');
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const distFromCenter = Math.hypot(offsetX - centerX, offsetY - centerY);
+        if (distFromCenter < 40) {
+            return;
+        }
 
         const handleMove = (moveX, moveY) => {
-            const width = rect.width;
-            const height = rect.height;
-            const maxLeft = Math.max(0, window.innerWidth - width);
-            const maxTop = Math.max(0, window.innerHeight - height);
-            const nextLeft = Math.min(Math.max(0, moveX - offsetX), maxLeft);
-            const nextTop = Math.min(Math.max(0, moveY - offsetY), maxTop);
-            pendingPosition = { left: nextLeft, top: nextTop };
-
-            if (frameId) {
-                return;
-            }
-
-            frameId = requestAnimationFrame(() => {
-                frameId = null;
-                if (!pendingPosition) {
-                    return;
-                }
-                element.style.setProperty('left', `${pendingPosition.left}px`, 'important');
-                element.style.setProperty('top', `${pendingPosition.top}px`, 'important');
-                pendingPosition = null;
+            requestAnimationFrame(() => {
+                const nextLeft = Math.min(Math.max(0, moveX - offsetX), window.innerWidth - rect.width);
+                const nextTop = Math.min(Math.max(0, moveY - offsetY), window.innerHeight - rect.height);
+                element.style.left = `${nextLeft}px`;
+                element.style.top = `${nextTop}px`;
+                element.style.bottom = 'auto';
+                element.style.right = 'auto';
             });
         };
 
@@ -4957,6 +4959,7 @@ function makeDraggable(element, handle) {
                 return;
             }
             handleMove(event.touches[0].clientX, event.touches[0].clientY);
+            event.preventDefault();
         };
 
         const stopDrag = () => {
@@ -4965,11 +4968,6 @@ function makeDraggable(element, handle) {
             document.removeEventListener('touchmove', onTouchMove);
             document.removeEventListener('touchend', stopDrag);
             document.removeEventListener('touchcancel', stopDrag);
-            if (frameId) {
-                cancelAnimationFrame(frameId);
-                frameId = null;
-                pendingPosition = null;
-            }
         };
 
         document.addEventListener('mousemove', onMouseMove);
