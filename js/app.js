@@ -1865,14 +1865,25 @@ function updateHero(video, source = 'static') {
     heroSection.dataset.source = source;
     heroTitle.textContent = title;
     heroDescription.textContent = description ? description.substring(0, 140) + (description.length > 140 ? '...' : '') : '';
+    if (heroEyebrow) {
+        heroEyebrow.classList.add('hidden');
+    }
     const lowResThumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '';
     const highResThumbnail = thumbnail || lowResThumbnail;
     const currentHeroSrc = heroImage.currentSrc || heroImage.src;
+    const loadingVideoId = videoId;
+    heroImage.onload = () => {
+        if (heroSection.dataset.videoId !== loadingVideoId) {
+            return;
+        }
+        if (heroEyebrow) {
+            heroEyebrow.classList.remove('hidden');
+        }
+    };
     if (lowResThumbnail && currentHeroSrc !== lowResThumbnail) {
         heroImage.src = lowResThumbnail;
     }
     if (highResThumbnail && currentHeroSrc !== highResThumbnail) {
-        const loadingVideoId = videoId;
         const highResImage = new Image();
         highResImage.onload = () => {
             if (heroSection.dataset.videoId !== loadingVideoId) {
