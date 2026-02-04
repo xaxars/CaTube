@@ -1016,8 +1016,27 @@ function setupShareButtons() {
     });
 }
 
+function initIntroSplash() {
+    const splash = document.getElementById('intro-splash');
+    if (!splash) {
+        return;
+    }
+    if (sessionStorage.getItem('catube_intro_splash_shown')) {
+        splash.remove();
+        return;
+    }
+    setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        setTimeout(() => {
+            splash.remove();
+            sessionStorage.setItem('catube_intro_splash_shown', 'true');
+        }, 500);
+    }, 2000);
+}
+
 // Inicialitzar l'aplicació
 document.addEventListener('DOMContentLoaded', async () => {
+    initIntroSplash();
     initElements();
     loadGridLayoutPreference();
     loadWatchGridLayoutPreference();
