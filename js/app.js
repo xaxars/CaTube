@@ -4872,38 +4872,25 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
     }
     videoPlayer.innerHTML = `
         <div class="drag-handle" aria-hidden="true" style="
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2001;
-            cursor: grab;
-            background: radial-gradient(circle 50px at center, transparent 100%, rgba(0,0,0,0) 100%);
+            position: absolute; top: 0; left: 0; width: 100%; height: 70%;
+            z-index: 2001; cursor: grab; background: transparent;
         "></div>
         <div class="mini-player-controls-overlay" style="
-            position: absolute;
-            inset: 0;
-            z-index: 2002;
-            pointer-events: none;
-            display: flex;
-            justify-content: space-between;
-            padding: 8px;
-            transition: opacity 0.3s ease;
-            opacity: 0;
+            position: absolute; inset: 0; z-index: 2002; pointer-events: none;
+            display: flex; justify-content: space-between; padding: 8px;
+            transition: opacity 0.3s ease; opacity: 0;
         ">
             <button class="expand-mini-player-btn" type="button" aria-label="Restaurar" style="pointer-events: auto; background: none; border: none; color: white;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="14" y1="10" x2="21" y2="3"></line>
-                    <polyline points="21 10 21 3 14 3"></polyline>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                    <polyline points="3 14 3 21 10 21"></polyline>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="14" y1="10" x2="21" y2="3"></line><polyline points="21 10 21 3 14 3"></polyline>
+                    <line x1="3" y1="21" x2="10" y2="14"></line><polyline points="3 14 3 21 10 21"></polyline>
                 </svg>
             </button>
             <button class="close-mini-player-btn" type="button" aria-label="Tancar" style="pointer-events: auto; background: none; border: none; color: white;">
                 <i data-lucide="x"></i>
             </button>
         </div>
-        <div class="video-embed-wrap" style="pointer-events: auto;">
+        <div class="video-embed-wrap" style="position: absolute; inset: 0; z-index: 2000;">
             <iframe
                 id="catube-player"
                 src="${iframeSrc}"
@@ -4930,83 +4917,61 @@ function makeDraggable(element, handle) {
         return;
     }
 
-    const startDrag = (clientX, clientY) => {
+    let startX;
+    let startY;
+    let initialLeft;
+    let initialTop;
+
+    const onMove = (event) => {
+        const touch = event.type === 'touchmove' ? event.touches[0] : event;
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+        const newLeft = Math.min(Math.max(0, initialLeft + dx), window.innerWidth - element.offsetWidth);
+        const newTop = Math.min(Math.max(0, initialTop + dy), window.innerHeight - element.offsetHeight);
+
+        requestAnimationFrame(() => {
+            element.style.left = `${newLeft}px`;
+            element.style.top = `${newTop}px`;
+            element.style.bottom = 'auto';
+            element.style.right = 'auto';
+        });
+
+        if (event.cancelable) {
+            event.preventDefault();
+        }
+    };
+
+    const onEnd = () => {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('mouseup', onEnd);
+        document.removeEventListener('touchend', onEnd);
+        element.style.transition = 'all 0.2s ease-out';
+    };
+
+    const onStart = (event) => {
+        const touch = event.type === 'touchstart' ? event.touches[0] : event;
+        startX = touch.clientX;
+        startY = touch.clientY;
         const rect = element.getBoundingClientRect();
-        const offsetX = clientX - rect.left;
-        const offsetY = clientY - rect.top;
+        initialLeft = rect.left;
+        initialTop = rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const distFromCenter = Math.hypot(offsetX - centerX, offsetY - centerY);
-        if (distFromCenter < 40) {
-            return false;
-        }
-
-        const handleMove = (moveX, moveY) => {
-            requestAnimationFrame(() => {
-                const nextLeft = Math.min(Math.max(0, moveX - offsetX), window.innerWidth - rect.width);
-                const nextTop = Math.min(Math.max(0, moveY - offsetY), window.innerHeight - rect.height);
-                element.style.left = `${nextLeft}px`;
-                element.style.top = `${nextTop}px`;
-                element.style.bottom = 'auto';
-                element.style.right = 'auto';
-            });
-        };
-
-        const onMouseMove = (event) => {
-            handleMove(event.clientX, event.clientY);
-        };
-
-        const onTouchMove = (event) => {
-            if (!event.touches || event.touches.length === 0) {
-                return;
-            }
-            handleMove(event.touches[0].clientX, event.touches[0].clientY);
-            event.preventDefault();
-        };
-
-        const stopDrag = () => {
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', stopDrag);
-            document.removeEventListener('touchmove', onTouchMove);
-            document.removeEventListener('touchend', stopDrag);
-            document.removeEventListener('touchcancel', stopDrag);
-        };
-
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', stopDrag);
-        document.addEventListener('touchmove', onTouchMove, { passive: false });
-        document.addEventListener('touchend', stopDrag);
-        document.addEventListener('touchcancel', stopDrag);
-
-        return true;
-    };
-
-    const onMouseDown = (event) => {
-        const didStart = startDrag(event.clientX, event.clientY);
-        if (didStart) {
-            event.preventDefault();
-        }
-    };
-
-    const onTouchStart = (event) => {
-        if (!event.touches || event.touches.length === 0) {
-            return;
-        }
-        const didStart = startDrag(event.touches[0].clientX, event.touches[0].clientY);
-        if (didStart) {
-            event.preventDefault();
-        }
+        element.style.transition = 'none';
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('touchmove', onMove, { passive: false });
+        document.addEventListener('mouseup', onEnd);
+        document.addEventListener('touchend', onEnd);
     };
 
     if (handle._dragHandlers) {
-        handle.removeEventListener('mousedown', handle._dragHandlers.onMouseDown);
-        handle.removeEventListener('touchstart', handle._dragHandlers.onTouchStart);
+        handle.removeEventListener('mousedown', handle._dragHandlers.onStart);
+        handle.removeEventListener('touchstart', handle._dragHandlers.onStart);
     }
 
-    handle._dragHandlers = { onMouseDown, onTouchStart };
-    handle.addEventListener('mousedown', onMouseDown);
-    handle.addEventListener('touchstart', onTouchStart, { passive: false });
+    handle._dragHandlers = { onStart };
+    handle.addEventListener('mousedown', onStart);
+    handle.addEventListener('touchstart', onStart, { passive: false });
 }
 
 function setupMiniPlayerUIControls() {
@@ -5214,6 +5179,7 @@ function setMiniPlayerState(isActive) {
         videoPlayer.style.removeProperty('bottom');
         videoPlayer.style.removeProperty('right');
         updateMiniPlayerSize();
+        setupMiniPlayerUIControls();
     } else {
         if (mainContent) {
             mainContent.classList.remove('hidden');
