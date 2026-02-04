@@ -4871,10 +4871,9 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         return;
     }
     videoPlayer.innerHTML = `
-        <div class="drag-handle" aria-hidden="true" style="
-            position: absolute; top: 0; left: 0; width: 100%; height: 70%;
-            z-index: 2001; cursor: grab; background: transparent;
-        "></div>
+        <div class="drag-handle-container" aria-hidden="true">
+            <div class="drag-surface" style="position:absolute; inset:0; cursor:grab;"></div>
+        </div>
         <div class="mini-player-controls-overlay" style="
             position: absolute; inset: 0; z-index: 2002; pointer-events: none;
             display: flex; justify-content: space-between; padding: 8px;
@@ -4921,8 +4920,12 @@ function makeDraggable(element, handle) {
     let startY;
     let initialLeft;
     let initialTop;
+    let isDragging = false;
 
     const onMove = (event) => {
+        if (!isDragging) {
+            return;
+        }
         const touch = event.type === 'touchmove' ? event.touches[0] : event;
         const dx = touch.clientX - startX;
         const dy = touch.clientY - startY;
@@ -4942,18 +4945,30 @@ function makeDraggable(element, handle) {
     };
 
     const onEnd = () => {
+        isDragging = false;
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('touchmove', onMove);
         document.removeEventListener('mouseup', onEnd);
         document.removeEventListener('touchend', onEnd);
+        document.removeEventListener('touchcancel', onEnd);
         element.style.transition = 'all 0.2s ease-out';
     };
 
     const onStart = (event) => {
         const touch = event.type === 'touchstart' ? event.touches[0] : event;
+        const rect = element.getBoundingClientRect();
+        const offsetX = touch.clientX - rect.left;
+        const offsetY = touch.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const distFromCenter = Math.hypot(offsetX - centerX, offsetY - centerY);
+        if (distFromCenter < 40) {
+            return;
+        }
+
+        isDragging = true;
         startX = touch.clientX;
         startY = touch.clientY;
-        const rect = element.getBoundingClientRect();
         initialLeft = rect.left;
         initialTop = rect.top;
 
@@ -4962,6 +4977,11 @@ function makeDraggable(element, handle) {
         document.addEventListener('touchmove', onMove, { passive: false });
         document.addEventListener('mouseup', onEnd);
         document.addEventListener('touchend', onEnd);
+        document.addEventListener('touchcancel', onEnd);
+
+        if (event.cancelable) {
+            event.preventDefault();
+        }
     };
 
     if (handle._dragHandlers) {
@@ -5005,7 +5025,7 @@ function setupMiniPlayerUIControls() {
 }
 
 function setupDragHandle() {
-    const handle = videoPlayer?.querySelector('.drag-handle');
+    const handle = videoPlayer?.querySelector('.drag-surface');
     if (!handle) {
         return;
     }
