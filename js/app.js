@@ -4874,6 +4874,8 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         <div class="drag-handle" aria-hidden="true" style="
             position: absolute;
             inset: 0;
+            width: 100%;
+            height: 100%;
             z-index: 2001;
             cursor: grab;
             background: radial-gradient(circle 50px at center, transparent 100%, rgba(0,0,0,0) 100%);
@@ -4936,7 +4938,7 @@ function makeDraggable(element, handle) {
         const centerY = rect.height / 2;
         const distFromCenter = Math.hypot(offsetX - centerX, offsetY - centerY);
         if (distFromCenter < 40) {
-            return;
+            return false;
         }
 
         const handleMove = (moveX, moveY) => {
@@ -4975,19 +4977,25 @@ function makeDraggable(element, handle) {
         document.addEventListener('touchmove', onTouchMove, { passive: false });
         document.addEventListener('touchend', stopDrag);
         document.addEventListener('touchcancel', stopDrag);
+
+        return true;
     };
 
     const onMouseDown = (event) => {
-        event.preventDefault();
-        startDrag(event.clientX, event.clientY);
+        const didStart = startDrag(event.clientX, event.clientY);
+        if (didStart) {
+            event.preventDefault();
+        }
     };
 
     const onTouchStart = (event) => {
         if (!event.touches || event.touches.length === 0) {
             return;
         }
-        event.preventDefault();
-        startDrag(event.touches[0].clientX, event.touches[0].clientY);
+        const didStart = startDrag(event.touches[0].clientX, event.touches[0].clientY);
+        if (didStart) {
+            event.preventDefault();
+        }
     };
 
     if (handle._dragHandlers) {
