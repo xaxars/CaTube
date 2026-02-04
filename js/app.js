@@ -1016,8 +1016,22 @@ function setupShareButtons() {
     });
 }
 
+function initIntroSplash() {
+    const splash = document.getElementById('intro-splash');
+    if (!splash) {
+        return;
+    }
+    setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        setTimeout(() => {
+            splash.remove();
+        }, 500);
+    }, 2000);
+}
+
 // Inicialitzar l'aplicació
 document.addEventListener('DOMContentLoaded', async () => {
+    initIntroSplash();
     initElements();
     loadGridLayoutPreference();
     loadWatchGridLayoutPreference();
