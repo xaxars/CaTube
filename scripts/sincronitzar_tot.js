@@ -2,16 +2,13 @@ const fs = require('fs');
 const https = require('https');
 const path = require('path');
 
-// 1. CONFIGURACIÓ
-// Utilitzem la mateixa URL del Google Sheets que ja tens al projecte
+// --- CONFIGURACIÓ ---
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSlB5oWUFyPtQu6U21l2sWRlnWPndhsVA-YvcB_3c9Eby80XKVgmnPdWNpwzcxSqMutkqV6RyJLjsMe/pub?gid=0&single=true&output=csv';
-
 const PATH_CHANNELS_JSON = path.join(__dirname, '../js/channels-ca.json');
 const PATH_FEED_JSON = path.join(__dirname, '../data/feed.json');
+const PATH_SW = path.join(__dirname, '../sw.js'); // Per forçar actualització de cache
 
-// 2. FUNCIONS AUXILIARS (Copiades de la teva lògica actual per ser consistents)
-
-// Funció per descarregar el CSV
+// --- FUNCIONS ---
 const fetchData = (url) => {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
@@ -25,105 +22,101 @@ const fetchData = (url) => {
     });
 };
 
-// Funció per llegir el CSV tal com ho fa el teu actualitzador
 function parseCSV(csvText) {
-    const cleanText = csvText.replace(/^\uFEFF/, '');
-    const lines = cleanText.split(/\r?\n/).filter(line => line.trim() !== '');
+    const lines = csvText.replace(/^\uFEFF/, '').split(/\r?\n/).filter(line => line.trim() !== '');
     if (lines.length < 2) return [];
-
-    let separator = ',';
-    const firstLine = lines[0];
-    if (firstLine.includes(';') && (firstLine.split(';').length > firstLine.split(',').length)) {
-        separator = ';';
-    }
-
-    const headers = firstLine.split(separator).map(h => h.trim().toLowerCase());
+    
+    let separator = lines[0].includes(';') ? ';' : ',';
+    const headers = lines[0].split(separator).map(h => h.trim().toLowerCase());
     const idIdx = headers.indexOf('id');
     const nameIdx = headers.indexOf('name');
-    const catIdx = headers.indexOf('category'); // Busca la columna 'category'
+    const catIdx = headers.indexOf('category');
 
     if (idIdx === -1) return [];
 
     return lines.slice(1).map(line => {
         const values = line.split(separator);
         const rawCats = values[catIdx] ? values[catIdx].trim() : '';
-        // Convertim a array (ex: "Digitals, Política" -> ["Digitals", "Política"])
         const categories = rawCats.split(/[;,]/).map(c => c.trim()).filter(Boolean);
-        
         return {
             id: values[idIdx]?.trim(),
             name: values[nameIdx]?.trim(),
             categories: categories,
-            // Guardem també la primera categoria com a principal per si de cas
             mainCategory: categories[0] || 'Altres'
         };
     }).filter(c => c.id);
 }
 
-// 3. FUNCIÓ PRINCIPAL
+// --- PROGRAMA PRINCIPAL ---
 async function main() {
     try {
-        console.log('📡 Descarregant dades del Google Sheets...');
+        console.log('📡 1. Descarregant dades del Google Sheets...');
         const csvData = await fetchData(SHEET_CSV_URL);
-        const channels = parseCSV(csvData);
-        console.log(`✅ S'han trobat ${channels.length} canals actius al Full de Càlcul.`);
+        const sheetChannels = parseCSV(csvData);
+        console.log(`   ✅ Trobats ${sheetChannels.length} canals al full de càlcul.`);
 
-        // --- PAS A: Actualitzar js/channels-ca.json ---
-        console.log('📝 Regenerant js/channels-ca.json...');
+        // 1. REGENERAR channels-ca.json (Font de la veritat)
         const channelsJsonOutput = {
             updatedAt: new Date().toISOString(),
-            channels: channels.map(c => ({
+            channels: sheetChannels.map(c => ({
                 id: c.id,
                 name: c.name,
-                // Guardem tant array com string per compatibilitat amb el teu codi antic/nou
                 categories: c.categories,
                 category: c.mainCategory 
             }))
         };
-        
         fs.writeFileSync(PATH_CHANNELS_JSON, JSON.stringify(channelsJsonOutput, null, 2));
-        console.log('✅ js/channels-ca.json actualitzat i netejat de canals antics.');
+        console.log('📝 2. Fitxer js/channels-ca.json regenerat.');
 
-        // --- PAS B: Actualitzar categories a data/feed.json ---
+        // 2. ACTUALITZAR feed.json (Correcció massiva)
         if (fs.existsSync(PATH_FEED_JSON)) {
-            console.log('🔄 Actualitzant metadades dels vídeos a feed.json...');
             const feedData = JSON.parse(fs.readFileSync(PATH_FEED_JSON, 'utf8'));
-            
-            // Creem un diccionari ràpid: ID_CANAL -> NOVES_CATEGORIES
-            const channelCategoryMap = {};
-            channels.forEach(c => {
-                channelCategoryMap[c.id] = c.categories;
+
+            // Creem un mapa intel·ligent: ID/Handle -> Noves Categories
+            const categoriesMap = {};
+            sheetChannels.forEach(c => {
+                categoriesMap[c.id.toLowerCase()] = c.categories;
             });
 
-            let videosUpdated = 0;
-            let channelsUpdated = 0;
-
-            // 1. Actualitzem la llista de canals del feed (metadades)
+            // A. Mapa de traducció: UC_ID -> Categories (Utilitzant metadades del feed per connectar Handles)
+            const ucToCategories = {};
+            
             if (feedData.channels) {
-                Object.keys(feedData.channels).forEach(channelId => {
-                    if (channelCategoryMap[channelId]) {
-                        // Si el canal existeix al Excel, posem les categories noves
-                        feedData.channels[channelId].categories = channelCategoryMap[channelId];
-                        channelsUpdated++;
+                Object.keys(feedData.channels).forEach(ucId => {
+                    const ch = feedData.channels[ucId];
+                    const handle = ch.handle ? ch.handle.toLowerCase() : '';
+                    const ucIdLower = ucId.toLowerCase();
+
+                    // Intentem trobar les categories ja sigui per ID o per Handle
+                    let newCats = categoriesMap[ucIdLower] || (handle ? categoriesMap[handle] : null);
+
+                    if (newCats) {
+                        // Actualitzem la info del canal al feed
+                        feedData.channels[ucId].categories = newCats;
+                        // Guardem la relació per usar-la als vídeos
+                        ucToCategories[ucId] = newCats;
                     }
-                    // NOTA: No esborrem canals del feed per no trencar l'històric, 
-                    // però els actualitzem si són al CSV.
                 });
             }
 
-            // 2. Actualitzem cada vídeo individual
+            // B. Escombrada de vídeos
+            let videosUpdated = 0;
             if (Array.isArray(feedData.videos)) {
                 feedData.videos.forEach(video => {
-                    // Mirem si tenim dades noves per aquest canal (buscant per sourceChannelId o channelId)
-                    const channelId = video.sourceChannelId || video.channelId;
-                    const newCats = channelCategoryMap[channelId];
+                    let newCats = null;
+
+                    // Prioritat 1: Buscar per ID tècnic del canal (UC...)
+                    if (video.channelId && ucToCategories[video.channelId]) {
+                        newCats = ucToCategories[video.channelId];
+                    }
+                    // Prioritat 2: Buscar per ID font (per si és un Handle @...)
+                    else if (video.sourceChannelId && categoriesMap[video.sourceChannelId.toLowerCase()]) {
+                        newCats = categoriesMap[video.sourceChannelId.toLowerCase()];
+                    }
 
                     if (newCats) {
-                        // Comprovem si cal canviar alguna cosa
-                        const currentCatsStr = JSON.stringify(video.categories);
-                        const newCatsStr = JSON.stringify(newCats);
-
-                        if (currentCatsStr !== newCatsStr) {
+                        // Si les categories són diferents, actualitzem
+                        if (JSON.stringify(video.categories) !== JSON.stringify(newCats)) {
                             video.categories = newCats;
                             videosUpdated++;
                         }
@@ -132,12 +125,22 @@ async function main() {
             }
 
             fs.writeFileSync(PATH_FEED_JSON, JSON.stringify(feedData, null, 2));
-            console.log(`✅ feed.json actualitzat:`);
-            console.log(`   - ${channelsUpdated} canals sincronitzats.`);
-            console.log(`   - ${videosUpdated} vídeos corregits amb la nova etiqueta.`);
-        } else {
-            console.warn('⚠️ No s\'ha trobat data/feed.json. Només s\'ha generat channels-ca.json.');
+            console.log(`💾 3. feed.json actualitzat: ${videosUpdated} vídeos corregits.`);
         }
+
+        // 3. FORÇAR ACTUALITZACIÓ DEL NAVEGADOR (CACHE BUSTING)
+        if (fs.existsSync(PATH_SW)) {
+            let swContent = fs.readFileSync(PATH_SW, 'utf8');
+            // Busquem la línia "const CACHE_NAME = 'mytube-vXX';" i incrementem el número
+            const newSwContent = swContent.replace(/const CACHE_NAME = 'mytube-v(\d+)';/, (match, num) => {
+                const newVer = parseInt(num) + 1;
+                console.log(`🚀 4. Actualitzant Service Worker: v${num} -> v${newVer}`);
+                return `const CACHE_NAME = 'mytube-v${newVer}';`;
+            });
+            fs.writeFileSync(PATH_SW, newSwContent);
+        }
+
+        console.log('✨ Procés finalitzat amb èxit!');
 
     } catch (error) {
         console.error('❌ Error fatal:', error);
