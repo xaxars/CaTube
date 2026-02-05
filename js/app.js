@@ -1976,6 +1976,25 @@ function mergeUniqueVideos(primary, secondary) {
     return merged;
 }
 
+function getVideoChannelNameForMatch(video) {
+    const channelMeta = getChannelSearchMeta(video.channelId);
+    return channelMeta.name || video.channelTitle || video.snippet?.channelTitle || '';
+}
+
+function isQuotedChannelQuery(videos, query) {
+    const normalizedQuery = String(query || '').trim();
+    const hasQuotes = normalizedQuery.startsWith('"') && normalizedQuery.endsWith('"');
+    if (!hasQuotes) {
+        return null;
+    }
+    const exactPhrase = normalizedQuery.slice(1, -1).trim().toLowerCase();
+    if (!exactPhrase) {
+        return null;
+    }
+    const hasChannelMatch = videos.some(video => getVideoChannelNameForMatch(video).trim().toLowerCase() === exactPhrase);
+    return hasChannelMatch ? exactPhrase : null;
+}
+
 function matchesCustomCategory(video, categoryName) {
     const channelCustomCategories = getChannelCustomCategories(video.channelId);
     const hasChannelCategory = channelCustomCategories
@@ -1989,7 +2008,7 @@ function matchesCustomCategory(video, categoryName) {
     const title = video.title || video.snippet?.title || '';
     const description = video.description || video.snippet?.description || '';
     const channelMeta = getChannelSearchMeta(video.channelId);
-    const channelName = channelMeta.name || video.channelTitle || video.snippet?.channelTitle || '';
+    const channelName = getVideoChannelNameForMatch(video);
     const channelDescription = channelMeta.description || '';
     const tagsValue = video.tags ?? video.snippet?.tags;
     const tags = Array.isArray(tagsValue) ? tagsValue : (tagsValue ? [String(tagsValue)] : []);
@@ -2037,11 +2056,18 @@ async function refreshCustomCategorySearch(category) {
 function filterVideosByCategory(videos, feed) {
     if (selectedCategory === 'Tot' || selectedCategory === 'Novetats') return videos;
     if (isCustomCategory(selectedCategory)) {
-        const categoryName = normalizeCustomTag(selectedCategory);
+        const rawCategoryName = String(selectedCategory || '').trim();
+        const categoryName = normalizeCustomTag(rawCategoryName);
         if (!categoryName) {
             return videos;
         }
-        const matched = videos.filter(video => matchesCustomCategory(video, categoryName));
+
+        const quotedChannelName = isQuotedChannelQuery(videos, rawCategoryName);
+        if (quotedChannelName) {
+            return videos.filter(video => getVideoChannelNameForMatch(video).trim().toLowerCase() === quotedChannelName);
+        }
+
+        const matched = videos.filter(video => matchesCustomCategory(video, rawCategoryName));
         const searchResults = getCustomCategorySearchResults(categoryName);
         return mergeUniqueVideos(searchResults, matched);
     }
