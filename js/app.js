@@ -1,11 +1,18 @@
 // App Principal
-function isMatch(text, query) {
+function isMatch(text, query, forceExact = false) {
     if (!text || !query) {
         return false;
     }
     const normalizedQuery = String(query).trim();
     if (!normalizedQuery) {
         return false;
+    }
+    const hasQuotes = normalizedQuery.startsWith('"') && normalizedQuery.endsWith('"');
+    if (forceExact || hasQuotes) {
+        const exactPhrase = hasQuotes ? normalizedQuery.slice(1, -1).trim() : normalizedQuery;
+        const escapedPhrase = exactPhrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const pattern = new RegExp(escapedPhrase, 'i');
+        return pattern.test(String(text));
     }
     const escapedQuery = normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const pattern = new RegExp(`\\b${escapedQuery}\\b`, 'i');
@@ -531,7 +538,7 @@ function normalizeCustomTag(tag) {
     if (!tag || typeof tag !== 'string') {
         return '';
     }
-    return tag.trim();
+    return tag.trim().replace(/^"|"$/g, '');
 }
 
 function getStandardChipLabels() {
@@ -1978,6 +1985,7 @@ function matchesCustomCategory(video, categoryName) {
     if (hasChannelCategory) {
         return true;
     }
+    const forceExact = categoryName.includes(' ');
     const title = video.title || video.snippet?.title || '';
     const description = video.description || video.snippet?.description || '';
     const channelMeta = getChannelSearchMeta(video.channelId);
@@ -1985,13 +1993,13 @@ function matchesCustomCategory(video, categoryName) {
     const channelDescription = channelMeta.description || '';
     const tagsValue = video.tags ?? video.snippet?.tags;
     const tags = Array.isArray(tagsValue) ? tagsValue : (tagsValue ? [String(tagsValue)] : []);
-    if (isMatch(title, categoryName)
-        || isMatch(description, categoryName)
-        || isMatch(channelName, categoryName)
-        || isMatch(channelDescription, categoryName)) {
+    if (isMatch(title, categoryName, forceExact)
+        || isMatch(description, categoryName, forceExact)
+        || isMatch(channelName, categoryName, forceExact)
+        || isMatch(channelDescription, categoryName, forceExact)) {
         return true;
     }
-    return tags.some(tag => isMatch(tag, categoryName));
+    return tags.some(tag => isMatch(tag, categoryName, forceExact));
 }
 
 async function refreshCustomCategorySearch(category) {
