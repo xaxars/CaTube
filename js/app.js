@@ -3912,9 +3912,9 @@ const HEART_TOGGLE_SVG = `
 `;
 
 const PLAYLIST_ICON_SVG = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" class="icon-playlist" aria-hidden="true" focusable="false">
-        <rect x="40" y="10" width="20" height="80" rx="10" ry="10" fill="white"></rect>
-        <rect x="10" y="40" width="80" height="20" rx="10" ry="10" fill="white"></rect>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-playlist" aria-hidden="true" focusable="false">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
     </svg>
 `;
 
@@ -5966,7 +5966,10 @@ async function showVideoFromAPI(videoId) {
                         
                         <div class="action-group">
                             <button class="btn-round-icon" id="playlistBtn" title="Llista de reproducció">
-                                <i data-lucide="list-video"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
                             </button>
                             <button class="btn-round-icon" id="shareBtn" title="Compartir">
                                 <i data-lucide="share-2"></i>
@@ -6075,7 +6078,10 @@ async function showVideoFromAPI(videoId) {
                             
                             <div class="action-group">
                                 <button class="btn-round-icon" id="playlistBtn" title="Llista de reproducció">
-                                    <i data-lucide="list-video"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
                                 </button>
                                 <button class="btn-round-icon" id="shareBtn" title="Compartir">
                                     <i data-lucide="share-2"></i>
@@ -6468,7 +6474,10 @@ function showVideo(videoId) {
                 
                 <div class="action-group">
                     <button class="btn-round-icon" id="playlistBtn" title="Llista de reproducció">
-                        <i data-lucide="list-video"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
                     </button>
                     <button class="btn-round-icon" id="shareBtn" title="Compartir">
                         <i data-lucide="share-2"></i>
