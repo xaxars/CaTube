@@ -1,15 +1,22 @@
 // App Principal
-function isMatch(text, query) {
-    if (!text || !query) {
-        return false;
+function isMatch(text, query, forceExact = false) {
+    if (!text || !query) return false;
+
+    let normalizedQuery = String(query).trim();
+    if (!normalizedQuery) return false;
+
+    const hasQuotes = normalizedQuery.startsWith('"') && normalizedQuery.endsWith('"');
+
+    if (forceExact || hasQuotes) {
+        const exactPhrase = hasQuotes ? normalizedQuery.slice(1, -1).trim() : normalizedQuery;
+        const escapedPhrase = exactPhrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const pattern = new RegExp(escapedPhrase, 'i');
+        return pattern.test(String(text));
+    } else {
+        const escapedQuery = normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const pattern = new RegExp(`\\b${escapedQuery}\\b`, 'i');
+        return pattern.test(String(text));
     }
-    const normalizedQuery = String(query).trim();
-    if (!normalizedQuery) {
-        return false;
-    }
-    const escapedQuery = normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const pattern = new RegExp(`\\b${escapedQuery}\\b`, 'i');
-    return pattern.test(String(text));
 }
 
 function getVideoDisplayDuration(video) {
@@ -528,10 +535,8 @@ function bindChannelLinks(container = document) {
 }
 
 function normalizeCustomTag(tag) {
-    if (!tag || typeof tag !== 'string') {
-        return '';
-    }
-    return tag.trim();
+    if (!tag || typeof tag !== 'string') return '';
+    return tag.trim().replace(/^"|"$/g, '');
 }
 
 function getStandardChipLabels() {
@@ -1971,27 +1976,51 @@ function mergeUniqueVideos(primary, secondary) {
     return merged;
 }
 
+function getVideoChannelNameForMatch(video) {
+    const channelMeta = getChannelSearchMeta(video.channelId);
+    return channelMeta.name || video.channelTitle || video.snippet?.channelTitle || '';
+}
+
+function isQuotedChannelQuery(videos, query) {
+    const normalizedQuery = String(query || '').trim();
+    const hasQuotes = normalizedQuery.startsWith('"') && normalizedQuery.endsWith('"');
+    if (!hasQuotes) {
+        return null;
+    }
+    const exactPhrase = normalizedQuery.slice(1, -1).trim().toLowerCase();
+    if (!exactPhrase) {
+        return null;
+    }
+    const hasChannelMatch = videos.some(video => getVideoChannelNameForMatch(video).trim().toLowerCase() === exactPhrase);
+    return hasChannelMatch ? exactPhrase : null;
+}
+
 function matchesCustomCategory(video, categoryName) {
     const channelCustomCategories = getChannelCustomCategories(video.channelId);
     const hasChannelCategory = channelCustomCategories
         .some(cat => cat.toLowerCase() === categoryName.toLowerCase());
-    if (hasChannelCategory) {
-        return true;
-    }
+
+    if (hasChannelCategory) return true;
+
+    // Si té espais, forcem el mode exacte per evitar parcials
+    const forceExact = categoryName.includes(' ');
+
     const title = video.title || video.snippet?.title || '';
     const description = video.description || video.snippet?.description || '';
     const channelMeta = getChannelSearchMeta(video.channelId);
-    const channelName = channelMeta.name || video.channelTitle || video.snippet?.channelTitle || '';
+    const channelName = getVideoChannelNameForMatch(video);
     const channelDescription = channelMeta.description || '';
     const tagsValue = video.tags ?? video.snippet?.tags;
     const tags = Array.isArray(tagsValue) ? tagsValue : (tagsValue ? [String(tagsValue)] : []);
-    if (isMatch(title, categoryName)
-        || isMatch(description, categoryName)
-        || isMatch(channelName, categoryName)
-        || isMatch(channelDescription, categoryName)) {
+
+    if (isMatch(title, categoryName, forceExact)
+        || isMatch(description, categoryName, forceExact)
+        || isMatch(channelName, categoryName, forceExact)
+        || isMatch(channelDescription, categoryName, forceExact)) {
         return true;
     }
-    return tags.some(tag => isMatch(tag, categoryName));
+
+    return tags.some(tag => isMatch(tag, categoryName, forceExact));
 }
 
 async function refreshCustomCategorySearch(category) {
@@ -2027,11 +2056,18 @@ async function refreshCustomCategorySearch(category) {
 function filterVideosByCategory(videos, feed) {
     if (selectedCategory === 'Tot' || selectedCategory === 'Novetats') return videos;
     if (isCustomCategory(selectedCategory)) {
-        const categoryName = normalizeCustomTag(selectedCategory);
+        const rawCategoryName = String(selectedCategory || '').trim();
+        const categoryName = normalizeCustomTag(rawCategoryName);
         if (!categoryName) {
             return videos;
         }
-        const matched = videos.filter(video => matchesCustomCategory(video, categoryName));
+
+        const quotedChannelName = isQuotedChannelQuery(videos, rawCategoryName);
+        if (quotedChannelName) {
+            return videos.filter(video => getVideoChannelNameForMatch(video).trim().toLowerCase() === quotedChannelName);
+        }
+
+        const matched = videos.filter(video => matchesCustomCategory(video, rawCategoryName));
         const searchResults = getCustomCategorySearchResults(categoryName);
         return mergeUniqueVideos(searchResults, matched);
     }
@@ -2570,7 +2606,13 @@ function setupChipsBarOrdering() {
     sortableChips.forEach((chip) => {
         const button = document.createElement('button');
         button.type = 'button';
+
+        // Determinem si és una cerca exacta (conté espais)
+        const isExact = chip.isCustom && chip.value.includes(' ');
+
         button.className = chip.isCustom ? 'chip is-custom' : 'chip';
+        if (isExact) button.classList.add('is-exact');
+
         button.dataset.cat = chip.value;
         button.textContent = chip.label;
         button.draggable = true;
