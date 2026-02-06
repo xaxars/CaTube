@@ -3918,3 +3918,51 @@ html[style*="--color-background: #224262"] .btn-round-icon {
 .chip.is-exact:hover {
     border-color: rgba(255, 255, 255, 0.6) !important;
 }
+
+/* --- Estils per a Escriptori (Mini Player) --- */
+.mini-player-controls-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.mini-player-controls-overlay.visible {
+    opacity: 1 !important;
+    pointer-events: auto;
+}
+
+.mini-player-resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: nwse-resize;
+    z-index: 2005;
+    touch-action: none;
+}
+
+.mini-player-resize-handle::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px;
+    border-color: transparent transparent rgba(255, 255, 255, 0.5) transparent;
+    transition: border-color 0.2s;
+}
+
+.mini-player-resize-handle:hover::after {
+    border-color: transparent transparent #cc0000 transparent;
+}
+
+@media (max-width: 768px) {
+    .mini-player-resize-handle {
+        display: none !important;
+    }
+}
