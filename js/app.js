@@ -94,6 +94,7 @@ let installPromptEvent = null;
 let currentFontSize = null;
 let userGridPreference = '4';
 let userWatchGridPreference = '3';
+let miniPlayerTimer = null;
 const featuredVideoBySection = new Map();
 const customCategorySearchCache = new Map();
 const customCategorySearchInFlight = new Map();
@@ -5128,20 +5129,28 @@ function setupMiniPlayerUIControls() {
         videoPlayer.removeEventListener('mousedown', videoPlayer._miniPlayerUIHandlers.onShowControls);
     }
 
-    let timeout;
-
     const showControls = () => {
-        overlay.style.opacity = '1';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            overlay.style.opacity = '0';
-        }, 2000);
+        showMiniPlayerControls(overlay);
     };
 
     videoPlayer._miniPlayerUIHandlers = { onShowControls: showControls };
     videoPlayer.addEventListener('touchstart', showControls, { passive: true });
     videoPlayer.addEventListener('mousedown', showControls);
     showControls();
+}
+
+function showMiniPlayerControls(overlayElement) {
+    const overlay = overlayElement || videoPlayer?.querySelector('.mini-player-controls-overlay');
+    if (!overlay) {
+        return;
+    }
+
+    overlay.classList.add('visible');
+
+    clearTimeout(miniPlayerTimer);
+    miniPlayerTimer = setTimeout(() => {
+        overlay.classList.remove('visible');
+    }, 3000);
 }
 
 function setupDragHandle() {
@@ -5321,6 +5330,15 @@ function setMiniPlayerState(isActive) {
             videoPlayer.style.top = 'auto';
             videoPlayer.style.bottom = '0';
             videoPlayer.style.right = '0';
+
+            if (!videoPlayer._miniPlayerMobileHandlers) {
+                const onTouch = () => {
+                    showMiniPlayerControls();
+                };
+                videoPlayer._miniPlayerMobileHandlers = { onTouch };
+                videoPlayer.addEventListener('touchstart', onTouch, { passive: true });
+            }
+            showMiniPlayerControls();
         } else {
             videoPlayer.style.removeProperty('top');
             videoPlayer.style.removeProperty('left');
@@ -5356,6 +5374,10 @@ function setMiniPlayerState(isActive) {
         }
         videoPlayer.style.width = '';
         videoPlayer.style.height = '';
+        if (videoPlayer._miniPlayerMobileHandlers) {
+            videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileHandlers.onTouch);
+            delete videoPlayer._miniPlayerMobileHandlers;
+        }
         updatePlayerPosition();
         if (videoPlaceholder) {
             requestAnimationFrame(() => {
