@@ -4280,24 +4280,35 @@ async function renderFollowPage() {
         return;
     }
 
-    const sortedChannels = channels
-        .map(channel => ({
-            ...channel,
-            name: channel.name || channel.title || ''
-        }));
-    sortedChannels.sort((a, b) => a.name.localeCompare(b.name, 'ca', { sensitivity: 'base' }));
+    const preparedChannels = channels.map(channel => ({
+        ...channel,
+        name: channel.name || channel.title || ''
+    }));
+    const withFollowButton = [];
+    const withoutFollowButton = [];
+    preparedChannels.forEach(channel => {
+        if (isMitjansOrDigitalsChannel(channel.id)) {
+            withoutFollowButton.push(channel);
+        } else {
+            withFollowButton.push(channel);
+        }
+    });
+    const byName = (a, b) => a.name.localeCompare(b.name, 'ca', { sensitivity: 'base' });
+    withFollowButton.sort(byName);
+    withoutFollowButton.sort(byName);
+    const orderedChannels = [...withFollowButton, ...withoutFollowButton];
 
-    followGrid.innerHTML = sortedChannels.map(channel => {
+    followGrid.innerHTML = orderedChannels.map(channel => {
         const name = channel.name || 'Canal';
         const avatar = channel.avatar || channel.thumbnail || getFollowChannelAvatar(channel.id) || 'img/icon-192.png';
-        const isMitjans = isMitjansOrDigitalsChannel(channel.id);
-        const followButtonHtml = isMitjans
-            ? ''
-            : `
+        const hasFollowButton = !isMitjansOrDigitalsChannel(channel.id);
+        const followButtonHtml = hasFollowButton
+            ? `
                 <button class="follow-toggle-btn" type="button" data-follow-channel="${channel.id}" aria-pressed="false">
                     Segueix
                 </button>
-            `;
+            `
+            : '';
         return `
             <div class="follow-card" data-channel-id="${channel.id}">
                 <div class="follow-avatar-wrap">
