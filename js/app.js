@@ -4968,7 +4968,7 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         <div class="mini-player-controls-overlay" style="
             position: absolute; inset: 0; z-index: 2002; pointer-events: none;
             display: flex; justify-content: space-between; padding: 8px;
-            transition: opacity 0.3s ease; opacity: 0;
+            transition: opacity 0.3s ease;
         ">
             <button class="expand-mini-player-btn" type="button" aria-label="Restaurar" style="pointer-events: auto; background: none; border: none; color: white;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -5331,13 +5331,13 @@ function setMiniPlayerState(isActive) {
             videoPlayer.style.bottom = '0';
             videoPlayer.style.right = '0';
 
-            if (!videoPlayer._miniPlayerMobileHandlers) {
-                const onTouch = () => {
-                    showMiniPlayerControls();
-                };
-                videoPlayer._miniPlayerMobileHandlers = { onTouch };
-                videoPlayer.addEventListener('touchstart', onTouch, { passive: true });
+            if (videoPlayer._miniPlayerMobileListener) {
+                videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileListener);
             }
+            videoPlayer._miniPlayerMobileListener = () => {
+                showMiniPlayerControls();
+            };
+            videoPlayer.addEventListener('touchstart', videoPlayer._miniPlayerMobileListener, { passive: true });
             showMiniPlayerControls();
         } else {
             videoPlayer.style.removeProperty('top');
@@ -5374,9 +5374,9 @@ function setMiniPlayerState(isActive) {
         }
         videoPlayer.style.width = '';
         videoPlayer.style.height = '';
-        if (videoPlayer._miniPlayerMobileHandlers) {
-            videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileHandlers.onTouch);
-            delete videoPlayer._miniPlayerMobileHandlers;
+        if (videoPlayer._miniPlayerMobileListener) {
+            videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileListener);
+            delete videoPlayer._miniPlayerMobileListener;
         }
         updatePlayerPosition();
         if (videoPlaceholder) {
