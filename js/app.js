@@ -94,6 +94,7 @@ let installPromptEvent = null;
 let currentFontSize = null;
 let userGridPreference = '4';
 let userWatchGridPreference = '3';
+let miniPlayerTimer = null;
 const featuredVideoBySection = new Map();
 const customCategorySearchCache = new Map();
 const customCategorySearchInFlight = new Map();
@@ -4765,6 +4766,16 @@ function updateMiniPlayerSize() {
     if (!videoPlayer) {
         return;
     }
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+        videoPlayer.style.width = '';
+        videoPlayer.style.height = '';
+        videoPlayer.style.top = '';
+        videoPlayer.style.left = '';
+        videoPlayer.style.bottom = '';
+        videoPlayer.style.right = '';
+        return;
+    }
     const width = Math.min(360, window.innerWidth - 32);
     const height = Math.round((width * 9) / 16);
     videoPlayer.style.width = `${width}px`;
@@ -4967,7 +4978,7 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
         <div class="mini-player-controls-overlay" style="
             position: absolute; inset: 0; z-index: 2002; pointer-events: none;
             display: flex; justify-content: space-between; padding: 8px;
-            transition: opacity 0.3s ease; opacity: 0;
+            transition: opacity 0.3s ease;
         ">
             <button class="expand-mini-player-btn" type="button" aria-label="Restaurar" style="pointer-events: auto; background: none; border: none; color: white;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -4988,6 +4999,7 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
                 referrerpolicy="strict-origin-when-cross-origin">
             </iframe>
         </div>
+        <div class="mini-player-resize-handle"></div>
     `;
     const newIframe = videoPlayer.querySelector('iframe');
     if (newIframe) {
@@ -5003,6 +5015,24 @@ function updatePlayerIframe({ source, videoId, videoUrl }) {
 
 function makeDraggable(element, handle) {
     if (!element || !handle) {
+        return;
+    }
+
+    if (handle._dragHandlers) {
+        handle.removeEventListener('mousedown', handle._dragHandlers.onStart);
+        handle.removeEventListener('touchstart', handle._dragHandlers.onStart);
+        handle.removeEventListener('click', handle._dragHandlers.onClick);
+    }
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        handle.style.cursor = 'default';
+        const onClick = () => {
+            toggleMainPlayerPlayback();
+        };
+        handle._dragHandlers = { onClick };
+        handle.addEventListener('click', onClick);
         return;
     }
 
@@ -5091,14 +5121,48 @@ function makeDraggable(element, handle) {
         }
     };
 
-    if (handle._dragHandlers) {
-        handle.removeEventListener('mousedown', handle._dragHandlers.onStart);
-        handle.removeEventListener('touchstart', handle._dragHandlers.onStart);
-    }
-
     handle._dragHandlers = { onStart };
     handle.addEventListener('mousedown', onStart);
     handle.addEventListener('touchstart', onStart, { passive: false });
+}
+
+function makeResizable(element, handle) {
+    if (!element || !handle) {
+        return;
+    }
+
+    if (handle._resizeHandlers) {
+        handle.removeEventListener('mousedown', handle._resizeHandlers.onMouseDown);
+    }
+
+    let startX;
+    let startWidth;
+
+    const onMouseMove = (event) => {
+        const newWidth = startWidth + (event.clientX - startX);
+        if (newWidth > 200 && newWidth < window.innerWidth - 20) {
+            element.style.width = `${newWidth}px`;
+            element.style.height = `${Math.round((newWidth * 9) / 16)}px`;
+        }
+    };
+
+    const onMouseUp = () => {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    const onMouseDown = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        startX = event.clientX;
+        startWidth = parseInt(document.defaultView.getComputedStyle(element).width, 10);
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    };
+
+    handle._resizeHandlers = { onMouseDown };
+    handle.addEventListener('mousedown', onMouseDown);
 }
 
 function setupMiniPlayerUIControls() {
@@ -5111,24 +5175,39 @@ function setupMiniPlayerUIControls() {
     }
 
     if (videoPlayer._miniPlayerUIHandlers) {
-        videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerUIHandlers.onShowControls);
-        videoPlayer.removeEventListener('mousedown', videoPlayer._miniPlayerUIHandlers.onShowControls);
+        videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerUIHandlers.onInteraction);
+        videoPlayer.removeEventListener('mousemove', videoPlayer._miniPlayerUIHandlers.onInteraction);
+        videoPlayer.removeEventListener('mouseenter', videoPlayer._miniPlayerUIHandlers.onInteraction);
+        videoPlayer.removeEventListener('mouseleave', videoPlayer._miniPlayerUIHandlers.onLeave);
     }
 
-    let timeout;
-
     const showControls = () => {
-        overlay.style.opacity = '1';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            overlay.style.opacity = '0';
-        }, 2000);
+        showMiniPlayerControls(overlay);
     };
 
-    videoPlayer._miniPlayerUIHandlers = { onShowControls: showControls };
+    videoPlayer._miniPlayerUIHandlers = {
+        onInteraction: showControls,
+        onLeave: () => {}
+    };
+
     videoPlayer.addEventListener('touchstart', showControls, { passive: true });
-    videoPlayer.addEventListener('mousedown', showControls);
+    videoPlayer.addEventListener('mouseenter', showControls);
+    videoPlayer.addEventListener('mousemove', showControls);
     showControls();
+}
+
+function showMiniPlayerControls(overlayElement) {
+    const overlay = overlayElement || videoPlayer?.querySelector('.mini-player-controls-overlay');
+    if (!overlay) {
+        return;
+    }
+
+    overlay.classList.add('visible');
+
+    clearTimeout(miniPlayerTimer);
+    miniPlayerTimer = setTimeout(() => {
+        overlay.classList.remove('visible');
+    }, 3000);
 }
 
 function setupDragHandle() {
@@ -5137,6 +5216,10 @@ function setupDragHandle() {
         return;
     }
     makeDraggable(videoPlayer, handle);
+    const resizeHandle = videoPlayer?.querySelector('.mini-player-resize-handle');
+    if (resizeHandle) {
+        makeResizable(videoPlayer, resizeHandle);
+    }
 
     const closeButton = videoPlayer.querySelector('.close-mini-player-btn');
     const expandButton = videoPlayer.querySelector('.expand-mini-player-btn');
@@ -5301,17 +5384,36 @@ function setMiniPlayerState(isActive) {
             videoPlaceholder.classList.remove('hidden');
             videoPlaceholder.classList.remove('is-placeholder-hidden');
         }
-        videoPlayer.style.removeProperty('top');
-        videoPlayer.style.removeProperty('left');
-        videoPlayer.style.removeProperty('bottom');
-        videoPlayer.style.removeProperty('right');
-        updateMiniPlayerSize();
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+            videoPlayer.style.width = '';
+            videoPlayer.style.height = '';
+            videoPlayer.style.left = '';
+            videoPlayer.style.top = '';
+            videoPlayer.style.bottom = '';
+            videoPlayer.style.right = '';
 
-        // CÀLCUL DEL CENTRE (Fix per evitar salts en arrossegar)
-        const width = parseFloat(videoPlayer.style.width);
-        const height = parseFloat(videoPlayer.style.height);
-        videoPlayer.style.left = `${(window.innerWidth - width) / 2}px`;
-        videoPlayer.style.top = `${(window.innerHeight - height) / 2}px`;
+            if (videoPlayer._miniPlayerMobileListener) {
+                videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileListener);
+            }
+            videoPlayer._miniPlayerMobileListener = () => {
+                showMiniPlayerControls();
+            };
+            videoPlayer.addEventListener('touchstart', videoPlayer._miniPlayerMobileListener, { passive: true });
+            showMiniPlayerControls();
+        } else {
+            videoPlayer.style.removeProperty('top');
+            videoPlayer.style.removeProperty('left');
+            videoPlayer.style.removeProperty('bottom');
+            videoPlayer.style.removeProperty('right');
+            updateMiniPlayerSize();
+
+            // CÀLCUL DEL CENTRE (Fix per evitar salts en arrossegar)
+            const width = parseFloat(videoPlayer.style.width);
+            const height = parseFloat(videoPlayer.style.height);
+            videoPlayer.style.left = `${(window.innerWidth - width) / 2}px`;
+            videoPlayer.style.top = `${(window.innerHeight - height) / 2}px`;
+        }
 
         setupMiniPlayerUIControls();
     } else {
@@ -5334,6 +5436,10 @@ function setMiniPlayerState(isActive) {
         }
         videoPlayer.style.width = '';
         videoPlayer.style.height = '';
+        if (videoPlayer._miniPlayerMobileListener) {
+            videoPlayer.removeEventListener('touchstart', videoPlayer._miniPlayerMobileListener);
+            delete videoPlayer._miniPlayerMobileListener;
+        }
         updatePlayerPosition();
         if (videoPlaceholder) {
             requestAnimationFrame(() => {
