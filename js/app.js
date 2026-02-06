@@ -4766,6 +4766,14 @@ function updateMiniPlayerSize() {
     if (!videoPlayer) {
         return;
     }
+    if (window.innerWidth <= 768) {
+        videoPlayer.style.width = '100%';
+        videoPlayer.style.height = '';
+        videoPlayer.style.left = '0';
+        videoPlayer.style.right = '0';
+        videoPlayer.style.bottom = '0';
+        return;
+    }
     const width = Math.min(360, window.innerWidth - 32);
     const height = Math.round((width * 9) / 16);
     videoPlayer.style.width = `${width}px`;
