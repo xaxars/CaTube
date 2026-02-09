@@ -5,3 +5,4 @@ Modificació canals
 Nous canals
 Més canals
 Encara més canals
+Idem
