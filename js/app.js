@@ -51,7 +51,7 @@ let playlistsPage, playlistsList, playlistNameInput, createPlaylistBtn;
 let followPage, followGrid, followTabs;
 let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow, heroChannel;
 let pageTitle;
-let backgroundModal, backgroundBtn, backgroundOptions;
+let backgroundModal, backgroundBtn, backgroundOptions, buttonColorOptions;
 let currentColorDisplay, expandedColorPicker, closeExpandedColorPicker;
 let fontDecreaseBtn, fontIncreaseBtn, fontSizeDisplay;
 let playlistModal, playlistModalBody;
@@ -102,6 +102,7 @@ const HYBRID_CATEGORY_SORT = new Set(['Cultura', 'Diversió', 'Actualitat', 'Vid
 
 const BACKGROUND_STORAGE_KEY = 'catube_background_color';
 const FONT_SIZE_STORAGE_KEY = 'catube_font_size';
+const BUTTON_COLOR_STORAGE_KEY = 'catube_button_color';
 const BACKGROUND_COLORS = [
     '#333333',
     '#3d3d3d',
@@ -1077,6 +1078,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupShareButtons();
     initBackgroundModal();
     initBackgroundPicker();
+    initButtonColorPicker();
     initFontSizeControls();
     const urlParams = new URLSearchParams(window.location.search);
     const addTagParam = urlParams.get('add_tag');
@@ -1164,6 +1166,7 @@ function initElements() {
     backgroundModal = document.getElementById('backgroundModal');
     backgroundBtn = document.getElementById('backgroundBtn');
     backgroundOptions = document.getElementById('backgroundOptions');
+    buttonColorOptions = document.getElementById('buttonColorOptions');
     customCategoryModal = document.getElementById('customCategoryModal');
     customCategoryInput = document.getElementById('customCategoryInput');
     customCategoryAddBtn = document.getElementById('customCategoryAddBtn');
@@ -1661,6 +1664,42 @@ function initBackgroundPicker() {
     const stored = localStorage.getItem(BACKGROUND_STORAGE_KEY);
     const initial = BACKGROUND_COLORS.includes(stored) ? stored : BACKGROUND_COLORS[0];
     applyBackgroundColor(initial, false);
+}
+
+function initButtonColorPicker() {
+    if (!buttonColorOptions) {
+        return;
+    }
+    const defaultColor = '#cc0000';
+    const storedColor = localStorage.getItem(BUTTON_COLOR_STORAGE_KEY);
+    const options = Array.from(buttonColorOptions.querySelectorAll('[data-btn-color]'));
+    const availableColors = options.map(button => String(button.dataset.btnColor || '').toLowerCase());
+    const normalizedStoredColor = String(storedColor || '').toLowerCase();
+    const initialColor = availableColors.includes(normalizedStoredColor) ? normalizedStoredColor : defaultColor;
+
+    applyButtonColor(initialColor, false);
+
+    options.forEach(button => {
+        button.addEventListener('click', () => {
+            applyButtonColor(button.dataset.btnColor || defaultColor, true);
+        });
+    });
+}
+
+function applyButtonColor(color, persist = true) {
+    const normalizedColor = String(color || '').toLowerCase();
+    const value = normalizedColor || '#cc0000';
+    document.documentElement.style.setProperty('--color-primary', value);
+    if (persist) {
+        localStorage.setItem(BUTTON_COLOR_STORAGE_KEY, value);
+    }
+    if (buttonColorOptions) {
+        buttonColorOptions.querySelectorAll('[data-btn-color]').forEach(button => {
+            const isActive = String(button.dataset.btnColor || '').toLowerCase() === value;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    }
 }
 
 function applyBackgroundColor(color, persist = true, collapsePicker = false) {

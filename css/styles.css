@@ -980,8 +980,9 @@ body.sidebar-collapsed .main-content {
 }
 
 .chip.is-active {
-    background: #ffffff;
-    color: #000;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
 }
 
 .chip.is-custom {
@@ -2940,6 +2941,12 @@ button:disabled,
     color: var(--color-primary);
 }
 
+#backgroundModalTitle i,
+#backgroundModalTitle svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
 .modal-close {
     background: none;
     border: none;
@@ -3450,6 +3457,49 @@ button:disabled,
     outline-offset: 2px;
 }
 
+.button-option {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button-option.is-active {
+    box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* 2. Llista EXACTA d'icones que han d'agafar el color primari */
+/* Navegació Superior (Casa, Biblioteca, Historial, Segueix, Configuració) */
+.actions .nav-trigger.active i,
+.actions .nav-trigger.active svg,
+.actions #backgroundBtn:hover i,
+.actions #backgroundBtn:hover svg {
+    color: var(--color-primary);
+    stroke: var(--color-primary);
+}
+
+/* Accions de vídeo i reproductor (Compartir, Playlist, Miniplayer) */
+#shareBtn i,
+#shareBtn svg,
+.playlist-action i,
+.playlist-action svg,
+#miniPlayerToggle i,
+#miniPlayerToggle svg {
+    color: var(--color-primary);
+    stroke: var(--color-primary);
+}
+
+/* Selector de columnes actiu */
+.grid-layout-button.is-active {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.grid-layout-button.is-active svg {
+    fill: var(--color-primary);
+}
 
 /* Verified badge for videos */
 .video-badge-catalan {
@@ -4013,18 +4063,18 @@ button:disabled,
     transition: border-color 0.3s ease;
 }
 
-/* Assegurar que qualsevol etiqueta activa sigui blanca amb text negre */
+/* 1. Categories (Chips) Actives: Fons de color, Text Blanc */
 .chip.is-active,
 .chip.is-custom.is-active,
 .chip.is-exact.is-active {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: transparent !important; /* Opcional: treu la vora grisa/blanca */
+    background-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    border-color: var(--color-primary) !important;
 }
 
-/* Mantenim l'estil "dashed" (discontinu) per a les exactes, però en negre quan està activa */
+/* Mantenim l'estil "dashed" (discontinu) per a les exactes, en blanc quan està activa */
 .chip.is-exact.is-active {
-    border: 1.5px dashed #000000 !important;
+    border: 1.5px dashed #ffffff !important;
 }
 
 .chip.is-exact:hover {
