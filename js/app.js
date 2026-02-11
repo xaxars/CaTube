@@ -1418,6 +1418,7 @@ function initEventListeners() {
     if (addYoutuberBtn) {
         addYoutuberBtn.addEventListener('click', openAddYoutuberModal);
     }
+    initAddYoutuberModal();
 
     if (createPlaylistBtn) {
         createPlaylistBtn.addEventListener('click', () => {
@@ -6925,27 +6926,29 @@ function showFollow(tab = 'all') {
     window.scrollTo(0, 0);
 }
 
+function initAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+
+    const closeBtn = document.getElementById('closeAddYoutuberModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeAddYoutuberModal);
+    }
+    addYoutuberModal.addEventListener('click', (e) => {
+        if (e.target === addYoutuberModal) closeAddYoutuberModal();
+    });
+
+    const submitBtn = document.getElementById('addYoutuberSubmitBtn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', submitYoutuber);
+    }
+}
+
 function openAddYoutuberModal() {
     if (!addYoutuberModal) return;
     addYoutuberModal.classList.add('active');
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
-
-    const submitBtn = document.getElementById('addYoutuberSubmitBtn');
-    if (submitBtn && !submitBtn._bound) {
-        submitBtn._bound = true;
-        submitBtn.addEventListener('click', submitYoutuber);
-    }
-
-    const closeBtn = document.getElementById('closeAddYoutuberModal');
-    if (closeBtn && !closeBtn._bound) {
-        closeBtn._bound = true;
-        closeBtn.addEventListener('click', closeAddYoutuberModal);
-    }
-    addYoutuberModal.addEventListener('click', (e) => {
-        if (e.target === addYoutuberModal) closeAddYoutuberModal();
-    });
 }
 
 function closeAddYoutuberModal() {
