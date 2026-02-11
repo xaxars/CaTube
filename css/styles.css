@@ -4200,11 +4200,7 @@ button:disabled,
     color: #e57373;
 }
 
-/* --- Add Youtuber Page --- */
-.add-youtuber-form {
-    margin-top: 8px;
-}
-
+/* --- Add Youtuber Modal --- */
 .add-youtuber-fields {
     display: flex;
     gap: 16px;

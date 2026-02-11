@@ -49,7 +49,7 @@ let historyPage, historyGrid, historyFilters, chipsBar;
 let customCategoryModal, customCategoryInput, customCategoryAddBtn, customCategoryModalClose;
 let playlistsPage, playlistsList, playlistNameInput, createPlaylistBtn;
 let followPage, followGrid, followTabs;
-let addYoutuberPage;
+let addYoutuberModal;
 let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow, heroChannel;
 let pageTitle;
 let backgroundModal, backgroundBtn, backgroundOptions, buttonColorOptions;
@@ -1172,7 +1172,7 @@ function initElements() {
     followPage = document.getElementById('followPage');
     followGrid = document.getElementById('followGrid');
     followTabs = document.getElementById('followTabs');
-    addYoutuberPage = document.getElementById('addYoutuberPage');
+    addYoutuberModal = document.getElementById('addYoutuberModal');
     chipsBar = document.querySelector('.chips-bar');
     loading = document.getElementById('loading');
     backgroundModal = document.getElementById('backgroundModal');
@@ -1259,8 +1259,6 @@ function initEventListeners() {
                 showHistory();
             } else if (page === 'follow') {
                 showFollow();
-            } else if (page === 'add-youtuber') {
-                showAddYoutuber();
             }
         });
     });
@@ -1289,8 +1287,6 @@ function initEventListeners() {
                 showPlaylists();
             } else if (page === 'follow') {
                 showFollow();
-            } else if (page === 'add-youtuber') {
-                showAddYoutuber();
             } else {
                 showHome();
             }
@@ -1415,6 +1411,12 @@ function initEventListeners() {
     // Botó color de fons
     if (backgroundBtn) {
         backgroundBtn.addEventListener('click', openBackgroundModal);
+    }
+
+    // Botó afegeix youtuber
+    const addYoutuberBtn = document.getElementById('addYoutuberBtn');
+    if (addYoutuberBtn) {
+        addYoutuberBtn.addEventListener('click', openAddYoutuberModal);
     }
 
     if (createPlaylistBtn) {
@@ -5561,9 +5563,6 @@ function setMiniPlayerState(isActive) {
         if (followPage) {
             followPage.classList.add('hidden');
         }
-        if (addYoutuberPage) {
-            addYoutuberPage.classList.add('hidden');
-        }
         if (chipsBar) {
             chipsBar.classList.add('hidden');
         }
@@ -6437,9 +6436,6 @@ function showHome() {
     if (followPage) {
         followPage.classList.add('hidden');
     }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
-    }
     if (channelPage) {
         channelPage.classList.add('hidden');
     }
@@ -6479,9 +6475,6 @@ function showVideo(videoId) {
     }
     if (followPage) {
         followPage.classList.add('hidden');
-    }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
     }
     if (channelPage) {
         channelPage.classList.add('hidden');
@@ -6871,9 +6864,6 @@ function showHistory() {
     if (followPage) {
         followPage.classList.add('hidden');
     }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
-    }
     if (channelPage) {
         channelPage.classList.add('hidden');
     }
@@ -6900,9 +6890,6 @@ function showPlaylists() {
     if (followPage) {
         followPage.classList.add('hidden');
     }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
-    }
     if (channelPage) {
         channelPage.classList.add('hidden');
     }
@@ -6928,9 +6915,6 @@ function showFollow(tab = 'all') {
     if (followPage) {
         followPage.classList.remove('hidden');
     }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
-    }
     if (channelPage) {
         channelPage.classList.add('hidden');
     }
@@ -6941,37 +6925,32 @@ function showFollow(tab = 'all') {
     window.scrollTo(0, 0);
 }
 
-function showAddYoutuber() {
-    handlePlayerVisibilityOnNavigation();
-    exitPlaylistMode();
-    if (mainContent) {
-        mainContent.classList.add('hidden');
+function openAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+    addYoutuberModal.classList.add('active');
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
     }
-    if (historyPage) {
-        historyPage.classList.add('hidden');
-    }
-    if (playlistsPage) {
-        playlistsPage.classList.add('hidden');
-    }
-    if (followPage) {
-        followPage.classList.add('hidden');
-    }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.remove('hidden');
-    }
-    if (channelPage) {
-        channelPage.classList.add('hidden');
-    }
-    if (chipsBar) {
-        chipsBar.classList.add('hidden');
-    }
-    window.scrollTo(0, 0);
 
     const submitBtn = document.getElementById('addYoutuberSubmitBtn');
     if (submitBtn && !submitBtn._bound) {
         submitBtn._bound = true;
         submitBtn.addEventListener('click', submitYoutuber);
     }
+
+    const closeBtn = document.getElementById('closeAddYoutuberModal');
+    if (closeBtn && !closeBtn._bound) {
+        closeBtn._bound = true;
+        closeBtn.addEventListener('click', closeAddYoutuberModal);
+    }
+    addYoutuberModal.addEventListener('click', (e) => {
+        if (e.target === addYoutuberModal) closeAddYoutuberModal();
+    });
+}
+
+function closeAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+    addYoutuberModal.classList.remove('active');
 }
 
 async function submitYoutuber() {
@@ -7011,6 +6990,7 @@ async function submitYoutuber() {
             messageDiv.className = 'add-youtuber-message add-youtuber-message--success';
             messageDiv.classList.remove('hidden');
             idInput.value = '';
+            setTimeout(() => closeAddYoutuberModal(), 1500);
         } else {
             throw new Error('Error del servidor');
         }
@@ -7050,9 +7030,6 @@ function openChannelProfile(channelId) {
     }
     if (followPage) {
         followPage.classList.add('hidden');
-    }
-    if (addYoutuberPage) {
-        addYoutuberPage.classList.add('hidden');
     }
     if (channelPage) {
         channelPage.classList.add('hidden');

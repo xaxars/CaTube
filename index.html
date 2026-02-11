@@ -74,9 +74,9 @@
             <a class="icon-btn nav-trigger" href="#" data-page="follow" aria-label="Segueix!" title="Segueix!">
                 <i data-lucide="users"></i>
             </a>
-            <a class="icon-btn nav-trigger" href="#" data-page="add-youtuber" aria-label="Afegeix un Youtuber" title="Afegeix un Youtuber">
+            <button class="icon-btn" id="addYoutuberBtn" type="button" aria-label="Afegeix un Youtuber" title="Afegeix un Youtuber">
                 <i data-lucide="at-sign"></i>
-            </a>
+            </button>
             <button class="icon-btn" id="backgroundBtn" type="button" aria-label="Configuració" title="Configuració">
                 <i data-lucide="settings"></i>
             </button>
@@ -103,10 +103,6 @@
             <a href="#" class="nav-item" data-page="follow">
                 <i data-lucide="users"></i>
                 <span>Segueix!</span>
-            </a>
-            <a href="#" class="nav-item" data-page="add-youtuber">
-                <i data-lucide="at-sign"></i>
-                <span>Afegeix</span>
             </a>
             <a href="#" class="nav-item" data-page="library">
                 <i data-lucide="library"></i>
@@ -253,33 +249,6 @@
         <div id="followGrid" class="follow-grid"></div>
     </div>
 
-    <div id="addYoutuberPage" class="main-content hidden">
-        <h1 class="page-title">Afegeix un Youtuber</h1>
-        <p class="page-subtitle">Suggereix un nou canal de YouTube perquè l'afegim a la plataforma.</p>
-        <form id="addYoutuberForm" class="add-youtuber-form" onsubmit="return false;">
-            <div class="add-youtuber-fields">
-                <div class="add-youtuber-field">
-                    <label for="addYoutuberIdInput">@Id</label>
-                    <input id="addYoutuberIdInput" class="playlist-input" type="text" placeholder="@canal" autocomplete="off">
-                </div>
-                <div class="add-youtuber-field">
-                    <label for="addYoutuberCategorySelect">Categoria</label>
-                    <select id="addYoutuberCategorySelect" class="add-youtuber-select">
-                        <option value="El Món">El Món</option>
-                        <option value="Vida">Vida</option>
-                        <option value="Diversió">Diversió</option>
-                        <option value="Cultura">Cultura</option>
-                        <option value="Gaming">Gaming</option>
-                        <option value="Entitats">Entitats</option>
-                        <option value="Digitals">Digitals</option>
-                        <option value="Mitjans">Mitjans</option>
-                    </select>
-                </div>
-            </div>
-            <button type="button" class="playlist-create-btn" id="addYoutuberSubmitBtn">Enviar</button>
-        </form>
-        <div id="addYoutuberMessage" class="add-youtuber-message hidden"></div>
-    </div>
 
     <div id="short-modal" class="short-modal hidden" aria-hidden="true">
         <div class="short-modal-backdrop" onclick="closeShortModal()"></div>
@@ -341,6 +310,47 @@
     <!-- Loading -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
+    </div>
+
+    <!-- Modal Afegeix un Youtuber -->
+    <div class="modal-overlay" id="addYoutuberModal">
+        <div class="modal modal-small" role="dialog" aria-modal="true" aria-labelledby="addYoutuberModalTitle">
+            <div class="modal-header">
+                <h2 class="modal-title" id="addYoutuberModalTitle">
+                    <i data-lucide="at-sign"></i>
+                    Afegeix un Youtuber
+                </h2>
+                <button class="modal-close" id="closeAddYoutuberModal" type="button" aria-label="Tancar modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="page-subtitle" style="margin-top:0;margin-bottom:12px;">Suggereix un nou canal de YouTube perquè l'afegim a la plataforma.</p>
+                <form id="addYoutuberForm" onsubmit="return false;">
+                    <div class="add-youtuber-fields">
+                        <div class="add-youtuber-field">
+                            <label for="addYoutuberIdInput">@Id</label>
+                            <input id="addYoutuberIdInput" class="playlist-input" type="text" placeholder="@canal" autocomplete="off">
+                        </div>
+                        <div class="add-youtuber-field">
+                            <label for="addYoutuberCategorySelect">Categoria</label>
+                            <select id="addYoutuberCategorySelect" class="add-youtuber-select">
+                                <option value="El Món">El Món</option>
+                                <option value="Vida">Vida</option>
+                                <option value="Diversió">Diversió</option>
+                                <option value="Cultura">Cultura</option>
+                                <option value="Gaming">Gaming</option>
+                                <option value="Entitats">Entitats</option>
+                                <option value="Digitals">Digitals</option>
+                                <option value="Mitjans">Mitjans</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="playlist-create-btn" id="addYoutuberSubmitBtn">Enviar</button>
+                </form>
+                <div id="addYoutuberMessage" class="add-youtuber-message hidden"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal Configuració -->
