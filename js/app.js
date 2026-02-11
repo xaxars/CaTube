@@ -7611,6 +7611,7 @@ function decodeConfigId(code) {
 }
 
 async function generateConfig() {
+    console.log('[ConfigSync] Botó Generar clicat');
     const btn = document.getElementById('generateConfigBtn');
     const resultDiv = document.getElementById('configSyncResult');
     const codeDiv = document.getElementById('configSyncCode');
@@ -7619,43 +7620,49 @@ async function generateConfig() {
     btn.textContent = 'Generant...';
 
     try {
-        // Collect all localStorage data
         const configData = {};
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             configData[key] = localStorage.getItem(key);
         }
+        const dataString = JSON.stringify(configData);
+        console.log('[ConfigSync] Dades recollides:', Object.keys(configData).length, 'claus,', dataString.length, 'caràcters');
 
         const siteKey = '6LfJHl4sAAAAAHIgz-uIlDp1AQvQknLIVz-YTJnh';
 
         if (typeof grecaptcha === 'undefined') {
             throw new Error("No s'ha pogut carregar el sistema de seguretat de Google. Revisa la teva connexió o bloquejadors d'anuncis.");
         }
+        console.log('[ConfigSync] reCAPTCHA disponible');
 
         grecaptcha.ready(async function() {
             try {
+                console.log('[ConfigSync] reCAPTCHA ready, obtenint token...');
                 const token = await grecaptcha.execute(siteKey, { action: 'sync_config' });
+                console.log('[ConfigSync] Token obtingut, enviant al servidor...');
 
                 const res = await fetch(SEGUEIX_API_URL, {
                     method: 'POST',
                     body: JSON.stringify({
                         type: 'config',
-                        data: JSON.stringify(configData),
+                        data: dataString,
                         recaptchaToken: token
                     })
                 });
 
                 const data = await res.json();
+                console.log('[ConfigSync] Resposta del servidor:', data);
 
                 if (data.status === 'success' && data.id) {
                     const code = encodeConfigId(data.id);
                     codeDiv.textContent = code;
                     resultDiv.classList.remove('hidden');
+                    console.log('[ConfigSync] Codi generat:', code);
                 } else {
                     throw new Error(data.message || 'Error desconegut al servidor');
                 }
             } catch (err) {
-                console.error(err);
+                console.error('[ConfigSync] Error intern:', err);
                 alert('Error al generar el codi: ' + err.message);
             } finally {
                 btn.disabled = false;
@@ -7664,7 +7671,7 @@ async function generateConfig() {
         });
 
     } catch (err) {
-        console.error(err);
+        console.error('[ConfigSync] Error:', err);
         alert('Error: ' + err.message);
         btn.disabled = false;
         btn.textContent = 'Generar';
