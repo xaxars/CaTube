@@ -7640,6 +7640,13 @@ async function generateConfig() {
         }
         const dataString = JSON.stringify(configData);
 
+        if (dataString.length > 50000) {
+            showConfigFeedback('configSyncFeedback', 'Les dades superen el límit. Utilitza la Versió Manual.', 'error');
+            btn.disabled = false;
+            btn.textContent = 'Generar';
+            return;
+        }
+
         const siteKey = '6LfJHl4sAAAAAHIgz-uIlDp1AQvQknLIVz-YTJnh';
 
         if (typeof grecaptcha === 'undefined') {
@@ -7731,52 +7738,51 @@ async function importConfig() {
 }
 
 function exportConfigManual() {
-    const area = document.getElementById('configManualExportArea');
-    const textarea = document.getElementById('configManualExportTextarea');
     const configData = {};
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         configData[key] = localStorage.getItem(key);
     }
-    textarea.value = JSON.stringify(configData);
-    area.classList.remove('hidden');
-    textarea.select();
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(textarea.value);
-        showConfigFeedback('configManualFeedback', '\u2714 Copiat al porta-retalls', 'success');
-    }
+    const json = JSON.stringify(configData, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'historial.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showConfigFeedback('configManualFeedback', '\u2714 Fitxer descarregat', 'success');
 }
 
-function importConfigManualToggle() {
-    const area = document.getElementById('configManualImportArea');
-    area.classList.toggle('hidden');
+function importConfigManual() {
     hideConfigFeedback('configManualFeedback');
+    document.getElementById('configManualFileInput').click();
 }
 
-function applyManualConfig() {
-    const textarea = document.getElementById('configManualImportTextarea');
-    const text = textarea.value.trim();
+function handleManualFileImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
 
-    hideConfigFeedback('configManualFeedback');
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const configData = JSON.parse(e.target.result);
 
-    if (!text) {
-        showConfigFeedback('configManualFeedback', 'Enganxa les dades de configuració.', 'error');
-        return;
-    }
+            for (const key in configData) {
+                localStorage.setItem(key, configData[key]);
+            }
 
-    try {
-        const configData = JSON.parse(text);
-
-        for (const key in configData) {
-            localStorage.setItem(key, configData[key]);
+            const btn = document.getElementById('importConfigManualBtn');
+            btn.textContent = '\u2714';
+            setTimeout(() => location.reload(), 600);
+        } catch (err) {
+            showConfigFeedback('configManualFeedback', 'Fitxer no vàlid. Ha de ser un JSON correcte.', 'error');
         }
-
-        const btn = document.getElementById('configManualApplyBtn');
-        btn.textContent = '\u2714';
-        setTimeout(() => location.reload(), 600);
-    } catch (err) {
-        showConfigFeedback('configManualFeedback', 'Format no vàlid. Assegura\'t que és un JSON correcte.', 'error');
-    }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
 }
 
 // Register config sync event listeners
@@ -7785,10 +7791,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const importBtn = document.getElementById('importConfigBtn');
     const exportManualBtn = document.getElementById('exportConfigManualBtn');
     const importManualBtn = document.getElementById('importConfigManualBtn');
-    const applyManualBtn = document.getElementById('configManualApplyBtn');
+    const fileInput = document.getElementById('configManualFileInput');
     if (generateBtn) generateBtn.addEventListener('click', generateConfig);
     if (importBtn) importBtn.addEventListener('click', importConfig);
     if (exportManualBtn) exportManualBtn.addEventListener('click', exportConfigManual);
-    if (importManualBtn) importManualBtn.addEventListener('click', importConfigManualToggle);
-    if (applyManualBtn) applyManualBtn.addEventListener('click', applyManualConfig);
+    if (importManualBtn) importManualBtn.addEventListener('click', importConfigManual);
+    if (fileInput) fileInput.addEventListener('change', handleManualFileImport);
 });

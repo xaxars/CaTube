@@ -4196,21 +4196,3 @@ button:disabled,
     color: #e57373;
 }
 
-.config-manual-area {
-    margin-bottom: 10px;
-}
-
-.config-manual-textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 0.75rem;
-    resize: vertical;
-    box-sizing: border-box;
-    word-break: break-all;
-}
