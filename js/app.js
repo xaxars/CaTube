@@ -5773,6 +5773,7 @@ function setMiniPlayerState(isActive) {
         }
     }
 
+    setupDragHandle();
     updateMiniPlayerToggleIcon(isActive);
 }
 
