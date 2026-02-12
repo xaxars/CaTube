@@ -839,9 +839,11 @@ function renderChannelProfileCategories(channel, channelId) {
             event.stopPropagation();
 
             removeCategoryFromChannel(channelId, tagValue);
-            button.remove();
-            renderCategories();
-            updateFeed();
+            renderChannelProfileCategories(channel, channelId);
+
+            if (selectedCategory && normalizeCustomTag(selectedCategory).toLowerCase() === normalizedTag) {
+                updateFeed();
+            }
         });
     });
 
