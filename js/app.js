@@ -7303,7 +7303,7 @@ function loadRelatedVideos(currentVideoId) {
 
     const sidebarLimit = 8;
     const sidebarVideos = orderedStatic.slice(0, sidebarLimit);
-    const extraVideosData = scoredVideos.slice(sidebarLimit, 20);
+    const extraVideosData = scoredVideos.slice(sidebarLimit);
 
     const relatedContainer = document.getElementById('relatedVideos');
     const extraContainer = extraVideosGrid || document.getElementById('extraVideosGrid');
