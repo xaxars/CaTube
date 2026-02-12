@@ -1191,7 +1191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         catModal.querySelector('.modal-description').innerHTML = `
                             <p style="margin-bottom: 10px;">S'ha afegit la categoria <strong>"${categoria}"</strong></p>
                             <p style="margin-bottom: 20px;">${youtubers.length > 0 ? `amb ${youtubers.length} YouTuber${youtubers.length !== 1 ? 's' : ''} assignats` : 'sense YouTubers assignats'}</p>
-                            <button class="hero-button" onclick="this.closest('.modal-overlay').remove()">D'acord</button>
+                            <button class="hero-button" onclick="this.closest('.modal-overlay').remove(); window.location.reload();">D'acord</button>
                         `;
                     } else {
                         throw new Error(data.message || 'No s\'ha pogut carregar la categoria');
