@@ -49,6 +49,7 @@ let historyPage, historyGrid, historyFilters, chipsBar;
 let customCategoryModal, customCategoryInput, customCategoryAddBtn, customCategoryModalClose;
 let playlistsPage, playlistsList, playlistNameInput, createPlaylistBtn;
 let followPage, followGrid, followTabs;
+let addYoutuberModal;
 let heroSection, heroTitle, heroDescription, heroImage, heroDuration, heroButton, heroEyebrow, heroChannel;
 let pageTitle;
 let backgroundModal, backgroundBtn, backgroundOptions, buttonColorOptions;
@@ -1171,6 +1172,7 @@ function initElements() {
     followPage = document.getElementById('followPage');
     followGrid = document.getElementById('followGrid');
     followTabs = document.getElementById('followTabs');
+    addYoutuberModal = document.getElementById('addYoutuberModal');
     chipsBar = document.querySelector('.chips-bar');
     loading = document.getElementById('loading');
     backgroundModal = document.getElementById('backgroundModal');
@@ -1410,6 +1412,13 @@ function initEventListeners() {
     if (backgroundBtn) {
         backgroundBtn.addEventListener('click', openBackgroundModal);
     }
+
+    // Botó afegeix youtuber
+    const addYoutuberBtn = document.getElementById('addYoutuberBtn');
+    if (addYoutuberBtn) {
+        addYoutuberBtn.addEventListener('click', openAddYoutuberModal);
+    }
+    initAddYoutuberModal();
 
     if (createPlaylistBtn) {
         createPlaylistBtn.addEventListener('click', () => {
@@ -6915,6 +6924,87 @@ function showFollow(tab = 'all') {
     }
     setActiveFollowTab(tab);
     window.scrollTo(0, 0);
+}
+
+function initAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+
+    const closeBtn = document.getElementById('closeAddYoutuberModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeAddYoutuberModal);
+    }
+    addYoutuberModal.addEventListener('click', (e) => {
+        if (e.target === addYoutuberModal) closeAddYoutuberModal();
+    });
+
+    const submitBtn = document.getElementById('addYoutuberSubmitBtn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', submitYoutuber);
+    }
+}
+
+function openAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+    addYoutuberModal.classList.add('active');
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function closeAddYoutuberModal() {
+    if (!addYoutuberModal) return;
+    addYoutuberModal.classList.remove('active');
+}
+
+async function submitYoutuber() {
+    const idInput = document.getElementById('addYoutuberIdInput');
+    const categorySelect = document.getElementById('addYoutuberCategorySelect');
+    const messageDiv = document.getElementById('addYoutuberMessage');
+    const submitBtn = document.getElementById('addYoutuberSubmitBtn');
+
+    const id = idInput.value.trim();
+    if (!id) {
+        messageDiv.textContent = 'Introdueix un @Id vàlid.';
+        messageDiv.className = 'add-youtuber-message add-youtuber-message--error';
+        messageDiv.classList.remove('hidden');
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviant...';
+    messageDiv.classList.add('hidden');
+
+    try {
+        const recaptchaToken = await grecaptcha.execute('6LfJHl4sAAAAAHIgz-uIlDp1AQvQknLIVz-YTJnh', { action: 'add_youtuber' });
+
+        const res = await fetch(SEGUEIX_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+                type: 'add-youtuber',
+                id: id,
+                categoria: categorySelect.value,
+                recaptchaToken: recaptchaToken
+            })
+        });
+
+        if (res.ok) {
+            messageDiv.textContent = 'Enviat! Gràcies per la teva suggerència.';
+            messageDiv.className = 'add-youtuber-message add-youtuber-message--success';
+            messageDiv.classList.remove('hidden');
+            idInput.value = '';
+            setTimeout(() => closeAddYoutuberModal(), 1500);
+        } else {
+            throw new Error('Error del servidor');
+        }
+    } catch (err) {
+        messageDiv.textContent = 'Error en enviar. Torna-ho a provar.';
+        messageDiv.className = 'add-youtuber-message add-youtuber-message--error';
+        messageDiv.classList.remove('hidden');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
+    }
 }
 
 function openChannelProfile(channelId) {
