@@ -4216,7 +4216,7 @@ button:disabled,
     width: 28px;
     height: 28px;
     color: #ffffff;
-    background: var(--color-background);
+    background: var(--color-secondary);
     border-radius: 8px;
     padding: 4px;
 }
