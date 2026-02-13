@@ -2642,59 +2642,154 @@ function getEffectiveCategory(channelId) {
     return null;
 }
 
-function scoreRelatedVideos(videos, currentVideo) {
-    if (!Array.isArray(videos) || videos.length === 0) return [];
+function getVideoPrimaryCategory(video) {
+    if (!video) return '';
+    if (Array.isArray(video.categories) && video.categories.length > 0) {
+        return String(video.categories[0]).toLowerCase();
+    }
+    if (video.categoryId !== undefined && video.categoryId !== null) {
+        return String(video.categoryId).toLowerCase();
+    }
+    if (video.category) {
+        return String(video.category).toLowerCase();
+    }
+    return '';
+}
 
-    // Dades de personalització
-    const followedIds = new Set(getFollowedChannelIds().map(id => String(id)));
-    const likedVideos = getLikedVideos();
-    const likedChannelCounts = {};
-    likedVideos.forEach(v => {
-        const chId = String(v.channelId || '');
-        if (chId) likedChannelCounts[chId] = (likedChannelCounts[chId] || 0) + 1;
-    });
+function normalizeTitleTokensFallback(title, max = 12) {
+    const stopwords = new Set(['el', 'la', 'els', 'les', 'de', 'del', 'dels', 'i', 'a', 'en', 'per', 'amb', 'que', 'un', 'una', 'uns', 'unes', 'the', 'and', 'for', 'with', 'this', 'that', 'from', 'is', 'are', 'to', 'y', 'con', 'por', 'para', 'los', 'las', 'uno']);
+    return String(title || '')
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+        .split(/\s+/)
+        .map(token => token.trim())
+        .filter(token => token.length > 1 && !stopwords.has(token))
+        .slice(0, max);
+}
 
-    // Scoring per cada vídeo
-    const scored = videos.map(video => {
-        let score = 0;
-        const chId = String(video.channelId || '');
+function getChannelTopTags(channelId) {
+    const normalizedId = String(channelId || '');
+    if (!normalizedId) return [];
 
-        // +2 si el canal és seguit
-        if (followedIds.has(chId)) score += 2;
-
-        // +1 per cada like a vídeos d'aquest canal (màx +3)
-        const likesForChannel = likedChannelCounts[chId] || 0;
-        score += Math.min(likesForChannel, 3);
-
-        return { video, score };
-    });
-
-    // Separar en dos grups: personalitzats (score > 0) i descoberta (score === 0)
-    const personalized = scored.filter(s => s.score > 0).sort((a, b) => b.score - a.score);
-    const discovery = scored.filter(s => s.score === 0);
-
-    // Agafar vídeos personalitzats (màx 40% del total)
-    const maxPersonalized = Math.floor(videos.length * 0.4);
-    const topPersonalized = personalized.slice(0, maxPersonalized).map(s => s.video);
-    const restPersonalized = personalized.slice(maxPersonalized).map(s => s.video);
-
-    // La resta va en round-robin per diversitat
-    const discoveryVideos = [...restPersonalized, ...discovery.map(s => s.video)];
-    const roundRobinDiscovery = sortVideosByRoundRobin(discoveryVideos);
-
-    // Intercalar: 2 personalitzats, 3 descoberta, repetir
-    const result = [];
-    let pIdx = 0, dIdx = 0;
-    while (pIdx < topPersonalized.length || dIdx < roundRobinDiscovery.length) {
-        for (let i = 0; i < 2 && pIdx < topPersonalized.length; i++) {
-            result.push(topPersonalized[pIdx++]);
-        }
-        for (let i = 0; i < 3 && dIdx < roundRobinDiscovery.length; i++) {
-            result.push(roundRobinDiscovery[dIdx++]);
+    if (currentFeedData?.channels) {
+        const channel = currentFeedData.channels.find(c => String(c.id) === normalizedId);
+        if (Array.isArray(channel?.topTags) && channel.topTags.length > 0) {
+            return channel.topTags;
         }
     }
-    return result;
+
+    const apiChannel = Array.isArray(YouTubeAPI?.feedChannels)
+        ? YouTubeAPI.feedChannels.find(c => String(c.id) === normalizedId)
+        : null;
+    if (Array.isArray(apiChannel?.topTags) && apiChannel.topTags.length > 0) {
+        return apiChannel.topTags;
+    }
+
+    const cached = cachedChannels?.[normalizedId];
+    if (Array.isArray(cached?.topTags) && cached.topTags.length > 0) {
+        return cached.topTags;
+    }
+
+    return [];
 }
+
+function buildRelatedCandidates(allVideos, currentVideo, currentChannelId) {
+    if (!Array.isArray(allVideos) || !currentVideo) return [];
+
+    const currentVideoId = String(currentVideo.id);
+    const followedIds = new Set(getFollowedChannelIds().map(id => String(id)));
+    const currentCategory = getVideoPrimaryCategory(currentVideo);
+    const currentTags = new Set((Array.isArray(currentVideo.tags) ? currentVideo.tags : []).map(tag => String(tag).toLowerCase()));
+    const reusableTags = new Set(getChannelTopTags(currentChannelId).map(tag => String(tag).toLowerCase()));
+
+    const unique = new Map();
+    allVideos.forEach(video => {
+        if (!video || String(video.id) === currentVideoId || video.isShort) return;
+        const videoId = String(video.id);
+        if (unique.has(videoId)) return;
+
+        const sameCategory = currentCategory && getVideoPrimaryCategory(video) === currentCategory;
+        const followedChannel = followedIds.has(String(video.channelId));
+        const tags = Array.isArray(video.tags) ? video.tags.map(tag => String(tag).toLowerCase()) : [];
+        const tagMatch = tags.some(tag => currentTags.has(tag) || reusableTags.has(tag));
+
+        if (sameCategory || followedChannel || tagMatch) {
+            unique.set(videoId, {
+                ...video,
+                normalizedTitleTokens: Array.isArray(video.normalizedTitleTokens) && video.normalizedTitleTokens.length > 0
+                    ? video.normalizedTitleTokens
+                    : normalizeTitleTokensFallback(video.title)
+            });
+        }
+    });
+
+    if (unique.size === 0) {
+        allVideos.forEach(video => {
+            if (!video || String(video.id) === currentVideoId || video.isShort) return;
+            unique.set(String(video.id), {
+                ...video,
+                normalizedTitleTokens: Array.isArray(video.normalizedTitleTokens) && video.normalizedTitleTokens.length > 0
+                    ? video.normalizedTitleTokens
+                    : normalizeTitleTokensFallback(video.title)
+            });
+        });
+    }
+
+    return Array.from(unique.values());
+}
+
+function scoreRelatedVideos(videos, currentVideo, options = {}) {
+    if (!Array.isArray(videos) || videos.length === 0 || !currentVideo) return [];
+
+    const userSignals = getUserSignalsForFeatured();
+    const ranking = Recommendation?.rankAndDiversifyRelated;
+    if (typeof ranking !== 'function') {
+        return videos.map(video => ({ video, score: { total: 0, reason: 'categoria' } }));
+    }
+
+    return ranking(videos, {
+        currentVideo: {
+            ...currentVideo,
+            normalizedTitleTokens: Array.isArray(currentVideo.normalizedTitleTokens) && currentVideo.normalizedTitleTokens.length > 0
+                ? currentVideo.normalizedTitleTokens
+                : normalizeTitleTokensFallback(currentVideo.title),
+            categories: currentVideo.categories || (currentVideo.categoryId !== undefined ? [currentVideo.categoryId] : [])
+        },
+        userSignals,
+        sidebarChannelShown: Boolean(options.sidebarChannelShown),
+        maxConsecutiveSameChannel: 2
+    });
+}
+
+function getRelatedHeadingFromReason(rankedItems, currentVideo) {
+    if (!Array.isArray(rankedItems) || rankedItems.length === 0) {
+        return DEFAULT_EXTRA_RELATED_TITLE;
+    }
+
+    const reasonCount = { tema: 0, titol: 0, personalitzacio: 0, categoria: 0 };
+    rankedItems.slice(0, 8).forEach(item => {
+        const reason = item?.score?.reason || 'categoria';
+        reasonCount[reason] = (reasonCount[reason] || 0) + 1;
+    });
+
+    const dominant = Object.entries(reasonCount).sort((a, b) => b[1] - a[1])[0]?.[0] || 'categoria';
+    if (dominant === 'tema' || dominant === 'titol') {
+        return 'Relacionats per tema';
+    }
+    if (dominant === 'personalitzacio') {
+        const follows = new Set(getFollowedChannelIds().map(id => String(id)));
+        const topFollowed = rankedItems
+            .map(item => item.video)
+            .find(video => follows.has(String(video.channelId)));
+        const channelName = topFollowed?.channelTitle || (typeof getChannelById === 'function' ? getChannelById(topFollowed?.channelId)?.name : '');
+        return channelName ? `Perquè segueixes ${channelName}` : 'Recomanats per a tu';
+    }
+
+    return currentVideo?.categoryId !== undefined || (Array.isArray(currentVideo?.categories) && currentVideo.categories.length > 0)
+        ? 'Relacionats per categoria'
+        : DEFAULT_EXTRA_RELATED_TITLE;
+}
+
 
 function getFeedDataForFilter() {
     if (Array.isArray(YouTubeAPI?.feedChannels) && YouTubeAPI.feedChannels.length > 0) {
@@ -6074,72 +6169,31 @@ function renderCategoryVideosBelow(currentChannelId, currentVideoId) {
     if (!extraContainer) {
         return;
     }
-    setExtraRelatedTitle(DEFAULT_EXTRA_RELATED_TITLE);
 
-    let allVideos = currentFeedVideos || [];
+    const currentVideo = (currentFeedVideos || []).find(v => String(v.id) === String(currentVideoId))
+        || (Array.isArray(YouTubeAPI?.feedVideos) ? YouTubeAPI.feedVideos.find(v => String(v.id) === String(currentVideoId)) : null)
+        || null;
 
-    // Determinar la categoria efectiva
-    let effectiveCategory = null;
-    if (selectedCategory && selectedCategory !== 'Novetats' && selectedCategory !== 'Tot') {
-        effectiveCategory = selectedCategory;
-    } else {
-        // Deduir del canal del vídeo actual
-        effectiveCategory = getEffectiveCategory(currentChannelId);
-    }
+    const allVideos = Array.isArray(currentFeedVideos) && currentFeedVideos.length > 0
+        ? currentFeedVideos
+        : (Array.isArray(YouTubeAPI?.feedVideos) ? YouTubeAPI.feedVideos : []);
 
-    // Filtrar per categoria efectiva
-    let videos;
-    if (effectiveCategory) {
-        // Guardar selectedCategory original i usar l'efectiva per filtrar
-        const originalCategory = selectedCategory;
-        selectedCategory = effectiveCategory;
-        videos = filterVideosByCategory(allVideos, currentFeedData);
-        selectedCategory = originalCategory;
-    } else {
-        videos = [...allVideos];
-    }
+    const candidates = buildRelatedCandidates(allVideos, currentVideo, currentChannelId)
+        .filter(video => String(video.channelId) !== String(currentChannelId));
 
-    // Excloure vídeo actual, canal actual, shorts
-    videos = videos.filter(v =>
-        String(v.channelId) !== String(currentChannelId)
-        && String(v.id) !== String(currentVideoId)
-        && !v.isShort
-    );
+    const rankedItems = scoreRelatedVideos(candidates, currentVideo, {
+        sidebarChannelShown: isDesktopView()
+    });
+    const rankedVideos = rankedItems.map(item => item.video);
 
-    // Fallback: si queden < 5 vídeos, ampliar amb vídeos generals
-    if (videos.length < 5) {
-        const excludedCats = ['mitjans', 'digitals', 'entitats'];
-        const videoIds = new Set(videos.map(v => String(v.id)));
-        const fallbackVideos = allVideos.filter(v => {
-            if (videoIds.has(String(v.id))) return false;
-            if (String(v.channelId) === String(currentChannelId)) return false;
-            if (String(v.id) === String(currentVideoId)) return false;
-            if (v.isShort) return false;
-            const channelCats = getChannelCustomCategories(v.channelId);
-            let feedCats = [];
-            if (currentFeedData?.channels) {
-                const ch = currentFeedData.channels.find(c => String(c.id) === String(v.channelId));
-                if (ch && Array.isArray(ch.categories)) feedCats = ch.categories;
-            } else if (cachedChannels[v.channelId]?.categories) {
-                feedCats = cachedChannels[v.channelId].categories;
-            }
-            return ![...channelCats, ...feedCats].some(cat =>
-                excludedCats.includes(String(cat).toLowerCase())
-            );
-        });
-        videos = [...videos, ...fallbackVideos];
-    }
+    setExtraRelatedTitle(getRelatedHeadingFromReason(rankedItems, currentVideo));
 
-    // Aplicar scoring personalitzat
-    videos = scoreRelatedVideos(videos, { id: currentVideoId, channelId: currentChannelId });
-
-
-    if (videos.length === 0) {
-        extraContainer.innerHTML = '<div class="empty-state">No hi ha més vídeos d\'aquesta categoria.</div>';
+    if (rankedVideos.length === 0) {
+        extraContainer.innerHTML = '<div class="empty-state">No hi ha més vídeos relacionats.</div>';
         return;
     }
 
-    extraContainer.innerHTML = videos.map(video => createVideoCardAPI(video)).join('');
+    extraContainer.innerHTML = rankedVideos.map(video => createVideoCardAPI(video)).join('');
     ensureWatchGridLayoutControls();
     applyWatchGridLayoutPreference();
 
@@ -6155,6 +6209,7 @@ function renderCategoryVideosBelow(currentChannelId, currentVideoId) {
     }
     setupVideoCardActionButtons();
 }
+
 
 async function renderPlaylistRelatedVideos(playlistName) {
     const extraContainer = extraVideosGrid || document.getElementById('extraVideosGrid');
@@ -7329,66 +7384,66 @@ function mapStaticVideoToCardData(video) {
 }
 // Carregar vídeos relacionats (estàtic)
 function loadRelatedVideos(currentVideoId) {
-    setExtraRelatedTitle(DEFAULT_EXTRA_RELATED_TITLE);
     const currentVideo = getVideoById(currentVideoId);
     const currentChannelId = currentVideo?.channelId;
-
-    // Filtrar per categoria
-    let relatedVideos = VIDEOS.filter(v => v.id !== parseInt(currentVideoId) && !v.isShort);
-
-    // Intentar filtrar per categoria del vídeo actual
-    if (currentVideo?.categoryId) {
-        const categoryFiltered = relatedVideos.filter(v => v.categoryId === currentVideo.categoryId);
-        if (categoryFiltered.length >= 5) {
-            relatedVideos = categoryFiltered;
-        } else if (categoryFiltered.length > 0) {
-            // Prioritzar els de la mateixa categoria + omplir amb generals
-            const categoryIds = new Set(categoryFiltered.map(v => v.id));
-            const others = relatedVideos.filter(v => !categoryIds.has(v.id));
-            relatedVideos = [...categoryFiltered, ...others];
-        }
-    }
-
-    // Excloure canal actual
-    relatedVideos = relatedVideos.filter(v =>
-        String(v.channelId) !== String(currentChannelId)
-    );
-
-    // Aplicar scoring personalitzat
-    const mappedVideos = relatedVideos.map(v => mapStaticVideoToCardData(v));
-    const scoredVideos = scoreRelatedVideos(mappedVideos, { id: currentVideoId, channelId: currentChannelId });
-
-    // Mapeig invers per obtenir vídeos estàtics originals per al sidebar
-    const scoredIds = scoredVideos.map(v => v.id);
-    const staticById = {};
-    VIDEOS.forEach(v => { staticById[v.id] = v; });
-    const orderedStatic = scoredIds.map(id => staticById[id]).filter(Boolean);
-
-    const sidebarLimit = 8;
-    const sidebarVideos = orderedStatic.slice(0, sidebarLimit);
-    const extraVideosData = scoredVideos.slice(sidebarLimit);
 
     const relatedContainer = document.getElementById('relatedVideos');
     const extraContainer = extraVideosGrid || document.getElementById('extraVideosGrid');
 
-    relatedContainer.innerHTML = sidebarVideos.map(video => {
-        const channel = getChannelById(video.channelId);
-        return `
-            <div class="related-video" data-video-id="${video.id}">
-                <div class="related-thumbnail">
-                    <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
-                    <span class="video-duration">${video.duration}</span>
-                </div>
-                <div class="related-info">
-                    <div class="related-title-text">${video.title}</div>
-                    <div class="related-channel">${channel?.name || ''}</div>
-                    <div class="related-stats">
-                        ${formatViews(video.views)} vis. • ${formatDate(video.uploadDate)}
+    const mappedAllVideos = (Array.isArray(VIDEOS) ? VIDEOS : [])
+        .filter(v => !v.isShort)
+        .map(v => ({
+            ...mapStaticVideoToCardData(v),
+            categories: v.categoryId !== undefined ? [v.categoryId] : [],
+            categoryId: v.categoryId,
+            tags: Array.isArray(v.tags) ? v.tags : [],
+            normalizedTitleTokens: Array.isArray(v.normalizedTitleTokens) ? v.normalizedTitleTokens : []
+        }));
+
+    const currentMapped = currentVideo
+        ? {
+            ...mapStaticVideoToCardData(currentVideo),
+            categoryId: currentVideo.categoryId,
+            categories: currentVideo.categoryId !== undefined ? [currentVideo.categoryId] : [],
+            tags: Array.isArray(currentVideo.tags) ? currentVideo.tags : [],
+            normalizedTitleTokens: Array.isArray(currentVideo.normalizedTitleTokens) ? currentVideo.normalizedTitleTokens : []
+        }
+        : null;
+
+    const candidates = buildRelatedCandidates(mappedAllVideos, currentMapped, currentChannelId)
+        .filter(video => String(video.channelId) !== String(currentChannelId));
+
+    const rankedItems = scoreRelatedVideos(candidates, currentMapped, {
+        sidebarChannelShown: isDesktopView()
+    });
+    const rankedVideos = rankedItems.map(item => item.video);
+
+    setExtraRelatedTitle(getRelatedHeadingFromReason(rankedItems, currentMapped));
+
+    const sidebarLimit = 8;
+    const sidebarVideos = rankedVideos.slice(0, sidebarLimit);
+    const extraVideosData = rankedVideos.slice(sidebarLimit);
+
+    if (relatedContainer) {
+        relatedContainer.innerHTML = sidebarVideos.map(video => {
+            const channel = getChannelById(video.channelId);
+            return `
+                <div class="related-video" data-video-id="${video.id}">
+                    <div class="related-thumbnail">
+                        <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
+                        <span class="video-duration">${video.duration || ''}</span>
+                    </div>
+                    <div class="related-info">
+                        <div class="related-title-text">${video.title}</div>
+                        <div class="related-channel">${channel?.name || video.channelTitle || ''}</div>
+                        <div class="related-stats">
+                            ${formatViews(video.viewCount || 0)} vis. • ${formatDate(video.publishedAt)}
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
+    }
 
     if (extraContainer) {
         extraContainer.innerHTML = extraVideosData
@@ -7422,6 +7477,7 @@ function loadRelatedVideos(currentVideoId) {
     }
     setupVideoCardActionButtons();
 }
+
 
 // ==================== UTILITATS ====================
 

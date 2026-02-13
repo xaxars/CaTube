@@ -20,8 +20,17 @@
         personalizationWeight: 0.15,
         followedChannelBonus: 0.12,
         likedChannelBonusMax: 0.12,
-        likedChannelBonusStep: 0.04
+        likedChannelBonusStep: 0.04,
+        sameChannelPenaltyWhenSidebarShown: 0.08,
+        maxConsecutiveSameChannel: 2,
+        maxTitleTokens: 12
     };
+
+    const BASIC_STOPWORDS = new Set([
+        'el', 'la', 'els', 'les', 'de', 'del', 'dels', 'i', 'a', 'en', 'per', 'amb', 'que', 'un', 'una', 'uns', 'unes',
+        'the', 'and', 'for', 'with', 'this', 'that', 'from', 'is', 'are', 'to',
+        'y', 'de', 'del', 'con', 'por', 'para', 'una', 'uno', 'los', 'las'
+    ]);
 
     function toNumber(value) {
         const num = Number(value);
@@ -99,6 +108,61 @@
         return Number(map[channelId] || 0);
     }
 
+    function getCategory(video) {
+        const categories = Array.isArray(video?.categories) ? video.categories : [];
+        if (categories.length > 0) return String(categories[0]).toLowerCase();
+        if (video?.categoryId !== undefined && video?.categoryId !== null) return String(video.categoryId).toLowerCase();
+        if (video?.category) return String(video.category).toLowerCase();
+        return '';
+    }
+
+    function toTokenArray(input, maxTokens = DEFAULTS.maxTitleTokens) {
+        if (!input) return [];
+        if (Array.isArray(input)) {
+            return input
+                .map(token => String(token).trim().toLowerCase())
+                .filter(token => token && !BASIC_STOPWORDS.has(token))
+                .slice(0, maxTokens);
+        }
+
+        return String(input)
+            .toLowerCase()
+            .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+            .split(/\s+/)
+            .map(token => token.trim())
+            .filter(token => token.length > 1 && !BASIC_STOPWORDS.has(token))
+            .slice(0, maxTokens);
+    }
+
+    function toTagSet(tags) {
+        if (!Array.isArray(tags)) return new Set();
+        const normalized = tags
+            .map(tag => String(tag).trim().toLowerCase())
+            .filter(Boolean);
+        return new Set(normalized);
+    }
+
+    function jaccard(setA, setB) {
+        if (setA.size === 0 || setB.size === 0) return 0;
+        let intersection = 0;
+        setA.forEach(value => {
+            if (setB.has(value)) intersection += 1;
+        });
+        const union = setA.size + setB.size - intersection;
+        return union > 0 ? (intersection / union) : 0;
+    }
+
+    function overlapRatio(tokensA, tokensB) {
+        if (tokensA.length === 0 || tokensB.length === 0) return 0;
+        const setA = new Set(tokensA);
+        const setB = new Set(tokensB);
+        let intersection = 0;
+        setA.forEach(token => {
+            if (setB.has(token)) intersection += 1;
+        });
+        return intersection / Math.max(1, Math.min(setA.size, setB.size));
+    }
+
     function computeFeaturedScore(video, userSignals, context) {
         const cfg = { ...DEFAULTS, ...(context || {}) };
         const now = cfg.now ? new Date(cfg.now) : new Date();
@@ -146,6 +210,95 @@
         };
     }
 
+    function computeRelatedScore(candidate, currentVideo, userSignals = {}, options = {}) {
+        const cfg = { ...DEFAULTS, ...(options || {}) };
+        const candidateTags = toTagSet(candidate?.tags);
+        const currentTags = toTagSet(currentVideo?.tags);
+        const tagsJaccard = jaccard(candidateTags, currentTags);
+
+        const candidateTokens = toTokenArray(candidate?.normalizedTitleTokens || candidate?.title, cfg.maxTitleTokens);
+        const currentTokens = toTokenArray(currentVideo?.normalizedTitleTokens || currentVideo?.title, cfg.maxTitleTokens);
+        const tokenOverlap = overlapRatio(candidateTokens, currentTokens);
+
+        const sameCategory = getCategory(candidate) && getCategory(candidate) === getCategory(currentVideo);
+
+        const channelId = getChannelId(candidate);
+        const follows = toSet(userSignals?.follows);
+        const followBonus = follows.has(channelId) ? 0.18 : 0;
+        const likedCount = resolveChannelLikeCount(channelId, userSignals);
+        const likedBonus = Math.min(0.16, likedCount * 0.04);
+
+        const penalizeSameChannel = Boolean(cfg.sidebarChannelShown);
+        const sameChannelPenalty = penalizeSameChannel && getChannelId(currentVideo) === channelId
+            ? cfg.sameChannelPenaltyWhenSidebarShown
+            : 0;
+
+        const total = (tagsJaccard * 0.5)
+            + (tokenOverlap * 0.28)
+            + (sameCategory ? 0.12 : 0)
+            + followBonus
+            + likedBonus
+            - sameChannelPenalty;
+
+        let dominantReason = 'categoria';
+        if (tagsJaccard >= tokenOverlap && tagsJaccard > 0.18) {
+            dominantReason = 'tema';
+        } else if (tokenOverlap > 0.2) {
+            dominantReason = 'titol';
+        }
+        if (followBonus + likedBonus > 0.2 && (tagsJaccard + tokenOverlap) < 0.25) {
+            dominantReason = 'personalitzacio';
+        }
+
+        return {
+            total,
+            reason: dominantReason,
+            breakdown: {
+                tagsJaccard,
+                tokenOverlap,
+                sameCategory,
+                followBonus,
+                likedBonus,
+                sameChannelPenalty
+            }
+        };
+    }
+
+    function rankAndDiversifyRelated(candidates, options = {}) {
+        if (!Array.isArray(candidates) || candidates.length === 0) return [];
+        const cfg = { ...DEFAULTS, ...(options || {}) };
+        const currentVideo = cfg.currentVideo || null;
+        const userSignals = cfg.userSignals || {};
+
+        const scored = candidates
+            .map(video => ({
+                video,
+                score: computeRelatedScore(video, currentVideo, userSignals, cfg)
+            }))
+            .sort((a, b) => b.score.total - a.score.total);
+
+        const ranked = [];
+        const remaining = [...scored];
+
+        while (remaining.length > 0) {
+            let pickIndex = 0;
+            if (ranked.length >= cfg.maxConsecutiveSameChannel) {
+                const recent = ranked.slice(-cfg.maxConsecutiveSameChannel);
+                const recentChannel = getChannelId(recent[0].video);
+                const allSame = recent.every(item => getChannelId(item.video) === recentChannel);
+                if (allSame) {
+                    const alternativeIndex = remaining.findIndex(item => getChannelId(item.video) !== recentChannel);
+                    if (alternativeIndex > -1) {
+                        pickIndex = alternativeIndex;
+                    }
+                }
+            }
+            ranked.push(remaining.splice(pickIndex, 1)[0]);
+        }
+
+        return ranked;
+    }
+
     function pickFeaturedVideo(videos, options) {
         if (!Array.isArray(videos) || videos.length === 0) return null;
 
@@ -178,6 +331,9 @@
         normalizePublishedAgeHours,
         computeEngagementScore,
         computeFeaturedScore,
-        pickFeaturedVideo
+        pickFeaturedVideo,
+        computeRelatedScore,
+        rankAndDiversifyRelated,
+        toTokenArray
     };
 }));
